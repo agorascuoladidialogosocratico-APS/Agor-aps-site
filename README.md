@@ -15,9 +15,13 @@ La pagina pubblica `/editor/` offre un accesso guidato e un'anteprima. L'autenti
 
 L'editor consente di modificare: homepage, progetti, metodo, chi siamo, trasparenza, contatti, logo, colori, nuove sezioni e ordine/visibilità. Il layout avanzato e gli stili CSS restano modifiche per sviluppatori.
 
-## Cloudflare Pages
+## Hosting Cloudflare: Workers Static Assets
 
-Il sito non richiede una build: framework `None`, comando build vuoto, directory output `.`, branch production `main`. Il contenuto JSON viene caricato dal browser; l'HTML include testo di riserva per motori di ricerca e browser senza JavaScript.
+Il progetto Cloudflare collegato è un **Worker con Builds**, e non un classico progetto Pages: per questo è incluso `wrangler.jsonc` con `name: agor-aps-site`, `assets.directory: ./` e pagina di errore 404. La nuova configurazione consente a Wrangler di pubblicare HTML, CSS, JavaScript, fotografie e contenuti JSON senza un framework. `package.json` offre uno script `build` senza compilazione, per le configurazioni Cloudflare che lo richiedono. `.assetsignore` impedisce il caricamento di file tecnici riservati al repository.
+
+Nel pannello del Worker, controllare **Settings → Builds**: repository `Agor-aps-site`, production branch `main`, root directory `/`; comando build vuoto oppure `npm run build`, deploy `npx wrangler deploy`, preview `npx wrangler preview`. La prima pubblicazione si prova sull'URL fornito da Cloudflare (`workers.dev` o URL Preview). **Non spostare il dominio Namecheap finché la preview non è approvata.**
+
+I JSON sono letti dal browser; la pagina contiene già i testi fondamentali come fallback senza JavaScript.
 
 **Il branch `feature/agora-studio-cms` è una proposta da verificare prima di unirlo a main.** Finché il PR non è approvato, il sito pubblico non viene sostituito.
 
