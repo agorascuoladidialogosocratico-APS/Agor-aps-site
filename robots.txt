@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://agora-scuoladidialogosocraticoecittadinanzattiva.site/sitemap.xml
