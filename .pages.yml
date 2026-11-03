@@ -1,0 +1,550 @@
+# Agorà APS — editor per il sito GitHub + Cloudflare Pages
+media:
+  input: assets
+  output: /assets
+  rename: safe
+  extensions:
+  - png
+  - jpg
+  - jpeg
+  - webp
+content:
+- name: identity
+  label: 01 · Identità, logo e colori
+  type: file
+  path: content/identity.json
+  format: json
+  fields:
+  - name: name
+    label: Nome breve associazione
+    type: string
+  - name: strapline
+    label: Sottotitolo sotto il logo
+    type: string
+  - name: logo
+    label: Logo nell’intestazione
+    type: image
+    description: Carica o scegli una fotografia autorizzata alla pubblicazione.
+  - name: badgeLogo
+    label: Logo nella sezione Chi siamo
+    type: image
+    description: Carica o scegli una fotografia autorizzata alla pubblicazione.
+  - name: seo
+    label: Titolo e descrizioni Google
+    type: object
+    fields:
+    - name: title
+      label: Titolo del sito
+      type: string
+    - name: description
+      label: Descrizione per motori di ricerca
+      type: text
+    - name: shareImage
+      label: Immagine di condivisione
+      type: image
+      description: Carica o scegli una fotografia autorizzata alla pubblicazione.
+  - name: colors
+    label: Colori del sito
+    type: object
+    fields:
+    - name: petrol
+      label: 'Blu petrolio (es. #193b4a)'
+      type: string
+    - name: terracotta
+      label: 'Terracotta (es. #b85628)'
+      type: string
+    - name: ivory
+      label: 'Avorio (es. #f8f0e6)'
+      type: string
+    - name: paper
+      label: 'Sfondo chiaro (es. #fffaf5)'
+      type: string
+  - name: navCta
+    label: Pulsante in alto
+    type: object
+    fields:
+    - name: label
+      label: Testo
+      type: string
+    - name: url
+      label: Destinazione
+      type: string
+      description: 'Link interno (#progetti), https:// oppure mailto:'
+  - name: footer
+    label: Piè di pagina
+    type: object
+    fields:
+    - name: tagline
+      label: Descrizione breve
+      type: string
+    - name: copyright
+      label: Copyright
+      type: string
+- name: home
+  label: 02 · Homepage
+  type: file
+  path: content/home.json
+  format: json
+  fields:
+  - name: hero
+    label: Copertina / Homepage
+    type: object
+    fields:
+    - name: eyebrow
+      label: Sopratitolo
+      type: string
+    - name: line1
+      label: 'Titolo: prima riga'
+      type: string
+    - name: line2
+      label: 'Titolo: seconda riga'
+      type: string
+    - name: accent
+      label: 'Titolo: parola evidenziata'
+      type: string
+    - name: description
+      label: Testo principale
+      type: text
+    - name: buttonText
+      label: Testo pulsante principale
+      type: string
+    - name: buttonLink
+      label: Destinazione pulsante
+      type: string
+      description: 'Link interno (#progetti), https:// oppure mailto:'
+    - name: secondaryText
+      label: Testo pulsante secondario
+      type: string
+    - name: secondaryLink
+      label: Destinazione secondaria
+      type: string
+      description: 'Link interno (#progetti), https:// oppure mailto:'
+    - name: footnote
+      label: Tre parole chiave
+      type: string
+    - name: image
+      label: Grande fotografia principale
+      type: image
+      description: Carica o scegli una fotografia autorizzata alla pubblicazione.
+    - name: imageAlt
+      label: Descrizione accessibile fotografia
+      type: text
+    - name: imageCaptionTop
+      label: Didascalia principale
+      type: string
+    - name: imageCaptionBottom
+      label: Didascalia secondaria
+      type: string
+  - name: values
+    label: Ambiti di attività — riordinabili
+    type: object
+    fields:
+    - name: symbol
+      label: Simbolo
+      type: string
+    - name: title
+      label: Ambito
+      type: string
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{index}'
+- name: projects
+  label: 03 · Progetti Erasmus+ e attività
+  type: file
+  path: content/projects.json
+  format: json
+  fields:
+  - name: intro
+    label: Intestazione progetti
+    type: object
+    fields:
+    - name: eyebrow
+      label: Sopratitolo
+      type: string
+    - name: titleLine
+      label: Titolo principale
+      type: string
+    - name: titleAccent
+      label: Titolo in corsivo
+      type: string
+    - name: description
+      label: Testo introduttivo
+      type: text
+  - name: featured
+    label: Progetto in evidenza
+    type: object
+    fields:
+    - name: kicker
+      label: Programma
+      type: string
+    - name: title
+      label: Titolo
+      type: string
+    - name: description
+      label: Descrizione
+      type: text
+    - name: image
+      label: Foto di copertina
+      type: image
+      description: Carica o scegli una fotografia autorizzata alla pubblicazione.
+    - name: imageAlt
+      label: Descrizione foto
+      type: text
+    - name: linkText
+      label: Testo link
+      type: string
+    - name: linkUrl
+      label: Destinazione
+      type: string
+      description: 'Link interno (#progetti), https:// oppure mailto:'
+  - name: cards
+    label: Altri progetti — aggiungi, elimina e riordina
+    type: object
+    fields:
+    - name: category
+      label: Categoria e anno
+      type: string
+    - name: symbol
+      label: Simbolo
+      type: string
+    - name: title
+      label: Nome progetto
+      type: string
+    - name: description
+      label: Descrizione
+      type: text
+    - name: linkText
+      label: Testo link
+      type: string
+    - name: linkUrl
+      label: Destinazione
+      type: string
+      description: 'Link interno (#progetti), https:// oppure mailto:'
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{title}'
+  - name: journey
+    label: Approfondimento DiscoverEU
+    type: object
+    fields:
+    - name: eyebrow
+      label: Sopratitolo
+      type: string
+    - name: titleLine
+      label: Titolo
+      type: string
+    - name: titleAccent
+      label: Titolo in corsivo
+      type: string
+    - name: description
+      label: Descrizione
+      type: text
+    - name: linkText
+      label: Testo link
+      type: string
+    - name: linkUrl
+      label: Destinazione
+      type: string
+      description: 'Link interno (#progetti), https:// oppure mailto:'
+    - name: image
+      label: Immagine
+      type: image
+      description: Carica o scegli una fotografia autorizzata alla pubblicazione.
+    - name: imageAlt
+      label: Descrizione immagine
+      type: text
+- name: method
+  label: 04 · Metodo e laboratorio
+  type: file
+  path: content/method.json
+  format: json
+  fields:
+  - name: eyebrow
+    label: Sopratitolo
+    type: string
+  - name: titleLine
+    label: 'Titolo: prima riga'
+    type: string
+  - name: titleMiddle
+    label: 'Titolo: parola centrale'
+    type: string
+  - name: titleAccent
+    label: 'Titolo: parola in corsivo'
+    type: string
+  - name: description1
+    label: Primo paragrafo
+    type: text
+  - name: description2
+    label: Secondo paragrafo
+    type: text
+  - name: image
+    label: Fotografia
+    type: image
+    description: Carica o scegli una fotografia autorizzata alla pubblicazione.
+  - name: imageAlt
+    label: Descrizione fotografia
+    type: text
+  - name: imageCaption
+    label: Didascalia
+    type: string
+  - name: buttonText
+    label: Testo pulsante
+    type: string
+  - name: buttonUrl
+    label: Destinazione pulsante
+    type: string
+    description: 'Link interno (#progetti), https:// oppure mailto:'
+  - name: manifesto
+    label: Manifesto filosofico
+    type: object
+    fields:
+    - name: eyebrow
+      label: Sopratitolo
+      type: string
+    - name: line1
+      label: Titolo
+      type: string
+    - name: accent
+      label: Titolo in corsivo
+      type: string
+    - name: paragraph1
+      label: Primo paragrafo
+      type: text
+    - name: paragraph2
+      label: Secondo paragrafo
+      type: text
+  - name: focus
+    label: Strumenti educativi
+    type: object
+    fields:
+    - name: eyebrow
+      label: Sopratitolo
+      type: string
+    - name: title
+      label: Titolo
+      type: string
+    - name: description
+      label: Descrizione
+      type: text
+    - name: items
+      label: Elenco strumenti
+      type: object
+      fields:
+      - name: symbol
+        label: Simbolo
+        type: string
+      - name: title
+        label: Titolo
+        type: string
+      - name: description
+        label: Descrizione
+        type: text
+      list:
+        collapsible:
+          collapsed: true
+          summary: '{title}'
+- name: association
+  label: 05 · Chi siamo
+  type: file
+  path: content/association.json
+  format: json
+  fields:
+  - name: eyebrow
+    label: Sopratitolo
+    type: string
+  - name: titleLine
+    label: Titolo
+    type: string
+  - name: titleAccent
+    label: Titolo in corsivo
+    type: string
+  - name: description1
+    label: Primo paragrafo
+    type: text
+  - name: description2
+    label: Secondo paragrafo
+    type: text
+  - name: tags
+    label: Etichette descrittive
+    type: string
+    list: true
+  - name: linkText
+    label: Testo link
+    type: string
+  - name: linkUrl
+    label: Destinazione
+    type: string
+    description: 'Link interno (#progetti), https:// oppure mailto:'
+  - name: image
+    label: Fotografia persone
+    type: image
+    description: Carica o scegli una fotografia autorizzata alla pubblicazione.
+  - name: imageAlt
+    label: Descrizione fotografica
+    type: text
+  - name: badgeCaption
+    label: Didascalia vicino al logo
+    type: string
+- name: transparency
+  label: 06 · Trasparenza
+  type: file
+  path: content/transparency.json
+  format: json
+  fields:
+  - name: eyebrow
+    label: Sopratitolo
+    type: string
+  - name: titleLine1
+    label: 'Titolo: prima riga'
+    type: string
+  - name: titleLine2
+    label: 'Titolo: seconda riga'
+    type: string
+  - name: description
+    label: Testo principale
+    type: text
+  - name: panelTitle
+    label: Titolo riquadro
+    type: string
+  - name: panelDescription
+    label: Descrizione documenti
+    type: text
+  - name: linkText
+    label: Testo pulsante
+    type: string
+  - name: linkUrl
+    label: Destinazione
+    type: string
+    description: 'Link interno (#progetti), https:// oppure mailto:'
+- name: contact
+  label: 07 · Contatti
+  type: file
+  path: content/contact.json
+  format: json
+  fields:
+  - name: eyebrow
+    label: Sopratitolo
+    type: string
+  - name: titleLine
+    label: Titolo
+    type: string
+  - name: titleAccent
+    label: Titolo in corsivo
+    type: string
+  - name: description
+    label: Descrizione
+    type: text
+  - name: buttonText
+    label: Testo pulsante
+    type: string
+  - name: buttonUrl
+    label: Destinazione
+    type: string
+    description: 'Link interno (#progetti), https:// oppure mailto:'
+  - name: orgName
+    label: Nome associazione
+    type: string
+  - name: orgSubtitle
+    label: Descrizione breve
+    type: string
+  - name: email
+    label: Email ufficiale
+    type: string
+  - name: territory
+    label: Territorio operativo
+    type: string
+  - name: oid
+    label: OID Erasmus+
+    type: string
+- name: blocks
+  label: 08 · Nuove sezioni
+  type: file
+  path: content/blocks.json
+  format: json
+  fields:
+  - name: items
+    label: Sezioni personalizzate — aggiungi e riordina
+    type: object
+    fields:
+    - name: eyebrow
+      label: Sopratitolo
+      type: string
+    - name: title
+      label: Titolo
+      type: string
+    - name: description
+      label: Testo della sezione
+      type: text
+    - name: image
+      label: Fotografia (facoltativa)
+      type: image
+      description: Carica o scegli una fotografia autorizzata alla pubblicazione.
+    - name: imageAlt
+      label: Descrizione fotografia
+      type: text
+    - name: buttonText
+      label: Testo pulsante (facoltativo)
+      type: string
+    - name: buttonUrl
+      label: Destinazione pulsante
+      type: string
+      description: 'Link interno (#progetti), https:// oppure mailto:'
+    - name: background
+      label: Colore di sfondo
+      type: select
+      options:
+        values:
+        - name: paper
+          label: Chiaro
+        - name: cream
+          label: Avorio
+        - name: petrol
+          label: Blu petrolio
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{title}'
+- name: layout
+  label: 09 · Ordine e visibilità
+  type: file
+  path: content/layout.json
+  format: json
+  fields:
+  - name: sections
+    label: Riordina le sezioni e decidi quali mostrare
+    type: object
+    fields:
+    - name: id
+      label: Sezione
+      type: select
+      options:
+        values:
+        - name: values
+          label: Ambiti di attività
+        - name: projects
+          label: Progetti
+        - name: method
+          label: Metodo
+        - name: manifesto
+          label: Manifesto
+        - name: association
+          label: Chi siamo
+        - name: journey
+          label: DiscoverEU
+        - name: focus
+          label: Strumenti
+        - name: transparency
+          label: Trasparenza
+        - name: custom
+          label: Sezioni aggiuntive
+        - name: contact
+          label: Contatti
+    - name: visible
+      label: Mostra sul sito
+      type: boolean
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{index}'
