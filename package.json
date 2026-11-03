@@ -1,0 +1,14 @@
+{
+  "name": "agora-aps-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sito istituzionale statico Agorà APS con Pages CMS e Cloudflare Workers Static Assets",
+  "scripts": {
+    "build": "node -e \"console.log('Agorà APS: sito statico pronto, nessuna compilazione necessaria')\"",
+    "deploy": "wrangler deploy",
+    "preview": "wrangler preview"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}
