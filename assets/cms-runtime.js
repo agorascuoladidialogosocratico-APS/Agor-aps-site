@@ -41,15 +41,8 @@
   };
   function heading(selector,parts) {
     const el=document.querySelector(selector);if(!el)return;
-    const frag=document.createDocumentFragment();
-    for(const [i,item] of parts.entries()) {
-      if(i)frag.append(document.createElement('br'));
-      if(typeof item==='string')frag.append(document.createTextNode(item));
-      else if(Object.prototype.hasOwnProperty.call(item||{},'mixed')){if(item.mixed)frag.append(document.createTextNode(item.mixed));frag.append(element('em',{},item.accent||''));}
-      else if(item?.last)frag.append(element('span',{class:'hero-last'},item.last));
-      else if(item?.accent)frag.append(element('em',{},item.accent));
-    }
-    el.replaceChildren(frag);
+    el.textContent=parts.map(item => typeof item==='string' ? item :
+      item?.last || ((item?.mixed||'')+(item?.accent||''))).filter(Boolean).join(' ');
   }
   function applyIdentity(d) {
     if(!d)return;
@@ -79,7 +72,7 @@
     heading('.hero h1',[h.line1||'',h.line2||'',{last:h.accent||''}]);
     text('.hero-intro p',h.description);link('.hero-actions .button',h.buttonText,h.buttonLink);
     link('.hero-actions .text-link',h.secondaryText,h.secondaryLink);
-    text('.hero-footnote',h.footnote);
+    const footnote=document.querySelector('.hero-footnote');if(footnote && h.footnote)footnote.textContent=h.footnote;
     image('.hero-figure>img',h.image,h.imageAlt);
     text('.hero-figure figcaption .caption-index',h.imageCaptionTop);
     text('.hero-figure figcaption>span:last-child',h.imageCaptionBottom);

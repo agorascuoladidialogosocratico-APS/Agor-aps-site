@@ -17,3 +17,10 @@ QA-CHECKLIST.md
 agora-studio-anteprima.png
 agora-studio-mobile.png
 editor-site-*.png
+
+DESIGN.md
+.agents/
+qa/
+**/.openai
+.gitignore
+**/.gitignore
