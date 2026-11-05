@@ -1,0 +1,6 @@
+node_modules/
+.openai/
+.wrangler/
+.wrangler-check/
+*.log
+.DS_Store
