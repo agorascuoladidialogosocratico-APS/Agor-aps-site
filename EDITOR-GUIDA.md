@@ -18,7 +18,7 @@ Puoi anche aprire `/editor/` sul dominio del sito per trovare i collegamenti e u
 
 ## Salvataggio e pubblicazione
 
-Salvando su Pages CMS, il contenuto JSON viene aggiornato direttamente su GitHub con cronologia delle versioni. Se Cloudflare Pages è collegato via GitHub al branch `main` e configurato con output `.` e build command vuoto, il salvataggio avvia un nuovo deploy.
+Salvando su Pages CMS, il contenuto JSON viene aggiornato direttamente su GitHub con cronologia delle versioni. Se il Worker Cloudflare `agor-aps-site` è collegato via GitHub al branch `main`, un salvataggio su quel ramo può avviare il deploy automatico tramite Cloudflare Workers Builds. Controlla sempre l'esito del deploy nella dashboard Cloudflare; l'editor non pubblica direttamente sul dominio.
 
 **Nota**: per ora l'editor non modifica liberamente il codice, la struttura CSS o l'impaginazione al pixel. Queste modifiche continuano a richiedere sviluppo.
 
@@ -28,4 +28,4 @@ Non inserire password o token GitHub nel sito o nel repository. Le modifiche son
 
 ## Test
 
-Apri il sito e verifica: logo, tutte le immagini, navigazione, dettagli progetto, 320/390/1440 px, aggiunta/rimozione di un progetto, cambio colore e modifica testo. Verifica l'aggiornamento Cloudflare Pages, se configurato.
+Apri il sito e verifica: logo, tutte le immagini, navigazione, dettagli progetto, 320/390/1440 px, aggiunta/rimozione di un progetto, cambio colore e modifica testo. Verifica il deploy di Cloudflare Workers Builds e l'eventuale collegamento del dominio personalizzato, se configurati.
