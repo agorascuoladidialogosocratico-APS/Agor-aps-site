@@ -12,6 +12,8 @@ content:
 - name: identity
   label: 01 · Identità, logo e colori
   type: file
+  operations:
+    delete: false
   path: content/identity.json
   format: json
   fields:
@@ -83,6 +85,8 @@ content:
 - name: home
   label: 02 · Homepage
   type: file
+  operations:
+    delete: false
   path: content/home.json
   format: json
   fields:
@@ -152,6 +156,8 @@ content:
 - name: projects
   label: 03 · Progetti Erasmus+ e attività
   type: file
+  operations:
+    delete: false
   path: content/projects.json
   format: json
   fields:
@@ -258,6 +264,8 @@ content:
 - name: method
   label: 04 · Metodo e laboratorio
   type: file
+  operations:
+    delete: false
   path: content/method.json
   format: json
   fields:
@@ -348,6 +356,8 @@ content:
 - name: association
   label: 05 · Chi siamo
   type: file
+  operations:
+    delete: false
   path: content/association.json
   format: json
   fields:
@@ -390,6 +400,8 @@ content:
 - name: transparency
   label: 06 · Trasparenza
   type: file
+  operations:
+    delete: false
   path: content/transparency.json
   format: json
   fields:
@@ -421,6 +433,8 @@ content:
 - name: contact
   label: 07 · Contatti
   type: file
+  operations:
+    delete: false
   path: content/contact.json
   format: json
   fields:
@@ -461,6 +475,8 @@ content:
 - name: blocks
   label: 08 · Nuove sezioni
   type: file
+  operations:
+    delete: false
   path: content/blocks.json
   format: json
   fields:
@@ -509,6 +525,8 @@ content:
 - name: layout
   label: 09 · Ordine e visibilità
   type: file
+  operations:
+    delete: false
   path: content/layout.json
   format: json
   fields:
