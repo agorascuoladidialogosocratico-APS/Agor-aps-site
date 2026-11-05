@@ -6,11 +6,11 @@
 **/.wrangler
 .pages.yml
 .assetsignore
-_headers
 wrangler.jsonc
 wrangler.toml
 package.json
 package-lock.json
+scripts/
 README.md
 EDITOR-GUIDA.md
 QA-CHECKLIST.md
