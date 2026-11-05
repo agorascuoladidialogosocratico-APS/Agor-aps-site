@@ -23,7 +23,9 @@ Nel pannello del Worker, controllare **Settings → Builds**: repository `Agor-a
 
 I JSON sono letti dal browser; la pagina contiene già i testi fondamentali come fallback senza JavaScript.
 
-**Il branch `feature/agora-studio-cms` è una proposta da verificare prima di unirlo a main.** Finché il PR non è approvato, il sito pubblico non viene sostituito.
+**Il branch `feature/agora-studio-cms` contiene la proposta editoriale. Per pubblicarla sul dominio configurato, unire la PR a `main` solo dopo aver verificato il deploy di anteprima e i controlli automatici.** Finché il PR non è approvato, il sito pubblico non viene sostituito.
+
+Il comando `npm run build` esegue anche verifiche su file JSON, immagini, collegamenti interni e configurazione degli header Cloudflare. Il file `_headers` resta incluso come regola di risposta di Workers Static Assets (non è servito pubblicamente come documento).
 
 Per istruzioni dettagliate consulta [EDITOR-GUIDA.md](EDITOR-GUIDA.md).
 
