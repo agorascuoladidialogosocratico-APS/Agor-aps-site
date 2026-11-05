@@ -1,0 +1,32 @@
+{
+  "hero": {
+    "eyebrow": "Agorà, una scuola di cittadinanza attiva",
+    "line1": "Le domande",
+    "line2": "aprono",
+    "accent": "possibilità.",
+    "description": "In Sicilia e in Europa coltiviamo il pensiero critico, la partecipazione dei giovani e il dialogo tra persone e culture.",
+    "buttonText": "Esplora i progetti",
+    "buttonLink": "#progetti",
+    "secondaryText": "Scopri chi siamo",
+    "secondaryLink": "#associazione",
+    "footnote": "Dialogo socratico · Educazione non formale · Erasmus+",
+    "image": "/assets/agora_gruppo_home.webp",
+    "imageAlt": "Gruppo di giovani e accompagnatori riuniti attorno a un tavolo durante un'esperienza europea",
+    "imageCaptionTop": "Agorà, in viaggio",
+    "imageCaptionBottom": "Le persone prima di tutto"
+  },
+  "values": [
+    {
+      "symbol": "○",
+      "title": "Domande e pensiero critico"
+    },
+    {
+      "symbol": "◇",
+      "title": "Partecipazione giovanile"
+    },
+    {
+      "symbol": "↗",
+      "title": "Esperienze europee"
+    }
+  ]
+}

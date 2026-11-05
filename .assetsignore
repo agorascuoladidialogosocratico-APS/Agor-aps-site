@@ -1,0 +1,19 @@
+# Worker deployment: publish only site assets and editorial JSON.
+**/.git
+**/.github
+**/node_modules
+**/.DS_Store
+**/.wrangler
+.pages.yml
+.assetsignore
+wrangler.jsonc
+wrangler.toml
+package.json
+package-lock.json
+scripts/
+README.md
+EDITOR-GUIDA.md
+QA-CHECKLIST.md
+agora-studio-anteprima.png
+agora-studio-mobile.png
+editor-site-*.png

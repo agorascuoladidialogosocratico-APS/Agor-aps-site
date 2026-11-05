@@ -1,0 +1,25 @@
+{
+  "name": "Agorà APS",
+  "strapline": "Scuola di dialogo socratico",
+  "logo": "/assets/agora_icon.png",
+  "badgeLogo": "/assets/logo_agora_badge.png",
+  "seo": {
+    "title": "Agorà APS — Le domande aprono possibilità",
+    "description": "Agorà APS promuove dialogo socratico, cittadinanza attiva, educazione non formale e mobilità Erasmus+ in Sicilia e in Europa.",
+    "shareImage": "/assets/agora_gruppo_home.webp"
+  },
+  "colors": {
+    "petrol": "#193b4a",
+    "terracotta": "#b85628",
+    "ivory": "#f8f0e6",
+    "paper": "#fffaf5"
+  },
+  "navCta": {
+    "label": "Partecipa",
+    "url": "mailto:agora.scuoladidialogosocratico@gmail.com?subject=Partecipare%20alle%20attivit%C3%A0%20di%20Agor%C3%A0"
+  },
+  "footer": {
+    "tagline": "Dialogo socratico · Educazione · Cittadinanza europea",
+    "copyright": "© 2026 Agorà APS"
+  }
+}

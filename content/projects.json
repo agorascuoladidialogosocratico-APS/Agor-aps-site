@@ -1,0 +1,45 @@
+{
+  "intro": {
+    "eyebrow": "Le nostre esperienze",
+    "titleLine": "Progetti che",
+    "titleAccent": "diventano incontri.",
+    "description": "Mobilità europea, media literacy e dialogo socratico: percorsi educativi nati dal confronto tra persone, territori e idee."
+  },
+  "featured": {
+    "kicker": "Erasmus+ · DiscoverEU",
+    "title": "Odisseo Philosophorum",
+    "description": "Un viaggio per esplorare l'Europa attraverso la filosofia e l'incontro.",
+    "image": "/assets/agora_viaggio.webp",
+    "imageAlt": "Binari di una stazione ferroviaria al tramonto durante una mobilità europea",
+    "linkText": "Scopri l'esperienza",
+    "linkUrl": "#odisseo"
+  },
+  "cards": [
+    {
+      "category": "Educazione non formale · 2026",
+      "symbol": "✳",
+      "title": "BYOD",
+      "description": "Laboratori di media literacy, pensiero critico e confronto sulla disinformazione, con attività realizzate a Catania nel 2026.",
+      "linkText": "Conosci il metodo",
+      "linkUrl": "#laboratori"
+    },
+    {
+      "category": "Erasmus+ · KA210-YOU",
+      "symbol": "◎",
+      "title": "SODA-LABS",
+      "description": "Socratic Dialogue Labs for Democratic Resilience: cooperazione europea per rafforzare il dialogo e la resilienza democratica.",
+      "linkText": "Chiedi informazioni",
+      "linkUrl": "mailto:agora.scuoladidialogosocratico@gmail.com?subject=Informazioni%20SODA-LABS"
+    }
+  ],
+  "journey": {
+    "eyebrow": "DiscoverEU · 2026",
+    "titleLine": "L’Europa si",
+    "titleAccent": "attraversa.",
+    "description": "Odisseo Philosophorum, progetto Erasmus+ KA155-YOU, ha coinvolto cinque giovani in un percorso di mobilità e apprendimento non formale.",
+    "linkText": "Scopri il percorso",
+    "linkUrl": "mailto:agora.scuoladidialogosocratico@gmail.com?subject=Informazioni%20Odisseo%20Philosophorum",
+    "image": "/assets/agora_viaggio.webp",
+    "imageAlt": "Stazione ferroviaria durante il viaggio Odisseo Philosophorum"
+  }
+}

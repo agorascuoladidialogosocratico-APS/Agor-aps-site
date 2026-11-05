@@ -1,0 +1,44 @@
+{
+  "sections": [
+    {
+      "id": "values",
+      "visible": true
+    },
+    {
+      "id": "projects",
+      "visible": true
+    },
+    {
+      "id": "method",
+      "visible": true
+    },
+    {
+      "id": "manifesto",
+      "visible": true
+    },
+    {
+      "id": "association",
+      "visible": true
+    },
+    {
+      "id": "journey",
+      "visible": true
+    },
+    {
+      "id": "focus",
+      "visible": true
+    },
+    {
+      "id": "transparency",
+      "visible": true
+    },
+    {
+      "id": "custom",
+      "visible": true
+    },
+    {
+      "id": "contact",
+      "visible": true
+    }
+  ]
+}

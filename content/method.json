@@ -1,0 +1,42 @@
+{
+  "eyebrow": "Il nostro approccio",
+  "titleLine": "Pensare insieme",
+  "titleMiddle": "è un’",
+  "titleAccent": "esperienza.",
+  "description1": "Mettiamo al centro le domande, l'ascolto attivo e la sospensione del giudizio. Nei laboratori sperimentiamo il dialogo socratico come pratica di ricerca comune, capace di sviluppare autonomia di pensiero, consapevolezza e responsabilità civica.",
+  "description2": "Utilizziamo metodologie di educazione non formale, riflessione collettiva, narrazione, strumenti digitali e confronto interculturale.",
+  "image": "/assets/agora_dialogo.webp",
+  "imageAlt": "Partecipanti ad Agorà riuniti intorno a un tavolo per confrontarsi",
+  "imageCaption": "Il dialogo prende forma attraverso le persone.",
+  "buttonText": "Partecipa a un laboratorio",
+  "buttonUrl": "mailto:agora.scuoladidialogosocratico@gmail.com?subject=Laboratori%20di%20dialogo%20socratico",
+  "manifesto": {
+    "eyebrow": "Il nostro impegno",
+    "line1": "Una comunità",
+    "accent": "di ricerca.",
+    "paragraph1": "Impariamo a interrogare la realtà, insieme. L’Agorà è uno spazio aperto alle differenze, alla curiosità e al confronto.",
+    "paragraph2": "Ogni prospettiva diventa un’occasione per pensare con maggiore profondità."
+  },
+  "focus": {
+    "eyebrow": "I nostri strumenti",
+    "title": "Come lavoriamo.",
+    "description": "Il valore educativo nasce dal processo e dalle persone che ne fanno parte.",
+    "items": [
+      {
+        "symbol": "◌",
+        "title": "Educazione non formale",
+        "description": "Laboratori cooperativi per apprendere attraverso esperienza, riflessione e dialogo."
+      },
+      {
+        "symbol": "↗",
+        "title": "Partecipazione europea",
+        "description": "Progetti Erasmus+ e percorsi interculturali per favorire accesso e cittadinanza attiva."
+      },
+      {
+        "symbol": "✦",
+        "title": "Risorse e risultati",
+        "description": "Documentiamo le esperienze e condividiamo strumenti, testimonianze e materiali educativi."
+      }
+    ]
+  }
+}
