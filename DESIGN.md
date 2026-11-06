@@ -32,3 +32,37 @@ Applicare la skill [Frontend Design, Anthropic](https://github.com/anthropics/sk
 ## Verifica
 
 Collaudare a 320, 375, 390, 768, 1024 e 1440 px; controllare overflow reale, menu da tastiera, immagini caricate, link interni, contenuti CMS e movimento ridotto. Pubblicare lo stesso codice verificato in anteprima.
+
+## Revisione: il libro animato di Agorà
+
+Il sito diventa un libro illustrato da sfogliare, con sei capitoli: copertina,
+associazione, dialogo, progetti, trasparenza e partecipazione. Ogni doppia pagina
+ha un messaggio principale, un'illustrazione o una fotografia reale e un invito
+chiaro. L'indice e i tre collegamenti rapidi permettono di saltare il racconto.
+
+Carta avorio, coperta verde salvia e inchiostro petrolio riprendono l'identità
+Agorà. Le illustrazioni sono SVG originali, leggere e scalabili: un piccolo
+teatro di carta per la copertina e una lettera per i contatti. Le fotografie
+restano testimonianze delle persone e dei viaggi. Non si aggiungono librerie.
+
+Il cambio pagina usa una piega tridimensionale della carta; gli elementi
+illustrati si aprono come in un libro pop-up. Non c'è avanzamento automatico.
+Il comando per fermare le animazioni salva solo la preferenza nel browser.
+La preferenza di sistema `prefers-reduced-motion` elimina tutti i movimenti.
+
+Su telefono ogni doppia pagina diventa un capitolo verticale; la copertina
+mostra titolo e pulsante prima dell'illustrazione. Tutti i collegamenti sono
+ancore reali, la cronologia del browser funziona e il contenuto resta leggibile
+senza JavaScript. Il focus segue il titolo del capitolo, i tasti freccia
+funzionano fuori dai controlli e l'indice si chiude con Escape. I progetti e
+gli approfondimenti usano `details`/`summary` nativi.
+
+I campi editoriali continuano a provenire dai JSON. L'ordine e la visibilità
+dei capitoli seguono `content/layout.json`; i blocchi secondari restano nel
+capitolo pertinente. L'editor e la pagina 404 conservano il proprio foglio stile.
+
+Verifica finale: 36 combinazioni (6 capitoli × 320, 375, 390, 768, 1024,
+1440 px), senza scorrimento orizzontale, immagini mancanti o capitoli multipli
+visibili. Verificati apertura dei progetti, indice/Escape, navigazione da tastiera,
+cronologia avanti/indietro, ritorno alla copertina e arresto delle animazioni.
+Controlli statici dei contenuti, riferimenti ARIA e deploy Worker superati.

@@ -1,11 +1,7 @@
 {
   "sections": [
     {
-      "id": "values",
-      "visible": true
-    },
-    {
-      "id": "projects",
+      "id": "association",
       "visible": true
     },
     {
@@ -13,11 +9,23 @@
       "visible": true
     },
     {
-      "id": "manifesto",
+      "id": "projects",
       "visible": true
     },
     {
-      "id": "association",
+      "id": "transparency",
+      "visible": true
+    },
+    {
+      "id": "contact",
+      "visible": true
+    },
+    {
+      "id": "values",
+      "visible": true
+    },
+    {
+      "id": "manifesto",
       "visible": true
     },
     {
@@ -29,15 +37,7 @@
       "visible": true
     },
     {
-      "id": "transparency",
-      "visible": true
-    },
-    {
       "id": "custom",
-      "visible": true
-    },
-    {
-      "id": "contact",
       "visible": true
     }
   ]
