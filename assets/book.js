@@ -124,6 +124,7 @@
     const dots=document.querySelector('.progress-dots');dots.replaceChildren(...pages.map(()=>document.createElement('i')));
     document.querySelectorAll('.book-index a,.quick-nav a').forEach(link=>{const page=document.getElementById(link.hash.slice(1))?.closest('.book-page');link.hidden=page?.dataset.excluded==='true';});
     render(pageForHash(location.hash), {animate:false, focus:false});
+    if (!reduced.matches && !paused) pages[current].classList.add('is-entering');
   });
   render(pageForHash(location.hash), {animate:false, focus:false});
   if (!reduced.matches && !paused) pages[current].classList.add('is-entering');

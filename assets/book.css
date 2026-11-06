@@ -13,3 +13,5 @@
 @media(max-width:760px){.hero-copy.page-copy{grid-row:1}.cover-art.page-art{grid-row:2}.cover-art .paper-scene{height:255px;width:290px;max-width:100%;margin-top:-21px}}
 @media(max-width:360px){.cover-art .paper-scene{height:220px;width:260px;margin-top:-16px}}
 .story-book{scroll-margin-top:20px}
+
+.book-page[hidden] *{animation:none!important}
