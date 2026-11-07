@@ -66,3 +66,31 @@ Verifica finale: 36 combinazioni (6 capitoli × 320, 375, 390, 768, 1024,
 visibili. Verificati apertura dei progetti, indice/Escape, navigazione da tastiera,
 cronologia avanti/indietro, ritorno alla copertina e arresto delle animazioni.
 Controlli statici dei contenuti, riferimenti ARIA e deploy Worker superati.
+
+## Fluidità e opportunità formative
+
+Lo sfoglio usa Web Animations per poter annullare in modo pulito una transizione
+quando il visitatore sceglie subito un altro capitolo. Il cambio di altezza del
+libro viene accompagnato da una transizione breve; sui telefoni si evita la
+rotazione 3D e si privilegia l'entrata morbida del contenuto. La pagina non viene
+più riportata istantaneamente in alto ad ogni clic. La cronologia ha un solo
+punto di gestione e la pausa ferma anche le animazioni avviate da JavaScript.
+
+Due capitoli rendono visibili i percorsi universitari e il volontariato ESC.
+La convenzione attiva con Ca' Foscari è confermata dal Settore Tirocini il
+28 settembre 2026. Per UniMe e UniDaV sono stati reperiti moduli e richieste:
+non vengono presentati come accordi già perfezionati. Il Marchio di Qualità ESC
+di Agorà, comunicato il 30 luglio 2026 con riferimento
+2026-1-IT03-ESC50-QLA-000469866, viene presentato nel ruolo di sostegno.
+Le fonti amministrative complete restano private: il sito mostra soltanto
+le informazioni utili ai visitatori e i recapiti ufficiali dell'associazione.
+
+Le fotografie aggiunte alle nuove pagine provengono dagli asset già pubblicati
+di Agorà e sono modificabili nel CMS. Ulteriori fotografie saranno integrate
+quando l'associazione le fornirà.
+
+Verificati 48 casi responsive (8 capitoli × 6 larghezze da 320 a 1440 px),
+con un solo capitolo visibile, senza overflow o immagini mancanti. Verificati
+sfoglio rapido, ritorno alla copertina, pausa con cancellazione della transizione
+e apertura dei dettagli dei percorsi. Check editoriali, sintassi JavaScript,
+riferimenti ARIA e dry run del deploy superati.

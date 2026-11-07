@@ -3,7 +3,7 @@ import { join } from 'node:path';
 
 const root = process.cwd();
 const read = path => readFileSync(join(root, path), 'utf8');
-const files = ['identity', 'home', 'projects', 'method', 'association', 'transparency', 'contact', 'layout', 'blocks'];
+const files = ['identity', 'home', 'projects', 'method', 'association', 'transparency', 'contact', 'layout', 'blocks', 'opportunities'];
 const html = read('index.html');
 const errors = [];
 const assert = (condition, description) => { if (!condition) errors.push(description); };

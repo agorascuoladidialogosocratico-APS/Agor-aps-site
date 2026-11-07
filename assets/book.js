@@ -14,7 +14,10 @@
   const motionButton = document.querySelector('.motion-toggle');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   let current = 0;
-  let transitionTimer;
+  const stage = document.querySelector('.book-stage');
+  const compact = matchMedia('(max-width: 760px)');
+  let turnAnimation, heightAnimation;
+  let transitionId = 0;
   let paused = false;
   try { paused = localStorage.getItem('agora-motion-paused') === 'true'; } catch {}
   root.classList.add('js');
@@ -28,8 +31,29 @@
   document.addEventListener('click', event => {
     if (!index.contains(event.target) && !indexButton.contains(event.target)) setIndex(false);
   });
+  function stopTransitions() {
+    transitionId++;
+    turnAnimation?.cancel();heightAnimation?.cancel();
+    turn.classList.remove('turning','backwards');
+    stage.style.removeProperty('overflow');
+  }
+  function animateSpread(backwards, oldHeight) {
+    const token=transitionId;
+    if(typeof stage.animate!=='function')return;
+    const newHeight=book.getBoundingClientRect().height;
+    if(Math.abs(newHeight-oldHeight)>2){
+      stage.style.overflow='clip';
+      heightAnimation=stage.animate([{height:oldHeight+'px'},{height:newHeight+'px'}],{duration:380,easing:'cubic-bezier(.2,.65,.3,1)'});
+      heightAnimation.finished.then(()=>{if(token===transitionId)stage.style.removeProperty('overflow');}).catch(()=>{});
+    }
+    if(compact.matches)return;
+    turn.classList.toggle('backwards',backwards);turn.classList.add('turning');
+    turnAnimation=turn.animate([{transform:'rotateY(0deg)',opacity:.96},{transform:`rotateY(${backwards?110:-110}deg)`,opacity:.75,offset:.7},{transform:`rotateY(${backwards?179:-179}deg)`,opacity:0}],{duration:540,easing:'cubic-bezier(.25,.65,.3,1)'});
+    turnAnimation.finished.then(()=>{if(token===transitionId)turn.classList.remove('turning','backwards');}).catch(()=>{});
+  }
   function updateMotion() {
     root.classList.toggle('motion-paused', paused || reduced.matches);
+    if(paused||reduced.matches)stopTransitions();
     motionButton.setAttribute('aria-pressed', String(paused || reduced.matches));
     motionButton.disabled = reduced.matches;
     motionButton.textContent = reduced.matches ? 'Animazioni ridotte' : paused ? 'Attiva le animazioni ▷' : 'Ferma le animazioni Ⅱ';
@@ -54,8 +78,8 @@
     const destination = Math.max(0, Math.min(number, pages.length - 1));
     const changed = destination !== current;
     const backwards = destination < current;
-    clearTimeout(transitionTimer);
-    turn.classList.remove('turning', 'backwards');
+    stopTransitions();
+    const oldHeight=stage.getBoundingClientRect().height;
     pages.forEach((page, i) => {
       page.hidden = i !== destination;
       page.classList.remove('is-entering');
@@ -65,12 +89,8 @@
     const target = document.getElementById(location.hash.slice(1));
     if(target && page.contains(target)){let ancestor=target.parentElement;while(ancestor && ancestor!==page){if(ancestor.tagName==='DETAILS')ancestor.open=true;ancestor=ancestor.parentElement;}}
     if (animate && changed && !paused && !reduced.matches) {
-      // Restart only the decorative paper transition, never clone interactive content.
-      void turn.offsetWidth;
-      turn.classList.toggle('backwards', backwards);
-      turn.classList.add('turning');
+      animateSpread(backwards,oldHeight);
       page.classList.add('is-entering');
-      transitionTimer = setTimeout(() => turn.classList.remove('turning', 'backwards'), 760);
     }
     prev.disabled = current === 0;
     next.replaceChildren(document.createTextNode(current === 0 ? 'Apri il libro ' : current === pages.length - 1 ? 'Torna all’inizio ' : 'Sfoglia '));
@@ -86,12 +106,14 @@
     if (focus) {
       const heading = page.querySelector('h1,h2');
       heading.setAttribute('tabindex', '-1');heading.focus({preventScroll: true});
-      book.scrollIntoView({block: 'start', behavior: 'instant'});
+      const top=book.getBoundingClientRect().top;
+      if(top < -32 || top > innerHeight*.6)book.scrollIntoView({block:'start',behavior:paused||reduced.matches?'instant':'smooth'});
       document.querySelector('.book-status').textContent = `${page.dataset.title}. Pagina ${current + 1} di ${pages.length}.`;
     }
   }
   function go(number) {
     const i = number >= pages.length ? 0 : Math.max(0, number);
+    if(i===current)return;
     history.pushState(null, '', '#' + pages[i].id);
     render(i);
   }
@@ -117,10 +139,11 @@
     if (event.key === 'ArrowLeft' && current > 0) {event.preventDefault();go(current - 1);}
   });
   window.addEventListener('hashchange', () => render(pageForHash(location.hash)));
-  window.addEventListener('popstate', () => render(pageForHash(location.hash), {animate:false}));
+  // History navigation changes the hash too: handle it once, avoiding a second paint.
   document.addEventListener('agora:cms:loaded', () => {
     pages = [...book.querySelectorAll(':scope > .book-page')].filter(page=>page.dataset.excluded!=='true');
     book.querySelectorAll(':scope > .book-page[data-excluded="true"]').forEach(page=>page.hidden=true);
+    pages.forEach((page,i)=>{const a=index.querySelector('a[href="#'+page.id+'"]');if(a){const number=a.querySelector('span');if(number)number.textContent=String(i+1).padStart(2,'0');index.append(a);}});
     const dots=document.querySelector('.progress-dots');dots.replaceChildren(...pages.map(()=>document.createElement('i')));
     document.querySelectorAll('.book-index a,.quick-nav a').forEach(link=>{const page=document.getElementById(link.hash.slice(1))?.closest('.book-page');link.hidden=page?.dataset.excluded==='true';});
     render(pageForHash(location.hash), {animate:false, focus:false});

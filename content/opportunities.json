@@ -1,0 +1,49 @@
+{
+  "university": {
+    "eyebrow": "Tirocini universitari",
+    "title": "Dallo studio all’esperienza.",
+    "description": "Metti in pratica ciò che studi: comunicazione culturale, progettazione europea e organizzazione di attività educative, insieme al gruppo di Agorà.",
+    "status": "Convenzione attiva",
+    "institution": "Università Ca’ Foscari Venezia",
+    "agreementDescription": "Agorà è ente convenzionato per l’avvio di tirocini. Ogni percorso nasce da un progetto formativo concordato con l’Ateneo.",
+    "steps": [
+      "Scrivici indicando ateneo, corso di studi e obiettivi.",
+      "Definiamo insieme attività, tutoraggio e modalità.",
+      "Il percorso parte dopo l’approvazione del progetto formativo."
+    ],
+    "otherUniversity": "Studi in un altro ateneo? Contattaci per verificare la convenzione o valutare l’attivazione di un nuovo percorso.",
+    "buttonText": "Proponi il tuo tirocinio",
+    "buttonUrl": "mailto:agora.scuoladidialogosocratico@gmail.com?subject=Tirocinio%20universitario%20con%20Agor%C3%A0",
+    "image": "/assets/agora_dialogo.webp",
+    "imageAlt": "Partecipanti di Agorà in un momento di confronto attorno a un tavolo",
+    "caption": "Imparare, facendo parte di una comunità."
+  },
+  "esc": {
+    "eyebrow": "Corpo europeo di solidarietà",
+    "title": "Partire, con qualcuno al tuo fianco.",
+    "description": "Vuoi vivere un’esperienza di volontariato europeo? Agorà ti accompagna come organizzazione di sostegno del Corpo europeo di solidarietà.",
+    "status": "Marchio di Qualità ESC",
+    "role": "Organizzazione di sostegno",
+    "recognition": "Approvazione comunicata dall’Agenzia Italiana per la Gioventù il 30 luglio 2026.",
+    "reference": "2026-1-IT03-ESC50-QLA-000469866",
+    "steps": [
+      {
+        "title": "Prima di partire",
+        "description": "Orientamento, ricerca delle opportunità e preparazione all’esperienza."
+      },
+      {
+        "title": "Durante il progetto",
+        "description": "Un riferimento con cui restare in contatto, insieme all’organizzazione di accoglienza."
+      },
+      {
+        "title": "Al rientro",
+        "description": "Riflessione sull’esperienza e valorizzazione di ciò che hai imparato."
+      }
+    ],
+    "buttonText": "Parliamo di volontariato ESC",
+    "buttonUrl": "mailto:agora.scuoladidialogosocratico@gmail.com?subject=Volontariato%20ESC%20con%20Agor%C3%A0",
+    "image": "/assets/agora_gruppo_home.webp",
+    "imageAlt": "Il gruppo di Agorà riunito durante un’esperienza europea",
+    "caption": "Le esperienze crescono insieme alle persone."
+  }
+}

@@ -13,6 +13,14 @@
       "visible": true
     },
     {
+      "id": "university",
+      "visible": true
+    },
+    {
+      "id": "esc",
+      "visible": true
+    },
+    {
       "id": "transparency",
       "visible": true
     },

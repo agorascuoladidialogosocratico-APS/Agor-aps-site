@@ -553,6 +553,10 @@ content:
           label: DiscoverEU
         - name: focus
           label: Strumenti
+        - name: university
+          label: Tirocini universitari
+        - name: esc
+          label: Volontariato ESC
         - name: transparency
           label: Trasparenza
         - name: custom
@@ -566,3 +570,106 @@ content:
       collapsible:
         collapsed: true
         summary: '{index}'
+- name: opportunities
+  label: 10 · Tirocini e volontariato ESC
+  type: file
+  operations:
+    delete: false
+  path: content/opportunities.json
+  format: json
+  fields:
+  - name: university
+    label: Tirocini universitari
+    type: object
+    fields:
+    - name: eyebrow
+      label: Sopratitolo
+      type: string
+    - name: title
+      label: Titolo
+      type: string
+    - name: description
+      label: Presentazione
+      type: text
+    - name: status
+      label: Stato verificato
+      type: string
+    - name: institution
+      label: Ateneo convenzionato
+      type: string
+    - name: agreementDescription
+      label: Descrizione della convenzione
+      type: text
+    - name: steps
+      label: Passaggi del percorso
+      type: string
+      list: true
+    - name: otherUniversity
+      label: Informazioni per altri atenei
+      type: text
+    - name: buttonText
+      label: Testo pulsante
+      type: string
+    - name: buttonUrl
+      label: Link pulsante
+      type: string
+    - name: image
+      label: Fotografia autorizzata
+      type: image
+    - name: imageAlt
+      label: Descrizione fotografia
+      type: string
+    - name: caption
+      label: Didascalia
+      type: string
+  - name: esc
+    label: Corpo europeo di solidarietà
+    type: object
+    fields:
+    - name: eyebrow
+      label: Sopratitolo
+      type: string
+    - name: title
+      label: Titolo
+      type: string
+    - name: description
+      label: Presentazione
+      type: text
+    - name: status
+      label: Stato verificato
+      type: string
+    - name: role
+      label: Ruolo accreditato
+      type: string
+    - name: recognition
+      label: Comunicazione di approvazione
+      type: text
+    - name: reference
+      label: Codice del riconoscimento
+      type: string
+    - name: steps
+      label: Passaggi del percorso
+      type: object
+      list: true
+      fields:
+      - name: title
+        label: Fase
+        type: string
+      - name: description
+        label: Descrizione
+        type: text
+    - name: buttonText
+      label: Testo pulsante
+      type: string
+    - name: buttonUrl
+      label: Link pulsante
+      type: string
+    - name: image
+      label: Fotografia autorizzata
+      type: image
+    - name: imageAlt
+      label: Descrizione fotografia
+      type: string
+    - name: caption
+      label: Didascalia
+      type: string
