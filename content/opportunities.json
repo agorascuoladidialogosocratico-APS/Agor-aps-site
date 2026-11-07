@@ -16,7 +16,24 @@
     "buttonUrl": "mailto:agora.scuoladidialogosocratico@gmail.com?subject=Tirocinio%20universitario%20con%20Agor%C3%A0",
     "image": "/assets/agora_dialogo.webp",
     "imageAlt": "Partecipanti di Agorà in un momento di confronto attorno a un tavolo",
-    "caption": "Imparare, facendo parte di una comunità."
+    "caption": "Imparare, facendo parte di una comunità.",
+    "agreements": [
+      {
+        "institution": "Università degli Studi di Messina",
+        "status": "Verifica conclusiva della convenzione",
+        "description": "Comunicazione di protocollo del 19 giugno 2026. Contattaci per verificare la possibilità di attivare il tuo percorso."
+      },
+      {
+        "institution": "Università degli Studi di Catania",
+        "status": "Documentazione trasmessa",
+        "description": "Convenzione firmata trasmessa nell’ottobre 2026. L’avvio dei tirocini resta subordinato alla conferma dell’Ateneo."
+      },
+      {
+        "institution": "Università Telematica Leonardo da Vinci — UniDaV",
+        "status": "Convenzione firmata inviata",
+        "description": "Documentazione restituita il 12 giugno 2026. Conferma di attivazione e condizioni del percorso da verificare con l’Ateneo."
+      }
+    ]
   },
   "esc": {
     "eyebrow": "Corpo europeo di solidarietà",
