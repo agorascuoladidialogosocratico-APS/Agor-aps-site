@@ -3,7 +3,7 @@
    content updates never execute HTML from editor fields. */
 (() => {
   'use strict';
-  const names = ['identity','home','projects','method','association','transparency','contact','layout','blocks'];
+  const names = ['identity','home','projects','method','association','transparency','contact','layout','blocks','opportunities'];
   const text = (selector, value) => {
     const el = document.querySelector(selector);
     if (!el || typeof value !== 'string') return;
@@ -172,11 +172,33 @@
       section.append(grid);holder.append(section);
     }
   }
+  function applyOpportunities(d) {
+    for(const [key,id] of [['university','tirocini'],['esc','volontariato-esc']]){
+      const entry=d?.[key];if(!entry)continue;
+      const scope='#'+id;
+      text(scope+' .section-label',entry.eyebrow);text(scope+' h2',entry.title);
+      text(scope+' .opportunity-description',entry.description);
+      text(scope+' .recognition-status',entry.status);
+      text(scope+' .recognition-card h3',key==='university'?entry.institution:entry.role);
+      text(scope+' .recognition-card>p',key==='university'?entry.agreementDescription:entry.recognition);
+      link(scope+' .opportunity-copy>.button',entry.buttonText,entry.buttonUrl);
+      image(scope+' .photo-print img',entry.image,entry.imageAlt);text(scope+' figcaption',entry.caption);
+      if(key==='university'){
+        const list=document.querySelector(scope+' .opportunity-steps');
+        if(list&&Array.isArray(entry.steps))list.replaceChildren(...entry.steps.slice(0,8).map(t=>element('li',{},t)));
+        text(scope+' .other-university',entry.otherUniversity);
+      } else {
+        text(scope+' .recognition-reference p',entry.reference);
+        const list=document.querySelector(scope+' .esc-steps');
+        if(list&&Array.isArray(entry.steps)){list.replaceChildren();for(const step of entry.steps.slice(0,8)){const li=element('li');li.append(element('strong',{},step.title||''),element('p',{},step.description||''));list.append(li);}}
+      }
+    }
+  }
   function applyLayout(d) {
     if(!Array.isArray(d?.sections))return;
     const story=document.querySelector('.story-book');
     if(story){
-      const chapters={association:'associazione',method:'laboratori',projects:'progetti',transparency:'trasparenza',contact:'contatti'};
+      const chapters={association:'associazione',method:'laboratori',projects:'progetti',university:'tirocini',esc:'volontariato-esc',transparency:'trasparenza',contact:'contatti'};
       const nested={manifesto:'manifesto',journey:'odisseo',focus:'strumenti',custom:'custom-blocks'};
       for(const sec of d.sections){
         if(chapters[sec.id]){const page=document.getElementById(chapters[sec.id]);if(page){page.dataset.excluded=String(sec.visible===false);story.append(page);}}
@@ -197,8 +219,8 @@
       try {const response=await fetch(`/content/${name}.json`,{cache:'no-cache'});if(!response.ok)throw Error(response.status);return await response.json();}
       catch(err){console.warn('Contenuti Agorà non disponibili:',name,err);return null;}
     }));
-    const [identity,home,projects,method,association,transparency,contact,layout,blocks]=results;
-    try { applyIdentity(identity);applyHome(home);applyProjects(projects);applyMethod(method);applyAssociation(association);applyTransparency(transparency);applyContact(contact);applyBlocks(blocks);applyLayout(layout); }
+    const [identity,home,projects,method,association,transparency,contact,layout,blocks,opportunities]=results;
+    try { applyIdentity(identity);applyHome(home);applyProjects(projects);applyMethod(method);applyAssociation(association);applyTransparency(transparency);applyContact(contact);applyBlocks(blocks);applyOpportunities(opportunities);applyLayout(layout); }
     catch(err){console.error('Errore nel caricamento dei contenuti del sito',err);}
     document.dispatchEvent(new CustomEvent('agora:cms:loaded',{detail:{success:results.filter(Boolean).length,total:names.length}}));
   }
