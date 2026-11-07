@@ -187,6 +187,8 @@
         const list=document.querySelector(scope+' .opportunity-steps');
         if(list&&Array.isArray(entry.steps))list.replaceChildren(...entry.steps.slice(0,8).map(t=>element('li',{},t)));
         text(scope+' .other-university',entry.otherUniversity);
+        const agreements=document.querySelector(scope+' .university-agreements');
+        if(agreements&&Array.isArray(entry.agreements)){agreements.replaceChildren();for(const item of entry.agreements.slice(0,12)){const li=element('li');li.append(element('h4',{},item.institution||''),element('span',{class:'agreement-status'},item.status||''),element('p',{},item.description||''));agreements.append(li);}}
       } else {
         text(scope+' .recognition-reference p',entry.reference);
         const list=document.querySelector(scope+' .esc-steps');

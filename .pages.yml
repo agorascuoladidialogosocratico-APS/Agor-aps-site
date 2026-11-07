@@ -600,6 +600,20 @@ content:
     - name: agreementDescription
       label: Descrizione della convenzione
       type: text
+    - name: agreements
+      label: Altri atenei e stato delle pratiche
+      type: object
+      list: true
+      fields:
+      - name: institution
+        label: Ateneo
+        type: string
+      - name: status
+        label: Stato verificato
+        type: string
+      - name: description
+        label: Informazioni e condizioni
+        type: text
     - name: steps
       label: Passaggi del percorso
       type: string
