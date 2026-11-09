@@ -1,14 +1,14 @@
 {
   "intro": {
-    "eyebrow": "Le nostre esperienze",
+    "eyebrow": "Capitolo 4 · Opportunità europee",
     "titleLine": "Progetti che",
     "titleAccent": "diventano incontri.",
-    "description": "Viaggi, laboratori e incontri: tre modi per crescere insieme."
+    "description": "Maieutica socratica e politiche giovanili si incontrano in viaggi, scambi e laboratori."
   },
   "featured": {
     "kicker": "Erasmus+ · DiscoverEU",
-    "title": "Odisseo Philosophorum",
-    "description": "Un viaggio per esplorare l'Europa attraverso la filosofia e l'incontro.",
+    "title": "Agorà Itinerante – Odisseo Philosophorum",
+    "description": "Un viaggio filosofico-politico rivolto a giovani delle aree rurali, nell’ambito di KA155-YOU / DiscoverEU Inclusione.",
     "image": "/assets/agora_viaggio.webp",
     "imageAlt": "Binari di una stazione ferroviaria al tramonto durante una mobilità europea",
     "linkText": "Scopri l'esperienza",
@@ -30,6 +30,30 @@
       "description": "Socratic Dialogue Labs for Democratic Resilience: cooperazione europea per rafforzare il dialogo e la resilienza democratica. Convenzione Erasmus+ perfezionata e trasmessa dall’Agenzia Italiana per la Gioventù il 3 novembre 2026. Progetto 2026-1-IT03-KA210-YOU-000466841.",
       "linkText": "Chiedi informazioni",
       "linkUrl": "mailto:agora.scuoladidialogosocratico@gmail.com?subject=Informazioni%20SODA-LABS"
+    },
+    {
+      "category": "Progetto concluso",
+      "symbol": "◎",
+      "title": "Truthcraft – Young Fact-Checkers for Local Democracy",
+      "description": "Un’esperienza dedicata ai giovani fact-checker e alla democrazia locale.",
+      "linkText": "Chiedi informazioni",
+      "linkUrl": "mailto:agora.scuoladidialogosocratico@gmail.com?subject=Informazioni%20Truthcraft"
+    },
+    {
+      "category": "Erasmus+ · KA152",
+      "symbol": "↗",
+      "title": "Scambi giovanili",
+      "description": "Partecipazione interculturale, educazione non formale e incontro tra giovani di paesi diversi.",
+      "linkText": "Scopri le opportunità",
+      "linkUrl": "mailto:agora.scuoladidialogosocratico@gmail.com?subject=Scambi%20giovanili%20Erasmus"
+    },
+    {
+      "category": "Cittadinanza territoriale",
+      "symbol": "◌",
+      "title": "Dalle domande alla comunità",
+      "description": "Laboratori a Motta Sant’Anastasia e in provincia: dialogo socratico e partecipazione alla vita del territorio.",
+      "linkText": "Conosci il metodo",
+      "linkUrl": "#laboratori"
     }
   ],
   "journey": {

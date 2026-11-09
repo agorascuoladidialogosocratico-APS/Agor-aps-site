@@ -24,3 +24,9 @@ qa/
 **/.openai
 .gitignore
 **/.gitignore
+**/.git/**
+**/.github/**
+**/node_modules/**
+**/.openai/**
+**/.wrangler/**
+**/.wrangler-check/**

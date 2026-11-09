@@ -1,7 +1,19 @@
 {
   "sections": [
     {
+      "id": "sommario",
+      "visible": true
+    },
+    {
       "id": "association",
+      "visible": true
+    },
+    {
+      "id": "activities",
+      "visible": true
+    },
+    {
+      "id": "connected",
       "visible": true
     },
     {
@@ -13,11 +25,35 @@
       "visible": true
     },
     {
+      "id": "esc",
+      "visible": true
+    },
+    {
+      "id": "board",
+      "visible": true
+    },
+    {
       "id": "university",
       "visible": true
     },
     {
-      "id": "esc",
+      "id": "publications",
+      "visible": true
+    },
+    {
+      "id": "research",
+      "visible": true
+    },
+    {
+      "id": "membership",
+      "visible": true
+    },
+    {
+      "id": "contact",
+      "visible": true
+    },
+    {
+      "id": "privacy",
       "visible": true
     },
     {
@@ -25,7 +61,7 @@
       "visible": true
     },
     {
-      "id": "contact",
+      "id": "epilogue",
       "visible": true
     },
     {

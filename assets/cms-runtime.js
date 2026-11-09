@@ -200,7 +200,7 @@
     if(!Array.isArray(d?.sections))return;
     const story=document.querySelector('.story-book');
     if(story){
-      const chapters={association:'associazione',method:'laboratori',projects:'progetti',university:'tirocini',esc:'volontariato-esc',transparency:'trasparenza',contact:'contatti'};
+      const chapters={sommario:'sommario',activities:'attivita',connected:'realta-collegate',board:'direttivo',publications:'pubblicazioni',research:'ricerca',membership:'iscrizioni',privacy:'privacy',epilogue:'epilogo',association:'associazione',method:'laboratori',projects:'progetti',university:'tirocini',esc:'volontariato-esc',transparency:'trasparenza',contact:'contatti'};
       const nested={manifesto:'manifesto',journey:'odisseo',focus:'strumenti',custom:'custom-blocks'};
       for(const sec of d.sections){
         if(chapters[sec.id]){const page=document.getElementById(chapters[sec.id]);if(page){page.dataset.excluded=String(sec.visible===false);story.append(page);}}
