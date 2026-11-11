@@ -3,7 +3,7 @@ import { join } from 'node:path';
 
 const root = process.cwd();
 const read = path => readFileSync(join(root, path), 'utf8');
-const files = ['identity', 'home', 'projects', 'method', 'association', 'transparency', 'contact', 'layout', 'blocks', 'opportunities'];
+const files = ['identity', 'home', 'projects', 'method', 'association', 'transparency', 'contact', 'layout', 'blocks', 'opportunities', 'governance', 'whatsapp'];
 const html = read('index.html');
 const errors = [];
 const assert = (condition, description) => { if (!condition) errors.push(description); };
@@ -89,6 +89,33 @@ assert(contactPage.includes('action="/api/contact"'), 'Endpoint del modulo non c
 assert(contactPage.includes('name="consent"'), 'Consenso del modulo assente');
 assert(read('chi-siamo/index.html').includes('Gioele Pio Fragale'), 'Direttivo non aggiornato in Chi siamo');
 assert(read('wrangler.jsonc').includes('"send_email"'), 'Configurazione binding invio mancante');
+
+
+const whatsapp=JSON.parse(read('content/whatsapp.json'));
+assert(whatsapp.enabled !== true || /^[1-9]\d{7,14}$/.test(String(whatsapp.phoneNumber||'')),'Numero WhatsApp non valido: solo cifre internazionali, senza prefissi inventati');
+for(const file of ['assets/visual-story.css','assets/whatsapp-chat.css','assets/whatsapp-chat.js']){
+  assert(existsSync(join(root,file)),'Nuova risorsa grafica/chat mancante: '+file);
+}
+assert(html.includes('class="home-photo-story"'),'Homepage: galleria foto originale non presente');
+assert(html.includes('src="/assets/agora_dialogo.webp"'),'Homepage: foto del dialogo mancante');
+assert(html.includes('src="/assets/agora_viaggio.webp"'),'Homepage: foto del viaggio mancante');
+assert(html.includes('src="/assets/agora_gruppo_home.webp"'),'Homepage: foto di gruppo mancante');
+assert(html.includes('/assets/whatsapp-chat.js'),'Homepage: widget WhatsApp assente');
+const originalImages=['agora_gruppo_home','agora_dialogo','agora_chi_siamo','agora_viaggio'];
+for(const image of originalImages){
+ for(const suffix of ['.webp','-480.webp','-800.webp']){
+  assert(existsSync(join(root,'assets/'+image+suffix)),'Fotografia originale mancante: '+image+suffix);
+ }
+}
+for(const pathname of publicPaths){
+ if(pathname==='/')continue;
+ const page=read(pathname.slice(1)+'index.html');
+ assert(page.includes('class="info-hero visual-cover'),'Copertina fotografica mancante: '+pathname);
+ assert(page.includes('class="visual-cover-photo"'),'Fotografia di apertura mancante: '+pathname);
+ assert(page.includes('alt="'),'Testo alternativo della foto mancante: '+pathname);
+ assert(page.includes('/assets/visual-story.css'),'Stile visivo assente: '+pathname);
+ assert(page.includes('/assets/whatsapp-chat.js'),'Chat WhatsApp assente: '+pathname);
+}
 
 if (errors.length) {
   console.error('Verifica Agorà APS: ' + errors.length + ' problema/i:\n- ' + errors.join('\n- '));
