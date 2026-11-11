@@ -40,3 +40,27 @@ Le sessioni usano token casuali a 256 bit, salvati come hash nel D1; il browser 
 
 ## Limitazione importante
 Non si può promettere la chat operativa prima che il numero tecnico, Meta Cloud API, il database D1, Turnstile, template approvato e il webhook siano configurati. Nessuna credenziale o numero Meta è stato inventato; la modalità reale resta disabilitata fino alla connessione.
+
+
+## Alternativa gratuita: Free Dashboard (senza Meta)
+Questa modalità **non manda messaggi su WhatsApp**, quindi non richiede un secondo numero né template/API Meta. Il visitatore scrive sempre nella chat del sito; l'operatore legge e risponde dalla pagina riservata /operatore/, utilizzabile da smartphone. I messaggi sono conservati su Cloudflare D1 e il widget del visitatore aggiorna le risposte circa ogni cinque secondi.
+
+### Configurazione Cloudflare (necessaria per attivarla)
+1. Apri il tuo account Cloudflare, nella sezione D1 SQL Database crea il database gratuito agora-site-chat e conserva il suo vero Database ID.
+2. Nel file wrangler.jsonc aggiungi il binding D1 CHAT_DB con il vero database_id. L'ID non deve essere inventato.
+3. Esegui migrations/0001_site_chat.sql sul database remoto tramite pannello D1 Console o comando Wrangler "npx wrangler d1 migrations apply agora-site-chat --remote".
+4. Crea un widget Turnstile Free sul dominio del sito e ottieni Site Key + Secret.
+5. Nel Worker imposta variabili: CHAT_MODE=free-dashboard, TURNSTILE_SITE_KEY=chiave pubblica. Imposta Secrets: TURNSTILE_SECRET=chiave privata, CHAT_ADMIN_TOKEN=chiave casuale forte di almeno 40 caratteri. Configura binding CHAT_DB.
+6. Imposta CHAT_ENABLED=true solo dopo le verifiche, poi pubblica il Worker e prova GET /api/site-chat/status: deve restituire enabled:true.
+7. Apri la pagina riservata https://agora-scuoladidialogosocraticoecittadinanzattiva.site/operatore/ sul tuo telefono e inserisci la chiave operatore. Puoi aggiungere il collegamento alla schermata Home.
+8. Prova con un browser in incognito la chat del sito. Controlla la conversazione nella posta operatore e rispondi. La risposta deve apparire sul sito, senza WhatsApp.
+9. Proteggi in aggiunta /operatore/ e /api/site-chat/admin/ con Cloudflare Access Free, limitando gli accessi all'indirizzo email aziendale, e verifica GDPR e conservazione prima di raccogliere conversazioni reali.
+
+### Limitazioni e costi
+La modalità free-dashboard non effettua chiamate alle API Meta, quindi non genera costi WhatsApp. Workers, D1 e Turnstile hanno quote gratuite, non risorse illimitate. Raggiunto il limite Free, il servizio può smettere di rispondere finché non si ripristina la quota. Non abilitare upgrade automatici o piani a pagamento. La modalità che consente di rispondere **dentro WhatsApp Business** tramite il numero +32 resta separata e non è garantita a costo zero: può necessitare di template WhatsApp a pagamento.
+
+### Sicurezza
+La chiave operatore va inserita esclusivamente nella pagina di accesso e salvata tra i secrets di Cloudflare, mai in GitHub o in chat. L'API dell'operatore confronta la chiave con il secret dal server prima di mostrare conversazioni. I messaggi sono visualizzati come testo (mai come HTML); i risultati non devono essere memorizzati in cache. La protezione con Cloudflare Access aggiunge autenticazione personale alla chiave. Le chat vengono eliminate automaticamente dopo 30 giorni dall'ultima attività.
+
+### Stato attuale
+Codice, pagina operatore, schema D1 e controlli di sicurezza sono preparati. Non risultano ancora creati in questo ambiente il database Cloudflare D1, Turnstile e i segreti di produzione; non dichiarare il servizio attivo prima di queste operazioni e del test di invio e risposta.

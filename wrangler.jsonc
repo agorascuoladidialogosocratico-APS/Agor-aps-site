@@ -22,5 +22,9 @@
     "crons": [
       "0 4 * * *"
     ]
+  },
+  "vars": {
+    "CHAT_MODE": "free-dashboard",
+    "CHAT_ENABLED": "false"
   }
 }

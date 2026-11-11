@@ -2,7 +2,11 @@
    Nessun database, token o credenziale = chat disabilitata; mai simulare consegna. */
 const OWNER_NUMBER='32466902127';
 const json=(status,body)=>new Response(JSON.stringify(body),{status,headers:{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store','X-Content-Type-Options':'nosniff'}});
-const okConfig=env=>Boolean(env.CHAT_DB&&env.CHAT_ENABLED==='true'&&env.TURNSTILE_SECRET&&env.TURNSTILE_SITE_KEY&&env.META_TOKEN&&env.META_PHONE_NUMBER_ID&&env.META_TEMPLATE_NAME&&env.META_APP_SECRET&&env.META_WEBHOOK_VERIFY_TOKEN&&env.CHAT_OWNER_NUMBER===OWNER_NUMBER);
+const isFreeDashboard=env=>env.CHAT_MODE==='free-dashboard';
+const hasOperatorKey=env=>typeof env.CHAT_ADMIN_TOKEN==='string'&&env.CHAT_ADMIN_TOKEN.length>=40;
+const okConfig=env=>Boolean(env.CHAT_DB&&env.CHAT_ENABLED==='true'&&env.TURNSTILE_SECRET&&env.TURNSTILE_SITE_KEY&&(
+ isFreeDashboard(env)?hasOperatorKey(env):(env.META_TOKEN&&env.META_PHONE_NUMBER_ID&&env.META_TEMPLATE_NAME&&env.META_APP_SECRET&&env.META_WEBHOOK_VERIFY_TOKEN&&env.CHAT_OWNER_NUMBER===OWNER_NUMBER)
+));
 const clean=(v,max)=>typeof v==='string'?v.trim().slice(0,max+1):'';
 const isAllowedOrigin=request=>{const url=new URL(request.url);const origin=request.headers.get('Origin');const fetchSite=request.headers.get('Sec-Fetch-Site');return (!origin||origin===url.origin)&&(!fetchSite||fetchSite==='same-origin'||fetchSite==='none');};
 const readPayload=async request=>{if(!String(request.headers.get('Content-Type')||'').includes('application/json'))return null;if(Number(request.headers.get('Content-Length')||0)>5000)return null;try{return await request.json();}catch{return null;}};
@@ -71,6 +75,7 @@ async function postMessage(request,env){
   await env.CHAT_DB.prepare("INSERT INTO site_chat_messages (id,chat_id,side,body,created_at,notified) VALUES (?,?,'visitor',?,?,0)").bind(id,session.id,body,now).run();
   await env.CHAT_DB.prepare("UPDATE site_chats SET updated_at=? WHERE id=?").bind(now,session.id).run();
  }catch{return json(503,{ok:false,message:'Messaggio non registrato. Riprova.'});}
+ if(isFreeDashboard(env))return json(201,{ok:true,stored:true,notified:false,delivery:'operator-dashboard',message:'Messaggio ricevuto nella chat. Agorà potrà risponderti qui.'});
  let notified=false;
  try{notified=await sendOperatorNotification(env,session.code,body);}catch{/* Keep stored message; no false notification claim. */}
  if(notified)await env.CHAT_DB.prepare('UPDATE site_chat_messages SET notified=1 WHERE id=?').bind(id).run();
@@ -118,11 +123,51 @@ async function inboundWebhook(request,env){
  }
  return json(200,{ok:true});
 }
+
+async function operatorAuthorized(request,env){
+ if(!isFreeDashboard(env)||!hasOperatorKey(env))return false;
+ const provided=request.headers.get('X-Agora-Operator-Key')||'';
+ if(provided.length<40||provided.length>200)return false;
+ const enc=new TextEncoder(),expected=new Uint8Array(await crypto.subtle.digest('SHA-256',enc.encode(env.CHAT_ADMIN_TOKEN)));
+ const received=new Uint8Array(await crypto.subtle.digest('SHA-256',enc.encode(provided)));
+ let diff=0;for(let i=0;i<expected.length;i++)diff|=expected[i]^received[i];
+ return diff===0;
+}
+async function operatorAPI(request,env){
+ if(!isAllowedOrigin(request))return json(403,{ok:false,message:'Origine non autorizzata.'});
+ if(!(await operatorAuthorized(request,env)))return json(401,{ok:false,message:'Accesso riservato all’operatore.'});
+ const url=new URL(request.url),path=url.pathname;
+ if(path==='/api/site-chat/admin/chats'&&request.method==='GET'){
+   const rows=await env.CHAT_DB.prepare("SELECT c.id,c.code,c.status,c.updated_at,c.created_at,(SELECT body FROM site_chat_messages m WHERE m.chat_id=c.id ORDER BY m.created_at DESC LIMIT 1) AS preview,(SELECT COUNT(*) FROM site_chat_messages m WHERE m.chat_id=c.id AND m.side='visitor' AND m.created_at>COALESCE((SELECT MAX(created_at) FROM site_chat_messages a WHERE a.chat_id=c.id AND a.side='operator'),0)) AS unanswered FROM site_chats c WHERE c.updated_at>? ORDER BY c.updated_at DESC LIMIT 100").bind(Date.now()-30*86400000).all();
+   return json(200,{ok:true,chats:(rows.results||[]).map(c=>({id:c.id,code:c.code,status:c.status,preview:c.preview,unanswered:c.unanswered,updatedAt:c.updated_at,createdAt:c.created_at}))});
+ }
+ const chatId=url.searchParams.get('chatId')||'';
+ if(path==='/api/site-chat/admin/messages'&&request.method==='GET'){
+   if(!/^[a-f0-9-]{36}$/i.test(chatId))return json(400,{ok:false,message:'Identificativo conversazione non valido.'});
+   const exists=await env.CHAT_DB.prepare('SELECT id,code,status FROM site_chats WHERE id=? AND updated_at>?').bind(chatId,Date.now()-30*86400000).first();
+   if(!exists)return json(404,{ok:false,message:'Conversazione non disponibile.'});
+   const rows=await env.CHAT_DB.prepare('SELECT id,side,body,created_at FROM site_chat_messages WHERE chat_id=? ORDER BY created_at ASC LIMIT 200').bind(chatId).all();
+   return json(200,{ok:true,chat:{id:exists.id,code:exists.code,status:exists.status},messages:(rows.results||[]).map(x=>({id:x.id,side:x.side,body:x.body,createdAt:x.created_at}))});
+ }
+ if(path==='/api/site-chat/admin/reply'&&request.method==='POST'){
+   const input=await readPayload(request),id=clean(input?.chatId,36),body=clean(input?.message,1500);
+   if(!/^[a-f0-9-]{36}$/i.test(id)||body.length<2||body.length>1500)return json(422,{ok:false,message:'Controlla conversazione e testo (2–1.500 caratteri).'});
+   const existing=await env.CHAT_DB.prepare('SELECT id,status FROM site_chats WHERE id=? AND updated_at>?').bind(id,Date.now()-30*86400000).first();
+   if(!existing||existing.status!=='open')return json(404,{ok:false,message:'Conversazione chiusa o non disponibile.'});
+   const now=Date.now();
+   await env.CHAT_DB.prepare("INSERT INTO site_chat_messages (id,chat_id,side,body,created_at,notified) VALUES (?,?,'operator',?,?,1)").bind(crypto.randomUUID(),id,body,now).run();
+   await env.CHAT_DB.prepare('UPDATE site_chats SET updated_at=? WHERE id=?').bind(now,id).run();
+   return json(201,{ok:true,message:'Risposta salvata: apparirà nella chat del visitatore.'});
+ }
+ return json(405,{ok:false,message:'Operazione non supportata.'});
+}
+
 export async function handleSiteChat(request,env){
  const path=new URL(request.url).pathname;
  if(path==='/api/site-chat/status')return json(200,{enabled:okConfig(env),sitekey:okConfig(env)?env.TURNSTILE_SITE_KEY:null});
  if(!okConfig(env))return json(503,{ok:false,enabled:false,message:'Chat bidirezionale non ancora collegata. Utilizza il modulo contatti.'});
- if(path==='/api/meta-whatsapp-webhook')return inboundWebhook(request,env);
+ if(path.startsWith('/api/site-chat/admin/'))return operatorAPI(request,env);
+ if(path==='/api/meta-whatsapp-webhook')return isFreeDashboard(env)?json(404,{ok:false,message:'Meta non utilizzato nella modalità gratuita.'}):inboundWebhook(request,env);
  if(path==='/api/site-chat/start'&&request.method==='POST')return start(request,env);
  if(path==='/api/site-chat/messages'&&request.method==='GET')return messages(request,env);
  if(path==='/api/site-chat/message'&&request.method==='POST')return postMessage(request,env);
