@@ -1,6 +1,6 @@
 import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';
 import {dirname} from 'node:path';
-const keys=["association","method","projects","opportunities","contact","transparency","governance","home"];
+const keys=["association","method","projects","opportunities","contact","transparency","governance","home","whatsapp"];
 const D=Object.fromEntries(keys.map(key=>[key,JSON.parse(readFileSync('content/'+key+'.json','utf8'))]));
 const buildPages=function buildPages(D){
  const e=s=>String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;");
@@ -59,7 +59,10 @@ const buildPages=function buildPages(D){
 <header class="info-hero visual-cover theme-${theme}"><div class="visual-cover-copy"><p class="eyebrow">${e(eyebrow)}</p><span class="visual-cover-number" aria-hidden="true">AG / 2026</span><h1>${e(title)}</h1><p class="lead">${e(desc)}</p><a class="visual-cover-explore" href="#approfondisci">Scopri di più <span aria-hidden="true">↘</span></a></div>${heroVisual}<span class="visual-cover-decor" aria-hidden="true">✳</span></header><div id="approfondisci" class="visual-story-body">${body}</div>${visualGallery}</main>
 <footer class="info-footer"><div class="info-footer-inner"><span>© 2026 Agorà APS</span><nav class="info-footer-links" aria-label="Informazioni e documenti"><a href="/trasparenza/">Trasparenza</a><a href="/privacy/">Privacy</a><a href="/accessibilita/">Accessibilità</a><a href="${runts}" rel="noopener noreferrer" target="_blank">RUNTS</a></nav><div class="accessibility-tools" aria-label="Preferenze di lettura"><button type="button" data-a11y="text" aria-pressed="false">A+ Testo</button><button type="button" data-a11y="contrast" aria-pressed="false">Contrasto</button></div></div></footer></body></html>\n`;
  };
- const A=D.association,M=D.method,P=D.projects,O=D.opportunities,C=D.contact,G=D.governance;
+ const A=D.association,M=D.method,P=D.projects,O=D.opportunities,C=D.contact,G=D.governance,W=D.whatsapp;
+ const callDigits=String(C.phone||'').replace(/[^0-9+]/g,'');
+ const waDigits=String(W.phoneNumber||'').replace(/\D/g,'');
+ const waUrl=W.enabled===true && /^[1-9]\d{7,14}$/.test(waDigits)?'https://wa.me/'+waDigits:'';
  const governanceCards=G.members.map(person=>card(person.name,"<p>"+e(person.role)+"</p>","Direttivo")).join("");
  const projectCards=(P.cards||[]).map(c=>card(c.title,`<p>${e(c.description)}</p>${c.title==="SODA-LABS"?'<p><a href="/progetti/soda-labs/">Scheda del progetto</a></p>':""}`,c.category)).join("");
  const pages={};
@@ -123,7 +126,7 @@ const buildPages=function buildPages(D){
  <label class="contact-consent"><input type="checkbox" name="consent" value="yes" required><span>Ho letto le <a href="/privacy/" target="_blank" rel="noopener">informazioni sul trattamento dei dati</a> e chiedo di essere ricontattato/a riguardo al mio messaggio. <span aria-hidden="true">*</span></span></label></div>
  <div class="contact-submit-row"><button class="contact-submit" type="submit">Invia il messaggio <span aria-hidden="true">↗</span></button><p class="contact-private">I dati sono usati esclusivamente per gestire la richiesta; non sono pubblicati sul sito.</p></div>
  <p class="contact-feedback" data-contact-status role="status" aria-live="polite" hidden></p>
- </form><aside class="contact-aside"><span class="contact-aside-mark" aria-hidden="true">✳</span><h3>Preferisci scriverci direttamente?</h3><p>Siamo una comunità: ogni domanda ha il suo spazio. Puoi contattarci anche via email.</p><a class="contact-direct" href="mailto:${e(C.email)}">${e(C.email)} <span aria-hidden="true">↗</span></a><div class="contact-aside-rule"></div><p><strong>Territorio operativo</strong><br>${e(C.territory)}</p><p><strong>OID Erasmus+</strong><br>${e(C.oid)}</p><p class="contact-small">Per visite o incontri in presenza, richiedi prima un appuntamento.</p></aside></div></section>
+ </form><aside class="contact-aside"><span class="contact-aside-mark" aria-hidden="true">✳</span><h3>Preferisci scriverci direttamente?</h3><p>Siamo una comunità: ogni domanda ha il suo spazio. Puoi contattarci anche via email.</p><a class="contact-direct" href="mailto:${e(C.email)}">${e(C.email)} <span aria-hidden="true">↗</span></a><div class="contact-aside-rule"></div><div class="contact-channel"><span class="contact-channel-kicker">Chiamaci al numero italiano</span><a class="contact-direct contact-call-link" href="tel:${e(callDigits)}">${e(C.phone)} <span aria-hidden="true">↗</span></a></div>${waUrl?'<div class="contact-channel"><span class="contact-channel-kicker">Scrivici su WhatsApp Business</span><a class="contact-direct contact-whatsapp-link" href="'+waUrl+'" target="_blank" rel="noopener noreferrer">'+e(C.whatsappNumber)+' <span aria-hidden="true">↗</span></a></div>':''}<p><strong>Territorio operativo</strong><br>${e(C.territory)}</p><p><strong>OID Erasmus+</strong><br>${e(C.oid)}</p><p class="contact-small">Per visite o incontri in presenza, richiedi prima un appuntamento.</p></aside></div></section>
 `);
  pages["trasparenza/index.html"]=p("/trasparenza/","Trasparenza e documenti istituzionali",
  "Consulta gli atti di Agorà APS depositati nel RUNTS e trova le informazioni associative, le opportunità e i contatti ufficiali.","Trasparenza associativa",`
