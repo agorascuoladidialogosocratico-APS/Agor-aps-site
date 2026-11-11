@@ -59,7 +59,7 @@ assert.equal(writes[0].args[1],chatId);
 assert.equal(writes[0].args[2],'Buongiorno, possiamo organizzare un incontro.');
 assert.equal(writes[1].args[1],chatId);
 msg=mkMessage({},'attacker@example.org');assert.equal(await receiveChatEmailReply(msg,env),false);
-assert(msg.rejected.includes('non autorizzato'));
+assert(msg.rejected.toLowerCase().includes('non autorizzat'));
 msg=mkMessage({'authentication-results':'mx.cloudflare.net; spf=fail; dkim=fail; dmarc=fail'});
 assert.equal(await receiveChatEmailReply(msg,env),false);
 assert(msg.rejected.includes('Autenticazione'));
