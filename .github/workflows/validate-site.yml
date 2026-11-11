@@ -30,3 +30,4 @@ jobs:
           node --check assets/experience.js
           node --check assets/contact-form.js
           node --check src/worker.js
+          node --check assets/whatsapp-chat.js
