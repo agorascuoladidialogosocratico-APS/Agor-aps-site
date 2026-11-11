@@ -48,3 +48,23 @@ L'informativa privacy e i singoli moduli di candidatura devono essere validati d
 - Misurare Core Web Vitals e testare contrasto, focus, ingrandimento e lettori di schermo.
 
 I segreti, i token, le password e i dati dei candidati non devono mai essere salvati in questo repository pubblico.
+
+## Direttivo e collegamento RUNTS
+La homepage e /chi-siamo/ mostrano gli incarichi indicati negli allegati associativi per le convenzioni universitarie del giugno 2026. Questi dati **non sono una trascrizione certificata della visura RUNTS**. Prima di segnare come confermato il direttivo, aprire <https://servizi.lavoro.gov.it/runts/it-it/Ricerca-enti>, cercare il **codice fiscale 93254890879**, cliccare Dettaglio ed esaminare i dati attuali di amministrazione. Qualora diversi, aggiornare `content/governance.json` tramite Pages CMS e rieseguire la build. La versione iniziale dell'atto costitutivo (2024) e la scheda per atenei (2026) non sono documenti equivalenti nel tempo.
+
+## Modulo di contatto e consegna email
+La pagina `/contatti/#scrivici` ora contiene un modulo nativo accessibile, progressivamente migliorato con JavaScript. L'endpoint del Worker è `POST /api/contact`. Il backend convalida campi, origine e consenso, e inoltra una email all'indirizzo associativo. **Non memorizza il contenuto dei messaggi nel Worker**, ma il destinatario li riceverà nella propria casella email.
+
+Requisiti Cloudflare per la consegna reale:
+1. Abilitare **Email Routing / Email Service** nel dominio.
+2. Verificare nell'account Cloudflare la destinazione `agora.scuoladidialogosocratico@gmail.com` (non basta che sia una casella Gmail funzionante).
+3. Autorizzare un dominio mittente per la funzione di invio da Workers; il Worker usa come mittente `contatti@agora-scuoladidialogosocraticoecittadinanzattiva.site`.
+4. La binding in `wrangler.jsonc` è `CONTACT_EMAIL`, limitata alla sola destinazione associativa.
+5. Eseguire un invio reale da `/contatti/` dopo la pubblicazione, controllare la ricezione nella posta dell'associazione e solo allora considerare il modulo attivo.
+
+**In assenza di verifica del binding o se la consegna fallisce, il modulo mostra un errore**, non una conferma fittizia. Il visitatore può usare il collegamento diretto all'email. I test automatizzati fanno invii simulati, non garantiscono la consegna reale.
+
+Protezione da abuso: honeypot, limiti di lunghezza e verifica origine; prima di ricevere molto traffico è raccomandata una regola di rate limiting Cloudflare o Turnstile, configurata e verificata in produzione. Non pubblicare chiavi API. La pagina privacy dev'essere completata per conservazione e operatività dell'email.
+
+## Revisione visuale
+Il design mantiene il libro in homepage ma aggiunge quattro percorsi d'ingresso interattivi, dock mobile, header fisso, animazioni leggere e card migliorate con attenzione alla preferenza per movimento ridotto.
