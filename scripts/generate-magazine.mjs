@@ -1,4 +1,4 @@
-import {readFileSync,writeFileSync,readdirSync,existsSync,mkdirSync} from 'node:fs';
+import {readFileSync,writeFileSync,readdirSync,existsSync,mkdirSync,rmSync} from 'node:fs';
 import {dirname,basename} from 'node:path';
 const base='https://agora-scuoladidialogosocraticoecittadinanzattiva.site';
 const mail='agora.scuoladidialogosocratico@gmail.com';
@@ -34,12 +34,23 @@ if(existsSync('content/magazine')){
  for(const file of readdirSync('content/magazine').filter(x=>x.endsWith('.json'))){
   const slug=basename(file,'.json');if(!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug))throw Error('Slug magazine non valido: '+file);
   const d=JSON.parse(readFileSync('content/magazine/'+file,'utf8'));
+  d.date=String(d.date||'').slice(0,10);
   if(d.published!==true)continue;
   if(!d.title||!d.excerpt||!d.body||!dateOk(d.date))throw Error('Articolo pubblicato incompleto: '+file);
   posts.push({...d,slug,url:'/magazine/'+slug+'/',cover:cover(d.cover)});
  }
 }
 posts.sort((a,b)=>b.date.localeCompare(a.date)||a.title.localeCompare(b.title,'it'));
+/* Non lasciare online articoli che l'editor ha riportato in bozza o cancellato. */
+const activeSlugs=new Set(posts.map(p=>p.slug));
+if(existsSync('magazine')){
+ for(const entry of readdirSync('magazine',{withFileTypes:true})){
+  if(!entry.isDirectory()||activeSlugs.has(entry.name))continue;
+  if(!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(entry.name))continue;
+  const old='magazine/'+entry.name+'/index.html';
+  if(existsSync(old)&&readFileSync(old,'utf8').includes('class="mag-article"'))rmSync('magazine/'+entry.name,{recursive:true,force:true});
+ }
+}
 const identity=JSON.parse(readFileSync('content/identity.json','utf8'));
 const member=JSON.parse(readFileSync('content/membership.json','utf8'));
 const nav=[['/','Home'],['/chi-siamo/','Chi siamo'],['/progetti/','Progetti'],['/magazine/','Magazine'],['/partecipa/','Partecipa'],['/sostienici/','Sostienici'],['/contatti/','Contatti']];
