@@ -25,6 +25,7 @@
   },
   "vars": {
     "CHAT_MODE": "free-dashboard",
-    "CHAT_ENABLED": "false"
+    "CHAT_ENABLED": "false",
+    "CHAT_EMAIL_NOTIFICATIONS": "true"
   }
 }
