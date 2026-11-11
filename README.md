@@ -2,8 +2,20 @@
 
 Sito dell'associazione Agorà – Scuola di Dialogo Socratico e Cittadinanza Attiva APS.
 
+## Novità del sito — 12 novembre 2026
+
+**Agorà Magazine** è l'area editoriale pubblica in `/magazine/` con archivio, categorie, articoli singoli, immagini originali, SEO e feed RSS `/magazine/rss.xml`. I contenuti si modificano via **Pages CMS** (https://app.pagescms.org/), sezione **Agorà Magazine — Articoli e aggiornamenti**, con editor visuale Markdown. `published: false` conserva la bozza fuori dall'indice e dalla navigazione; `published: true` la pubblica dopo la build.
+
+**Pubblicazione autonoma:** il workflow `.github/workflows/publish-cms.yml` si attiva su modifiche ai contenuti `content/**` in `main`, rigenera le pagine e salva il risultato su GitHub. Richiede permessi di scrittura GitHub Actions sul repository e deploy Cloudflare collegato al ramo `main`. Verificare entrambe le configurazioni nell'account proprietario prima di promettere la pubblicazione automatica. L'editor non richiede credenziali sul sito pubblico; il controllo degli accessi è su GitHub/Pages CMS.
+
+**Sostienici** è la pagina `/sostienici/`. L'intestatario, l'IBAN, BIC e istituto di pagamento provengono da `content/membership.json`, accessibile in Pages CMS nella sezione **Quote associative e bonifico**. Il conto è pubblicato solo quando `bankDetailsPublic` è `true` e l'IBAN supera una verifica formale MOD-97; questo controllo non certifica la titolarità bancaria. Il contributo non prevede checkout o servizi a pagamento: il versamento avviene tramite bonifico e la quota va confermata con l'associazione prima del pagamento.
+
+**WhatsApp Business:** l'accesso rapido e il pannello di contatto aprono `https://wa.me/32466902127` su decisione dell'utente; il visitatore può preparare il messaggio nel sito ma la conversazione si svolge nella piattaforma WhatsApp. Il numero +39 333 883 9329 rimane dedicato alle chiamate. Non è attivo il ponte sperimentale Gmail↔chat del sito: il codice resta nel repository ma la modalità pubblica è disattivata per evitare messaggi non recapitati.
+
+**Design:** riprende logo e fotografie già presenti e mantiene la palette blu petrolio `#193b4a`, terracotta `#b85628`, avorio `#f8f0e6`. Layout responsive con navigazione mobile e supporto `prefers-reduced-motion`.
+
 ## Architettura e navigazione
-La homepage conserva il **libro digitale interattivo**. Sono disponibili anche pagine HTML **statiche e indicizzabili** per Chi siamo, Progetti (e schede SODA-LABS / Odisseo Philosophorum), Tirocini, Volontariato ESC, Partecipa, Contatti, Trasparenza, Privacy e Accessibilità.
+La homepage conserva il **libro digitale interattivo**. Sono disponibili pagine HTML **statiche e indicizzabili** per Chi siamo, Progetti (e schede SODA-LABS / Odisseo Philosophorum), Tirocini, Volontariato ESC, Partecipa, Contatti, Trasparenza, Privacy, Accessibilità, Agorà Magazine, singoli articoli pubblicati e Sostienici.
 
 Le pagine sono incluse in `sitemap.xml` e i link sono HTML normali, fruibili anche senza JavaScript. Il progetto mantiene un solo URL canonico per ogni pagina.
 
@@ -88,18 +100,5 @@ Il numero WhatsApp Business comunicato dall'associazione l'11 novembre 2026 è *
 
 Il widget non memorizza messaggi, non apre connessioni a terze parti finché il visitatore non segue il link WhatsApp e non dichiara di essere un operatore online. Per una conversazione bidirezionale incorporata realmente nella pagina occorrerebbe la WhatsApp Business Platform con autorizzazione Meta, webhook, backend, gestione delle conversazioni e requisiti privacy.
 
-
-## Chat interna al sito (in preparazione)
-Il widget precedente che apriva WhatsApp è stato sostituito con la nuova chat interna, che **non trasferisce il visitatore su WhatsApp**. La conversazione bidirezionale richiede ancora l'attivazione Cloudflare D1, Turnstile e un numero tecnico WhatsApp Business Platform distinto dal numero dell'operatore +32 466 90 21 27. Finché i collegamenti non sono disponibili, la chat indica chiaramente che il servizio è in preparazione e offre il modulo contatti, senza false conferme. Per architettura, sicurezza, privacy e passi di attivazione vedere **CHAT-BIDIREZIONALE.md**.
-
-
-## Modalità gratuita della chat: posta operatore
-È ora disponibile una seconda architettura che non necessita delle API Meta: il visitatore scrive e riceve le risposte dentro il sito, mentre Agorà risponde dalla pagina riservata /operatore/, utilizzabile dal telefono. È indipendente da WhatsApp Business. I dati sono in un database Cloudflare D1 Free e gli accessi alla chat pubblica sono protetti da Turnstile.
-
-La configurazione di default è CHAT_MODE=free-dashboard e CHAT_ENABLED=false: **senza database, Turnstile e chiave operatore la chat non raccoglie messaggi**. Per l'attivazione reale seguire la sezione "Alternativa gratuita" di CHAT-BIDIREZIONALE.md. Il numero +32 non viene migrato né usato per inviare messaggi in questa modalità. La piena integrazione con WhatsApp Business può comportare costi Meta e resta un progetto a parte.
-
-
-## Gmail ↔ chat del sito (gratuito, da attivare)
-La chat del sito può inviare messaggi e cronologia recente a agora.scuoladidialogosocratico@gmail.com e ricevere le risposte spedite premendo **Rispondi** da Gmail. Il destinatario di risposta tecnica è risposte@agora-scuoladidialogosocraticoecittadinanzattiva.site, da collegare tramite Cloudflare Email Routing allo stesso Worker. Il Gateway verifica autenticazione DMARC e firma della conversazione; il visitatore legge la risposta sul sito senza uscire.
-
-Nessuna password della pagina /operatore/ serve a chi risponde unicamente da Gmail. Prima di attivare servono D1, Turnstile, Email Routing, casella verificata e i secrets del Worker. La configurazione inizia con CHAT_EMAIL_REPLY_ENABLED=false e CHAT_ENABLED=false. Leggere **EMAIL-BIDIREZIONALE.md** per i passaggi; non attivare senza prova reale e aggiornamento privacy.
+## Alternative di chat sperimentali non attive
+La chat interna con database D1 e le risposte via Gmail sono state sviluppate come prototipi ma non attivate né collaudate nei servizi Cloudflare dell’associazione. La configurazione conservata in `wrangler.jsonc` mantiene `CHAT_ENABLED=false` e `CHAT_EMAIL_REPLY_ENABLED=false`; gli endpoint non raccolgono messaggi in questa modalità. Il sito pubblico utilizza il contatto diretto WhatsApp Business ufficiale. Per lo storico tecnico consultare `CHAT-BIDIREZIONALE.md` ed `EMAIL-BIDIREZIONALE.md`.

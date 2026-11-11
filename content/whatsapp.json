@@ -1,8 +1,8 @@
 {
-  "enabled": false,
+  "enabled": true,
   "businessName": "Agorà APS",
   "phoneNumber": "32466902127",
-  "welcome": "Ciao! Hai una domanda su Agorà, i progetti europei o i tirocini? Raccontaci di cosa hai bisogno.",
-  "defaultMessage": "Ciao Agorà APS! Ho visitato il sito e vorrei ricevere informazioni.",
-  "note": "Widget wa.me disattivato: i visitatori devono restare nella chat del sito. Questo numero (+32 466 90 21 27) è usato soltanto dall'operatore nel ponte bidirezionale da attivare con numero tecnico Meta separato."
+  "welcome": "Benvenuto in Agorà. Hai una domanda su attività, progetti europei, tirocini o adesioni? Scrivici: ti risponderemo personalmente su WhatsApp Business.",
+  "defaultMessage": "Buongiorno Agorà APS, vi contatto dal sito e vorrei ricevere informazioni.",
+  "note": "Contatto diretto WhatsApp Business autorizzato dall'associazione: +32 466 90 21 27. Il visitatore invia volontariamente dall'app WhatsApp; non è una chat bidirezionale incorporata nel sito."
 }

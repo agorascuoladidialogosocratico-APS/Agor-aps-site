@@ -4,11 +4,12 @@
   "private": true,
   "description": "Sito istituzionale statico Agorà APS con Pages CMS e Cloudflare Workers Static Assets",
   "scripts": {
-    "build": "node scripts/generate-pages.mjs && npm run check",
+    "build": "node scripts/generate-pages.mjs && node scripts/generate-magazine.mjs && npm run check",
     "deploy": "npm run build && wrangler deploy",
     "preview": "wrangler preview",
     "check": "node scripts/verify-site.mjs && npm test",
-    "test": "node scripts/test-contact.mjs && node scripts/test-site-chat.mjs && node scripts/test-email-replies.mjs"
+    "test": "node scripts/test-contact.mjs && node scripts/test-site-chat.mjs && node scripts/test-email-replies.mjs",
+    "build:content": "node scripts/generate-pages.mjs && node scripts/generate-magazine.mjs"
   },
   "devDependencies": {
     "wrangler": "^4.135.0"
