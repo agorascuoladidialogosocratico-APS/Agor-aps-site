@@ -155,6 +155,13 @@
     const dd=document.querySelectorAll('.contact-details dd');
     if(dd[0]&&d.email){const a=dd[0].querySelector('a');if(a){a.textContent=d.email;a.href='mailto:'+encodeURIComponent(d.email);}}
     if(dd[1])dd[1].textContent=d.territory||'';if(dd[2])dd[2].textContent=d.oid||'';
+    const call=document.querySelector('.public-contacts .contact-call-link');
+    if(call && /^\+?[\d\s().-]{8,25}$/.test(d.phone||'')){call.href='tel:'+d.phone.replace(/[^\d+]/g,'');call.textContent='Chiama: '+d.phone;}
+    const whatsapp=document.querySelector('.public-contacts .contact-whatsapp-link');
+    if(whatsapp && /^\+?[\d\s().-]{8,25}$/.test(d.whatsappNumber||'')){
+      whatsapp.textContent='WhatsApp Business: '+d.whatsappNumber+' ↗';
+      whatsapp.href='https://wa.me/'+d.whatsappNumber.replace(/\D/g,'');
+    }
   }
   function applyBlocks(d){const holder=document.querySelector('#custom-blocks');if(!holder)return;
     holder.replaceChildren();if(!Array.isArray(d?.items))return;
