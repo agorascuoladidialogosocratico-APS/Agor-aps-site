@@ -49,14 +49,14 @@
   }
   function applyIdentity(d) {
     if(!d)return;
-    text('.brand-name',d.name);text('.footer-logo>span',d.name);
+    text('.brand-name',d.name);
     // Keep brand subtitles as individually editable nodes even when the brand heading changes.
-    for(const sel of ['.brand-name','.footer-logo>span']) {
+    for(const sel of ['.brand-name']) {
       const el=document.querySelector(sel);if(!el)continue;
       if(sel==='.brand-name') {el.textContent='';el.append(document.createTextNode((d.name||'Agorà APS').replace(/\s+APS$/i,'')+' '));el.append(element('small',{},'APS'));el.append(element('span',{class:'brand-caption'},d.strapline||''));}
       else {el.textContent=d.name||'Agorà APS';el.append(element('small',{},d.strapline||''));}
     }
-    image('.site-brand img',d.logo,'');image('.footer-logo img',d.logo,'');image('.about-brand img',d.badgeLogo,'Logo ufficiale di Agorà APS');
+    image('.site-brand img',d.logo,'');image('.about-brand img',d.badgeLogo,'Logo ufficiale di Agorà APS');
     link('.header-cta',d.navCta?.label,d.navCta?.url);
     const palette = {'--petrol':'petrol','--terracotta':'terracotta','--ivory':'ivory','--paper':'paper'};
     for(const [css,key] of Object.entries(palette))if(/^#[0-9a-fA-F]{6}$/.test(d.colors?.[key]||''))document.documentElement.style.setProperty(css,d.colors[key]);
@@ -66,8 +66,8 @@
     const ogTitle=document.querySelector('meta[property="og:title"]');if(ogTitle&&d.seo?.title)ogTitle.content=d.seo.title;
     const ogImage=document.querySelector('meta[property="og:image"]');if(ogImage&&url(d.seo?.shareImage,'src'))ogImage.content=new URL(d.seo.shareImage,location.origin==='null'?'https://agora-scuoladidialogosocraticoecittadinanzattiva.site':location.origin).href;
     const icon=document.querySelector('link[rel="icon"]');if(icon&&url(d.logo,'src'))icon.href=d.logo;
-    text('.site-footer p',d.footer?.tagline);
-    text('.site-footer>div>div:last-child>span',d.footer?.copyright);
+    text('.footer-tagline',d.footer?.tagline);
+    text('.footer-copyright',d.footer?.copyright);
   }
   function applyHome(d) {
     const h=d?.hero;if(!h)return;
@@ -76,9 +76,7 @@
     text('.hero-intro p',h.description);link('.hero-actions .button',h.buttonText,h.buttonLink);
     link('.hero-actions .text-link',h.secondaryText,h.secondaryLink);
     const footnote=document.querySelector('.hero-footnote');if(footnote && h.footnote)footnote.textContent=h.footnote;
-    image('.hero-figure>img',h.image,h.imageAlt);
-    text('.hero-figure figcaption .caption-index',h.imageCaptionTop);
-    text('.hero-figure figcaption>span:last-child',h.imageCaptionBottom);
+    // La copertina del libro utilizza una scena SVG; nessun campo fotografico è esposto nel CMS.
     if(Array.isArray(d.values)) {
       const grid=document.querySelector('.values-grid');if(grid){grid.replaceChildren();
         for(const v of d.values.slice(0,8))grid.append(element('div',{},undefined));
