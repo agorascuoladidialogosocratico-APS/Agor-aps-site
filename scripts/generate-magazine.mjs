@@ -82,7 +82,12 @@ function validIban(s){
  return rem===1;
 }
 const show=member.bankDetailsPublic===true&&validIban(iban)&&String(member.accountHolder||'').trim().length>3;
-const bank=show?'<div class="support-bank"><div><span>Intestatario</span><strong>'+esc(member.accountHolder)+'</strong></div><div><span>IBAN</span><strong class="mag-iban">'+esc(iban.replace(/(.{4})/g,'$1 ').trim())+'</strong><button type="button" data-copy-iban="'+esc(iban)+'">Copia IBAN</button></div><div><span>Causale</span><strong>'+esc(member.transferReason||'Quota associativa – anno e nominativo')+'</strong></div></div>':
+const bic=String(member.bic||'').trim().toUpperCase();
+const showBic=show&&/^[A-Z0-9]{8}([A-Z0-9]{3})?$/.test(bic);
+const bank=show?'<div class="support-bank"><div><span>Intestatario</span><strong>'+esc(member.accountHolder)+'</strong></div><div><span>IBAN</span><strong class="mag-iban">'+esc(iban.replace(/(.{4})/g,'$1 ').trim())+'</strong><button type="button" data-copy-iban="'+esc(iban)+'">Copia IBAN</button></div>'+
+ (showBic?'<div><span>BIC / SWIFT</span><strong>'+esc(bic)+'</strong></div>':'')+
+ (member.bankName?'<div><span>Istituto</span><strong>'+esc(member.bankName)+'</strong></div>':'')+
+ '<div><span>Causale consigliata</span><strong>'+esc(member.transferReason||'Quota associativa – anno e nominativo')+'</strong></div></div>':
  '<div class="support-pending"><h3>Coordinate bancarie su richiesta</h3><p>L’IBAN non è ancora pubblicato. Ti comunicheremo soltanto coordinate confermate e indicazioni aggiornate.</p><a class="mag-action" href="mailto:'+mail+'?subject='+encodeURIComponent('Richiesta coordinate quota associativa Agorà')+'">Richiedi le coordinate ↗</a></div>';
 const support='<section class="support-hero"><div><span class="mag-eyebrow">Sostieni Agorà</span><h1>Il dialogo ha bisogno <em>di persone.</em></h1><p>'+esc(member.description)+'</p><a class="mag-action" href="#bonifico">Come contribuire ↘</a></div><figure><img src="/assets/agora_chi_siamo.webp" alt="Partecipanti alle esperienze culturali di Agorà" width="1300" height="731"></figure></section><section class="support-body" id="bonifico"><div><span class="mag-eyebrow">Quote associative</span><h2>Bonifico bancario, con chiarezza.</h2><p>Non usiamo servizi di pagamento esterni. Prima del versamento, verifica le condizioni di adesione e l’importo della quota vigente con l’associazione.</p><p class="support-note">'+esc(member.notes)+'</p></div>'+bank+'</section>'+invitation;
 write('sostienici/index.html',layout('/sostienici/','Sostieni Agorà APS – Quota associativa e bonifico','Come sostenere Agorà APS: quote associative via bonifico, informazioni per aderire e richiedere coordinate bancarie.',support,'/assets/agora_chi_siamo.webp'));
