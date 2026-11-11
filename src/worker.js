@@ -1,3 +1,4 @@
+import {receiveChatEmailReply} from './chat-email.js';
 import {handleSiteChat,deleteExpiredChats} from './site-chat.js';
 /* Worker Agorà: invio email per il modulo contatti, senza salvare le richieste.
    Il binding CONTACT_EMAIL necessita di una destinazione verificata in Cloudflare
@@ -53,5 +54,6 @@ export default {
    if(pathname.startsWith('/api/'))return result(404,{ok:false,message:'Indirizzo non trovato.'});
    return env.ASSETS.fetch(request);
  },
+ async email(message,env,ctx){await receiveChatEmailReply(message,env);},
  async scheduled(event,env,ctx){ctx.waitUntil(deleteExpiredChats(env));}
 };
