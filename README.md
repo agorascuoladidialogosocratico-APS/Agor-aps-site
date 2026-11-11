@@ -87,3 +87,7 @@ Configurazione in Pages CMS → "00 · Chat WhatsApp Business", file \`content/w
 Il numero WhatsApp Business comunicato dall'associazione l'11 novembre 2026 è **+32 466 90 21 27** (configurazione `enabled:true`, `phoneNumber:32466902127`). Il recapito italiano dedicato alle **chiamate** è **+39 333 883 9329**. Il sito distingue le due funzioni: il collegamento WhatsApp apre la chat sul numero belga; il collegamento `tel:` chiama il numero italiano. L'invio del messaggio va confermato dall'utente in WhatsApp. Testare la ricezione da un telefono esterno all'associazione.
 
 Il widget non memorizza messaggi, non apre connessioni a terze parti finché il visitatore non segue il link WhatsApp e non dichiara di essere un operatore online. Per una conversazione bidirezionale incorporata realmente nella pagina occorrerebbe la WhatsApp Business Platform con autorizzazione Meta, webhook, backend, gestione delle conversazioni e requisiti privacy.
+
+
+## Chat interna al sito (in preparazione)
+Il widget precedente che apriva WhatsApp è stato sostituito con la nuova chat interna, che **non trasferisce il visitatore su WhatsApp**. La conversazione bidirezionale richiede ancora l'attivazione Cloudflare D1, Turnstile e un numero tecnico WhatsApp Business Platform distinto dal numero dell'operatore +32 466 90 21 27. Finché i collegamenti non sono disponibili, la chat indica chiaramente che il servizio è in preparazione e offre il modulo contatti, senza false conferme. Per architettura, sicurezza, privacy e passi di attivazione vedere **CHAT-BIDIREZIONALE.md**.

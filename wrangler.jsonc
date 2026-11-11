@@ -17,5 +17,10 @@
       "name": "CONTACT_EMAIL",
       "destination_address": "agora.scuoladidialogosocratico@gmail.com"
     }
-  ]
+  ],
+  "triggers": {
+    "crons": [
+      "0 4 * * *"
+    ]
+  }
 }

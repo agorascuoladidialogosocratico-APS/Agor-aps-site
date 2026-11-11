@@ -1,3 +1,4 @@
+import {handleSiteChat,deleteExpiredChats} from './site-chat.js';
 /* Worker Agorà: invio email per il modulo contatti, senza salvare le richieste.
    Il binding CONTACT_EMAIL necessita di una destinazione verificata in Cloudflare
    e di un indirizzo mittente autorizzato per il dominio. */
@@ -47,8 +48,10 @@ async function processContact(request,env){
 export default {
  async fetch(request,env){
    const pathname=new URL(request.url).pathname;
+   if(pathname.startsWith('/api/site-chat/')||pathname==='/api/meta-whatsapp-webhook')return handleSiteChat(request,env);
    if(pathname==='/api/contact')return processContact(request,env);
    if(pathname.startsWith('/api/'))return result(404,{ok:false,message:'Indirizzo non trovato.'});
    return env.ASSETS.fetch(request);
- }
+ },
+ async scheduled(event,env,ctx){ctx.waitUntil(deleteExpiredChats(env));}
 };

@@ -31,3 +31,5 @@ jobs:
           node --check assets/contact-form.js
           node --check src/worker.js
           node --check assets/whatsapp-chat.js
+          node --check assets/site-chat.js
+          node --check src/site-chat.js

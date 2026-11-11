@@ -94,3 +94,8 @@
 .contact-channel-kicker{font:650 11px/1.45 var(--sans);color:#d8e5d8;text-transform:uppercase;letter-spacing:.06em}
 .contact-channel .contact-direct{font-size:16px;color:#ffdfab!important;text-decoration-thickness:1px;text-underline-offset:4px}
 .contact-channel .contact-whatsapp-link{color:#bce8cc!important}
+
+/* Pulsante chat interno: nessun link esterno a WhatsApp. */
+.contact-chat-link{background:transparent;border:0;padding:0;text-align:left;font:650 15px/1.5 var(--sans);color:#d2f0d8!important;text-decoration:underline;text-underline-offset:4px;cursor:pointer;min-height:40px;display:inline-flex;align-items:center;gap:5px}
+.contact-chat-link:hover{color:#fff!important}
+.book-site .contact-chat-link{font-size:14px}

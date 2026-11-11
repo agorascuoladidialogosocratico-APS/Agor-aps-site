@@ -95,21 +95,23 @@ const contactData=JSON.parse(read('content/contact.json'));
 assert(contactData.phone==='+39 333 883 9329','Numero per le chiamate italiano non corrisponde');
 assert(contactData.whatsappNumber==='+32 466 90 21 27','Recapito WhatsApp Business visualizzato errato');
 assert(html.includes('href="tel:+393338839329"'),'Homepage: vecchio numero telefono o link tel errato');
-assert(html.includes('href="https://wa.me/32466902127"'),'Homepage: collegamento WhatsApp Business errato');
+assert(!html.includes('https://wa.me/'),'Homepage non deve trasferire il visitatore su WhatsApp');
 assert(contactPage.includes('href="tel:+393338839329"'),'Contatti: numero per chiamate assente');
-assert(contactPage.includes('href="https://wa.me/32466902127"'),'Contatti: link WhatsApp Business assente');
+assert(!contactPage.includes('https://wa.me/'),'Contatti non devono trasferire il visitatore su WhatsApp');
 assert(!html.includes('tel:+393510887084'),'Homepage: vecchio numero chiamate ancora presente');
 const whatsapp=JSON.parse(read('content/whatsapp.json'));
-assert(whatsapp.enabled===true && whatsapp.phoneNumber==='32466902127','Il numero WhatsApp Business configurato non corrisponde a quello comunicato');
+assert(whatsapp.enabled===false && whatsapp.phoneNumber==='32466902127','Widget wa.me deve restare disattivato; il numero operatore deve rimanere +32');
 assert(whatsapp.enabled !== true || /^[1-9]\d{7,14}$/.test(String(whatsapp.phoneNumber||'')),'Numero WhatsApp non valido: solo cifre internazionali, senza prefissi inventati');
-for(const file of ['assets/visual-story.css','assets/whatsapp-chat.css','assets/whatsapp-chat.js']){
+for(const file of ['assets/visual-story.css','assets/site-chat.css','assets/site-chat.js','src/site-chat.js','migrations/0001_site_chat.sql']){
   assert(existsSync(join(root,file)),'Nuova risorsa grafica/chat mancante: '+file);
 }
 assert(html.includes('class="home-photo-story"'),'Homepage: galleria foto originale non presente');
 assert(html.includes('src="/assets/agora_dialogo.webp"'),'Homepage: foto del dialogo mancante');
 assert(html.includes('src="/assets/agora_viaggio.webp"'),'Homepage: foto del viaggio mancante');
 assert(html.includes('src="/assets/agora_gruppo_home.webp"'),'Homepage: foto di gruppo mancante');
-assert(html.includes('/assets/whatsapp-chat.js'),'Homepage: widget WhatsApp assente');
+assert(html.includes('/assets/site-chat.js'),'Homepage: chat integrata assente');
+assert(!html.includes('/assets/whatsapp-chat.js'),'Homepage: vecchio widget wa.me ancora attivo');
+assert(html.includes('data-open-site-chat'),'Pulsante chat interno assente');
 const originalImages=['agora_gruppo_home','agora_dialogo','agora_chi_siamo','agora_viaggio'];
 for(const image of originalImages){
  for(const suffix of ['.webp','-480.webp','-800.webp']){
@@ -123,7 +125,8 @@ for(const pathname of publicPaths){
  assert(page.includes('class="visual-cover-photo"'),'Fotografia di apertura mancante: '+pathname);
  assert(page.includes('alt="'),'Testo alternativo della foto mancante: '+pathname);
  assert(page.includes('/assets/visual-story.css'),'Stile visivo assente: '+pathname);
- assert(page.includes('/assets/whatsapp-chat.js'),'Chat WhatsApp assente: '+pathname);
+ assert(page.includes('/assets/site-chat.js'),'Chat interna assente: '+pathname);
+ assert(!page.includes('/assets/whatsapp-chat.js'),'Widget WhatsApp esterno ancora caricato: '+pathname);
 }
 
 if (errors.length) {
