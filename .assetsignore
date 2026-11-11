@@ -30,3 +30,5 @@ qa/
 **/.openai/**
 **/.wrangler/**
 **/.wrangler-check/**
+
+src/
