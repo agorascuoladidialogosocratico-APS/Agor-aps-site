@@ -2,7 +2,11 @@
    Nessun database, token o credenziale = chat disabilitata; mai simulare consegna. */
 const OWNER_NUMBER='32466902127';
 const json=(status,body)=>new Response(JSON.stringify(body),{status,headers:{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store','X-Content-Type-Options':'nosniff'}});
-const okConfig=env=>Boolean(env.CHAT_DB&&env.CHAT_ENABLED==='true'&&env.TURNSTILE_SECRET&&env.TURNSTILE_SITE_KEY&&env.META_TOKEN&&env.META_PHONE_NUMBER_ID&&env.META_TEMPLATE_NAME&&env.META_APP_SECRET&&env.META_WEBHOOK_VERIFY_TOKEN&&env.CHAT_OWNER_NUMBER===OWNER_NUMBER);
+const isFreeDashboard=env=>env.CHAT_MODE==='free-dashboard';
+const hasOperatorKey=env=>typeof env.CHAT_ADMIN_TOKEN==='string'&&env.CHAT_ADMIN_TOKEN.length>=40;
+const okConfig=env=>Boolean(env.CHAT_DB&&env.CHAT_ENABLED==='true'&&env.TURNSTILE_SECRET&&env.TURNSTILE_SITE_KEY&&(
+ isFreeDashboard(env)?hasOperatorKey(env):(env.META_TOKEN&&env.META_PHONE_NUMBER_ID&&env.META_TEMPLATE_NAME&&env.META_APP_SECRET&&env.META_WEBHOOK_VERIFY_TOKEN&&env.CHAT_OWNER_NUMBER===OWNER_NUMBER)
+));
 const clean=(v,max)=>typeof v==='string'?v.trim().slice(0,max+1):'';
 const isAllowedOrigin=request=>{const url=new URL(request.url);const origin=request.headers.get('Origin');const fetchSite=request.headers.get('Sec-Fetch-Site');return (!origin||origin===url.origin)&&(!fetchSite||fetchSite==='same-origin'||fetchSite==='none');};
 const readPayload=async request=>{if(!String(request.headers.get('Content-Type')||'').includes('application/json'))return null;if(Number(request.headers.get('Content-Length')||0)>5000)return null;try{return await request.json();}catch{return null;}};
@@ -71,6 +75,7 @@ async function postMessage(request,env){
   await env.CHAT_DB.prepare("INSERT INTO site_chat_messages (id,chat_id,side,body,created_at,notified) VALUES (?,?,'visitor',?,?,0)").bind(id,session.id,body,now).run();
   await env.CHAT_DB.prepare("UPDATE site_chats SET updated_at=? WHERE id=?").bind(now,session.id).run();
  }catch{return json(503,{ok:false,message:'Messaggio non registrato. Riprova.'});}
+ if(isFreeDashboard(env))return json(201,{ok:true,stored:true,notified:false,delivery:'operator-dashboard',message:'Messaggio ricevuto nella chat. Agorà potrà risponderti qui.'});
  let notified=false;
  try{notified=await sendOperatorNotification(env,session.code,body);}catch{/* Keep stored message; no false notification claim. */}
  if(notified)await env.CHAT_DB.prepare('UPDATE site_chat_messages SET notified=1 WHERE id=?').bind(id).run();
