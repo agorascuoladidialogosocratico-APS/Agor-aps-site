@@ -1,13 +1,13 @@
 import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';
 import {dirname} from 'node:path';
-const keys=["association","method","projects","opportunities","contact","transparency"];
+const keys=["association","method","projects","opportunities","contact","transparency","governance"];
 const D=Object.fromEntries(keys.map(key=>[key,JSON.parse(readFileSync('content/'+key+'.json','utf8'))]));
 const buildPages=function buildPages(D){
  const e=s=>String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;");
  const base="https://agora-scuoladidialogosocraticoecittadinanzattiva.site";
  const email="agora.scuoladidialogosocratico@gmail.com";
  const mailto=subject=>"mailto:"+email+"?subject="+encodeURIComponent(subject);
- const runts="https://servizi.lavoro.gov.it/runts/it-it/Ricerca-enti/Ente";
+ const runts="https://servizi.lavoro.gov.it/runts/it-it/Ricerca-enti";
  const internal=[["/chi-siamo/","Chi siamo"],["/progetti/","Progetti"],["/tirocini/","Tirocini"],["/volontariato-esc/","ESC"],["/partecipa/","Partecipa"],["/contatti/","Contatti"]];
  const card=(title,body,tag="")=>`<article class="info-card">${tag?`<p class="tag">${e(tag)}</p>`:""}<h3>${e(title)}</h3>${body}</article>`;
  const p=(path,title,desc,eyebrow,body)=>{
@@ -23,8 +23,8 @@ const buildPages=function buildPages(D){
 <meta property="og:type" content="website"><meta property="og:title" content="${e(title)} | Agorà APS"><meta property="og:description" content="${e(desc)}"><meta property="og:url" content="${canonical}">
 <meta property="og:image" content="${base}/assets/agora_gruppo_home.webp">
 <link rel="icon" type="image/png" href="/assets/agora_icon.png">
-<link rel="stylesheet" href="/assets/sections.css?v=20261111"><link rel="stylesheet" href="/assets/accessibility.css?v=20261111">
-<script type="application/ld+json">${schema}</script><script defer src="/assets/a11y.js?v=20261111"></script>
+<link rel="stylesheet" href="/assets/sections.css?v=20261111"><link rel="stylesheet" href="/assets/accessibility.css?v=20261111"><link rel="stylesheet" href="/assets/experience.css?v=20261111">
+<script type="application/ld+json">${schema}</script><script defer src="/assets/a11y.js?v=20261111"></script><script defer src="/assets/experience.js?v=20261111"></script><script defer src="/assets/contact-form.js?v=20261111"></script>
 </head><body class="info-page">
 <a class="skip-link" href="#contenuto">Salta al contenuto</a>
 <header class="info-header"><div class="info-header-inner"><a class="info-brand" href="/" aria-label="Agorà APS, torna all'inizio"><img alt="" src="/assets/agora_icon.png" width="48" height="48"><span>Agorà APS<small>Scuola di Dialogo Socratico</small></span></a><nav class="info-nav" aria-label="Navigazione principale">${nav}</nav></div></header>
@@ -32,7 +32,8 @@ const buildPages=function buildPages(D){
 <header class="info-hero"><p class="eyebrow">${e(eyebrow)}</p><h1>${e(title)}</h1><p class="lead">${e(desc)}</p></header>${body}</main>
 <footer class="info-footer"><div class="info-footer-inner"><span>© 2026 Agorà APS</span><nav class="info-footer-links" aria-label="Informazioni e documenti"><a href="/trasparenza/">Trasparenza</a><a href="/privacy/">Privacy</a><a href="/accessibilita/">Accessibilità</a><a href="${runts}" rel="noopener noreferrer" target="_blank">RUNTS</a></nav><div class="accessibility-tools" aria-label="Preferenze di lettura"><button type="button" data-a11y="text" aria-pressed="false">A+ Testo</button><button type="button" data-a11y="contrast" aria-pressed="false">Contrasto</button></div></div></footer></body></html>\n`;
  };
- const A=D.association,M=D.method,P=D.projects,O=D.opportunities,C=D.contact;
+ const A=D.association,M=D.method,P=D.projects,O=D.opportunities,C=D.contact,G=D.governance;
+ const governanceCards=G.members.map(person=>card(person.name,"<p>"+e(person.role)+"</p>","Direttivo")).join("");
  const projectCards=(P.cards||[]).map(c=>card(c.title,`<p>${e(c.description)}</p>${c.title==="SODA-LABS"?'<p><a href="/progetti/soda-labs/">Scheda del progetto</a></p>':""}`,c.category)).join("");
  const pages={};
  pages["chi-siamo/index.html"]=p("/chi-siamo/","Chi siamo – Dialogo socratico e cittadinanza attiva",
@@ -40,6 +41,7 @@ const buildPages=function buildPages(D){
  <section class="info-section"><h2>Una comunità che pensa e agisce</h2><p>${e(A.description1)}</p><p>${e(A.description2)}</p>
  <p>Agorà promuove conversazioni strutturate, competenze critiche e opportunità formative per giovani, educatori, ricercatori e comunità.</p></section>
  <section class="info-section"><h2>Come lavoriamo</h2><p>${e(M.description1)}</p><p>${e(M.description2)}</p></section>
+ <section class="info-section" id="direttivo"><h2>Le persone e gli incarichi</h2><p>Gli incarichi qui riportati provengono dalla documentazione associativa disponibile per le convenzioni universitarie di giugno 2026. Per l'assetto formalmente registrato più recente fa fede la scheda nel RUNTS.</p><div class="info-grid governance-grid">\${governanceCards}</div><p class="info-note">Verifica la composizione registrata nel <a href="\${runts}" rel="noopener noreferrer" target="_blank">RUNTS</a>, cercando il codice fiscale <strong>93254890879</strong>. Le informazioni qui riportate non sostituiscono la visura ufficiale.</p></section>
  <section class="info-section"><h2>Approfondisci</h2><div class="info-grid">
  ${card("Progetti e mobilità",'<p>Scambi, laboratori e cittadinanza europea.</p><p><a href="/progetti/">Esplora i progetti</a></p>')}
  ${card("Tirocini e volontariato",'<p>Esperienze per apprendere insieme.</p><p><a href="/tirocini/">Informazioni sui tirocini</a> · <a href="/volontariato-esc/">Corpo europeo di solidarietà</a></p>')}</div></section>`);
