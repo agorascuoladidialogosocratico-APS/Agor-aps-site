@@ -9,6 +9,93 @@ media:
   - jpeg
   - webp
 content:
+- name: magazine
+  label: 00 · Agorà Magazine — Articoli e aggiornamenti
+  type: collection
+  path: content/magazine
+  format: json
+  filename: "{title}.json"
+  view:
+    fields: [title, date, category, published, featured]
+    primary: title
+    sort: [date, title]
+    default:
+      sort: date
+      order: desc
+  fields:
+  - name: title
+    label: Titolo dell'articolo
+    type: string
+    required: true
+  - name: date
+    label: Data di pubblicazione
+    type: date
+    required: true
+    options:
+      format: yyyy-MM-dd
+  - name: category
+    label: Rubrica (es. Editoriale, Notizie, Progetti, Cultura)
+    type: string
+    required: true
+  - name: author
+    label: Autore o redazione
+    type: string
+    required: true
+  - name: excerpt
+    label: Sommario breve per le anteprime e Google
+    type: text
+    required: true
+  - name: cover
+    label: Fotografia di copertina
+    type: image
+    description: Usa immagini dell'associazione autorizzate alla pubblicazione.
+  - name: coverAlt
+    label: Testo alternativo della fotografia
+    type: string
+  - name: published
+    label: Pubblica l'articolo sul sito
+    type: boolean
+    description: Se disattivato, l'articolo resta una bozza nel repository e non viene mostrato sul sito.
+  - name: featured
+    label: Articolo in evidenza
+    type: boolean
+  - name: body
+    label: Corpo dell'articolo — editor visuale
+    type: rich-text
+    required: true
+    options:
+      format: markdown
+      switcher: true
+- name: membership
+  label: 00 · Quote associative e bonifico
+  type: file
+  operations:
+    delete: false
+  path: content/membership.json
+  format: json
+  fields:
+  - name: title
+    label: Titolo della pagina
+    type: string
+  - name: description
+    label: Testo di presentazione
+    type: text
+  - name: bankDetailsPublic
+    label: Pubblica i dati di bonifico, soltanto dopo verifica
+    type: boolean
+  - name: accountHolder
+    label: Intestatario esatto del conto
+    type: string
+  - name: iban
+    label: IBAN del conto dell'associazione
+    type: string
+    description: Verrà mostrato soltanto se hai attivato la pubblicazione e l'IBAN supera il controllo formale.
+  - name: transferReason
+    label: Causale consigliata
+    type: string
+  - name: notes
+    label: Condizioni e informazioni sulle quote
+    type: text
 - name: whatsapp
   label: 00 · Chat WhatsApp Business
   type: file
