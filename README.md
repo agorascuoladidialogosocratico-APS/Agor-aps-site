@@ -91,3 +91,9 @@ Il widget non memorizza messaggi, non apre connessioni a terze parti finché il 
 
 ## Chat interna al sito (in preparazione)
 Il widget precedente che apriva WhatsApp è stato sostituito con la nuova chat interna, che **non trasferisce il visitatore su WhatsApp**. La conversazione bidirezionale richiede ancora l'attivazione Cloudflare D1, Turnstile e un numero tecnico WhatsApp Business Platform distinto dal numero dell'operatore +32 466 90 21 27. Finché i collegamenti non sono disponibili, la chat indica chiaramente che il servizio è in preparazione e offre il modulo contatti, senza false conferme. Per architettura, sicurezza, privacy e passi di attivazione vedere **CHAT-BIDIREZIONALE.md**.
+
+
+## Modalità gratuita della chat: posta operatore
+È ora disponibile una seconda architettura che non necessita delle API Meta: il visitatore scrive e riceve le risposte dentro il sito, mentre Agorà risponde dalla pagina riservata /operatore/, utilizzabile dal telefono. È indipendente da WhatsApp Business. I dati sono in un database Cloudflare D1 Free e gli accessi alla chat pubblica sono protetti da Turnstile.
+
+La configurazione di default è CHAT_MODE=free-dashboard e CHAT_ENABLED=false: **senza database, Turnstile e chiave operatore la chat non raccoglie messaggi**. Per l'attivazione reale seguire la sezione "Alternativa gratuita" di CHAT-BIDIREZIONALE.md. Il numero +32 non viene migrato né usato per inviare messaggi in questa modalità. La piena integrazione con WhatsApp Business può comportare costi Meta e resta un progetto a parte.
