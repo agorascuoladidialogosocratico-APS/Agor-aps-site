@@ -1,6 +1,6 @@
 import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';
 import {dirname} from 'node:path';
-const keys=["association","method","projects","opportunities","contact","transparency","governance"];
+const keys=["association","method","projects","opportunities","contact","transparency","governance","home"];
 const D=Object.fromEntries(keys.map(key=>[key,JSON.parse(readFileSync('content/'+key+'.json','utf8'))]));
 const buildPages=function buildPages(D){
  const e=s=>String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;");
@@ -10,8 +10,35 @@ const buildPages=function buildPages(D){
  const runts="https://servizi.lavoro.gov.it/runts/it-it/Ricerca-enti";
  const internal=[["/chi-siamo/","Chi siamo"],["/progetti/","Progetti"],["/tirocini/","Tirocini"],["/volontariato-esc/","ESC"],["/partecipa/","Partecipa"],["/contatti/","Contatti"]];
  const card=(title,body,tag="")=>`<article class="info-card">${tag?`<p class="tag">${e(tag)}</p>`:""}<h3>${e(title)}</h3>${body}</article>`;
+
+ const allowedImage=(value,fallback)=>typeof value==='string' && /^\/assets\/[a-z0-9_-]+\.webp$/i.test(value)?value:fallback;
+ const photographs=[
+  {src:allowedImage(D.home.hero.image,'/assets/agora_gruppo_home.webp'),alt:D.home.hero.imageAlt||'Gruppo di partecipanti ad Agorà riuniti a un tavolo',label:'Le persone'},
+  {src:allowedImage(D.method.image,'/assets/agora_dialogo.webp'),alt:D.method.imageAlt||'Partecipanti seduti attorno a un tavolo',label:'Il dialogo'},
+  {src:allowedImage(D.association.image,'/assets/agora_chi_siamo.webp'),alt:D.association.imageAlt||'Partecipanti di Agorà all’aperto',label:'La comunità'},
+  {src:allowedImage(D.projects.featured.image,'/assets/agora_viaggio.webp'),alt:D.projects.featured.imageAlt||'Binari ferroviari al tramonto',label:'Il viaggio'}
+ ];
+ const photoForPath={
+  '/chi-siamo/':2,'/progetti/':3,'/progetti/soda-labs/':1,'/progetti/odisseo-philosophorum/':3,
+  '/tirocini/':1,'/volontariato-esc/':0,'/partecipa/':2,'/contatti/':0,
+  '/trasparenza/':2,'/privacy/':1,'/accessibilita/':1
+ };
+ const visualThemes={
+  '/chi-siamo/':'community','/progetti/':'projects','/progetti/soda-labs/':'method',
+  '/progetti/odisseo-philosophorum/':'travel','/tirocini/':'method','/volontariato-esc/':'travel',
+  '/partecipa/':'community','/contatti/':'contact','/trasparenza/':'community',
+  '/privacy/':'method','/accessibilita/':'method'
+ };
+ const projectGalleryPaths=new Set(['/chi-siamo/','/progetti/','/tirocini/','/partecipa/']);
+ const picture=(photo,lazy=true)=>{const src=photo.src;const low=src.replace(/\.webp$/,'-480.webp');const mid=src.replace(/\.webp$/,'-800.webp');return '<img src="'+e(src)+'" srcset="'+e(low)+' 480w, '+e(mid)+' 800w, '+e(src)+' 1300w" sizes="(max-width:760px) 94vw, 60vw" alt="'+e(photo.alt)+'" width="1300" height="731" decoding="async" loading="'+(lazy?'lazy':'eager')+'"' +(lazy?'':' fetchpriority="high"')+'>';};
+
  const p=(path,title,desc,eyebrow,body)=>{
    const canonical=base+path;
+   const leadPhoto=photographs[photoForPath[path]??0];
+   const theme=visualThemes[path]||'community';
+   const heroVisual='<figure class="visual-cover-photo">'+picture(leadPhoto,false)+'<figcaption><span class="visual-photo-count">AGORÀ / VISIONI</span><span>'+e(leadPhoto.label)+'</span></figcaption></figure>';
+   const visualGallery=projectGalleryPaths.has(path)?'<section class="visual-gallery" aria-label="Fotografie delle esperienze di Agorà"><div class="visual-gallery-heading"><span>La nostra galleria</span><p>Il dialogo è fatto di persone, luoghi e incontri.</p></div><div class="visual-gallery-grid">'+photographs.filter(p=>p.src!==leadPhoto.src).map((photo,i)=>'<figure class="visual-gallery-item">'+picture(photo,true)+'<figcaption><span>0'+(i+1)+'</span> '+e(photo.label)+'</figcaption></figure>').join('')+'</div></section>':'';
+
    const schema=JSON.stringify({"@context":"https://schema.org","@graph":[{"@type":"NGO","@id":base+"/#agora","name":"Agorà – Scuola di Dialogo Socratico e Cittadinanza Attiva APS","url":base+"/"},{"@type":"WebPage","@id":canonical,"url":canonical,"name":title,"description":desc,"inLanguage":"it-IT","isPartOf":{"@id":base+"/#agora"}}]});
    const nav=internal.map(([url,label])=>`<a href="${url}"${path===url?' aria-current="page"':""}>${e(label)}</a>`).join("");
    return `<!doctype html>
