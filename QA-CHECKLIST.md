@@ -24,3 +24,14 @@
 - [ ] Verifica stato reale delle convenzioni/progetti e aggiornamento dati istituzionali.
 
 Questa checklist non è una dichiarazione di conformità legale o tecnica.
+
+## Miglioramento visuale e chat WhatsApp — 11 novembre 2026
+- [x] Foto originali del repository reintegrate in homepage e copertine delle pagine interne.
+- [x] Gallerie fotografiche di Chi siamo, Progetti, Tirocini e Partecipa.
+- [x] Breakpoint mobile e prefers-reduced-motion nel design fotografico e nella chat.
+- [x] Finestra di dialogo "Parliamone" con fallback al modulo quando manca un numero Business verificato.
+- [x] Configurazione WhatsApp Business editabile nel CMS; numero inizialmente vuoto per sicurezza.
+- [x] Controlli automatici sui file immagine, sugli alt, sui CSS/JS e sul formato E.164 digit-only.
+- [ ] Test visuale su browser e schermi reali, contrasto, VoiceOver/NVDA e zoom 200–400%.
+- [ ] Numero WhatsApp Business ufficiale fornito, verificato e attivato.
+- [ ] Test clic da smartphone e desktop e controllo ricezione effettiva messaggio nell'app Business.
