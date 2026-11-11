@@ -32,3 +32,6 @@ qa/
 **/.wrangler-check/**
 
 src/
+
+migrations/
+CHAT-BIDIREZIONALE.md
