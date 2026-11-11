@@ -1,13 +1,13 @@
 import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';
 import {dirname} from 'node:path';
-const keys=["association","method","projects","opportunities","contact","transparency"];
+const keys=["association","method","projects","opportunities","contact","transparency","governance"];
 const D=Object.fromEntries(keys.map(key=>[key,JSON.parse(readFileSync('content/'+key+'.json','utf8'))]));
 const buildPages=function buildPages(D){
  const e=s=>String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;");
  const base="https://agora-scuoladidialogosocraticoecittadinanzattiva.site";
  const email="agora.scuoladidialogosocratico@gmail.com";
  const mailto=subject=>"mailto:"+email+"?subject="+encodeURIComponent(subject);
- const runts="https://servizi.lavoro.gov.it/runts/it-it/Ricerca-enti/Ente";
+ const runts="https://servizi.lavoro.gov.it/runts/it-it/Ricerca-enti";
  const internal=[["/chi-siamo/","Chi siamo"],["/progetti/","Progetti"],["/tirocini/","Tirocini"],["/volontariato-esc/","ESC"],["/partecipa/","Partecipa"],["/contatti/","Contatti"]];
  const card=(title,body,tag="")=>`<article class="info-card">${tag?`<p class="tag">${e(tag)}</p>`:""}<h3>${e(title)}</h3>${body}</article>`;
  const p=(path,title,desc,eyebrow,body)=>{
@@ -23,8 +23,8 @@ const buildPages=function buildPages(D){
 <meta property="og:type" content="website"><meta property="og:title" content="${e(title)} | Agorà APS"><meta property="og:description" content="${e(desc)}"><meta property="og:url" content="${canonical}">
 <meta property="og:image" content="${base}/assets/agora_gruppo_home.webp">
 <link rel="icon" type="image/png" href="/assets/agora_icon.png">
-<link rel="stylesheet" href="/assets/sections.css?v=20261111"><link rel="stylesheet" href="/assets/accessibility.css?v=20261111">
-<script type="application/ld+json">${schema}</script><script defer src="/assets/a11y.js?v=20261111"></script>
+<link rel="stylesheet" href="/assets/sections.css?v=20261111"><link rel="stylesheet" href="/assets/accessibility.css?v=20261111"><link rel="stylesheet" href="/assets/experience.css?v=20261111">
+<script type="application/ld+json">${schema}</script><script defer src="/assets/a11y.js?v=20261111"></script><script defer src="/assets/experience.js?v=20261111"></script><script defer src="/assets/contact-form.js?v=20261111"></script>
 </head><body class="info-page">
 <a class="skip-link" href="#contenuto">Salta al contenuto</a>
 <header class="info-header"><div class="info-header-inner"><a class="info-brand" href="/" aria-label="Agorà APS, torna all'inizio"><img alt="" src="/assets/agora_icon.png" width="48" height="48"><span>Agorà APS<small>Scuola di Dialogo Socratico</small></span></a><nav class="info-nav" aria-label="Navigazione principale">${nav}</nav></div></header>
@@ -32,7 +32,8 @@ const buildPages=function buildPages(D){
 <header class="info-hero"><p class="eyebrow">${e(eyebrow)}</p><h1>${e(title)}</h1><p class="lead">${e(desc)}</p></header>${body}</main>
 <footer class="info-footer"><div class="info-footer-inner"><span>© 2026 Agorà APS</span><nav class="info-footer-links" aria-label="Informazioni e documenti"><a href="/trasparenza/">Trasparenza</a><a href="/privacy/">Privacy</a><a href="/accessibilita/">Accessibilità</a><a href="${runts}" rel="noopener noreferrer" target="_blank">RUNTS</a></nav><div class="accessibility-tools" aria-label="Preferenze di lettura"><button type="button" data-a11y="text" aria-pressed="false">A+ Testo</button><button type="button" data-a11y="contrast" aria-pressed="false">Contrasto</button></div></div></footer></body></html>\n`;
  };
- const A=D.association,M=D.method,P=D.projects,O=D.opportunities,C=D.contact;
+ const A=D.association,M=D.method,P=D.projects,O=D.opportunities,C=D.contact,G=D.governance;
+ const governanceCards=G.members.map(person=>card(person.name,"<p>"+e(person.role)+"</p>","Direttivo")).join("");
  const projectCards=(P.cards||[]).map(c=>card(c.title,`<p>${e(c.description)}</p>${c.title==="SODA-LABS"?'<p><a href="/progetti/soda-labs/">Scheda del progetto</a></p>':""}`,c.category)).join("");
  const pages={};
  pages["chi-siamo/index.html"]=p("/chi-siamo/","Chi siamo – Dialogo socratico e cittadinanza attiva",
@@ -40,6 +41,7 @@ const buildPages=function buildPages(D){
  <section class="info-section"><h2>Una comunità che pensa e agisce</h2><p>${e(A.description1)}</p><p>${e(A.description2)}</p>
  <p>Agorà promuove conversazioni strutturate, competenze critiche e opportunità formative per giovani, educatori, ricercatori e comunità.</p></section>
  <section class="info-section"><h2>Come lavoriamo</h2><p>${e(M.description1)}</p><p>${e(M.description2)}</p></section>
+ <section class="info-section" id="direttivo"><h2>Le persone e gli incarichi</h2><p>Gli incarichi qui riportati provengono dalla documentazione associativa disponibile per le convenzioni universitarie di giugno 2026. Per l'assetto formalmente registrato più recente fa fede la scheda nel RUNTS.</p><div class="info-grid governance-grid">${governanceCards}</div><p class="info-note">Verifica la composizione registrata nel <a href="${runts}" rel="noopener noreferrer" target="_blank">RUNTS</a>, cercando il codice fiscale <strong>93254890879</strong>. Le informazioni qui riportate non sostituiscono la visura ufficiale.</p></section>
  <section class="info-section"><h2>Approfondisci</h2><div class="info-grid">
  ${card("Progetti e mobilità",'<p>Scambi, laboratori e cittadinanza europea.</p><p><a href="/progetti/">Esplora i progetti</a></p>')}
  ${card("Tirocini e volontariato",'<p>Esperienze per apprendere insieme.</p><p><a href="/tirocini/">Informazioni sui tirocini</a> · <a href="/volontariato-esc/">Corpo europeo di solidarietà</a></p>')}</div></section>`);
@@ -82,10 +84,20 @@ const buildPages=function buildPages(D){
  <a class="info-btn" href="${mailto("Iscrizione o sostegno ad Agorà APS")}">Richiedi le modalità di adesione</a></section>`);
  pages["contatti/index.html"]=p("/contatti/","Contatti e sedi di Agorà APS",
  "Contatta Agorà APS per attività, tirocini, partnership, dialogo socratico e progetti europei in Sicilia.","Contatti e territorio",`
- <section class="info-section"><h2>Scrivici</h2><p>${e(C.description)}</p><p><a class="info-btn" href="${mailto("Contatto dal sito Agorà APS")}">Scrivi ad Agorà</a></p>
- <p><strong>Email:</strong> <a href="mailto:${e(C.email)}">${e(C.email)}</a></p>
- <p><strong>Territorio operativo:</strong> ${e(C.territory)}</p><p><strong>OID Erasmus+:</strong> ${e(C.oid)}</p>
- <p>Per appuntamenti e accesso alle sedi, contatta l'associazione prima di recarti sul posto.</p></section>`);
+ <section class="info-section contact-section" id="scrivici" aria-labelledby="contact-form-title"><span class="contact-eyebrow">Contatto diretto</span><h2 id="contact-form-title">Un dialogo inizia da qui.</h2>
+ <p>${e(C.description)}</p>
+ <div class="contact-layout"><form id="agora-contact-form" class="contact-form" action="/api/contact" method="post">
+ <div class="contact-form-intro"><p class="contact-form-kicker">01 / Il tuo messaggio</p><h3>Raccontaci cosa hai in mente.</h3><p>Compila i campi e inviaci la tua richiesta. I campi contrassegnati sono obbligatori.</p></div>
+ <div class="contact-fields"><div class="contact-field"><label for="contact-name">Nome e cognome <span aria-hidden="true">*</span></label><input id="contact-name" name="name" type="text" autocomplete="name" minlength="2" maxlength="100" placeholder="Come possiamo chiamarti?" required></div>
+ <div class="contact-field"><label for="contact-email">Indirizzo email <span aria-hidden="true">*</span></label><input id="contact-email" name="email" type="email" autocomplete="email" maxlength="254" placeholder="nome@esempio.it" required></div>
+ <div class="contact-field contact-field-full"><label for="contact-topic">Di cosa vuoi parlare? <span aria-hidden="true">*</span></label><select id="contact-topic" name="topic" required><option value="">Seleziona un argomento</option><option value="Informazioni generali">Informazioni generali</option><option value="Progetti Erasmus+">Progetti Erasmus+</option><option value="Tirocini universitari">Tirocini universitari</option><option value="Volontariato ESC">Volontariato ESC</option><option value="Partenariati">Partenariati e collaborazioni</option><option value="Altro">Altro</option></select></div>
+ <div class="contact-field contact-field-full"><label for="contact-message">Il tuo messaggio <span aria-hidden="true">*</span></label><textarea id="contact-message" name="message" rows="6" minlength="20" maxlength="4000" placeholder="Descrivi la tua idea, la tua domanda o l'opportunità che cerchi…" required aria-describedby="contact-counter"></textarea><span id="contact-counter" class="contact-counter" data-contact-counter>0 / 4000 caratteri</span></div>
+ <div class="contact-honeypot" aria-hidden="true"><label for="contact-website">Non compilare questo campo</label><input tabindex="-1" autocomplete="off" id="contact-website" name="website"></div>
+ <label class="contact-consent"><input type="checkbox" name="consent" value="yes" required><span>Ho letto le <a href="/privacy/" target="_blank" rel="noopener">informazioni sul trattamento dei dati</a> e chiedo di essere ricontattato/a riguardo al mio messaggio. <span aria-hidden="true">*</span></span></label></div>
+ <div class="contact-submit-row"><button class="contact-submit" type="submit">Invia il messaggio <span aria-hidden="true">↗</span></button><p class="contact-private">I dati sono usati esclusivamente per gestire la richiesta; non sono pubblicati sul sito.</p></div>
+ <p class="contact-feedback" data-contact-status role="status" aria-live="polite" hidden></p>
+ </form><aside class="contact-aside"><span class="contact-aside-mark" aria-hidden="true">✳</span><h3>Preferisci scriverci direttamente?</h3><p>Siamo una comunità: ogni domanda ha il suo spazio. Puoi contattarci anche via email.</p><a class="contact-direct" href="mailto:${e(C.email)}">${e(C.email)} <span aria-hidden="true">↗</span></a><div class="contact-aside-rule"></div><p><strong>Territorio operativo</strong><br>${e(C.territory)}</p><p><strong>OID Erasmus+</strong><br>${e(C.oid)}</p><p class="contact-small">Per visite o incontri in presenza, richiedi prima un appuntamento.</p></aside></div></section>
+`);
  pages["trasparenza/index.html"]=p("/trasparenza/","Trasparenza e documenti istituzionali",
  "Consulta gli atti di Agorà APS depositati nel RUNTS e trova le informazioni associative, le opportunità e i contatti ufficiali.","Trasparenza associativa",`
  <section class="info-section"><h2>La fonte ufficiale: RUNTS</h2><p>Agorà APS fa riferimento al Registro Unico Nazionale del Terzo Settore per i dati istituzionali e gli atti depositati, consultabili attraverso la ricerca degli enti.</p>

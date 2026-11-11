@@ -76,6 +76,20 @@ for(const pathname of publicPaths){
   assert(!/MarLuna/i.test(page),'Contenuto rimosso ancora presente: '+file);
 }
 
+assert(existsSync(join(root,'content/governance.json')), 'Mancano ruoli direttivo editabili');
+assert(existsSync(join(root,'assets/experience.css')), 'CSS dinamico non trovato');
+assert(existsSync(join(root,'assets/experience.js')), 'JS dinamico non trovato');
+assert(existsSync(join(root,'assets/contact-form.js')), 'Form client JS non trovato');
+assert(existsSync(join(root,'src/worker.js')), 'Worker contatti non trovato');
+assert(html.includes('class="pathways-grid"'), 'Navigazione percorsi homepage mancante');
+assert(html.includes('class="mobile-dock"'), 'Dock mobile mancante');
+const contactPage=read('contatti/index.html');
+assert(contactPage.includes('id="agora-contact-form"'), 'Modulo contatti non generato');
+assert(contactPage.includes('action="/api/contact"'), 'Endpoint del modulo non collegato');
+assert(contactPage.includes('name="consent"'), 'Consenso del modulo assente');
+assert(read('chi-siamo/index.html').includes('Gioele Pio Fragale'), 'Direttivo non aggiornato in Chi siamo');
+assert(read('wrangler.jsonc').includes('"send_email"'), 'Configurazione binding invio mancante');
+
 if (errors.length) {
   console.error('Verifica Agorà APS: ' + errors.length + ' problema/i:\n- ' + errors.join('\n- '));
   process.exitCode = 1;

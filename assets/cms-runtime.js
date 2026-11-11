@@ -3,7 +3,7 @@
    content updates never execute HTML from editor fields. */
 (() => {
   'use strict';
-  const names = ['identity','home','projects','method','association','transparency','contact','layout','blocks','opportunities'];
+  const names = ['identity','home','projects','method','association','transparency','contact','layout','blocks','opportunities','governance'];
   const text = (selector, value) => {
     const el = document.querySelector(selector);
     if (!el || typeof value !== 'string') return;
@@ -194,6 +194,15 @@
       }
     }
   }
+  function applyGovernance(d){
+    const scope=document.querySelector('#direttivo .people-list');
+    if(!scope||!Array.isArray(d?.members))return;
+    scope.replaceChildren(...d.members.slice(0,12).map(person=>{
+      const article=element('article');
+      article.append(element('h3',{},person.name||''),element('p',{},person.role||''));
+      return article;
+    }));
+  }
   function applyLayout(d) {
     if(!Array.isArray(d?.sections))return;
     const story=document.querySelector('.story-book');
@@ -219,8 +228,8 @@
       try {const response=await fetch(`/content/${name}.json`,{cache:'no-cache'});if(!response.ok)throw Error(response.status);return await response.json();}
       catch(err){console.warn('Contenuti Agorà non disponibili:',name,err);return null;}
     }));
-    const [identity,home,projects,method,association,transparency,contact,layout,blocks,opportunities]=results;
-    try { applyIdentity(identity);applyHome(home);applyProjects(projects);applyMethod(method);applyAssociation(association);applyTransparency(transparency);applyContact(contact);applyBlocks(blocks);applyOpportunities(opportunities);applyLayout(layout); }
+    const [identity,home,projects,method,association,transparency,contact,layout,blocks,opportunities,governance]=results;
+    try { applyIdentity(identity);applyHome(home);applyProjects(projects);applyMethod(method);applyAssociation(association);applyGovernance(governance);applyTransparency(transparency);applyContact(contact);applyBlocks(blocks);applyOpportunities(opportunities);applyLayout(layout); }
     catch(err){console.error('Errore nel caricamento dei contenuti del sito',err);}
     document.dispatchEvent(new CustomEvent('agora:cms:loaded',{detail:{success:results.filter(Boolean).length,total:names.length}}));
   }

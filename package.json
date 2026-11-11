@@ -7,9 +7,11 @@
     "build": "node scripts/generate-pages.mjs && npm run check",
     "deploy": "npm run build && wrangler deploy",
     "preview": "wrangler preview",
-    "check": "node scripts/verify-site.mjs"
+    "check": "node scripts/verify-site.mjs && npm test",
+    "test": "node scripts/test-contact.mjs"
   },
   "devDependencies": {
     "wrangler": "^4.135.0"
-  }
+  },
+  "type": "module"
 }

@@ -4,7 +4,18 @@
   "assets": {
     "directory": "./",
     "not_found_handling": "404-page",
-    "html_handling": "auto-trailing-slash"
+    "html_handling": "auto-trailing-slash",
+    "binding": "ASSETS",
+    "run_worker_first": [
+      "/api/*"
+    ]
   },
-  "previews": {}
+  "previews": {},
+  "main": "src/worker.js",
+  "send_email": [
+    {
+      "name": "CONTACT_EMAIL",
+      "destination_address": "agora.scuoladidialogosocratico@gmail.com"
+    }
+  ]
 }
