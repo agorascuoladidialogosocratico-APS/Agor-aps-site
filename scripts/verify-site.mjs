@@ -44,6 +44,38 @@ const ignore = read('.assetsignore');
 assert(!/^_headers\s*$/m.test(ignore), '_headers non deve essere escluso dal deploy Worker');
 assert(read('wrangler.jsonc').includes('"not_found_handling": "404-page"'), 'Configurazione Worker: gestione pagina 404 mancante');
 
+
+const publicPaths = [
+  '/','/chi-siamo/','/progetti/','/progetti/soda-labs/',
+  '/progetti/odisseo-philosophorum/','/tirocini/','/volontariato-esc/',
+  '/partecipa/','/contatti/','/trasparenza/','/privacy/','/accessibilita/'
+];
+const siteOrigin = 'https://agora-scuoladidialogosocraticoecittadinanzattiva.site';
+const sitemap = read('sitemap.xml');
+assert(!/MarLuna/i.test(html), 'Homepage contiene ancora riferimenti a MarLuna');
+assert(!/Statuto e Atto costitutivo/i.test(html), 'Homepage contiene ancora duplicazione atti');
+assert((html.match(/<h1\\b/g)||[]).length===1, 'Homepage: H1 non unico');
+assert(html.includes('href="/accessibilita/"'), 'Homepage senza link accessibilità');
+assert(html.includes('data-a11y="contrast"'), 'Manca controllo per contrasto elevato');
+assert(html.includes('data-a11y="text"'), 'Manca controllo dimensione testo');
+for (const path of ['assets/a11y.js','assets/accessibility.css','assets/sections.css']) {
+  assert(existsSync(join(root,path)), 'Risorsa accessibilità mancante: ' + path);
+}
+for(const pathname of publicPaths){
+  assert(sitemap.includes('<loc>'+siteOrigin+pathname+'</loc>'), 'Sitemap priva dell’URL: '+pathname);
+  if(pathname==='/')continue;
+  const file=pathname.slice(1)+'index.html';
+  assert(existsSync(join(root,file)), 'Pagina SEO mancante: '+file);
+  if(!existsSync(join(root,file)))continue;
+  const page=read(file);
+  assert((page.match(/<h1\\b/g)||[]).length===1,'H1 mancante o duplicato: '+file);
+  assert(page.includes('<main') && page.includes('id="contenuto"'),'Landmark main mancante: '+file);
+  assert(page.includes('<html lang="it"'),'Lingua italiana mancante: '+file);
+  assert(page.includes('href="'+siteOrigin+pathname+'"'),'Canonical inesatto: '+file);
+  assert(page.includes('href="/accessibilita/"'),'Collegamento accessibilità assente: '+file);
+  assert(!/MarLuna/i.test(page),'Contenuto rimosso ancora presente: '+file);
+}
+
 if (errors.length) {
   console.error('Verifica Agorà APS: ' + errors.length + ' problema/i:\n- ' + errors.join('\n- '));
   process.exitCode = 1;
