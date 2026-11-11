@@ -32,4 +32,51 @@ const forgedWebhook=await handleSiteChat(request('/api/meta-whatsapp-webhook','P
 assert.equal(forgedWebhook.status,403);
 const endpointStatus=await worker.fetch(request('/api/site-chat/status'),{ASSETS:{fetch:async()=>new Response('assets',{status:200})}});
 assert.equal(endpointStatus.status,200);
+
+const adminToken='X'.repeat(52);
+const chatUuid='00000000-0000-4000-a000-000000000001';
+const captured=[];
+const fakeDb={prepare(sql){return{bind(...args){captured.push({sql,args});return{
+ async first(){
+  if(sql.includes('secret_hash = ?'))return{id:chatUuid,code:'AB1234CDEF',status:'open'};
+  if(sql.includes('count(*) AS n'))return{n:0};
+  if(sql.includes('WHERE id=?'))return{id:chatUuid,code:'AB1234CDEF',status:'open'};
+  return null;
+ },
+ async all(){
+  if(sql.includes('FROM site_chats c'))return{results:[{id:chatUuid,code:'AB1234CDEF',status:'open',preview:'Salve',unanswered:1,updated_at:Date.now(),created_at:Date.now()}]};
+  return{results:[]};
+ },
+ async run(){return{success:true}}
+ };}};}};
+const freeEnv={
+ CHAT_DB:fakeDb,CHAT_ENABLED:'true',CHAT_MODE:'free-dashboard',
+ CHAT_ADMIN_TOKEN:adminToken,TURNSTILE_SECRET:'turnstile-secret',TURNSTILE_SITE_KEY:'turnstile-sitekey'
+};
+const freeReady=await handleSiteChat(request('/api/site-chat/status'),freeEnv);
+assert.equal(freeReady.status,200);
+assert.deepEqual(await freeReady.json(),{enabled:true,sitekey:'turnstile-sitekey'});
+const withoutAdminKey=await handleSiteChat(request('/api/site-chat/admin/chats'),freeEnv);
+assert.equal(withoutAdminKey.status,401);
+const badAdminKey=await handleSiteChat(request('/api/site-chat/admin/chats','GET',undefined,{'X-Agora-Operator-Key':'Z'.repeat(52)}),freeEnv);
+assert.equal(badAdminKey.status,401);
+const adminHeaders={'X-Agora-Operator-Key':adminToken};
+const list=await handleSiteChat(request('/api/site-chat/admin/chats','GET',undefined,adminHeaders),freeEnv);
+assert.equal(list.status,200);assert.equal((await list.json()).chats[0].code,'AB1234CDEF');
+const details=await handleSiteChat(request('/api/site-chat/admin/messages?chatId='+chatUuid,'GET',undefined,adminHeaders),freeEnv);
+assert.equal(details.status,200);
+const invalidReply=await handleSiteChat(request('/api/site-chat/admin/reply','POST',{chatId:chatUuid,message:'n'},adminHeaders),freeEnv);
+assert.equal(invalidReply.status,422);
+const response=await handleSiteChat(request('/api/site-chat/admin/reply','POST',{chatId:chatUuid,message:'Ciao, siamo disponibili.'},adminHeaders),freeEnv);
+assert.equal(response.status,201);assert.equal((await response.json()).ok,true);
+const userHeaders={Authorization:'Bearer '+'a'.repeat(64)};
+const freeMessage=await handleSiteChat(request('/api/site-chat/message','POST',{message:'Vorrei parlare con Agorà.'},userHeaders),freeEnv);
+assert.equal(freeMessage.status,201);
+const delivery=await freeMessage.json();
+assert.equal(delivery.delivery,'operator-dashboard');assert.equal(delivery.notified,false);
+const unprotectedFreeEnv={...freeEnv,CHAT_ADMIN_TOKEN:''};
+const notEnabled=await handleSiteChat(request('/api/site-chat/status'),unprotectedFreeEnv);
+assert.equal((await notEnabled.json()).enabled,false);
+console.log('Free dashboard mode: access key, send/receive, no Meta notification tested.');
+
 console.log('Site-chat: endpoint disabilitato sicuro, autenticazione, captcha e firma webhook.');
