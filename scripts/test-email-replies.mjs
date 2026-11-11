@@ -56,7 +56,7 @@ assert(await receiveChatEmailReply(msg,env),msg.rejected||'valid Gmail reply sho
 assert.equal(writes.length,2);
 assert(writes[0].sql.includes('INSERT OR IGNORE INTO site_chat_messages'));
 assert.equal(writes[0].args[1],chatId);
-assert.equal(writes[0].args[3],'Buongiorno, possiamo organizzare un incontro.');
+assert.equal(writes[0].args[2],'Buongiorno, possiamo organizzare un incontro.');
 assert.equal(writes[1].args[1],chatId);
 msg=mkMessage({},'attacker@example.org');assert.equal(await receiveChatEmailReply(msg,env),false);
 assert(msg.rejected.includes('non autorizzato'));
