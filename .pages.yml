@@ -90,6 +90,12 @@ content:
     label: IBAN del conto dell'associazione
     type: string
     description: Verrà mostrato soltanto se hai attivato la pubblicazione e l'IBAN supera il controllo formale.
+  - name: bic
+    label: BIC / SWIFT ufficiale
+    type: string
+  - name: bankName
+    label: Istituto di pagamento
+    type: string
   - name: transferReason
     label: Causale consigliata
     type: string
