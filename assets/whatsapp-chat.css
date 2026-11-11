@@ -1,5 +1,5 @@
 /* Agorà APS | pannello dialogo con passaggio a WhatsApp Business */
-.wa-widget{position:fixed;bottom:24px;right:24px;z-index:200;font:400 14px/1.5 'DM Sans',Arial,sans-serif;color:#193b4a;display:flex;flex-direction:column;align-items:flex-end;pointer-events:none}
+.wa-widget{position:fixed;bottom:24px;right:24px;z-index:200;font:400 14px/1.5 'DM Sans',Arial,sans-serif;color:#193b4a;display:flex;flex-direction:column-reverse;align-items:flex-end;pointer-events:none}
 .wa-widget *{box-sizing:border-box}.wa-widget>*{pointer-events:auto}
 .wa-widget [hidden]{display:none!important}
 .wa-launcher{display:flex;align-items:center;gap:10px;padding:9px 18px 9px 9px;min-height:58px;border-radius:40px;border:1px solid #264958;background:#193b4a;color:white;cursor:pointer;box-shadow:0 12px 35px rgba(16,51,64,.24);font:700 14px/1.3 'DM Sans',Arial,sans-serif;transition:transform .25s,box-shadow .25s,background .25s}
