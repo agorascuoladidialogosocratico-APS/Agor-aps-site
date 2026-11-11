@@ -517,6 +517,13 @@ content:
   - name: oid
     label: OID Erasmus+
     type: string
+  - name: phone
+    label: Telefono italiano per chiamate
+    type: string
+  - name: whatsappNumber
+    label: Numero WhatsApp Business visualizzato
+    type: string
+    description: Modifica anche il campo numero nella sezione 00 · Chat WhatsApp Business se cambia il numero
 - name: blocks
   label: 08 · Nuove sezioni
   type: file
