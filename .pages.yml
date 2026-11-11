@@ -9,6 +9,33 @@ media:
   - jpeg
   - webp
 content:
+- name: whatsapp
+  label: 00 · Chat WhatsApp Business
+  type: file
+  operations:
+    delete: false
+  path: content/whatsapp.json
+  format: json
+  fields:
+  - name: enabled
+    label: Attiva chat solo dopo aver verificato il numero Business
+    type: boolean
+  - name: businessName
+    label: Nome visualizzato nella chat
+    type: string
+  - name: phoneNumber
+    label: Numero WhatsApp Business internazionale (solo cifre, es. 39...)
+    type: string
+    description: Inserire esclusivamente il numero WhatsApp Business ufficiale e verificato di Agorà. Mai numeri personali o di altri progetti.
+  - name: welcome
+    label: Messaggio iniziale
+    type: text
+  - name: defaultMessage
+    label: Messaggio precompilato
+    type: text
+  - name: note
+    label: Note gestionali
+    type: text
 - name: governance
   label: 04 · Direttivo e incarichi (verificare RUNTS)
   type: file

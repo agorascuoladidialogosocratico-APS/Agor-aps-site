@@ -1,0 +1,41 @@
+/* Agorà APS | pannello dialogo con passaggio a WhatsApp Business */
+.wa-widget{position:fixed;bottom:24px;right:24px;z-index:200;font:400 14px/1.5 'DM Sans',Arial,sans-serif;color:#193b4a;display:flex;flex-direction:column-reverse;align-items:flex-end;pointer-events:none}
+.wa-widget *{box-sizing:border-box}.wa-widget>*{pointer-events:auto}
+.wa-widget [hidden]{display:none!important}
+.wa-launcher{display:flex;align-items:center;gap:10px;padding:9px 18px 9px 9px;min-height:58px;border-radius:40px;border:1px solid #264958;background:#193b4a;color:white;cursor:pointer;box-shadow:0 12px 35px rgba(16,51,64,.24);font:700 14px/1.3 'DM Sans',Arial,sans-serif;transition:transform .25s,box-shadow .25s,background .25s}
+.wa-launcher:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(16,51,64,.28)}.wa-launcher:focus-visible{outline:3px solid #b85628;outline-offset:4px}
+.wa-launcher-icon{display:grid;place-items:center;width:38px;height:38px;background:#eec99b;color:#173d47;border-radius:50%;font:450 25px/1 Georgia,serif}
+.wa-launcher.wa-connected{background:#155640;border-color:#155640}.wa-launcher.wa-connected .wa-launcher-icon{background:#d7f4dc;color:#16724a}
+.wa-launcher.wa-connected .wa-launcher-icon:before{content:"✆";font:600 22px/1 Georgia,serif}.wa-launcher.wa-connected .wa-launcher-icon{font-size:0}
+.wa-panel{width:min(380px,calc(100vw - 24px));max-height:min(690px,calc(100dvh - 112px));display:flex;flex-direction:column;overflow:hidden;background:#fffaf4;color:#193b4a;border-radius:16px;border:1px solid #d4ded8;box-shadow:0 24px 95px rgba(13,42,53,.26);margin-bottom:14px;transform-origin:100% 100%;animation:wa-open .3s cubic-bezier(.2,.8,.2,1) both}
+@keyframes wa-open{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}
+.wa-panel-head{display:flex;align-items:center;gap:13px;padding:19px 18px;background:#193b4a;color:#fffaf1;border-bottom:3px solid #dab583}
+.wa-panel-brand{width:45px;height:45px;border-radius:50%;display:grid;place-items:center;background:#f4efe6;border:2px solid #d5bd99;flex:none}
+.wa-panel-brand img{width:37px;height:37px;object-fit:contain}
+.wa-panel-title{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.wa-panel-title strong{font:550 24px/1.1 'Newsreader',Georgia,serif;color:#fff}
+.wa-panel-title span{font:400 11px/1.4 'DM Sans',Arial,sans-serif;color:#d9e9e2;letter-spacing:.03em}
+.wa-panel-close{min-width:42px;min-height:42px;border:1px solid rgba(255,255,255,.34);background:transparent;color:#fff;border-radius:50%;cursor:pointer;font:400 29px/1 Georgia,serif}
+.wa-panel-close:hover{background:rgba(255,255,255,.12)}
+.wa-panel-main{overflow-y:auto;min-height:180px;padding:19px;background:radial-gradient(circle at 25% 0%,rgba(223,231,215,.64),transparent 55%),#f4f2eb}
+.wa-panel-caption{font:700 10px/1.4 'DM Sans',Arial,sans-serif;letter-spacing:.17em;color:#7f8d82;text-align:center;margin:0 0 15px}
+.wa-bubble{position:relative;background:#fff;padding:16px 18px;border:1px solid #e4e4d9;border-radius:5px 16px 16px 16px;box-shadow:0 5px 15px rgba(0,0,0,.04);max-width:92%;font:400 14px/1.55 'DM Sans',Arial,sans-serif;color:#243e43;margin-bottom:18px}
+.wa-choices-label{font:600 12px/1.4 'DM Sans',Arial,sans-serif;color:#58706e;margin:4px 0 11px}
+.wa-choices{display:flex;flex-wrap:wrap;gap:7px}.wa-choices button{background:#fffdf8;color:#245b58;border:1px solid #b0d1c5;padding:9px 11px;border-radius:20px;cursor:pointer;font:650 11px/1.3 'DM Sans',Arial,sans-serif;min-height:37px}
+.wa-choices button:hover{background:#e2eee8;border-color:#6b9787}
+.wa-pending{padding:15px;background:#fffdf7;border:1px solid #ddd9ca;border-radius:9px}
+.wa-pending p{font:400 13px/1.6 'DM Sans',Arial,sans-serif;margin:0 0 12px;color:#4c605d}
+.wa-pending a{display:inline-flex;gap:6px;color:#8c3c16;font:700 13px/1.4 'DM Sans',Arial,sans-serif}
+.wa-compose{padding:17px 18px 10px;display:flex;flex-direction:column;gap:9px;background:#fffdf9;border-top:1px solid #e1e5dc}
+.wa-compose label{font:700 12px/1.4 'DM Sans',Arial,sans-serif;color:#38544f}
+.wa-compose textarea{display:block;width:100%;min-height:70px;padding:12px;border-radius:9px;border:1px solid #c6d5cc;resize:vertical;font:400 13px/1.55 'DM Sans',Arial,sans-serif;color:#193b4a;background:white}
+.wa-compose textarea:focus-visible{outline:3px solid #b85628;outline-offset:2px}
+.wa-compose button{align-self:stretch;min-height:46px;border:0;border-radius:7px;background:#16704f;color:#fff;font:700 13px/1.4 'DM Sans',Arial,sans-serif;padding:10px 14px;cursor:pointer;display:flex;align-items:center;justify-content:space-between}
+.wa-compose button:hover{background:#105d41}.wa-compose small{font-size:10px;line-height:1.45;color:#667b73}
+.wa-panel-footer{padding:10px 17px;font:400 10px/1.4 'DM Sans',Arial,sans-serif;text-align:center;color:#6d7e78;border-top:1px solid #e8e9df;background:#fdfaf5}
+html.a11y-high-contrast .wa-panel{border:2px solid #102730;background:white}
+html.a11y-high-contrast .wa-panel-main,html.a11y-high-contrast .wa-pending,html.a11y-high-contrast .wa-bubble{background:white!important;color:#102730!important}
+html.a11y-high-contrast .wa-choices button{color:#003d75!important;border-color:#102730!important}
+@media(max-width:760px){.wa-widget{right:12px;bottom:calc(81px + env(safe-area-inset-bottom))}.info-page .wa-widget{bottom:calc(14px + env(safe-area-inset-bottom))}.wa-launcher{min-height:54px}.wa-launcher-icon{width:35px;height:35px}.wa-panel{max-height:min(670px,calc(100dvh - 176px));width:min(370px,calc(100vw - 24px))}.info-page .wa-panel{max-height:min(690px,calc(100dvh - 92px))}}
+@media(prefers-reduced-motion:reduce){.wa-panel{animation:none!important}.wa-launcher{transition:none!important}.wa-launcher:hover{transform:none}}
+@media print{.wa-widget{display:none!important}}
