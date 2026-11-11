@@ -1,3 +1,4 @@
+import {sendChatConversationEmail,emailEnabled} from './chat-email.js';
 /* Agorà: chat web ↔ WhatsApp Business via numero tecnico Cloud API distinto.
    Nessun database, token o credenziale = chat disabilitata; mai simulare consegna. */
 const OWNER_NUMBER='32466902127';
@@ -75,7 +76,18 @@ async function postMessage(request,env){
   await env.CHAT_DB.prepare("INSERT INTO site_chat_messages (id,chat_id,side,body,created_at,notified) VALUES (?,?,'visitor',?,?,0)").bind(id,session.id,body,now).run();
   await env.CHAT_DB.prepare("UPDATE site_chats SET updated_at=? WHERE id=?").bind(now,session.id).run();
  }catch{return json(503,{ok:false,message:'Messaggio non registrato. Riprova.'});}
- if(isFreeDashboard(env))return json(201,{ok:true,stored:true,notified:false,delivery:'operator-dashboard',message:'Messaggio ricevuto nella chat. Agorà potrà risponderti qui.'});
+ if(isFreeDashboard(env)){
+   let emailNotified=false;
+   if(emailEnabled(env)){
+     try{
+       emailNotified=await sendChatConversationEmail(env,{chatId:session.id,code:session.code,side:'visitor',body});
+       if(emailNotified)await env.CHAT_DB.prepare('UPDATE site_chat_messages SET notified=1 WHERE id=?').bind(id).run();
+     }catch{/* The message remains in the inbox; do not claim email was delivered. */}
+   }
+   return json(201,{ok:true,stored:true,notified:emailNotified,delivery:'operator-dashboard',message:emailNotified?
+     'Messaggio ricevuto nella chat e notifica email accettata. Agorà potrà risponderti qui.':
+     'Messaggio ricevuto nella chat. Agorà potrà risponderti qui.'});
+ }
  let notified=false;
  try{notified=await sendOperatorNotification(env,session.code,body);}catch{/* Keep stored message; no false notification claim. */}
  if(notified)await env.CHAT_DB.prepare('UPDATE site_chat_messages SET notified=1 WHERE id=?').bind(id).run();
@@ -157,7 +169,14 @@ async function operatorAPI(request,env){
    const now=Date.now();
    await env.CHAT_DB.prepare("INSERT INTO site_chat_messages (id,chat_id,side,body,created_at,notified) VALUES (?,?,'operator',?,?,1)").bind(crypto.randomUUID(),id,body,now).run();
    await env.CHAT_DB.prepare('UPDATE site_chats SET updated_at=? WHERE id=?').bind(now,id).run();
-   return json(201,{ok:true,message:'Risposta salvata: apparirà nella chat del visitatore.'});
+   let emailNotified=false;
+   if(emailEnabled(env)){
+     try{
+       const row=await env.CHAT_DB.prepare('SELECT code FROM site_chats WHERE id=?').bind(id).first();
+       if(row?.code)emailNotified=await sendChatConversationEmail(env,{chatId:id,code:row.code,side:'operator',body});
+     }catch{/* The reply is safely stored regardless of email state. */}
+   }
+   return json(201,{ok:true,emailNotified,message:'Risposta salvata: apparirà nella chat del visitatore.'});
  }
  return json(405,{ok:false,message:'Operazione non supportata.'});
 }
