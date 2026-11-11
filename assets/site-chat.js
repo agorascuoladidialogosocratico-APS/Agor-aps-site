@@ -19,7 +19,8 @@ const key='agora.siteChat.session';let token=null,pollTimer=null,ready=false,sit
 try{const saved=sessionStorage.getItem(key);if(/^[a-f0-9]{64}$/.test(saved||''))token=saved;}catch{}
 const setStatus=s=>{status.textContent=s;};
 const toggle=open=>{panel.hidden=!open;btn.setAttribute('aria-expanded',String(open));if(open)(ready&&token?field:close).focus();else btn.focus();if(open)beginPoll();else stopPoll();};
-btn.addEventListener('click',()=>toggle(panel.hidden));close.addEventListener('click',()=>toggle(false));document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!panel.hidden)toggle(false);});document.addEventListener('pointerdown',e=>{if(!panel.hidden&&!app.contains(e.target))toggle(false);});
+btn.addEventListener('click',()=>toggle(panel.hidden));
+document.addEventListener('click',event=>{if(event.target.closest('[data-open-site-chat]')){event.preventDefault();toggle(true);}});close.addEventListener('click',()=>toggle(false));document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!panel.hidden)toggle(false);});document.addEventListener('pointerdown',e=>{if(!panel.hidden&&!app.contains(e.target))toggle(false);});
 const api=async (path,method='GET',body)=>{
  const headers={'Accept':'application/json'};if(body)headers['Content-Type']='application/json';if(token)headers.Authorization='Bearer '+token;
  const r=await fetch(path,{method,headers,body:body?JSON.stringify(body):undefined,credentials:'same-origin',cache:'no-store'});
