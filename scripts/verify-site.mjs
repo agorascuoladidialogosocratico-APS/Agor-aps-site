@@ -1,9 +1,9 @@
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
 const root = process.cwd();
 const read = path => readFileSync(join(root, path), 'utf8');
-const files = ['identity', 'home', 'projects', 'method', 'association', 'transparency', 'contact', 'layout', 'blocks', 'opportunities', 'governance', 'whatsapp'];
+const files = ['identity', 'home', 'projects', 'method', 'association', 'transparency', 'contact', 'layout', 'blocks', 'opportunities', 'governance', 'whatsapp', 'membership'];
 const html = read('index.html');
 const errors = [];
 const assert = (condition, description) => { if (!condition) errors.push(description); };
@@ -95,12 +95,12 @@ const contactData=JSON.parse(read('content/contact.json'));
 assert(contactData.phone==='+39 333 883 9329','Numero per le chiamate italiano non corrisponde');
 assert(contactData.whatsappNumber==='+32 466 90 21 27','Recapito WhatsApp Business visualizzato errato');
 assert(html.includes('href="tel:+393338839329"'),'Homepage: vecchio numero telefono o link tel errato');
-assert(!html.includes('https://wa.me/'),'Homepage non deve trasferire il visitatore su WhatsApp');
+assert(html.includes('https://wa.me/32466902127'),'Homepage: collegamento WhatsApp Business ufficiale mancante');
 assert(contactPage.includes('href="tel:+393338839329"'),'Contatti: numero per chiamate assente');
-assert(!contactPage.includes('https://wa.me/'),'Contatti non devono trasferire il visitatore su WhatsApp');
+assert(contactPage.includes('https://wa.me/32466902127'),'Contatti: collegamento WhatsApp Business ufficiale mancante');
 assert(!html.includes('tel:+393510887084'),'Homepage: vecchio numero chiamate ancora presente');
 const whatsapp=JSON.parse(read('content/whatsapp.json'));
-assert(whatsapp.enabled===false && whatsapp.phoneNumber==='32466902127','Widget wa.me deve restare disattivato; il numero operatore deve rimanere +32');
+assert(whatsapp.enabled===true && whatsapp.phoneNumber==='32466902127','Widget WhatsApp Business ufficiale non attivo');
 assert(whatsapp.enabled !== true || /^[1-9]\d{7,14}$/.test(String(whatsapp.phoneNumber||'')),'Numero WhatsApp non valido: solo cifre internazionali, senza prefissi inventati');
 for(const file of ['assets/visual-story.css','assets/site-chat.css','assets/site-chat.js','src/site-chat.js','migrations/0001_site_chat.sql']){
   assert(existsSync(join(root,file)),'Nuova risorsa grafica/chat mancante: '+file);
@@ -109,9 +109,11 @@ assert(html.includes('class="home-photo-story"'),'Homepage: galleria foto origin
 assert(html.includes('src="/assets/agora_dialogo.webp"'),'Homepage: foto del dialogo mancante');
 assert(html.includes('src="/assets/agora_viaggio.webp"'),'Homepage: foto del viaggio mancante');
 assert(html.includes('src="/assets/agora_gruppo_home.webp"'),'Homepage: foto di gruppo mancante');
-assert(html.includes('/assets/site-chat.js'),'Homepage: chat integrata assente');
-assert(!html.includes('/assets/whatsapp-chat.js'),'Homepage: vecchio widget wa.me ancora attivo');
-assert(html.includes('data-open-site-chat'),'Pulsante chat interno assente');
+assert(html.includes('/assets/whatsapp-chat.js'),'Homepage: widget WhatsApp Business assente');
+assert(!html.includes('/assets/site-chat.js'),'Homepage: vecchio widget della chat inattiva ancora caricato');
+assert(html.includes('class="home-magazine-teaser"'),'Homepage senza anteprima Agorà Magazine');
+assert(html.includes('href="/magazine/"'),'Homepage: Magazine non navigabile');
+assert(html.includes('href="/sostienici/"'),'Homepage: Sostienici non navigabile');
 const originalImages=['agora_gruppo_home','agora_dialogo','agora_chi_siamo','agora_viaggio'];
 for(const image of originalImages){
  for(const suffix of ['.webp','-480.webp','-800.webp']){
@@ -125,8 +127,8 @@ for(const pathname of publicPaths){
  assert(page.includes('class="visual-cover-photo"'),'Fotografia di apertura mancante: '+pathname);
  assert(page.includes('alt="'),'Testo alternativo della foto mancante: '+pathname);
  assert(page.includes('/assets/visual-story.css'),'Stile visivo assente: '+pathname);
- assert(page.includes('/assets/site-chat.js'),'Chat interna assente: '+pathname);
- assert(!page.includes('/assets/whatsapp-chat.js'),'Widget WhatsApp esterno ancora caricato: '+pathname);
+ assert(page.includes('/assets/whatsapp-chat.js'),'Widget WhatsApp assente: '+pathname);
+ assert(!page.includes('/assets/site-chat.js'),'Vecchio widget chat inattivo ancora caricato: '+pathname);
 }
 
 assert(existsSync(join(root,'operatore/index.html')),'Posta operatore non creata');
@@ -147,6 +149,44 @@ assert(cfgEmail.vars?.CHAT_EMAIL_NOTIFICATIONS==='true','Le notifiche Gmail devo
 assert(read('src/worker.js').includes('async email(message,env,ctx)'), 'Manca handler email Cloudflare');
 assert(read('src/chat-email.js').includes('authentication-results'),'Controllo DMARC Email Routing assente');
 assert(read('src/chat-email.js').includes('hmacReplyToken'),'Firma della conversazione email assente');
+
+
+const editorial=JSON.parse(read('content/membership.json'));
+const magFiles=readdirSync(join(root,'content/magazine')).filter(x=>x.endsWith('.json'));
+const magIndex=read('magazine/index.html');
+assert(existsSync(join(root,'assets/magazine.css')),'Magazine: foglio di stile assente');
+assert(existsSync(join(root,'assets/magazine.js')),'Magazine: interazioni mancanti');
+assert(existsSync(join(root,'assets/site-polish.css')),'Homepage: rifinitura responsive assente');
+assert(html.includes('/assets/site-polish.css'),'Homepage: rifinitura CSS non caricata');
+assert(magIndex.includes('<h1>Le domande'),'Magazine: intestazione non generata');
+assert(magIndex.includes('/assets/agora_gruppo_home.webp'),'Magazine: fotografia originale mancante');
+assert(sitemap.includes('<loc>'+siteOrigin+'/magazine/</loc>'),'Magazine: URL mancante dalla sitemap');
+assert(sitemap.includes('<loc>'+siteOrigin+'/sostienici/</loc>'),'Sostienici: URL mancante dalla sitemap');
+assert(existsSync(join(root,'magazine/rss.xml')),'Magazine: RSS non generato');
+assert(read('magazine/rss.xml').includes('<rss version="2.0">'),'Magazine: feed RSS non valido');
+const membershipPage=read('sostienici/index.html');
+assert(membershipPage.includes('id="bonifico"'),'Sostienici: sezione bonifico assente');
+assert(membershipPage.includes('href="/assets/magazine.css')||membershipPage.includes('href="/assets/magazine.css?v='),'Sostienici: stile editoriale non caricato');
+if(!editorial.bankDetailsPublic)assert(!membershipPage.includes('data-copy-iban'),'Sostienici: IBAN pubblicato senza autorizzazione');
+for(const file of magFiles){
+ const slug=file.replace(/\.json$/,'');
+ const data=JSON.parse(read('content/magazine/'+file));
+ if(data.published!==true){
+   assert(!sitemap.includes('<loc>'+siteOrigin+'/magazine/'+slug+'/</loc>'),'Bozza indicizzata: '+slug);
+   continue;
+ }
+ const path='magazine/'+slug+'/index.html';
+ assert(existsSync(join(root,path)),'Articolo Magazine non generato: '+slug);
+ if(existsSync(join(root,path))){
+  const article=read(path);
+  assert(article.includes('<h1>'),'Magazine: titolo articolo assente '+slug);
+  assert(article.includes('BlogPosting'),'Magazine: dati strutturati assenti '+slug);
+  assert(article.includes('href="'+siteOrigin+'/magazine/'+slug+'/'),'Magazine: canonical errato '+slug);
+  assert(sitemap.includes('<loc>'+siteOrigin+'/magazine/'+slug+'/</loc>'),'Magazine: articolo assente nella sitemap '+slug);
+ }
+}
+assert(read('.pages.yml').includes('name: magazine'),'Editor: raccolta Agorà Magazine mancante');
+assert(read('.pages.yml').includes('name: membership'),'Editor: bonifici non modificabili');
 
 if (errors.length) {
   console.error('Verifica Agorà APS: ' + errors.length + ' problema/i:\n- ' + errors.join('\n- '));
