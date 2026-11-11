@@ -50,7 +50,7 @@ const buildPages=function buildPages(D){
 <meta property="og:type" content="website"><meta property="og:title" content="${e(title)} | Agorà APS"><meta property="og:description" content="${e(desc)}"><meta property="og:url" content="${canonical}">
 <meta property="og:image" content="${base}/assets/agora_gruppo_home.webp">
 <link rel="icon" type="image/png" href="/assets/agora_icon.png">
-<link rel="stylesheet" href="/assets/sections.css?v=20261111"><link rel="stylesheet" href="/assets/accessibility.css?v=20261111"><link rel="stylesheet" href="/assets/experience.css?v=20261111"><link rel="stylesheet" href="/assets/visual-story.css?v=20261111"><link rel="stylesheet" href="/assets/whatsapp-chat.css?v=20261112">
+<link rel="stylesheet" href="/assets/sections.css?v=20261111"><link rel="stylesheet" href="/assets/accessibility.css?v=20261111"><link rel="stylesheet" href="/assets/experience.css?v=20261111"><link rel="stylesheet" href="/assets/visual-story.css?v=20261111"><link rel="stylesheet" href="/assets/site-polish.css?v=20261112"><link rel="stylesheet" href="/assets/whatsapp-chat.css?v=20261112">
 <script type="application/ld+json">${schema}</script><script defer src="/assets/a11y.js?v=20261111"></script><script defer src="/assets/experience.js?v=20261111"></script><script defer src="/assets/contact-form.js?v=20261111"></script><script defer src="/assets/whatsapp-chat.js?v=20261112"></script>
 </head><body class="info-page">
 <a class="skip-link" href="#contenuto">Salta al contenuto</a>
