@@ -48,3 +48,14 @@ Questa checklist non è una dichiarazione di conformità legale o tecnica.
 - [ ] Creare Turnstile Free e configurare Secret/Site Key.
 - [ ] Generare e salvare CHAT_ADMIN_TOKEN solo nei segreti Cloudflare e attivare un controllo Cloudflare Access.
 - [ ] Verificare informativa privacy, testare dal telefono invio e risposta, poi impostare CHAT_ENABLED=true.
+
+
+## Botta e risposta Gmail ↔ chat
+- [x] Codice email in uscita con cronologia e Reply-To tecnico firmato.
+- [x] Handler Cloudflare Email Routing per leggere email autenticate da Gmail Agorà e pubblicare risposte nella chat corretta.
+- [x] Parsing MIME, rimozione testo citato, deduplicazione, controlli HMAC e DMARC.
+- [x] Documentate conservazione separata copie Gmail e test sicurezza.
+- [ ] Associare Email Routing del dominio e indirizzo risposte@ al Worker.
+- [ ] Verificare destinatario Gmail e invio Cloudflare Email Service.
+- [ ] Configurare CHAT_EMAIL_REPLY_SECRET in Cloudflare e attivare CHAT_EMAIL_REPLY_ENABLED soltanto dopo la prova.
+- [ ] Attivare prima D1, Turnstile e chat pubblica; test end-to-end Gmail ↔ chat con browser privato.
