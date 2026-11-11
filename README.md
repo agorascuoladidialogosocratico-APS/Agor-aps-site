@@ -84,6 +84,6 @@ Configurazione in Pages CMS → "00 · Chat WhatsApp Business", file \`content/w
 3. Impostare \`enabled: true\` e pubblicare le modifiche.
 4. Aprire il sito da smartphone e computer, digitare un messaggio e verificare che venga aperta **la chat corretta** nell'app WhatsApp Business. Verificare anche l'effettiva ricezione inviando il messaggio dall'app.
 
-Il numero è volutamente vuoto e \`enabled:false\` fino alla verifica. In questo stato il widget funziona come punto di contatto con pulsante per il modulo del sito e **non** manda i visitatori a numeri personali o non confermati.
+Il numero WhatsApp Business comunicato dall'associazione l'11 novembre 2026 è **+32 466 90 21 27** (configurazione `enabled:true`, `phoneNumber:32466902127`). Il recapito italiano dedicato alle **chiamate** è **+39 333 883 9329**. Il sito distingue le due funzioni: il collegamento WhatsApp apre la chat sul numero belga; il collegamento `tel:` chiama il numero italiano. L'invio del messaggio va confermato dall'utente in WhatsApp. Testare la ricezione da un telefono esterno all'associazione.
 
 Il widget non memorizza messaggi, non apre connessioni a terze parti finché il visitatore non segue il link WhatsApp e non dichiara di essere un operatore online. Per una conversazione bidirezionale incorporata realmente nella pagina occorrerebbe la WhatsApp Business Platform con autorizzazione Meta, webhook, backend, gestione delle conversazioni e requisiti privacy.

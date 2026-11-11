@@ -91,7 +91,16 @@ assert(read('chi-siamo/index.html').includes('Gioele Pio Fragale'), 'Direttivo n
 assert(read('wrangler.jsonc').includes('"send_email"'), 'Configurazione binding invio mancante');
 
 
+const contactData=JSON.parse(read('content/contact.json'));
+assert(contactData.phone==='+39 333 883 9329','Numero per le chiamate italiano non corrisponde');
+assert(contactData.whatsappNumber==='+32 466 90 21 27','Recapito WhatsApp Business visualizzato errato');
+assert(html.includes('href="tel:+393338839329"'),'Homepage: vecchio numero telefono o link tel errato');
+assert(html.includes('href="https://wa.me/32466902127"'),'Homepage: collegamento WhatsApp Business errato');
+assert(contactPage.includes('href="tel:+393338839329"'),'Contatti: numero per chiamate assente');
+assert(contactPage.includes('href="https://wa.me/32466902127"'),'Contatti: link WhatsApp Business assente');
+assert(!html.includes('tel:+393510887084'),'Homepage: vecchio numero chiamate ancora presente');
 const whatsapp=JSON.parse(read('content/whatsapp.json'));
+assert(whatsapp.enabled===true && whatsapp.phoneNumber==='32466902127','Il numero WhatsApp Business configurato non corrisponde a quello comunicato');
 assert(whatsapp.enabled !== true || /^[1-9]\d{7,14}$/.test(String(whatsapp.phoneNumber||'')),'Numero WhatsApp non valido: solo cifre internazionali, senza prefissi inventati');
 for(const file of ['assets/visual-story.css','assets/whatsapp-chat.css','assets/whatsapp-chat.js']){
   assert(existsSync(join(root,file)),'Nuova risorsa grafica/chat mancante: '+file);

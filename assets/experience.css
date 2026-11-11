@@ -89,3 +89,8 @@
 @media(max-width:790px){.contact-layout{grid-template-columns:1fr}.contact-aside{display:grid;grid-template-columns:1fr 1fr;gap:10px 22px}.contact-aside-mark,.contact-aside h3,.contact-aside-rule{grid-column:1/-1}}
 @media(max-width:520px){.contact-fields,.contact-aside{grid-template-columns:1fr}.contact-field{grid-column:1/-1}.contact-form{padding:22px 17px}.contact-aside h3{grid-column:1}.contact-aside-mark{grid-column:1}.contact-aside-rule{grid-column:1}}
 @media(prefers-reduced-motion:reduce){.contact-submit{transition:none}.contact-submit:hover{transform:none}}
+
+.contact-channel{display:flex;flex-direction:column;align-items:flex-start;gap:5px}
+.contact-channel-kicker{font:650 11px/1.45 var(--sans);color:#d8e5d8;text-transform:uppercase;letter-spacing:.06em}
+.contact-channel .contact-direct{font-size:16px;color:#ffdfab!important;text-decoration-thickness:1px;text-underline-offset:4px}
+.contact-channel .contact-whatsapp-link{color:#bce8cc!important}
