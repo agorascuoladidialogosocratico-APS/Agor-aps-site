@@ -129,6 +129,16 @@ for(const pathname of publicPaths){
  assert(!page.includes('/assets/whatsapp-chat.js'),'Widget WhatsApp esterno ancora caricato: '+pathname);
 }
 
+assert(existsSync(join(root,'operatore/index.html')),'Posta operatore non creata');
+assert(existsSync(join(root,'assets/operator-chat.js')),'JS posta operatore assente');
+assert(existsSync(join(root,'assets/operator-chat.css')),'CSS posta operatore assente');
+assert(read('operatore/index.html').includes('noindex,nofollow'),'Pagina operatore indicizzabile per errore');
+assert(!sitemap.includes('/operatore/'),'Pagina operatore non deve apparire nella sitemap');
+assert(read('src/site-chat.js').includes("isFreeDashboard"),'Manca modalità chat gratuita');
+const wrangler=JSON.parse(read('wrangler.jsonc'));
+assert(wrangler.vars?.CHAT_MODE==='free-dashboard','Modalità gratuita non selezionata');
+assert(wrangler.vars?.CHAT_ENABLED==='false','Chat non deve risultare attiva senza database e protezioni');
+
 if (errors.length) {
   console.error('Verifica Agorà APS: ' + errors.length + ' problema/i:\n- ' + errors.join('\n- '));
   process.exitCode = 1;
