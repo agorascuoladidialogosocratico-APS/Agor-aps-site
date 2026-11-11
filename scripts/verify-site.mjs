@@ -139,6 +139,15 @@ const wrangler=JSON.parse(read('wrangler.jsonc'));
 assert(wrangler.vars?.CHAT_MODE==='free-dashboard','Modalità gratuita non selezionata');
 assert(wrangler.vars?.CHAT_ENABLED==='false','Chat non deve risultare attiva senza database e protezioni');
 
+assert(existsSync(join(root,'src/chat-email.js')),'Gateway di risposta email non presente');
+assert(existsSync(join(root,'scripts/test-email-replies.mjs')),'Test Gmail ↔ chat assente');
+const cfgEmail=JSON.parse(read('wrangler.jsonc'));
+assert(cfgEmail.vars?.CHAT_EMAIL_REPLY_ENABLED==='false','Risposte Gmail non devono risultare attive senza Email Routing');
+assert(cfgEmail.vars?.CHAT_EMAIL_NOTIFICATIONS==='true','Le notifiche Gmail devono essere predisposte');
+assert(read('src/worker.js').includes('async email(message,env,ctx)'), 'Manca handler email Cloudflare');
+assert(read('src/chat-email.js').includes('authentication-results'),'Controllo DMARC Email Routing assente');
+assert(read('src/chat-email.js').includes('hmacReplyToken'),'Firma della conversazione email assente');
+
 if (errors.length) {
   console.error('Verifica Agorà APS: ' + errors.length + ' problema/i:\n- ' + errors.join('\n- '));
   process.exitCode = 1;
