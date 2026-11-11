@@ -68,3 +68,22 @@ Protezione da abuso: honeypot, limiti di lunghezza e verifica origine; prima di 
 
 ## Revisione visuale
 Il design mantiene il libro in homepage ma aggiunge quattro percorsi d'ingresso interattivi, dock mobile, header fisso, animazioni leggere e card migliorate con attenzione alla preferenza per movimento ridotto.
+
+
+## Pagine visive, fotografie e navigazione
+La homepage a libro include una sezione fotografica con immagini originali già presenti nel repository: \`agora_gruppo_home.webp\`, \`agora_dialogo.webp\`, \`agora_viaggio.webp\`. Le pagine interne non sono un blog: copertine editoriali fotografiche, sezioni con ampio respiro, gallerie per Chi siamo/Progetti/Tirocini/Partecipa, composizione responsive e microinterazioni rispettose di \`prefers-reduced-motion\`.
+
+Le immagini vengono **riusate, non inventate**. Gli asset derivati \`-480.webp\` e \`-800.webp\` sono parte del repository. Per aggiornare le foto attraverso il CMS, usare i campi immagine di \`content/home.json\`, \`content/association.json\`, \`content/method.json\` e \`content/projects.json\`; il generatore \`scripts/generate-pages.mjs\` rigenera le pagine.
+
+## Chat del sito verso WhatsApp Business
+La finestra "Parliamone" compare su homepage e pagine interne. Il pulsante può aprire il link WhatsApp **click-to-chat** con messaggio già composto; il visitatore sceglie di inviarlo nell'app WhatsApp/WhatsApp Web. La risposta avviene nell'account WhatsApp Business associato al numero, non in un inbox separato sul sito. Non si tratta della WhatsApp Business Platform API e non mostra risposte in tempo reale nel widget stesso.
+
+Configurazione in Pages CMS → "00 · Chat WhatsApp Business", file \`content/whatsapp.json\`:
+1. Identificare e verificare il numero **WhatsApp Business ufficiale** dell'associazione (non basta un numero telefonico generico).
+2. Inserirlo in \`phoneNumber\`, nel formato internazionale con **sole cifre** (per l'Italia: 39 seguito dal numero).
+3. Impostare \`enabled: true\` e pubblicare le modifiche.
+4. Aprire il sito da smartphone e computer, digitare un messaggio e verificare che venga aperta **la chat corretta** nell'app WhatsApp Business. Verificare anche l'effettiva ricezione inviando il messaggio dall'app.
+
+Il numero è volutamente vuoto e \`enabled:false\` fino alla verifica. In questo stato il widget funziona come punto di contatto con pulsante per il modulo del sito e **non** manda i visitatori a numeri personali o non confermati.
+
+Il widget non memorizza messaggi, non apre connessioni a terze parti finché il visitatore non segue il link WhatsApp e non dichiara di essere un operatore online. Per una conversazione bidirezionale incorporata realmente nella pagina occorrerebbe la WhatsApp Business Platform con autorizzazione Meta, webhook, backend, gestione delle conversazioni e requisiti privacy.
