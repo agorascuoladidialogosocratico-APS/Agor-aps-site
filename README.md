@@ -2,8 +2,20 @@
 
 Sito dell'associazione Agorà – Scuola di Dialogo Socratico e Cittadinanza Attiva APS.
 
+## Novità del sito — 12 novembre 2026
+
+**Agorà Magazine** è l'area editoriale pubblica in `/magazine/` con archivio, categorie, articoli singoli, immagini originali, SEO e feed RSS `/magazine/rss.xml`. I contenuti si modificano via **Pages CMS** (https://app.pagescms.org/), sezione **Agorà Magazine — Articoli e aggiornamenti**, con editor visuale Markdown. `published: false` conserva la bozza fuori dall'indice e dalla navigazione; `published: true` la pubblica dopo la build.
+
+**Pubblicazione autonoma:** il workflow `.github/workflows/publish-cms.yml` si attiva su modifiche ai contenuti `content/**` in `main`, rigenera le pagine e salva il risultato su GitHub. Richiede permessi di scrittura GitHub Actions sul repository e deploy Cloudflare collegato al ramo `main`. Verificare entrambe le configurazioni nell'account proprietario prima di promettere la pubblicazione automatica. L'editor non richiede credenziali sul sito pubblico; il controllo degli accessi è su GitHub/Pages CMS.
+
+**Sostienici** è la pagina `/sostienici/`. L'intestatario, l'IBAN, BIC e istituto di pagamento provengono da `content/membership.json`, accessibile in Pages CMS nella sezione **Quote associative e bonifico**. Il conto è pubblicato solo quando `bankDetailsPublic` è `true` e l'IBAN supera una verifica formale MOD-97; questo controllo non certifica la titolarità bancaria. Il contributo non prevede checkout o servizi a pagamento: il versamento avviene tramite bonifico e la quota va confermata con l'associazione prima del pagamento.
+
+**WhatsApp Business:** l'accesso rapido e il pannello di contatto aprono `https://wa.me/32466902127` su decisione dell'utente; il visitatore può preparare il messaggio nel sito ma la conversazione si svolge nella piattaforma WhatsApp. Il numero +39 333 883 9329 rimane dedicato alle chiamate. Non è attivo il ponte sperimentale Gmail↔chat del sito: il codice resta nel repository ma la modalità pubblica è disattivata per evitare messaggi non recapitati.
+
+**Design:** riprende logo e fotografie già presenti e mantiene la palette blu petrolio `#193b4a`, terracotta `#b85628`, avorio `#f8f0e6`. Layout responsive con navigazione mobile e supporto `prefers-reduced-motion`.
+
 ## Architettura e navigazione
-La homepage conserva il **libro digitale interattivo**. Sono disponibili anche pagine HTML **statiche e indicizzabili** per Chi siamo, Progetti (e schede SODA-LABS / Odisseo Philosophorum), Tirocini, Volontariato ESC, Partecipa, Contatti, Trasparenza, Privacy e Accessibilità.
+La homepage conserva il **libro digitale interattivo**. Sono disponibili pagine HTML **statiche e indicizzabili** per Chi siamo, Progetti (e schede SODA-LABS / Odisseo Philosophorum), Tirocini, Volontariato ESC, Partecipa, Contatti, Trasparenza, Privacy, Accessibilità, Agorà Magazine, singoli articoli pubblicati e Sostienici.
 
 Le pagine sono incluse in `sitemap.xml` e i link sono HTML normali, fruibili anche senza JavaScript. Il progetto mantiene un solo URL canonico per ogni pagina.
 
