@@ -100,18 +100,5 @@ Il numero WhatsApp Business comunicato dall'associazione l'11 novembre 2026 è *
 
 Il widget non memorizza messaggi, non apre connessioni a terze parti finché il visitatore non segue il link WhatsApp e non dichiara di essere un operatore online. Per una conversazione bidirezionale incorporata realmente nella pagina occorrerebbe la WhatsApp Business Platform con autorizzazione Meta, webhook, backend, gestione delle conversazioni e requisiti privacy.
 
-
-## Chat interna al sito (in preparazione)
-Il widget precedente che apriva WhatsApp è stato sostituito con la nuova chat interna, che **non trasferisce il visitatore su WhatsApp**. La conversazione bidirezionale richiede ancora l'attivazione Cloudflare D1, Turnstile e un numero tecnico WhatsApp Business Platform distinto dal numero dell'operatore +32 466 90 21 27. Finché i collegamenti non sono disponibili, la chat indica chiaramente che il servizio è in preparazione e offre il modulo contatti, senza false conferme. Per architettura, sicurezza, privacy e passi di attivazione vedere **CHAT-BIDIREZIONALE.md**.
-
-
-## Modalità gratuita della chat: posta operatore
-È ora disponibile una seconda architettura che non necessita delle API Meta: il visitatore scrive e riceve le risposte dentro il sito, mentre Agorà risponde dalla pagina riservata /operatore/, utilizzabile dal telefono. È indipendente da WhatsApp Business. I dati sono in un database Cloudflare D1 Free e gli accessi alla chat pubblica sono protetti da Turnstile.
-
-La configurazione di default è CHAT_MODE=free-dashboard e CHAT_ENABLED=false: **senza database, Turnstile e chiave operatore la chat non raccoglie messaggi**. Per l'attivazione reale seguire la sezione "Alternativa gratuita" di CHAT-BIDIREZIONALE.md. Il numero +32 non viene migrato né usato per inviare messaggi in questa modalità. La piena integrazione con WhatsApp Business può comportare costi Meta e resta un progetto a parte.
-
-
-## Gmail ↔ chat del sito (gratuito, da attivare)
-La chat del sito può inviare messaggi e cronologia recente a agora.scuoladidialogosocratico@gmail.com e ricevere le risposte spedite premendo **Rispondi** da Gmail. Il destinatario di risposta tecnica è risposte@agora-scuoladidialogosocraticoecittadinanzattiva.site, da collegare tramite Cloudflare Email Routing allo stesso Worker. Il Gateway verifica autenticazione DMARC e firma della conversazione; il visitatore legge la risposta sul sito senza uscire.
-
-Nessuna password della pagina /operatore/ serve a chi risponde unicamente da Gmail. Prima di attivare servono D1, Turnstile, Email Routing, casella verificata e i secrets del Worker. La configurazione inizia con CHAT_EMAIL_REPLY_ENABLED=false e CHAT_ENABLED=false. Leggere **EMAIL-BIDIREZIONALE.md** per i passaggi; non attivare senza prova reale e aggiornamento privacy.
+## Alternative di chat sperimentali non attive
+La chat interna con database D1 e le risposte via Gmail sono state sviluppate come prototipi ma non attivate né collaudate nei servizi Cloudflare dell’associazione. La configurazione conservata in `wrangler.jsonc` mantiene `CHAT_ENABLED=false` e `CHAT_EMAIL_REPLY_ENABLED=false`; gli endpoint non raccolgono messaggi in questa modalità. Il sito pubblico utilizza il contatto diretto WhatsApp Business ufficiale. Per lo storico tecnico consultare `CHAT-BIDIREZIONALE.md` ed `EMAIL-BIDIREZIONALE.md`.
