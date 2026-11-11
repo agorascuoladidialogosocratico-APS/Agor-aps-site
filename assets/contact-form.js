@@ -20,7 +20,7 @@ function start(){
    const payload=Object.fromEntries(data.entries());
    payload.consent=data.get('consent')==='yes';
    try{
-     const response=await fetch('/api/contact',{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload),signal:AbortSignal.timeout?AbortSignal.timeout(15000):undefined});
+     const response=await fetch('/api/contact',{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload),signal:typeof AbortSignal!=='undefined' && typeof AbortSignal.timeout==='function'?AbortSignal.timeout(15000):undefined});
      const json=await response.json();
      if(!response.ok||!json.ok){status(json.message||'Invio non riuscito. Utilizza l’indirizzo email indicato nella pagina.',false);return;}
      status(json.message||'Messaggio inviato.',true);
