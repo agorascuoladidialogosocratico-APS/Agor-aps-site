@@ -1,9 +1,11 @@
 {
   "title": "Sostieni Agorà",
   "description": "Partecipa alle iniziative culturali e civiche di Agorà APS. Per il versamento della quota associativa utilizziamo il bonifico bancario, secondo le indicazioni dell'associazione.",
-  "bankDetailsPublic": false,
-  "accountHolder": "",
-  "iban": "",
+  "bankDetailsPublic": true,
+  "accountHolder": "Agorà - Scuola di Dialogo Socratico e Cittadinanza Attiva",
+  "iban": "IT98D3688801600100000054192",
   "transferReason": "Quota associativa – anno di riferimento – nome e cognome",
-  "notes": "Per conoscere la quota applicabile, le condizioni di adesione e ricevere le coordinate per il bonifico, contatta l'associazione. Nessun importo o conto corrente è pubblicato senza conferma."
+  "notes": "Per effettuare il versamento, chiedi prima conferma dell'importo della quota associativa vigente e delle condizioni di adesione. Utilizza esclusivamente le coordinate qui riportate e la causale concordata con l'associazione.",
+  "bic": "SUMUITM2XXX",
+  "bankName": "SumUp Limited - Italy Branch"
 }
