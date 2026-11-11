@@ -36,3 +36,15 @@ Questa checklist non è una dichiarazione di conformità legale o tecnica.
 - [x] Numero WhatsApp Business +32 466 90 21 27 comunicato dall'associazione e attivato.
 - [x] Numero telefonico italiano per chiamate +39 333 883 9329, inserito nella homepage e nei contatti.
 - [ ] Test clic da smartphone e desktop e controllo ricezione effettiva messaggio nell'app Business.
+
+
+## Free Dashboard per chat sul sito
+- [x] Pannello operatore /operatore/ mobile-ready, non incluso in sitemap e con noindex.
+- [x] API amministrative dedicate con chiave privata controllata sul server.
+- [x] Invio e risposta tramite D1 in modalità free-dashboard, senza chiamate Meta.
+- [x] Fallback sicuro finché CHAT_ENABLED=false.
+- [x] Test automatizzati per chiave errata, accesso riservato e risposte simulate.
+- [ ] Creare database D1 nel piano gratuito, associare binding CHAT_DB e applicare migrazione.
+- [ ] Creare Turnstile Free e configurare Secret/Site Key.
+- [ ] Generare e salvare CHAT_ADMIN_TOKEN solo nei segreti Cloudflare e attivare un controllo Cloudflare Access.
+- [ ] Verificare informativa privacy, testare dal telefono invio e risposta, poi impostare CHAT_ENABLED=true.
