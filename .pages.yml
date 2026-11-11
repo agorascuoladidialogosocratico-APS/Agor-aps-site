@@ -9,6 +9,37 @@ media:
   - jpeg
   - webp
 content:
+- name: governance
+  label: 04 · Direttivo e incarichi (verificare RUNTS)
+  type: file
+  operations:
+    delete: false
+  path: content/governance.json
+  format: json
+  fields:
+  - name: source
+    label: Documento da cui risultano gli incarichi
+    type: string
+  - name: verification
+    label: Avvertenza su verifica RUNTS
+    type: text
+  - name: updated
+    label: Data di riferimento (AAAA-MM)
+    type: string
+  - name: members
+    label: Persone e ruoli
+    type: object
+    fields:
+    - name: name
+      label: Nome e cognome
+      type: string
+    - name: role
+      label: Incarico
+      type: string
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{name} · {role}'
 - name: identity
   label: 01 · Identità, logo e colori
   type: file
