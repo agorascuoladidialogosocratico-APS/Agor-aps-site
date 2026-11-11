@@ -8,7 +8,7 @@
     "deploy": "npm run build && wrangler deploy",
     "preview": "wrangler preview",
     "check": "node scripts/verify-site.mjs && npm test",
-    "test": "node scripts/test-contact.mjs"
+    "test": "node scripts/test-contact.mjs && node scripts/test-site-chat.mjs"
   },
   "devDependencies": {
     "wrangler": "^4.135.0"
