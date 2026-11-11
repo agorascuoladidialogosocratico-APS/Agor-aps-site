@@ -54,7 +54,7 @@ const siteOrigin = 'https://agora-scuoladidialogosocraticoecittadinanzattiva.sit
 const sitemap = read('sitemap.xml');
 assert(!/MarLuna/i.test(html), 'Homepage contiene ancora riferimenti a MarLuna');
 assert(!/Statuto e Atto costitutivo/i.test(html), 'Homepage contiene ancora duplicazione atti');
-assert((html.match(/<h1\\b/g)||[]).length===1, 'Homepage: H1 non unico');
+assert((html.match(/<h1\b/g)||[]).length===1, 'Homepage: H1 non unico');
 assert(html.includes('href="/accessibilita/"'), 'Homepage senza link accessibilità');
 assert(html.includes('data-a11y="contrast"'), 'Manca controllo per contrasto elevato');
 assert(html.includes('data-a11y="text"'), 'Manca controllo dimensione testo');
@@ -68,7 +68,7 @@ for(const pathname of publicPaths){
   assert(existsSync(join(root,file)), 'Pagina SEO mancante: '+file);
   if(!existsSync(join(root,file)))continue;
   const page=read(file);
-  assert((page.match(/<h1\\b/g)||[]).length===1,'H1 mancante o duplicato: '+file);
+  assert((page.match(/<h1\b/g)||[]).length===1,'H1 mancante o duplicato: '+file);
   assert(page.includes('<main') && page.includes('id="contenuto"'),'Landmark main mancante: '+file);
   assert(page.includes('<html lang="it"'),'Lingua italiana mancante: '+file);
   assert(page.includes('href="'+siteOrigin+pathname+'"'),'Canonical inesatto: '+file);
