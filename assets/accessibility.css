@@ -1,0 +1,32 @@
+/* Preferenze di lettura e requisiti di accessibilità condivisi. */
+:where(a,button,input,textarea,select,summary,[tabindex]):focus-visible {
+  outline: 3px solid #b85628 !important;
+  outline-offset: 4px !important;
+}
+.accessibility-tools {display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.accessibility-tools button {
+  font:600 14px/1.4 'DM Sans',Arial,sans-serif;
+  background:transparent;color:inherit;border:1px solid currentColor;
+  border-radius:4px;padding:10px 12px;cursor:pointer;min-height:44px;
+}
+.accessibility-tools button[aria-pressed="true"]{background:#193b4a;color:white;border-color:#193b4a}
+html.a11y-text-large .story-book :is(p,li,dt,dd,summary,a:not(.button),button),
+html.a11y-text-large :is(.chapter-directory,.book-index,.book-footer,.book-header,.book-controls){
+  font-size:1.12rem !important;line-height:1.65 !important;
+}
+html.a11y-text-large .story-book h2 {font-size:clamp(2.4rem,4vw,3.6rem) !important;line-height:1.14 !important;}
+html.a11y-text-large .story-book h3 {font-size:clamp(1.4rem,2.8vw,2rem) !important;line-height:1.2 !important;}
+html.a11y-text-large .story-book .hero h1 {font-size:clamp(4.2rem,8vw,6.8rem) !important;line-height:1.1 !important;}
+html.a11y-text-large .info-page {font-size:1.2rem}
+html.a11y-high-contrast {--petrol:#102730;--ink:#102730;--muted:#223a40;--paper:#fff;--ivory:#fff;--line:#233b40;--terracotta:#87360e;color-scheme:light;}
+html.a11y-high-contrast :is(body,.book-page,.info-page,.page-copy,.book-header,.book-footer,.book-controls,.book-index,.paper-letter,.recognition-card,.transparency-panel,.info-card) {
+  background:#fff !important;color:#102730 !important;
+}
+html.a11y-high-contrast :is(a,.text-link,.section-label,.chapter-directory a){color:#003d75 !important;text-decoration:underline !important;}
+html.a11y-high-contrast .button{background:#102730 !important;color:#fff !important;border-color:#102730 !important;}
+html.a11y-high-contrast :is(.book-index,.book-page,.book-header,.info-card){border:1px solid #102730 !important;}
+html.a11y-high-contrast .accessibility-tools button[aria-pressed="true"]{background:#102730 !important;color:#fff !important;}
+html.a11y-high-contrast :where(a,button,input,textarea,select,summary,[tabindex]):focus-visible{outline-color:#003d75 !important;}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto !important;animation-duration:.01ms !important;transition-duration:.01ms !important}}
+@media (max-width:760px){.accessibility-tools{width:100%;justify-content:center}}
+@media print {.accessibility-tools{display:none !important}}
