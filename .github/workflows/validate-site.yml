@@ -27,3 +27,6 @@ jobs:
           node --check assets/cms-runtime.js
           node --check assets/a11y.js
           node --check scripts/generate-pages.mjs
+          node --check assets/experience.js
+          node --check assets/contact-form.js
+          node --check src/worker.js
