@@ -50,7 +50,8 @@ export async function receiveChatEmailReply(message,env){
  if(Number(message.rawSize||0)>100000){
    message.setReject?.('Messaggio troppo grande per la chat.');return false;
  }
- const subj=String(message.headers.get('subject')||'');
+ const parsed=await PostalMime.parse(message.raw);
+ const subj=String(parsed.subject||message.headers.get('subject')||'');
  const match=subj.match(/#([A-F0-9]{10})\/([A-F0-9]{24})\b/i);
  if(!match){message.setReject?.('Codice conversazione non trovato nella risposta.');return false;}
  const code=match[1].toUpperCase(),provided=match[2].toUpperCase();
@@ -59,7 +60,6 @@ export async function receiveChatEmailReply(message,env){
  }
  const mid=String(message.headers.get('message-id')||'').trim();
  if(mid.length<5||mid.length>512){message.setReject?.('Identificativo email non valido.');return false;}
- const parsed=await PostalMime.parse(message.raw);
  if(String(parsed.from?.address||'').toLowerCase()!==RECIPIENT){
    message.setReject?.('Mittente intestazione non autorizzato.');return false;
  }
