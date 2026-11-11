@@ -1,4 +1,4 @@
-# Agorà APS — editor per il sito GitHub + Cloudflare Pages
+# Agorà APS — editor su GitHub, con pubblicazione su Cloudflare Workers
 media:
   input: assets
   output: /assets
@@ -62,7 +62,7 @@ content:
       label: 'Sfondo chiaro (es. #fffaf5)'
       type: string
   - name: navCta
-    label: Pulsante in alto
+    label: Pulsante Partecipa nella navigazione desktop
     type: object
     fields:
     - name: label
@@ -124,20 +124,7 @@ content:
       type: string
       description: 'Link interno (#progetti), https:// oppure mailto:'
     - name: footnote
-      label: Tre parole chiave
-      type: string
-    - name: image
-      label: Grande fotografia principale
-      type: image
-      description: Carica o scegli una fotografia autorizzata alla pubblicazione.
-    - name: imageAlt
-      label: Descrizione accessibile fotografia
-      type: text
-    - name: imageCaptionTop
-      label: Didascalia principale
-      type: string
-    - name: imageCaptionBottom
-      label: Didascalia secondaria
+      label: Frase conclusiva copertina
       type: string
   - name: values
     label: Ambiti di attività — riordinabili

@@ -1,34 +1,50 @@
-# Agorà APS — sito istituzionale ed editor
+# Agorà APS — sito istituzionale e libro digitale
 
-Sito statico responsive di Agorà – Scuola di Dialogo Socratico e Cittadinanza Attiva APS, con fotografie originali e logo ufficiale.
+Sito dell'associazione Agorà – Scuola di Dialogo Socratico e Cittadinanza Attiva APS.
 
-## Editor senza codice
+## Architettura e navigazione
+La homepage conserva il **libro digitale interattivo**. Sono disponibili anche pagine HTML **statiche e indicizzabili** per Chi siamo, Progetti (e schede SODA-LABS / Odisseo Philosophorum), Tirocini, Volontariato ESC, Partecipa, Contatti, Trasparenza, Privacy e Accessibilità.
 
-L'editor dei contenuti è **Pages CMS**: https://app.pagescms.org/.
+Le pagine sono incluse in `sitemap.xml` e i link sono HTML normali, fruibili anche senza JavaScript. Il progetto mantiene un solo URL canonico per ogni pagina.
 
-1. Entra con GitHub.
-2. Installa/autorizza l'app Pages CMS soltanto per il repository `agorascuoladidialogosocratico-APS/Agor-aps-site`.
-3. Apri il repository; l'editor legge `.pages.yml`.
-4. Modifica gli argomenti in `content/*.json`, aggiungi foto da `assets/` e salva.
+## Pubblicazione e hosting
+Hosting: **Cloudflare Workers Static Assets** con `wrangler.jsonc` (non Cloudflare Pages classico).
 
-La pagina pubblica `/editor/` offre un accesso guidato e un'anteprima. L'autenticazione e il salvataggio avvengono **su Pages CMS**, non tramite una password dentro il sito.
+Comandi:
+- `npm install`
+- `npm run build` — genera le pagine dalla configurazione editoriale JSON e valida il sito.
+- `npm run check` — verifica l'integrità dei file e dei collegamenti locali.
+- `npm run deploy` — esegue la build e poi il deploy Wrangler.
 
-L'editor consente di modificare: homepage, progetti, metodo, chi siamo, trasparenza, contatti, logo, colori, nuove sezioni e ordine/visibilità. Il layout avanzato e gli stili CSS restano modifiche per sviluppatori.
+**Requisito per modifiche effettuate tramite Pages CMS:** nel Worker, impostare il comando di build `npm run build`, in modo che i contenuti aggiornati in `content/*.json` siano riflessi nelle pagine HTML statiche. Se il pannello Build non lancia questo comando, il JSON della homepage si aggiornerà al caricamento ma le pagine autonome manterranno la copia generata nell'ultimo commit. Verificare la configurazione nel pannello Cloudflare prima della pubblicazione.
 
-## Hosting Cloudflare: Workers Static Assets
+Root directory `/`, branch di produzione `main`; deploy `npx wrangler deploy`. La connessione GitHub e l'aggancio del dominio devono essere verificati separatamente nel pannello Cloudflare.
 
-Il progetto Cloudflare collegato è un **Worker con Builds**, e non un classico progetto Pages: per questo è incluso `wrangler.jsonc` con `name: agor-aps-site`, `assets.directory: ./` e pagina di errore 404. La nuova configurazione consente a Wrangler di pubblicare HTML, CSS, JavaScript, fotografie e contenuti JSON senza un framework. `package.json` offre uno script `build` senza compilazione, per le configurazioni Cloudflare che lo richiedono. `.assetsignore` impedisce il caricamento di file tecnici riservati al repository.
+## Editor del sito
+Pages CMS: https://app.pagescms.org/
 
-Nel pannello del Worker, controllare **Settings → Builds**: repository `Agor-aps-site`, production branch `main`, root directory `/`; comando build vuoto oppure `npm run build`, deploy `npx wrangler deploy`, preview `npx wrangler preview`. La prima pubblicazione si prova sull'URL fornito da Cloudflare (`workers.dev` o URL Preview). **Non spostare il dominio Namecheap finché la preview non è approvata.**
+1. Accedi usando GitHub autorizzato al repository `agorascuoladidialogosocratico-APS/Agor-aps-site`.
+2. Modifica i dati in `content/*.json` tramite la configurazione `.pages.yml`.
+3. Salva: GitHub registra i nuovi contenuti; la build Cloudflare li pubblica **se il deploy automatico è attivo e `npm run build` viene eseguito**.
 
-I JSON sono letti dal browser; la pagina contiene già i testi fondamentali come fallback senza JavaScript.
+La copertina è una scena SVG: non è un campo fotografico nel CMS. L'editor delle altre immagini e delle sezioni continua a essere disponibile dove il layout corrisponde alle voci.
+La pagina `/editor/` è solo una guida; le credenziali e i permessi sono gestiti da GitHub e Pages CMS, mai dal sito stesso.
 
-**Il branch `feature/agora-studio-cms` contiene la proposta editoriale. Per pubblicarla sul dominio configurato, unire la PR a `main` solo dopo aver verificato il deploy di anteprima e i controlli automatici.** Finché il PR non è approvato, il sito pubblico non viene sostituito.
+## Trasparenza, dati e accessibilità
+Gli atti depositati sono consultabili nel **RUNTS**:
+https://servizi.lavoro.gov.it/runts/it-it/Ricerca-enti/Ente
 
-Il comando `npm run build` esegue anche verifiche su file JSON, immagini, collegamenti interni e configurazione degli header Cloudflare. Il file `_headers` resta incluso come regola di risposta di Workers Static Assets (non è servito pubblicamente come documento).
+Il sito non mantiene un duplicato pubblicitario degli atti depositati. Le informazioni sui progetti devono essere distinte per stato documentale; non pubblicare dati personali di candidati senza adeguata base giuridica e verifica.
 
-Per istruzioni dettagliate consulta [EDITOR-GUIDA.md](EDITOR-GUIDA.md).
+`/accessibilita/` offre indicazioni per navigazione da tastiera, ingrandimento testo, contrasto elevato e segnalazione dei problemi. Sono presenti focus visibile, skip link e supporto al movimento ridotto. **Questi strumenti non costituiscono certificazione di conformità WCAG**: sono necessari test con lettori di schermo, tastiera e strumenti automatici e manuali.
 
-## Sicurezza e privacy
+L'informativa privacy e i singoli moduli di candidatura devono essere validati dall'associazione per finalità, basi giuridiche, tempi di conservazione e soggetti coinvolti.
 
-Nessun token GitHub o segreto è presente nel codice. Solo i collaboratori autorizzati sul repository possono modificare i contenuti tramite Pages CMS. Le fotografie pubblicate su un repository pubblico sono accessibili senza autenticazione: verificare i consensi prima di aggiungere nuove fotografie. Conservare i DNS email esistenti su Namecheap durante il passaggio a Cloudflare.
+## Verifiche prima e dopo il rilascio
+- Eseguire `npm run build` e verificare i controlli GitHub Actions.
+- Provare menu, capitoli, footer e pagine HTML su desktop e mobile.
+- Controllare HTTPS, codici 404, redirect e risposta di `/sitemap.xml` in produzione.
+- Verificare Search Console con Ispezione URL e inviare la sitemap dopo il deploy.
+- Misurare Core Web Vitals e testare contrasto, focus, ingrandimento e lettori di schermo.
+
+I segreti, i token, le password e i dati dei candidati non devono mai essere salvati in questo repository pubblico.

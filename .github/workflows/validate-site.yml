@@ -25,3 +25,5 @@ jobs:
         run: |
           node --check assets/site.js
           node --check assets/cms-runtime.js
+          node --check assets/a11y.js
+          node --check scripts/generate-pages.mjs

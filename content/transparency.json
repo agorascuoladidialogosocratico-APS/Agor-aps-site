@@ -2,9 +2,9 @@
   "eyebrow": "Responsabilità associativa",
   "titleLine1": "Trasparenza",
   "titleLine2": "e fiducia.",
-  "description": "La fiducia nasce dalla chiarezza. Qui puoi richiedere i documenti e conoscere il nostro lavoro, le attività e le opportunità di partecipazione.",
+  "description": "La fiducia nasce dalla chiarezza. I dati e gli atti istituzionali depositati sono consultabili nel RUNTS; qui trovi anche informazioni su progetti, attività e partecipazione.",
   "panelTitle": "Documenti e informazioni",
-  "panelDescription": "Statuto, informazioni associative, progetti e graduatorie quando pertinenti e pubblicabili.",
-  "linkText": "Richiedi i documenti",
-  "linkUrl": "mailto:agora.scuoladidialogosocratico@gmail.com?subject=Richiesta%20documenti%20e%20trasparenza%20Agor%C3%A0"
+  "panelDescription": "Il RUNTS è la fonte pubblica per gli atti depositati dell’associazione. Per altre informazioni sulle attività contattaci.",
+  "linkText": "Consulta Agorà sul RUNTS",
+  "linkUrl": "https://servizi.lavoro.gov.it/runts/it-it/Ricerca-enti/Ente"
 }
