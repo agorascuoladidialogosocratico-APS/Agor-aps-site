@@ -13,10 +13,6 @@
       "visible": true
     },
     {
-      "id": "connected",
-      "visible": true
-    },
-    {
       "id": "method",
       "visible": true
     },
