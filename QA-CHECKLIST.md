@@ -33,5 +33,6 @@ Questa checklist non è una dichiarazione di conformità legale o tecnica.
 - [x] Configurazione WhatsApp Business editabile nel CMS; numero inizialmente vuoto per sicurezza.
 - [x] Controlli automatici sui file immagine, sugli alt, sui CSS/JS e sul formato E.164 digit-only.
 - [ ] Test visuale su browser e schermi reali, contrasto, VoiceOver/NVDA e zoom 200–400%.
-- [ ] Numero WhatsApp Business ufficiale fornito, verificato e attivato.
+- [x] Numero WhatsApp Business +32 466 90 21 27 comunicato dall'associazione e attivato.
+- [x] Numero telefonico italiano per chiamate +39 333 883 9329, inserito nella homepage e nei contatti.
 - [ ] Test clic da smartphone e desktop e controllo ricezione effettiva messaggio nell'app Business.
