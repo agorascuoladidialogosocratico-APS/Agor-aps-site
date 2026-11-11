@@ -5,7 +5,7 @@ const FIELDS=['name','email','topic','message','consent','website'];
 const TOPICS=['Informazioni generali','Progetti Erasmus+','Tirocini universitari','Volontariato ESC','Partenariati','Altro'];
 const RECEIVER='agora.scuoladidialogosocratico@gmail.com';
 const SENDER='contatti@agora-scuoladidialogosocraticoecittadinanzattiva.site';
-const result=(status,data)=>new Response(JSON.stringify(data),{status,headers:{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store','X-Content-Type-Options':'nosniff','Access-Control-Allow-Origin':'null'}});
+const result=(status,data)=>new Response(JSON.stringify(data),{status,headers:{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store','X-Content-Type-Options':'nosniff'}});
 function normalized(v,max){return typeof v==='string'?v.trim().slice(0,max+1):''}
 async function processContact(request,env){
  if(request.method!=='POST')return result(405,{ok:false,message:'Questo indirizzo accetta soltanto l’invio del modulo.'});
