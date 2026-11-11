@@ -168,6 +168,14 @@ const membershipPage=read('sostienici/index.html');
 assert(membershipPage.includes('id="bonifico"'),'Sostienici: sezione bonifico assente');
 assert(membershipPage.includes('href="/assets/magazine.css')||membershipPage.includes('href="/assets/magazine.css?v='),'Sostienici: stile editoriale non caricato');
 if(!editorial.bankDetailsPublic)assert(!membershipPage.includes('data-copy-iban'),'Sostienici: IBAN pubblicato senza autorizzazione');
+if(editorial.bankDetailsPublic){
+ const normalized=String(editorial.iban||'').replace(/\s/g,'').toUpperCase();
+ assert(membershipPage.includes('data-copy-iban="'+normalized+'"'),'Sostienici: IBAN autorizzato non inserito o errato');
+ assert(membershipPage.includes(editorial.accountHolder),'Sostienici: intestatario non presente');
+ if(editorial.bic) assert(membershipPage.includes(editorial.bic),'Sostienici: BIC non presente');
+ if(editorial.bankName) assert(membershipPage.includes(editorial.bankName),'Sostienici: istituto non presente');
+}
+
 for(const file of magFiles){
  const slug=file.replace(/\.json$/,'');
  const data=JSON.parse(read('content/magazine/'+file));
