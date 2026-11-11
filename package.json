@@ -8,10 +8,13 @@
     "deploy": "npm run build && wrangler deploy",
     "preview": "wrangler preview",
     "check": "node scripts/verify-site.mjs && npm test",
-    "test": "node scripts/test-contact.mjs && node scripts/test-site-chat.mjs"
+    "test": "node scripts/test-contact.mjs && node scripts/test-site-chat.mjs && node scripts/test-email-replies.mjs"
   },
   "devDependencies": {
     "wrangler": "^4.135.0"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "postal-mime": "^4.0.7"
+  }
 }
