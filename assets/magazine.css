@@ -77,6 +77,9 @@
 .mag-byline time{color:#934a2a}
 .mag-article-image{margin:0 auto 35px;max-width:1170px;border-radius:12px;overflow:hidden;background:#d0ddd4;max-height:540px}
 .mag-article-image img{display:block;width:100%;height:auto;aspect-ratio:18/9;object-fit:cover}
+.mag-article-image{max-height:none}
+.mag-cover-credit{font-size:12px;font-family:system-ui,sans-serif;color:#59626b;background:#f8f0e6;padding:10px 16px;line-height:1.4}
+.mag-cover-credit a{color:#193b4a;text-decoration:underline;text-underline-offset:2px}
 .mag-article-layout{display:grid;grid-template-columns:minmax(140px,.36fr) minmax(0,1fr);gap:clamp(35px,5vw,95px);max-width:970px;margin:50px auto}
 .mag-article-aside{position:sticky;top:105px;align-self:start;border-top:3px solid var(--ag-terracotta);padding-top:18px}
 .mag-article-aside span{font:800 10px/1.4 var(--ag-sans);letter-spacing:.15em;text-transform:uppercase;color:#905026}
