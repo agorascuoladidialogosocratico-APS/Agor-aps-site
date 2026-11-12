@@ -3,12 +3,12 @@
   "date": "2021-08-01",
   "category": "Archivio Filosofia sul divano",
   "author": "Mario Guarnera",
-  "excerpt": "L’Occidente (cioè noi) ha avuto in sorte una benedizione/sciagura quanto mai pesante: la confluenza di due visioni antitetiche di relazione del pensiero con la sua trasmissione, nel presente o ai posteri. I Greci non possedevano…",
+  "excerpt": "L’Occidente, cioè noi, ha avuto in sorte una benedizione — o forse una sciagura — quanto mai impegnativa: la confluenza di due visioni differenti del rapporto fra pensiero e sua trasmissione, nel presente e ai posteri…",
   "cover": "/assets/agora_dialogo.webp",
   "coverAlt": "Immagine editoriale di Agorà APS; non è la copertina originale dell’articolo",
   "published": true,
   "featured": false,
-  "body": "L’Occidente (cioè noi) ha avuto in sorte una benedizione/sciagura quanto mai pesante: la confluenza di due visioni antitetiche di relazione del pensiero con la sua trasmissione, nel presente o ai posteri. I Greci non possedevano Testi Sacri, lo stesso Socrate non scrisse nulla, Platone scriveva dialoghi e nel mentre svalutava l’Arte rispetto alla superiorità delle Idee, per Aristotele i libri avevano una funzione interna alla scuola, a mo’ di promemoria. La Bibbia al contrario considera sacra e intoccabile ogni parola contenuta in essa. I filosofi cristiani dovettero avere non pochi problemi per mettere in riga ricerca e rispetto della tradizione scritta, fino a proclamare il “credo ut intellegam”, quando i testi possono tramutarsi in occhiali per mettere a fuoco la realtà. “Verba volant, scripta manent” dicevano i latini, ma, appunto, questa era la mentalità/filosofia di un mondo che procedeva verso l’esperienza dell’Impero, e tutto doveva combaciare, pena lo sfaldamento generale. Oggi siamo sommersi da parole e immagini, quindi siamo davvero nelle condizioni di affrontare con libertà ogni evento, o veniamo pesantemente condizionati nel nostro pensare e agire?",
+  "body": "L’Occidente, cioè noi, ha avuto in sorte una benedizione — o forse una sciagura — quanto mai impegnativa: la confluenza di due visioni differenti del rapporto fra pensiero e sua trasmissione, nel presente e ai posteri.\n\nI Greci non possedevano testi sacri nel senso in cui li intendono le religioni del Libro. Socrate non scrisse nulla; Platone scriveva dialoghi e, nel contempo, distingueva le forme artistiche dal primato delle Idee. Per Aristotele, buona parte degli scritti aveva anche una funzione interna alla scuola, quasi di promemoria per l’insegnamento.\n\nLa tradizione biblica, invece, attribuisce un’autorità particolare alla parola tramandata. I filosofi cristiani dovettero confrontarsi con un problema complesso: come conciliare la libertà della ricerca e il rispetto della tradizione scritta? Da questa tensione nasce anche l’orizzonte del *credo ut intellegam*, quando i testi possono trasformarsi in lenti attraverso le quali mettere a fuoco la realtà.\n\n«Verba volant, scripta manent», dicevano i latini. Ma quella massima appartiene a una cultura nella quale la parola scritta acquisiva anche il valore di testimonianza, memoria e ordine.\n\nOggi siamo sommersi da parole e immagini. Siamo davvero nelle condizioni di affrontare liberamente ogni evento, oppure veniamo pesantemente condizionati nel nostro modo di pensare e agire? È questa, forse, la domanda da non smettere di porci.",
   "archiveSource": "Filosofia sul divano",
   "archiveOriginalUrl": "https://filosofiasuldivano.altervista.org/abolire-la-scrittura/",
   "archiveUrl": "https://web.archive.org/web/20210801190700/https://filosofiasuldivano.altervista.org/abolire-la-scrittura/",
@@ -20,5 +20,6 @@
   "socialFacebookText": "",
   "socialInstagramText": "",
   "socialXText": "",
-  "editorialReviewDate": "2026-11-12"
+  "editorialReviewDate": "2026-11-12",
+  "editorialReviewType": "revisione formale"
 }
