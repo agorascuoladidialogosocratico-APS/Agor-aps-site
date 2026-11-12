@@ -74,6 +74,15 @@ content:
     label: Collegamento alla copia originale della Wayback Machine
     type: string
     description: URL verificato della copia storica; non modifica la data di pubblicazione.
+  - name: archiveSource
+    label: Archivio originale (facoltativo)
+    type: string
+  - name: archiveOriginalUrl
+    label: Indirizzo storico dell'articolo
+    type: string
+  - name: archiveUrl
+    label: Copia verificata su Internet Archive
+    type: string
   - name: socialFacebook
     label: Condividi su Facebook
     type: boolean
