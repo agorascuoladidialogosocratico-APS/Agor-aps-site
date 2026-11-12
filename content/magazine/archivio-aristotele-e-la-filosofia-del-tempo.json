@@ -4,8 +4,8 @@
   "category": "Archivio Filosofia sul divano",
   "author": "Gioele Pio Fragale",
   "excerpt": "Il tempo e il movimento Siamo abituati a misurare le ore con strumenti precisi, ma definire che cosa sia il tempo è molto più difficile. Aristotele affronta il problema nel quarto libro della Fisica: il passato non è…",
-  "cover": "https://images.unsplash.com/photo-1765809185515-da05f5fb02ca?auto=format&fit=crop&w=1300&h=731&q=78",
-  "coverAlt": "Busti di filosofi antichi esposti in un museo, fra cui Aristotele",
+  "cover": "/assets/magazine/covers/archivio-aristotele-e-la-filosofia-del-tempo.png",
+  "coverAlt": "Illustrazione originale con quadrante solare, colonne classiche e lancette",
   "published": true,
   "featured": false,
   "body": "> **Nota editoriale (12 novembre 2026).** Versione riveduta di un articolo del 06/11/2022. L’originale è disponibile nella [copia d’archivio](https://web.archive.org/web/20221106095630/https://filosofiasuldivano.altervista.org/aristotele-e-la-filosofia-del-tempo/).\n\n## Il tempo e il movimento\n\nSiamo abituati a misurare le ore con strumenti precisi, ma definire che cosa sia il tempo è molto più difficile. Aristotele affronta il problema nel quarto libro della *Fisica*: il passato non è più, il futuro non è ancora e il presente sembra sfuggire alla nostra capacità di trattenerlo.\n\nPer Aristotele il tempo non coincide semplicemente con il movimento. È piuttosto il «numero del movimento secondo il prima e il poi»: riconosciamo che qualcosa cambia quando distinguiamo una successione di eventi e possiamo contarne gli intervalli.\n\nIl tempo rende quindi possibile confrontare mutamenti differenti, pur non riducendosi a uno specifico cambiamento. Per comprendere il tempo occorre riflettere sia sul mondo fisico sia sul modo in cui lo percepiamo e lo misuriamo.\n\n## Chi misura il tempo?\n\nAristotele si domanda anche quale relazione esista tra il tempo, inteso come numero, e l’anima capace di numerare. È una questione complessa: non significa che il tempo sia una semplice invenzione individuale, ma apre il problema del rapporto tra ciò che avviene e chi ne riconosce la successione.\n\nUna conversazione piacevole e un’attesa possono durare entrambe un’ora, ma essere vissute in modi profondamente diversi. La riflessione filosofica distingue la misura del tempo dall’esperienza del suo trascorrere.\n\nÈ per questa ragione che Aristotele continua a parlarci: ci invita a non confondere un numero sul quadrante con l’intera realtà del tempo.\n\n**Approfondimento:** [Stanford Encyclopedia of Philosophy, Aristotele](https://plato.stanford.edu/entries/aristotle/).",
@@ -19,6 +19,7 @@
   "socialXText": "",
   "editorialReviewDate": "2026-11-12",
   "editorialReviewType": "revisione documentata con testo storico consultabile",
-  "coverCredit": "Albert Sidorov",
-  "coverSource": "https://unsplash.com/photos/ofv289B2HMc"
+  "coverCredit": "Agorà APS — illustrazione editoriale originale (2026)",
+  "coverSource": "https://agora-scuoladidialogosocraticoecittadinanzattiva.site/assets/magazine/covers/archivio-aristotele-e-la-filosofia-del-tempo.svg",
+  "coverLicense": "Uso editoriale e social per Agorà APS autorizzato; nessun elemento fotografico di terzi"
 }
