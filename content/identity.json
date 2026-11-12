@@ -21,5 +21,17 @@
   "footer": {
     "tagline": "Dialogo socratico · Educazione · Cittadinanza europea",
     "copyright": "© 2026 Agorà APS"
-  }
+  },
+  "externalProfiles": [
+    {
+      "label": "Portale europeo per i giovani – Corpo europeo di solidarietà",
+      "url": "https://youth.europa.eu/volunteering/organisation/83571_mt",
+      "type": "registro istituzionale"
+    },
+    {
+      "label": "Italia non profit – scheda ente (dati RUNTS)",
+      "url": "https://italianonprofit.it/scheda-ente/93254890879/",
+      "type": "repertorio da dati pubblici"
+    }
+  ]
 }
