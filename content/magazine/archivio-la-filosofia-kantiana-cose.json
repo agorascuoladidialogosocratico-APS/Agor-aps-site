@@ -21,5 +21,13 @@
   "editorialReviewType": "revisione documentata con testo storico consultabile",
   "coverCredit": "Agorà APS — illustrazione editoriale originale (2026)",
   "coverSource": "https://agora-scuoladidialogosocraticoecittadinanzattiva.site/assets/magazine/covers/archivio-la-filosofia-kantiana-cose.svg",
-  "coverLicense": "Uso editoriale e social per Agorà APS autorizzato; nessun elemento fotografico di terzi"
+  "coverLicense": "Uso editoriale e social per Agorà APS autorizzato; nessun elemento fotografico di terzi",
+  "seoTitle": "Kant: conoscenza, libertà e morale",
+  "seoDescription": "Che cosa possiamo conoscere? La filosofia di Kant spiegata attraverso ragione, categorie, autonomia morale e imperativo categorico.",
+  "topics": [
+    "Kant",
+    "etica",
+    "filosofia"
+  ],
+  "language": "it"
 }
