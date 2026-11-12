@@ -24,5 +24,13 @@
   "editorialReviewType": "revisione di forma e contenuti con nota pubblica",
   "coverCredit": "Agorà APS — illustrazione editoriale originale (2026)",
   "coverSource": "https://agora-scuoladidialogosocraticoecittadinanzattiva.site/assets/magazine/covers/archivio-come-studiare-la-filosofia-puo-salvarti-la-vita.svg",
-  "coverLicense": "Uso editoriale e social per Agorà APS autorizzato; nessun elemento fotografico di terzi"
+  "coverLicense": "Uso editoriale e social per Agorà APS autorizzato; nessun elemento fotografico di terzi",
+  "seoTitle": "Studiare filosofia: pensiero critico e metodo",
+  "seoDescription": "Come studiare filosofia con metodo, comprendere gli argomenti e sviluppare il pensiero critico per la scuola e la vita quotidiana.",
+  "topics": [
+    "filosofia",
+    "studio",
+    "educazione"
+  ],
+  "language": "it"
 }

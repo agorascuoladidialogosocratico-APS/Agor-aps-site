@@ -21,5 +21,13 @@
   "editorialReviewType": "revisione sostanziale; attribuzione rettificata sulla firma originale",
   "coverCredit": "Agorà APS — illustrazione editoriale originale (2026)",
   "coverSource": "https://agora-scuoladidialogosocraticoecittadinanzattiva.site/assets/magazine/covers/archivio-ll-ruolo-degli-intellettuali-nella-societa-odierna.svg",
-  "coverLicense": "Uso editoriale e social per Agorà APS autorizzato; nessun elemento fotografico di terzi"
+  "coverLicense": "Uso editoriale e social per Agorà APS autorizzato; nessun elemento fotografico di terzi",
+  "seoTitle": "Il ruolo degli intellettuali nella società",
+  "seoDescription": "Pensiero critico, cultura e responsabilità pubblica: quale ruolo hanno gli intellettuali nella società? Un saggio storico rivisto.",
+  "topics": [
+    "pensiero critico",
+    "cittadinanza attiva",
+    "educazione"
+  ],
+  "language": "it"
 }

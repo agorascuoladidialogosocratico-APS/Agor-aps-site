@@ -21,5 +21,13 @@
   "editorialReviewType": "revisione documentata con testo storico consultabile",
   "coverCredit": "Agorà APS — illustrazione editoriale originale (2026)",
   "coverSource": "https://agora-scuoladidialogosocraticoecittadinanzattiva.site/assets/magazine/covers/archivio-aristotele-e-la-filosofia-del-tempo.svg",
-  "coverLicense": "Uso editoriale e social per Agorà APS autorizzato; nessun elemento fotografico di terzi"
+  "coverLicense": "Uso editoriale e social per Agorà APS autorizzato; nessun elemento fotografico di terzi",
+  "seoTitle": "Aristotele: che cos'è il tempo?",
+  "seoDescription": "Aristotele e la teoria del tempo nella Fisica: movimento, prima e dopo, istante. Una lettura accessibile con riferimento al testo originale.",
+  "topics": [
+    "Aristotele",
+    "tempo",
+    "filosofia"
+  ],
+  "language": "it"
 }

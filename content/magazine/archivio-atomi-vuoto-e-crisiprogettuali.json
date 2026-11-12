@@ -24,5 +24,13 @@
   "editorialReviewType": "revisione editoriale con attribuzione originale conservata",
   "coverCredit": "Agorà APS — illustrazione editoriale originale (2026)",
   "coverSource": "https://agora-scuoladidialogosocraticoecittadinanzattiva.site/assets/magazine/covers/archivio-atomi-vuoto-e-crisiprogettuali.svg",
-  "coverLicense": "Uso editoriale e social per Agorà APS autorizzato; nessun elemento fotografico di terzi"
+  "coverLicense": "Uso editoriale e social per Agorà APS autorizzato; nessun elemento fotografico di terzi",
+  "seoTitle": "Atomi, vuoto e crisi progettuali",
+  "seoDescription": "Atomi, vuoto e relazioni: una breve meditazione filosofica sull'individualità, sui legami e sui limiti degli obblighi.",
+  "topics": [
+    "filosofia",
+    "relazioni",
+    "esistenza"
+  ],
+  "language": "it"
 }

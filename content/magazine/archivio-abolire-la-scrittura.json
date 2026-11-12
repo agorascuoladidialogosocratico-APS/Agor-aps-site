@@ -24,5 +24,13 @@
   "editorialReviewType": "revisione editoriale con attribuzione originale conservata",
   "coverCredit": "Agorà APS — illustrazione editoriale originale (2026)",
   "coverSource": "https://agora-scuoladidialogosocraticoecittadinanzattiva.site/assets/magazine/covers/archivio-abolire-la-scrittura.svg",
-  "coverLicense": "Uso editoriale e social per Agorà APS autorizzato; nessun elemento fotografico di terzi"
+  "coverLicense": "Uso editoriale e social per Agorà APS autorizzato; nessun elemento fotografico di terzi",
+  "seoTitle": "Abolire la scrittura? Tra memoria e libertà",
+  "seoDescription": "Dai dialoghi di Platone ai testi sacri: come la scrittura modifica memoria, pensiero e libertà nella nostra cultura.",
+  "topics": [
+    "scrittura",
+    "filosofia",
+    "cultura"
+  ],
+  "language": "it"
 }

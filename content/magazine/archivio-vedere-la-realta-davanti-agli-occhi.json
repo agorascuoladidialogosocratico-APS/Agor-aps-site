@@ -21,5 +21,13 @@
   "editorialReviewType": "revisione editoriale con originale conservato",
   "coverCredit": "Agorà APS — illustrazione editoriale originale (2026)",
   "coverSource": "https://agora-scuoladidialogosocraticoecittadinanzattiva.site/assets/magazine/covers/archivio-vedere-la-realta-davanti-agli-occhi.svg",
-  "coverLicense": "Uso editoriale e social per Agorà APS autorizzato; nessun elemento fotografico di terzi"
+  "coverLicense": "Uso editoriale e social per Agorà APS autorizzato; nessun elemento fotografico di terzi",
+  "seoTitle": "Vedere la realtà: il gioco di ruolo e la mente",
+  "seoDescription": "Come il gioco di ruolo apre nuovi punti di vista? Una riflessione sull'immaginazione, il personaggio Aurelio e il dialogo.",
+  "topics": [
+    "gioco di ruolo",
+    "empatia",
+    "filosofia"
+  ],
+  "language": "it"
 }
