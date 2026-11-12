@@ -108,3 +108,10 @@
 @media(max-width:520px){.mag-body main{padding:11px 13px 55px}.mag-cover,.support-hero{border-radius:10px}.mag-cover-photo,.support-hero figure{height:225px}.mag-cover h1,.support-hero h1{font-size:clamp(42px,11.2vw,60px)}.mag-cover-copy>p,.support-hero>div>p{font-size:15px}.mag-section{margin:40px auto}.mag-section-top h2{font-size:36px}.mag-grid{grid-template-columns:1fr;gap:16px}.mag-card-image{aspect-ratio:16/9}.mag-card-body{padding:22px}.mag-contribute{padding:28px 23px}.mag-contribute h2{font-size:38px}.mag-article-head{margin:28px auto 20px}.mag-article h1{font-size:clamp(38px,9vw,52px)}.mag-article-intro{font-size:16px}.mag-article-image img{aspect-ratio:4/3}.mag-article-layout{margin:23px auto}.mag-prose{font-size:16px}.mag-byline{font-size:11px}.mag-footer-inner{flex-direction:column;gap:20px}.mag-footer nav{gap:11px 17px}.support-body{margin:35px auto}.support-body h2{font-size:39px}}
 @media(prefers-reduced-motion:reduce){.mag-body *, .mag-body *:before,.mag-body *:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
 @media print{.mag-header,.mag-footer,.mag-filters,.mag-action,.mag-contribute,.mag-editor-link{display:none!important}.mag-body main{padding:0}.mag-cover,.support-hero{box-shadow:none;break-inside:avoid}.mag-card{break-inside:avoid}.mag-grid{grid-template-columns:1fr 1fr}.mag-prose{font-size:12pt}}
+
+/* Provenienza esplicita delle pubblicazioni trasferite dall'archivio storico. */
+.mag-archive-source{margin:45px 0 10px;padding:22px 25px;background:#f3eee3;border:1px solid #dfd5c4;border-left:4px solid #b85628;border-radius:5px}
+.mag-archive-source>span{font:800 10px/1.5 var(--ag-sans);letter-spacing:.15em;text-transform:uppercase;color:#92502d}
+.mag-archive-source p{font:400 13px/1.7 var(--ag-sans);color:#53665e;margin:8px 0 12px}
+.mag-archive-source a{font:750 12px/1.45 var(--ag-sans);color:#8f4828}
+@media(max-width:520px){.mag-archive-source{margin:28px 0 0;padding:18px}}
