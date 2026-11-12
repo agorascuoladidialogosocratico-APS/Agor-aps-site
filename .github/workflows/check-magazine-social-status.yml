@@ -1,0 +1,54 @@
+name: Esito finale pubblicazione Agorà Magazine
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/check-magazine-social-status.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Controlla stati e link pubblici Buffer
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+        shell: bash
+        run: |
+          node --input-type=module <<'JS'
+          import {readFileSync,appendFileSync} from 'node:fs';
+          const posts=JSON.parse(readFileSync('data/buffer-posts.json','utf8')).posts['benvenuti-in-agora-magazine'];
+          const key=process.env.BUFFER_API_KEY;
+          if(!key||!posts)throw Error('Chiave o invii Buffer mancanti');
+          const lines=['## Esito pubblicazione Agorà Magazine','','| Piattaforma | Stato | Data invio | Link al post |','| --- | --- | --- | --- |'];
+          let failures=0;
+          for(const name of ['facebook','instagram']){
+            const id=posts[name]?.id;
+            if(!/^[A-Za-z0-9:_-]+$/.test(String(id||'')))throw Error('ID post Buffer mancante');
+            const query='query { post(input: { id: '+JSON.stringify(id)+' }) { id status sentAt externalLink error { message } } }';
+            const response=await fetch('https://api.buffer.com',{method:'POST',
+             headers:{'Content-Type':'application/json',Authorization:'Bearer '+key},
+             body:JSON.stringify({query}),signal:AbortSignal.timeout(20000)});
+            if(!response.ok)throw Error('API Buffer HTTP '+response.status);
+            const result=await response.json();
+            if(result.errors?.length)throw Error('Buffer GraphQL: '+result.errors[0].message);
+            const post=result.data?.post;
+            if(!post)throw Error('Post non trovato: '+name);
+            const status=String(post.status||'sconosciuto');
+            if(status!=='sent')failures++;
+            const url=String(post.externalLink||'');
+            const valid=/^https:\/\/(www\.)?(facebook\.com|instagram\.com|fb\.com)\//i.test(url);
+            console.log(name+' | stato: '+status+' | link: '+(valid?url:'non ancora disponibile'));
+            if(post.error?.message)console.log(name+' | errore: '+String(post.error.message).replace(/[\r\n]/g,' ').slice(0,350));
+            lines.push('| '+name+' | '+status+' | '+(post.sentAt||'—')+' | '+(valid?url:'—')+' |');
+          }
+          appendFileSync(process.env.GITHUB_STEP_SUMMARY,lines.join('\n')+'\n');
+          console.log(failures===0?'Tutti i post pubblicati.':failures+' post da verificare in Buffer.');
+          JS
