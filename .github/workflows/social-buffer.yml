@@ -1,0 +1,97 @@
+name: Agorà Magazine - Buffer social
+
+on:
+  workflow_dispatch:
+    inputs:
+      payload:
+        description: Payload JSON di Pages CMS (compilato dal pulsante editor)
+        type: string
+        required: false
+        default: ''
+      article:
+        description: Slug articolo (solo esecuzione manuale GitHub)
+        type: string
+        required: false
+        default: benvenuti-in-agora-magazine
+      mode:
+        description: Comportamento Buffer (solo manuale GitHub)
+        type: choice
+        required: true
+        default: draft
+        options:
+          - draft
+          - queue
+      task:
+        description: Anteprima, invio o elenco canali collegati (solo manuale GitHub)
+        type: choice
+        required: true
+        default: preview
+        options:
+          - preview
+          - send
+          - channels
+
+permissions:
+  contents: write
+
+concurrency:
+  group: agora-magazine-buffer
+  cancel-in-progress: false
+
+jobs:
+  buffer:
+    if: github.repository == 'agorascuoladidialogosocratico-APS/Agor-aps-site' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Scarica il sito
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+      - name: Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Invia bozze o programma social Buffer
+        env:
+          PAGES_CMS_PAYLOAD: ${{ inputs.payload }}
+          ARTICLE: ${{ inputs.article }}
+          MODE: ${{ inputs.mode }}
+          TASK: ${{ inputs.task }}
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          BUFFER_CHANNEL_FACEBOOK: ${{ vars.BUFFER_CHANNEL_FACEBOOK }}
+          BUFFER_CHANNEL_INSTAGRAM: ${{ vars.BUFFER_CHANNEL_INSTAGRAM }}
+          BUFFER_CHANNEL_X: ${{ vars.BUFFER_CHANNEL_X }}
+        shell: bash
+        run: |
+          set -u
+          task="$TASK"
+          if [[ -n "$PAGES_CMS_PAYLOAD" ]]; then
+            task=send
+          fi
+          case "$task" in
+            preview)
+              node scripts/social-buffer.mjs --preview --article "$ARTICLE" --mode "$MODE"
+              exit 0
+              ;;
+            channels)
+              node scripts/social-buffer.mjs --channels
+              exit $?
+              ;;
+            send)
+              status=0
+              node scripts/social-buffer.mjs --execute --article "$ARTICLE" --mode "$MODE" || status=$?
+              git config user.name "agora-editorial-bot"
+              git config user.email "agora-editorial-bot@users.noreply.github.com"
+              git add data/buffer-posts.json
+              if ! git diff --cached --quiet; then
+                git commit -m "chore(social): registra invii Buffer senza duplicati [skip ci]"
+                git push origin HEAD:main || exit 1
+              fi
+              exit "$status"
+              ;;
+            *)
+              echo "Azione non riconosciuta"
+              exit 2
+              ;;
+          esac

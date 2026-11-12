@@ -196,6 +196,13 @@ for(const file of magFiles){
 assert(read('.pages.yml').includes('name: magazine'),'Editor: raccolta Agorà Magazine mancante');
 assert(read('.pages.yml').includes('name: membership'),'Editor: bonifici non modificabili');
 
+assert(existsSync(join(root,'scripts/social-buffer.mjs')),'Integrazione social Buffer mancante');
+assert(existsSync(join(root,'scripts/test-social-buffer.mjs')),'Test social Buffer mancante');
+assert(existsSync(join(root,'.github/workflows/social-buffer.yml')),'Azione GitHub per Buffer non presente');
+assert(existsSync(join(root,'data/buffer-posts.json')),'Registro di idempotenza Buffer assente');
+assert(read('.pages.yml').includes('name: send-to-buffer'),'Pulsante Pages CMS social non presente');
+assert(JSON.parse(read('data/buffer-posts.json')).posts!==undefined,'Registro Buffer malformato');
+
 if (errors.length) {
   console.error('Verifica Agorà APS: ' + errors.length + ' problema/i:\n- ' + errors.join('\n- '));
   process.exitCode = 1;

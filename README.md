@@ -14,6 +14,14 @@ Sito dell'associazione Agorà – Scuola di Dialogo Socratico e Cittadinanza Att
 
 **Design:** riprende logo e fotografie già presenti e mantiene la palette blu petrolio `#193b4a`, terracotta `#b85628`, avorio `#f8f0e6`. Layout responsive con navigazione mobile e supporto `prefers-reduced-motion`.
 
+## Pubblicazione coordinata Magazine e social (Buffer Free)
+
+Il Magazine mantiene Pages CMS come unico editor di riferimento, senza installare WordPress. La scheda articolo offre i campi Facebook, Instagram e X, testi diversi per ciascun canale e il pulsante **Prepara post per Instagram, Facebook e X**. Con il pulsante si possono creare bozze su Buffer o inserire i post nella coda di pubblicazione. Di default il pulsante prepara soltanto bozze, e **nessun contenuto parte automaticamente quando si salva un articolo**.
+
+La pubblicazione è gestita dal workflow GitHub Actions .github/workflows/social-buffer.yml, basato sulla API GraphQL ufficiale Buffer. Richiede un account Buffer Free associato alle tre pagine/profili istituzionali, un secret GitHub BUFFER_API_KEY e tre variabili BUFFER_CHANNEL_FACEBOOK, BUFFER_CHANNEL_INSTAGRAM e BUFFER_CHANNEL_X. Fino alla connessione non pubblica alcun social post. Le chiamate Buffer sono lato GitHub Actions, mai nel browser del visitatore.
+
+Il file data/buffer-posts.json tiene traccia dei post già creati evitando un secondo invio per lo stesso articolo/canale. Per prima prova usare GitHub Actions con task=preview, poi task=channels per conoscere gli ID, infine salvare bozze per un singolo articolo. Guida completa: **BUFFER-SOCIAL.md**.
+
 ## Architettura e navigazione
 La homepage conserva il **libro digitale interattivo**. Sono disponibili pagine HTML **statiche e indicizzabili** per Chi siamo, Progetti (e schede SODA-LABS / Odisseo Philosophorum), Tirocini, Volontariato ESC, Partecipa, Contatti, Trasparenza, Privacy, Accessibilità, Agorà Magazine, singoli articoli pubblicati e Sostienici.
 
