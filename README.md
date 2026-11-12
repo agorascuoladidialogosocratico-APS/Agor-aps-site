@@ -30,6 +30,14 @@ Installazione: su iPhone aprire `https://agora-scuoladidialogosocraticoecittadin
 
 Il primo articolo è predisposto soltanto per **Facebook e Instagram**, i due canali già collegati all'account Buffer. L'account terzo non viene toccato, e X non riceve post finché non sarà collegato. La scheda articolo offre bozze, coda e la scelta esplicita "Pubblica subito", sempre dopo conferma.
 
+## Biblioteca storica «Filosofia sul divano» (recupero Wayback)
+
+Nel 2026 il dominio `filosofiasuldivano.org` è stato cancellato, ma la Wayback Machine conserva copie dell'indirizzo storico `filosofiasuldivano.altervista.org`. L'archivio viene recuperato tramite `scripts/import-filosofia-wayback.py`, esclusivamente per articoli pubblici del 2021–2023 attribuiti a Gioele Pio Fragale, senza pagine protette, esercizi privati, articoli di altri autori o contenuti esterni incorporati. In particolare, link social di condivisione e video esterni non sono copiati nei testi. I testi storici sono attribuiti al loro autore e includono la fonte Wayback originale.
+
+Le pubblicazioni hanno la rubrica **Archivio Filosofia sul divano**, la data storica e la foto di copertina **editoriale Agorà** (non presentata come foto originale). Possono essere aggiornate via Pages CMS attraverso i campi `sourceTitle` e `sourceUrl`. Vengono pubblicate nel Magazine e nel suo RSS, non sui social: `socialFacebook=false`, `socialInstagram=false`, `socialX=false`. La presenza di un testo del 2021–2023 nell'archivio non indica che esprima necessariamente le posizioni attuali dell'associazione.
+
+Il workflow `.github/workflows/publish-filosofia-archive.yml` esegue il recupero, verifica che almeno otto articoli abbiano un testo completo e un autore confermato, rigenera tutte le pagine e pubblica via commit su `main`. Gli articoli già importati non vengono sovrascritti, per preservare le modifiche dell'editor.
+
 ## Architettura e navigazione
 La homepage conserva il **libro digitale interattivo**. Sono disponibili pagine HTML **statiche e indicizzabili** per Chi siamo, Progetti (e schede SODA-LABS / Odisseo Philosophorum), Tirocini, Volontariato ESC, Partecipa, Contatti, Trasparenza, Privacy, Accessibilità, Agorà Magazine, singoli articoli pubblicati e Sostienici.
 
