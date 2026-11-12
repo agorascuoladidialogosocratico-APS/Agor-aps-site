@@ -85,7 +85,7 @@ function layout(path,title,description,body,img,post){
  const browserTitle=shortMeta(seoTitle,47)+(seoTitle.includes('Agorà')?'':' | Agorà APS');
  const dateModified=post?.editorialReviewDate&&dateOk(post.editorialReviewDate)?post.editorialReviewDate:post?.date;
  const orgId=base+'/#agora',websiteId=base+'/#website',pageId=canon+'#pagina';
- const publisher={'@type':'NGO','@id':orgId,name:'Agorà – Scuola di Dialogo Socratico e Cittadinanza Attiva APS',alternateName:'Agorà APS',url:base+'/',logo:{'@type':'ImageObject',url:base+'/assets/agora_icon.png'},email:mail};
+ const publisher={'@type':'NGO','@id':orgId,name:'Agorà – Scuola di Dialogo Socratico e Cittadinanza Attiva APS',alternateName:'Agorà APS',url:base+'/',logo:{'@type':'ImageObject',url:base+'/assets/agora_icon.png'},email:mail,sameAs:(identity.externalProfiles||[]).map(p=>p.url)};
  const isMagazine=path.startsWith('/magazine/');
  const trail=[{'@type':'ListItem',position:1,name:'Agorà APS',item:base+'/'}];
  if(isMagazine&&path!=='/magazine/')trail.push({'@type':'ListItem',position:2,name:'Magazine',item:base+'/magazine/'});
