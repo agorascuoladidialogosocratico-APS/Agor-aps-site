@@ -1,3 +1,20 @@
 {
-  "posts": {}
+  "posts": {
+    "benvenuti-in-agora-magazine": {
+      "facebook": {
+        "id": "6af51f44bc9f3773a1b44c44",
+        "mode": "now",
+        "status": "sent",
+        "channelId": "6af5165b62b70b94b00015eb",
+        "at": "2026-11-12T02:07:05.327Z"
+      },
+      "instagram": {
+        "id": "6af51f49cb4c7286fd0981b0",
+        "mode": "now",
+        "status": "sending",
+        "channelId": "6af5173962b70b94b0001ce9",
+        "at": "2026-11-12T02:07:16.044Z"
+      }
+    }
+  }
 }
