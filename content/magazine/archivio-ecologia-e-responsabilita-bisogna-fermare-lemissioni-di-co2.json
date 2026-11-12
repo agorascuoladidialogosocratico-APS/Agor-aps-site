@@ -4,8 +4,8 @@
   "category": "Archivio Filosofia sul divano",
   "author": "Gioele Pio Fragale",
   "excerpt": "L’ecologia studia le relazioni fra gli organismi viventi e l’ambiente in cui vivono. Il termine richiama il greco oîkos, «casa», e lógos, «studio»: comprendere i sistemi naturali significa, in un certo senso, imparare a conoscere…",
-  "cover": "/assets/agora_dialogo.webp",
-  "coverAlt": "Immagine illustrativa della redazione Agorà APS, non originale dell’articolo",
+  "cover": "https://images.unsplash.com/photo-1767457108672-79c6dd48a165?auto=format&fit=crop&w=1300&h=731&q=78",
+  "coverAlt": "Una giovane piantina cresce dal terreno scuro",
   "published": true,
   "featured": false,
   "body": "> **Nota editoriale (12 novembre 2026).** Questa è una versione rivista dell’articolo storico: sono stati corretti problemi di forma e, dove necessario, imprecisioni concettuali o fattuali. Il testo d’archivio resta consultabile attraverso il collegamento alla fonte originale.\n\nL’ecologia studia le relazioni fra gli organismi viventi e l’ambiente in cui vivono. Il termine richiama il greco *oîkos*, «casa», e *lógos*, «studio»: comprendere i sistemi naturali significa, in un certo senso, imparare a conoscere la casa che condividiamo.\n\nLe attività umane possono modificare profondamente gli ecosistemi. L’uso di combustibili fossili, la trasformazione dei territori, l’inquinamento e l’eccessivo sfruttamento delle risorse contribuiscono alla crisi climatica e alla perdita di biodiversità. Si tratta di problemi collegati, ma non identici: il riscaldamento globale è legato soprattutto all’aumento dei gas serra, mentre la biodiversità è minacciata anche dalla distruzione degli habitat e da altre pressioni ambientali.\n\n## Dalla conoscenza alla responsabilità\n\nRiconoscere l’impatto delle nostre scelte non significa attribuire la stessa responsabilità a ogni singola persona. Governi, imprese e istituzioni hanno un ruolo decisivo nel definire le condizioni entro cui individui e comunità possono agire.\n\nRidurre le emissioni richiede la progressiva sostituzione delle fonti energetiche ad alta intensità di carbonio, l’efficienza energetica, trasporti meno inquinanti e una gestione sostenibile dei territori. Anche il recupero dei materiali, la riduzione degli sprechi e la tutela degli ecosistemi possono contribuire a una relazione più equilibrata con la natura.\n\n## Una questione etica\n\nLa tutela dell’ambiente è anche una questione di giustizia: le conseguenze del degrado non colpiscono tutte le persone e tutte le generazioni allo stesso modo. Chi dispone di meno risorse può avere maggiori difficoltà a proteggersi dagli eventi estremi e dall'insicurezza ambientale.\n\nPer questo parlare di ecologia significa interrogarsi sul modo in cui viviamo insieme, sulle responsabilità condivise e sul futuro che consegneremo agli altri. La consapevolezza è un inizio; il cambiamento richiede decisioni individuali e collettive coerenti con ciò che sappiamo.",
@@ -21,5 +21,7 @@
   "socialInstagramText": "",
   "socialXText": "",
   "editorialReviewDate": "2026-11-12",
-  "editorialReviewType": "revisione di forma e contenuti con nota pubblica"
+  "editorialReviewType": "revisione di forma e contenuti con nota pubblica",
+  "coverCredit": "Pranav Gavali",
+  "coverSource": "https://unsplash.com/photos/4KnaYSLHnAI"
 }
