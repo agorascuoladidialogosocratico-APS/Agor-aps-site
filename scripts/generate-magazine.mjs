@@ -64,7 +64,7 @@ function layout(path,title,description,body,img,post){
  return '<!doctype html><html lang="it"><head>'+head+'</head><body class="mag-body">'+header+'<main id="contenuto">'+body+'</main>'+footer+'<script defer src="/assets/whatsapp-chat.js?v=20261112"></script><script defer src="/assets/magazine.js?v=20261112"></script></body></html>\n';
 }
 const archivalNote=p=>{
- const url=String(p.archiveUrl||'');
+ const url=String(p.archiveUrl||p.sourceUrl||'');
  if(!/^https:\/\/web\.archive\.org\/web\/\d{14}\/https:\/\/filosofiasuldivano\.altervista\.org\/[a-z0-9-]+\/$/.test(url))return '';
  const revision=p.editorialReviewDate?' Versione revisionata editorialmente il '+dateIt(p.editorialReviewDate)+'.':'';
  return '<aside class="mag-archive-source"><span>Archivio storico</span><p>Articolo pubblicato originariamente su <strong>Filosofia sul divano</strong> il '+dateIt(p.date)+'. Testo recuperato dalla copia conservata in Internet Archive, con attribuzione all’autore originale.'+revision+'</p><a href="'+esc(url)+'" target="_blank" rel="noopener noreferrer">Consulta la fonte conservata ↗</a></aside>';
