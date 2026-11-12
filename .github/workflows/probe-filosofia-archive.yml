@@ -1,0 +1,19 @@
+name: Verifica recupero articoli Filosofia sul divano
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/probe-filosofia-archive.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Controlla REST API, feed e Wayback in sola lettura
+        run: python scripts/probe-filosofia-sul-divano.py
