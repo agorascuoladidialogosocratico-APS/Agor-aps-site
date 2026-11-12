@@ -4,8 +4,8 @@
   "category": "Archivio Filosofia sul divano",
   "author": "Gioele Pio Fragale",
   "excerpt": "L'esperienza della ricerca Hermann Hesse è uno scrittore di lingua tedesca che ha raccontato, attraverso i romanzi, il problema della conoscenza di sé e del rapporto tra individuo e società. Fra le sue opere più celebri…",
-  "cover": "/assets/agora_dialogo.webp",
-  "coverAlt": "Immagine editoriale Agorà APS dedicata al dialogo filosofico",
+  "cover": "https://images.unsplash.com/photo-1578879981267-666aaa9045fb?auto=format&fit=crop&w=1300&h=731&q=78",
+  "coverAlt": "Mani che sfogliano un libro in un momento di lettura raccolta",
   "published": true,
   "featured": false,
   "body": "> **Nota editoriale (12 novembre 2026).** Versione riveduta di un articolo del 04/11/2022. L’originale è disponibile nella [copia d’archivio](https://web.archive.org/web/20221104093527/https://filosofiasuldivano.altervista.org/herman-hesse-autore-filosofico-che-spiega-loriente-con-la-narrazione/).\n\n## L'esperienza della ricerca\n\nHermann Hesse è uno scrittore di lingua tedesca che ha raccontato, attraverso i romanzi, il problema della conoscenza di sé e del rapporto tra individuo e società. Fra le sue opere più celebri figurano *Siddhartha*, *Il lupo della steppa* e *Il gioco delle perle di vetro*.\n\nIl suo interesse per le culture asiatiche si sviluppò anche in un ambiente familiare legato alle missioni in India. Nel 1911 intraprese un viaggio che toccò Ceylon, oggi Sri Lanka, e diverse località del Sud-Est asiatico, ma non realizzò un lungo soggiorno nel subcontinente indiano.\n\n## *Siddhartha* non è una biografia\n\nNel romanzo *Siddhartha*, pubblicato nel 1922, il protagonista attraversa esperienze molto diverse: la ricerca ascetica, l’incontro con gli insegnamenti del Buddha, la vita mondana e la meditazione. Il percorso verso la consapevolezza non si esaurisce nell’adesione a una dottrina.\n\nÈ importante distinguere la narrazione letteraria dalla ricostruzione storica. Hesse si ispira a motivi spirituali e filosofici orientali, ma li rielabora liberamente. Il protagonista non coincide con lo scrittore, né la sua vicenda costituisce un resoconto fedele di pratiche buddhiste o induiste.\n\n## Un dialogo fra tradizioni\n\nIl fascino delle opere di Hesse risiede nel tentativo di esplorare domande umane attraverso un incontro tra prospettive culturali differenti. Questo dialogo può essere fecondo, purché non riduca tradizioni complesse a immagini esotiche.\n\nLeggere Hesse significa anche interrogarsi sul modo in cui impariamo: basta ripetere una verità ascoltata, o la comprensione richiede esperienza, dubbio e confronto?\n\n**Riferimento biografico:** [Hermann-Hesse-Portal, viaggio del 1911](https://www.hermann-hesse.de/leben-und-werk/biografie/indienreise/).",
@@ -18,5 +18,7 @@
   "socialInstagramText": "",
   "socialXText": "",
   "editorialReviewDate": "2026-11-12",
-  "editorialReviewType": "revisione documentata con testo storico consultabile"
+  "editorialReviewType": "revisione documentata con testo storico consultabile",
+  "coverCredit": "Jessica Da Rosa",
+  "coverSource": "https://unsplash.com/photos/QJcdSPPJavY"
 }
