@@ -125,8 +125,194 @@ def extract(raw):
     for a in body.select('a[href]'):
         if not a.get('href','').startswith(('https://','http://','/')):a.unwrap()
     markdown=md(str(body),heading_style='ATX',bullets='-',strip=['img']).strip()
-    markdown=re.sub(r'\n{3,}','\n\n',markdown)
-    markdown=re.sub(r'(?im)^\s*(Facebook|Twitter|Pinterest|LinkedIn|Oggi ho letto su.*|Vuoi abilitare le notifiche\?|Notifiche push abilitate|Condividi sui social|Stampa)\s*$','',markdown).strip()
+    # Remove WordPress share links while preserving editorial and archive links.
+    markdown=re.sub(r'(?im)^\s*\[(?:Facebook|Twitter|Pinterest|LinkedIn)\]\(https?://[^\n]+?\)\s*
+    if len(markdown)<110 or len(markdown)>80000:raise ValueError('lunghezza contenuto anomala: '+str(len(markdown)))
+    if 'Questo contenuto è protetto' in markdown[:500]:raise ValueError('contenuto protetto')
+    return title,markdown,observed_date,observed_author,discovered
+def preview(slug):
+    return str(Path('content/magazine/archivio-'+slug+'.json'))
+def one(article):
+    slug,guess_title,guess_date=article
+    try:
+        archive,raw=links(slug,guess_date)
+        html=fetch(raw,timeout=29)
+        heading,text,published,byline,more=extract(html)
+        date=published or guess_date
+        if not date:raise ValueError('data di pubblicazione originale non verificata')
+        clean=re.sub(r'\s+',' ',re.sub(r'[#*<>_\[\]\x60]',' ',text)).strip()
+        excerpt=clean[:230].rsplit(' ',1)[0].rstrip(' ,.;')+('…' if len(clean)>230 else '')
+        original_url=ROOT+'/'+slug+'/'
+        obj={'title':heading or guess_title,'date':date,'category':'Archivio Filosofia sul divano',
+          'author':byline,'excerpt':excerpt,'cover':'/assets/agora_dialogo.webp',
+          'coverAlt':'Immagine illustrativa della redazione Agorà APS, non originale dell’articolo',
+          'published':True,'featured':False,'body':text,
+          'archiveSource':'Filosofia sul divano','archiveOriginalUrl':original_url,'archiveUrl':archive,'sourceUrl':archive,'sourceTitle':'Filosofia sul divano (archivio storico)',
+          'socialFacebook':False,'socialInstagram':False,'socialX':False,
+          'socialFacebookText':'','socialInstagramText':'','socialXText':''}
+        return {'slug':slug,'date':date,'author':byline,'status':'ready','originalTitle':heading,
+                'length':len(text),'target':preview(slug),'data':obj,'discovered':more}
+    except Exception as exc:
+        return {'slug':slug,'status':'skipped','reason':type(exc).__name__+': '+str(exc)[:150]}
+def discover():
+    found={slug:(slug,title,date) for slug,title,date in ARTICLES}
+    # Historical public homepage captured in January 2023 contains a long index of original posts.
+    try:
+        url='https://web.archive.org/web/20230109193557id_/'+ROOT+'/'
+        html=fetch(url,timeout=27,maxbytes=1000000)
+        soup=BeautifulSoup(html,'html.parser')
+        for slug in find_article_urls(soup):
+            found.setdefault(slug,(slug,'',''))
+    except Exception as exc:print('INDEX_SNAPSHOT_ERROR',type(exc).__name__,flush=True)
+    # CDX can return every historically captured permalink in a single bounded request.
+    try:
+        api='https://web.archive.org/cdx/search/cdx?'+urllib.parse.urlencode({
+            'url':'filosofiasuldivano.altervista.org/*','output':'json',
+            'fl':'timestamp,original','filter':'statuscode:200','collapse':'urlkey','limit':500})
+        items=json.loads(fetch(api,timeout=18,maxbytes=550000))
+        for row in items[1:]:
+            if not isinstance(row,list) or len(row)<2:continue
+            slug=slug_from_url(row[1])
+            if slug:found.setdefault(slug,(slug,'',''))
+    except Exception as exc:print('CDX_UNAVAILABLE',type(exc).__name__,flush=True)
+    print('DISCOVERED_INITIAL',len(found),flush=True)
+    return found
+def main():
+    parser=argparse.ArgumentParser();parser.add_argument('--write',action='store_true');args=parser.parse_args()
+    found=discover()
+    queue=deque(found.values())
+    seen=set()
+    results=[]
+    while queue and len(seen)<110:
+        batch=[]
+        while queue and len(batch)<5 and len(seen)+len(batch)<110:
+            entry=queue.popleft()
+            if entry[0] not in seen and entry[0] not in [b[0] for b in batch]:
+                batch.append(entry)
+        if not batch:continue
+        with concurrent.futures.ThreadPoolExecutor(max_workers=5) as pool:
+            bunch=list(pool.map(one,batch))
+        for row in bunch:
+            seen.add(row['slug'])
+            for slug in row.pop('discovered',[]):
+                if slug not in seen and slug not in found:
+                    found[slug]=(slug,'','')
+                    queue.append(found[slug])
+            results.append(row)
+        ready=sum(row['status']=='ready' for row in results)
+        print('ARCHIVE_PROGRESS',json.dumps({'attempted':len(seen),'complete':ready,'pending':len(queue)}),flush=True)
+    ready=[r for r in results if r['status']=='ready']
+    if args.write and len(ready)<3:raise SystemExit('Meno di 3 articoli completi: importazione annullata')
+    if args.write:
+        for row in ready:
+            path=Path(row['target'])
+            if path.exists():continue
+            path.parent.mkdir(parents=True,exist_ok=True)
+            path.write_text(json.dumps(row['data'],indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
+    inventory={'total_candidates':len(found),'attempted':len(results),'complete':len(ready),
+               'unprocessed':len(queue),'not_recovered':len(results)-len(ready),
+               'items':[{k:v for k,v in row.items() if k!='data'} for row in results]}
+    Path('data').mkdir(exist_ok=True)
+    Path('data/filosofia-archive-inventory.json').write_text(json.dumps(inventory,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
+    for row in results:
+        print('ARTICLE_RESULT',json.dumps({k:v for k,v in row.items() if k!='data'},ensure_ascii=False),flush=True)
+    print('RECOVERY_SUMMARY',json.dumps({k:v for k,v in inventory.items() if k!='items'},ensure_ascii=False),flush=True)
+if __name__=='__main__':main()
+,'',markdown)
+    markdown=re.sub(r'(?im)^\s*(?:Facebook|Twitter|Pinterest|LinkedIn|Oggi ho letto su.*|Vuoi abilitare le notifiche\?|Notifiche push abilitate|Condividi sui social|Stampa)\s*
+    if len(markdown)<110 or len(markdown)>80000:raise ValueError('lunghezza contenuto anomala: '+str(len(markdown)))
+    if 'Questo contenuto è protetto' in markdown[:500]:raise ValueError('contenuto protetto')
+    return title,markdown,observed_date,observed_author,discovered
+def preview(slug):
+    return str(Path('content/magazine/archivio-'+slug+'.json'))
+def one(article):
+    slug,guess_title,guess_date=article
+    try:
+        archive,raw=links(slug,guess_date)
+        html=fetch(raw,timeout=29)
+        heading,text,published,byline,more=extract(html)
+        date=published or guess_date
+        if not date:raise ValueError('data di pubblicazione originale non verificata')
+        clean=re.sub(r'\s+',' ',re.sub(r'[#*<>_\[\]\x60]',' ',text)).strip()
+        excerpt=clean[:230].rsplit(' ',1)[0].rstrip(' ,.;')+('…' if len(clean)>230 else '')
+        original_url=ROOT+'/'+slug+'/'
+        obj={'title':heading or guess_title,'date':date,'category':'Archivio Filosofia sul divano',
+          'author':byline,'excerpt':excerpt,'cover':'/assets/agora_dialogo.webp',
+          'coverAlt':'Immagine illustrativa della redazione Agorà APS, non originale dell’articolo',
+          'published':True,'featured':False,'body':text,
+          'archiveSource':'Filosofia sul divano','archiveOriginalUrl':original_url,'archiveUrl':archive,'sourceUrl':archive,'sourceTitle':'Filosofia sul divano (archivio storico)',
+          'socialFacebook':False,'socialInstagram':False,'socialX':False,
+          'socialFacebookText':'','socialInstagramText':'','socialXText':''}
+        return {'slug':slug,'date':date,'author':byline,'status':'ready','originalTitle':heading,
+                'length':len(text),'target':preview(slug),'data':obj,'discovered':more}
+    except Exception as exc:
+        return {'slug':slug,'status':'skipped','reason':type(exc).__name__+': '+str(exc)[:150]}
+def discover():
+    found={slug:(slug,title,date) for slug,title,date in ARTICLES}
+    # Historical public homepage captured in January 2023 contains a long index of original posts.
+    try:
+        url='https://web.archive.org/web/20230109193557id_/'+ROOT+'/'
+        html=fetch(url,timeout=27,maxbytes=1000000)
+        soup=BeautifulSoup(html,'html.parser')
+        for slug in find_article_urls(soup):
+            found.setdefault(slug,(slug,'',''))
+    except Exception as exc:print('INDEX_SNAPSHOT_ERROR',type(exc).__name__,flush=True)
+    # CDX can return every historically captured permalink in a single bounded request.
+    try:
+        api='https://web.archive.org/cdx/search/cdx?'+urllib.parse.urlencode({
+            'url':'filosofiasuldivano.altervista.org/*','output':'json',
+            'fl':'timestamp,original','filter':'statuscode:200','collapse':'urlkey','limit':500})
+        items=json.loads(fetch(api,timeout=18,maxbytes=550000))
+        for row in items[1:]:
+            if not isinstance(row,list) or len(row)<2:continue
+            slug=slug_from_url(row[1])
+            if slug:found.setdefault(slug,(slug,'',''))
+    except Exception as exc:print('CDX_UNAVAILABLE',type(exc).__name__,flush=True)
+    print('DISCOVERED_INITIAL',len(found),flush=True)
+    return found
+def main():
+    parser=argparse.ArgumentParser();parser.add_argument('--write',action='store_true');args=parser.parse_args()
+    found=discover()
+    queue=deque(found.values())
+    seen=set()
+    results=[]
+    while queue and len(seen)<110:
+        batch=[]
+        while queue and len(batch)<5 and len(seen)+len(batch)<110:
+            entry=queue.popleft()
+            if entry[0] not in seen and entry[0] not in [b[0] for b in batch]:
+                batch.append(entry)
+        if not batch:continue
+        with concurrent.futures.ThreadPoolExecutor(max_workers=5) as pool:
+            bunch=list(pool.map(one,batch))
+        for row in bunch:
+            seen.add(row['slug'])
+            for slug in row.pop('discovered',[]):
+                if slug not in seen and slug not in found:
+                    found[slug]=(slug,'','')
+                    queue.append(found[slug])
+            results.append(row)
+        ready=sum(row['status']=='ready' for row in results)
+        print('ARCHIVE_PROGRESS',json.dumps({'attempted':len(seen),'complete':ready,'pending':len(queue)}),flush=True)
+    ready=[r for r in results if r['status']=='ready']
+    if args.write and len(ready)<3:raise SystemExit('Meno di 3 articoli completi: importazione annullata')
+    if args.write:
+        for row in ready:
+            path=Path(row['target'])
+            if path.exists():continue
+            path.parent.mkdir(parents=True,exist_ok=True)
+            path.write_text(json.dumps(row['data'],indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
+    inventory={'total_candidates':len(found),'attempted':len(results),'complete':len(ready),
+               'unprocessed':len(queue),'not_recovered':len(results)-len(ready),
+               'items':[{k:v for k,v in row.items() if k!='data'} for row in results]}
+    Path('data').mkdir(exist_ok=True)
+    Path('data/filosofia-archive-inventory.json').write_text(json.dumps(inventory,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
+    for row in results:
+        print('ARTICLE_RESULT',json.dumps({k:v for k,v in row.items() if k!='data'},ensure_ascii=False),flush=True)
+    print('RECOVERY_SUMMARY',json.dumps({k:v for k,v in inventory.items() if k!='items'},ensure_ascii=False),flush=True)
+if __name__=='__main__':main()
+,'',markdown)
+    markdown=re.sub(r'\n{3,}','\n\n',markdown).strip()
     if len(markdown)<110 or len(markdown)>80000:raise ValueError('lunghezza contenuto anomala: '+str(len(markdown)))
     if 'Questo contenuto è protetto' in markdown[:500]:raise ValueError('contenuto protetto')
     return title,markdown,observed_date,observed_author,discovered
