@@ -13,14 +13,14 @@ const absoluteCover=s=>s.startsWith('https://')?s:base+s;
 const dateOk=s=>/^\d{4}-\d{2}-\d{2}$/.test(s)&&!Number.isNaN(new Date(s+'T12:00:00Z').getTime());
 const dateIt=s=>new Intl.DateTimeFormat('it-IT',{year:'numeric',month:'long',day:'numeric',timeZone:'UTC'}).format(new Date(s+'T12:00:00Z'));
 const shortMeta=(value,limit=155)=>{
- const plain=String(value||'').replace(/<[^>]+>/g,'').replace(/\\s+/g,' ').trim();
+ const plain=String(value||'').replace(/<[^>]+>/g,'').replace(/\s+/g,' ').trim();
  if([...plain].length<=limit)return plain;
  const sliced=[...plain].slice(0,limit-1).join('');
- return sliced.replace(/\\s+\\S*$/,'').replace(/[\\s,;:.!?]+$/,'')+'…';
+ return sliced.replace(/\s+\S*$/,'').replace(/[\s,;:.!?]+$/,'')+'…';
 };
 const sourceArchive=p=>{
  const url=String(p?.archiveUrl||p?.sourceUrl||'');
- return /^https:\\/\\/web\\.archive\\.org\\/web\\/\\d{14}\\/https:\\/\\/filosofiasuldivano\\.altervista\\.org\\/[a-z0-9-]+\\/$/.test(url)?url:'';
+ return /^https:\/\/web\.archive\.org\/web\/\d{14}\/https:\/\/filosofiasuldivano\.altervista\.org\/[a-z0-9-]+\/$/.test(url)?url:'';
 };
 const write=(path,s)=>{mkdirSync(dirname(path),{recursive:true});writeFileSync(path,s);};
 function inline(text){
