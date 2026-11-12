@@ -66,6 +66,16 @@ content:
     options:
       format: markdown
       switcher: true
+  - name: archiveSource
+    label: Provenienza editoriale storica (facoltativo)
+    type: string
+  - name: archiveOriginalUrl
+    label: Indirizzo originale dell'articolo
+    type: string
+  - name: archiveUrl
+    label: Copia storica su Internet Archive
+    type: string
+    description: Indirizzo della copia Wayback verificata dell'articolo originale.
   - name: socialFacebook
     label: Condividi su Facebook
     type: boolean
