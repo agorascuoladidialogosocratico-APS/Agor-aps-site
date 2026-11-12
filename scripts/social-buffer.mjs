@@ -41,7 +41,7 @@ export function createPlan(slug,article,mode='draft'){
  const suffix='\n'+url;
  const xIntro=title+' — '+excerpt;
  const maxX=270-Array.from(suffix).length-1;
- const xDefault=shorten(xIntro,maxX)+(Array.from(xIntro).length>maxX?'…':'')+suffix;
+ const xDefault=shorten(xIntro,maxX)+(Array.from(xIntro).length>maxX?'…':'');
  const fallback={
   facebook:title+'\n\n'+shorten(excerpt,350)+'\n\nLeggi su Agorà Magazine: '+url+'\n\n#AgoraAPS #CittadinanzaAttiva',
   instagram:title+'\n\n'+shorten(excerpt,650)+'\n\nL’articolo completo è disponibile sul sito di Agorà APS.\n\n#AgoraAPS #DialogoSocratico #CittadinanzaAttiva',
