@@ -12,6 +12,16 @@ const cover=s=>{
 const absoluteCover=s=>s.startsWith('https://')?s:base+s;
 const dateOk=s=>/^\d{4}-\d{2}-\d{2}$/.test(s)&&!Number.isNaN(new Date(s+'T12:00:00Z').getTime());
 const dateIt=s=>new Intl.DateTimeFormat('it-IT',{year:'numeric',month:'long',day:'numeric',timeZone:'UTC'}).format(new Date(s+'T12:00:00Z'));
+const shortMeta=(value,limit=155)=>{
+ const plain=String(value||'').replace(/<[^>]+>/g,'').replace(/\\s+/g,' ').trim();
+ if([...plain].length<=limit)return plain;
+ const sliced=[...plain].slice(0,limit-1).join('');
+ return sliced.replace(/\\s+\\S*$/,'').replace(/[\\s,;:.!?]+$/,'')+'…';
+};
+const sourceArchive=p=>{
+ const url=String(p?.archiveUrl||p?.sourceUrl||'');
+ return /^https:\\/\\/web\\.archive\\.org\\/web\\/\\d{14}\\/https:\\/\\/filosofiasuldivano\\.altervista\\.org\\/[a-z0-9-]+\\/$/.test(url)?url:'';
+};
 const write=(path,s)=>{mkdirSync(dirname(path),{recursive:true});writeFileSync(path,s);};
 function inline(text){
  let s=esc(text);
@@ -66,16 +76,44 @@ const identity=JSON.parse(readFileSync('content/identity.json','utf8'));
 const member=JSON.parse(readFileSync('content/membership.json','utf8'));
 const nav=[['/','Home'],['/chi-siamo/','Chi siamo'],['/progetti/','Progetti'],['/magazine/','Magazine'],['/partecipa/','Partecipa'],['/sostienici/','Sostienici'],['/contatti/','Contatti']];
 function layout(path,title,description,body,img,post){
- const canon=base+path;const photo=cover(img);
- const structured={"@context":"https://schema.org","@type":post?'BlogPosting':'WebPage',name:title,url:canon,description,inLanguage:'it-IT',publisher:{"@type":"NGO",name:"Agorà APS",url:base+'/'},...(post?{headline:title,datePublished:post.date,author:{"@type":"Organization",name:post.author||'Redazione Agorà APS'},image:absoluteCover(photo)}:{})};
- const head='<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#193b4a"><title>'+esc(title)+' | Agorà APS</title><meta name="description" content="'+esc(description)+'"><link rel="canonical" href="'+canon+'"><meta property="og:title" content="'+esc(title)+' | Agorà APS"><meta property="og:description" content="'+esc(description)+'"><meta property="og:type" content="'+(post?'article':'website')+'"><meta property="og:url" content="'+canon+'"><meta property="og:image" content="'+esc(absoluteCover(photo))+'"><link rel="icon" href="/assets/agora_icon.png"><link rel="alternate" type="application/rss+xml" title="Agorà Magazine" href="/magazine/rss.xml"><link rel="stylesheet" href="/assets/sections.css?v=20261112"><link rel="stylesheet" href="/assets/magazine.css?v=20261112"><link rel="stylesheet" href="/assets/whatsapp-chat.css?v=20261112"><script type="application/ld+json">'+JSON.stringify(structured).replace(/</g,'\\u003c')+'</script>';
+ const canon=base+path;
+ const photo=cover(img);
+ const photoUrl=absoluteCover(photo);
+ const lang=post?.language==='en'?'en':'it';
+ const seoTitle=String(post?.seoTitle||title).trim();
+ const seoDescription=shortMeta(post?.seoDescription||description,155);
+ const browserTitle=shortMeta(seoTitle,54)+(seoTitle.includes('Agorà')?'':' | Agorà APS');
+ const dateModified=post?.editorialReviewDate&&dateOk(post.editorialReviewDate)?post.editorialReviewDate:post?.date;
+ const orgId=base+'/#organizzazione',websiteId=base+'/#website',pageId=canon+'#pagina';
+ const publisher={'@type':'NGO','@id':orgId,name:'Agorà – Scuola di Dialogo Socratico e Cittadinanza Attiva APS',alternateName:'Agorà APS',url:base+'/',logo:{'@type':'ImageObject',url:base+'/assets/agora_icon.png'},email:mail};
+ const breadcrumb={'@type':'BreadcrumbList','@id':canon+'#breadcrumb',itemListElement:[
+  {'@type':'ListItem',position:1,name:'Agorà APS',item:base+'/'},
+  ...(post?[{'@type':'ListItem',position:2,name:'Magazine',item:base+'/magazine/'},{'@type':'ListItem',position:3,name:title,item:canon}]:[{'@type':'ListItem',position:2,name:'Magazine',item:canon}])
+ ]};
+ const graph=[publisher,{'@type':'WebSite','@id':websiteId,name:'Agorà APS',url:base+'/',inLanguage:'it-IT',publisher:{'@id':orgId}},breadcrumb,
+ {'@type':post?'WebPage':'CollectionPage','@id':pageId,url:canon,name:title,description:seoDescription,inLanguage:lang,isPartOf:{'@id':websiteId},breadcrumb:{'@id':breadcrumb['@id']}}];
+ if(post){
+  const imageObj={'@type':'ImageObject',url:photoUrl,contentUrl:photoUrl,width:1300,height:731,caption:post.coverAlt||title};
+  if(post.coverCredit)imageObj.creditText=post.coverCredit;
+  if(photo.startsWith('/assets/magazine/covers/'))imageObj.copyrightHolder={'@id':orgId};
+  const article={'@type':'BlogPosting','@id':canon+'#articolo',headline:title,description:seoDescription,inLanguage:lang,url:canon,
+   mainEntityOfPage:{'@id':pageId},datePublished:post.date,dateModified,
+   author:{'@type':String(post.author||'').toLowerCase().includes('redazione')?'Organization':'Person',name:post.author||'Redazione Agorà APS'},
+   publisher:{'@id':orgId},image:imageObj,articleSection:post.category||'Magazine',
+   isAccessibleForFree:true, ...(Array.isArray(post.topics)&&post.topics.length?{keywords:post.topics.join(', ')}:{})};
+  const original=sourceArchive(post);
+  if(original)article.isBasedOn=original;
+  graph.push(article);
+ }
+ const structured={'@context':'https://schema.org','@graph':graph};
+ const head='<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#193b4a"><meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1"><title>'+esc(browserTitle)+'</title><meta name="description" content="'+esc(seoDescription)+'"><link rel="canonical" href="'+canon+'"><meta property="og:site_name" content="Agorà APS"><meta property="og:locale" content="'+(lang==='en'?'en_US':'it_IT')+'"><meta property="og:title" content="'+esc(seoTitle)+'"><meta property="og:description" content="'+esc(seoDescription)+'"><meta property="og:type" content="'+(post?'article':'website')+'"><meta property="og:url" content="'+canon+'"><meta property="og:image" content="'+esc(photoUrl)+'"><meta property="og:image:width" content="1300"><meta property="og:image:height" content="731"><meta property="og:image:alt" content="'+esc(post?.coverAlt||title)+'"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="'+esc(seoTitle)+'"><meta name="twitter:description" content="'+esc(seoDescription)+'"><meta name="twitter:image" content="'+esc(photoUrl)+'">'+(post?'<meta property="article:published_time" content="'+post.date+'"><meta property="article:modified_time" content="'+dateModified+'">':'')+'<link rel="icon" href="/assets/agora_icon.png"><link rel="alternate" type="application/rss+xml" title="Agorà Magazine" href="/magazine/rss.xml"><link rel="stylesheet" href="/assets/sections.css?v=20261112"><link rel="stylesheet" href="/assets/magazine.css?v=20261112"><link rel="stylesheet" href="/assets/whatsapp-chat.css?v=20261112"><script type="application/ld+json">'+JSON.stringify(structured).replace(/</g,'\\u003c')+'</script>';
  const menu=nav.map(a=>'<a href="'+a[0]+'"'+(a[0]===path?' aria-current="page"':'')+'>'+a[1]+'</a>').join('');
  const header='<a href="#contenuto" class="skip-link">Salta al contenuto</a><header class="mag-header"><div class="mag-header-inner"><a class="mag-brand" href="/"><img src="'+esc(identity.logo||'/assets/agora_icon.png')+'" width="48" height="48" alt=""><span>Agorà <small>Scuola di Dialogo Socratico e Cittadinanza Attiva</small></span></a><nav class="mag-nav" aria-label="Navigazione principale">'+menu+'</nav><a class="mag-editor-link" href="/editor/">Area editor ↗</a></div></header>';
  const footer='<footer class="mag-footer"><div class="mag-footer-inner"><div><strong>Agorà APS</strong><p>Dialogo socratico · Educazione · Cittadinanza attiva</p></div><nav aria-label="Informazioni"><a href="/magazine/">Magazine</a><a href="/sostienici/">Sostienici</a><a href="/trasparenza/">Trasparenza</a><a href="/privacy/">Privacy</a><a href="/accessibilita/">Accessibilità</a><a href="/editor/">Editor</a></nav><small>© 2026 Agorà APS</small></div></footer>';
- return '<!doctype html><html lang="it"><head>'+head+'</head><body class="mag-body">'+header+'<main id="contenuto">'+body+'</main>'+footer+'<script defer src="/assets/whatsapp-chat.js?v=20261112"></script><script defer src="/assets/magazine.js?v=20261112"></script></body></html>\n';
+ return '<!doctype html><html lang="'+lang+'"><head>'+head+'</head><body class="mag-body">'+header+'<main id="contenuto">'+body+'</main>'+footer+'<script defer src="/assets/whatsapp-chat.js?v=20261112"></script><script defer src="/assets/magazine.js?v=20261112"></script></body></html>\n';
 }
 const archivalNote=p=>{
- const url=String(p.archiveUrl||p.sourceUrl||'');
+ const url=sourceArchive(p);
  if(!/^https:\/\/web\.archive\.org\/web\/\d{14}\/https:\/\/filosofiasuldivano\.altervista\.org\/[a-z0-9-]+\/$/.test(url))return '';
  const revision=p.editorialReviewDate?' Versione revisionata il '+dateIt(p.editorialReviewDate)+'.':'';
  return '<aside class="mag-archive-source"><span>Archivio storico</span><p>Articolo pubblicato originariamente su <strong>Filosofia sul divano</strong> il '+dateIt(p.date)+'. Testo recuperato dalla copia conservata in Internet Archive, con attribuzione all’autore originale.'+revision+'</p><a href="'+esc(url)+'" target="_blank" rel="noopener noreferrer">Consulta la fonte conservata ↗</a></aside>';
