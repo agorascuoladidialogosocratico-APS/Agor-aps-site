@@ -21,5 +21,13 @@
   "editorialReviewType": "revisione editoriale con originale conservato",
   "coverCredit": "Agorà APS — illustrazione editoriale originale (2026)",
   "coverSource": "https://agora-scuoladidialogosocraticoecittadinanzattiva.site/assets/magazine/covers/archivio-il-reale-colpevole.svg",
-  "coverLicense": "Uso editoriale e social per Agorà APS autorizzato; nessun elemento fotografico di terzi"
+  "coverLicense": "Uso editoriale e social per Agorà APS autorizzato; nessun elemento fotografico di terzi",
+  "seoTitle": "Il reale, colpevole: società e prospettive",
+  "seoDescription": "Uguaglianza, muri e confini: una riflessione filosofica su partecipazione, civilizzazione, differenze e legami sociali.",
+  "topics": [
+    "cittadinanza attiva",
+    "etica",
+    "filosofia"
+  ],
+  "language": "it"
 }
