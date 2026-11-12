@@ -4,8 +4,8 @@
   "category": "Archivio Filosofia sul divano",
   "author": "Gioele Pio Fragale",
   "excerpt": "Un'opera tra filosofia e poesia Friedrich Nietzsche pubblicò Così parlò Zarathustra fra il 1883 e il 1885. L’opera, articolata in quattro parti, usa parabole, immagini e discorsi del protagonista per interrogare i…",
-  "cover": "/assets/agora_dialogo.webp",
-  "coverAlt": "Immagine editoriale Agorà APS dedicata al dialogo filosofico",
+  "cover": "https://images.unsplash.com/photo-1496559346440-a8e13f897fe6?auto=format&fit=crop&w=1300&h=731&q=78",
+  "coverAlt": "Una figura in silhouette sopra le montagne, richiamo al viaggio filosofico di Zarathustra",
   "published": true,
   "featured": false,
   "body": "> **Nota editoriale (12 novembre 2026).** Versione riveduta di un articolo del 04/11/2022. L’originale è disponibile nella [copia d’archivio](https://web.archive.org/web/20221104154348/https://filosofiasuldivano.altervista.org/cosi-parlo-zarathustra-di-friedrich-nietzsche-e-la-filosofia-delleterno-ritorno/).\n\n## Un'opera tra filosofia e poesia\n\nFriedrich Nietzsche pubblicò *Così parlò Zarathustra* fra il 1883 e il 1885. L’opera, articolata in quattro parti, usa parabole, immagini e discorsi del protagonista per interrogare i valori e il significato dell’esistenza.\n\nZarathustra non offre un manuale di risposte già pronte. La sua voce invita a mettere in discussione le certezze ricevute, ad affrontare la solitudine e a riflettere sulla possibilità del superamento di sé.\n\n## L’eterno ritorno\n\nIl pensiero dell’eterno ritorno compare già nella *Gaia scienza*. Nietzsche ci chiede di immaginare di dover rivivere infinite volte la stessa vita, senza poterne modificare neppure un istante. Saremmo capaci di accettarla, con le sue gioie e i suoi dolori?\n\nQuesta immagine è stata interpretata sia come ipotesi cosmologica sia, soprattutto, come una prova esistenziale di affermazione della vita. Non va confusa con un semplice ciclo biologico di nascita, crescita e morte.\n\n## Diventare responsabili della propria vita\n\nL’interrogativo dell’eterno ritorno ci conduce a osservare le nostre scelte: viviamo soltanto aspettando un futuro diverso o riusciamo a riconoscere valore al presente? Non si tratta di promettere una felicità senza sofferenza, ma di chiedersi quale rapporto desideriamo instaurare con l’intera nostra esperienza.\n\nIn questo senso Nietzsche non smette di provocarci. Non ci chiede di indovinare il futuro, ma di domandarci se saremmo disposti ad assumere pienamente ciò che siamo e ciò che facciamo.\n\n**Approfondimento:** [Stanford Encyclopedia of Philosophy, Nietzsche](https://plato.stanford.edu/entries/nietzsche/).",
@@ -18,5 +18,7 @@
   "socialInstagramText": "",
   "socialXText": "",
   "editorialReviewDate": "2026-11-12",
-  "editorialReviewType": "revisione documentata con testo storico consultabile"
+  "editorialReviewType": "revisione documentata con testo storico consultabile",
+  "coverCredit": "John Gibbons",
+  "coverSource": "https://unsplash.com/photos/oSMYeEq6YPo"
 }
