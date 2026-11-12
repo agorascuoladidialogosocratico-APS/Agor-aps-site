@@ -79,7 +79,9 @@
     const changed = destination !== current;
     const backwards = destination < current;
     stopTransitions();
-    const oldHeight=stage.getBoundingClientRect().height;
+    const shouldAnimate = animate && changed && !paused && !reduced.matches;
+    // Skip forced synchronous layout measurement on the initial non-animated render.
+    const oldHeight = shouldAnimate ? stage.getBoundingClientRect().height : 0;
     pages.forEach((page, i) => {
       page.hidden = i !== destination;
       page.classList.remove('is-entering');
@@ -88,7 +90,7 @@
     const page = pages[current];
     const target = document.getElementById(location.hash.slice(1));
     if(target && page.contains(target)){let ancestor=target.parentElement;while(ancestor && ancestor!==page){if(ancestor.tagName==='DETAILS')ancestor.open=true;ancestor=ancestor.parentElement;}}
-    if (animate && changed && !paused && !reduced.matches) {
+    if (shouldAnimate) {
       animateSpread(backwards,oldHeight);
       page.classList.add('is-entering');
     }
