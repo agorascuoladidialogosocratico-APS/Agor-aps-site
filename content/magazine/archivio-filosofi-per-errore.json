@@ -4,8 +4,8 @@
   "category": "Archivio Filosofia sul divano",
   "author": "Mario Guarnera",
   "excerpt": "Tra le innumerevoli attività dell’intelletto umano troviamo altrettanti manufatti: uso questo termine un po’ desueto, dato che oggi molti di noi andrebbero in crisi persino nel tentativo di forgiare una forchetta. Sembrerebbe dunque…",
-  "cover": "https://images.unsplash.com/photo-1782530707384-ed1f1080df99?auto=format&fit=crop&w=1300&h=731&q=78",
-  "coverAlt": "Busto di Socrate in una biblioteca storica",
+  "cover": "/assets/magazine/covers/archivio-filosofi-per-errore.png",
+  "coverAlt": "Illustrazione originale di un labirinto geometrico con percorso interrotto",
   "published": true,
   "featured": false,
   "body": "Tra le innumerevoli attività dell’intelletto umano troviamo altrettanti manufatti: uso questo termine un po’ desueto, dato che oggi molti di noi andrebbero in crisi persino nel tentativo di forgiare una forchetta. Sembrerebbe dunque naturale il rapporto tra idea e azione, teoria e prassi.\n\nEppure, ecco avanzare la solita eccezione: la filosofia, eterno disturbo del regolare procedere degli eventi, dispensatrice del dubbio metodico, applicato — udite, udite — anche ai valori morali e religiosi che spesso riteniamo intoccabili.\n\nLa filosofia è dunque quel sano momento d’errore che fa inceppare il sistema. Invece di affrettarci a ripristinarlo, possiamo cogliere l’occasione per mettere in dubbio le sue premesse.\n\n*Nota editoriale (2026): revisione conservativa di sintassi e punteggiatura.*",
@@ -22,7 +22,7 @@
   "socialXText": "",
   "editorialReviewDate": "2026-11-12",
   "editorialReviewType": "revisione editoriale con attribuzione originale conservata",
-  "coverCredit": "Jameson Berrios",
-  "coverSource": "https://unsplash.com/photos/DvtgnXlvXd0",
-  "coverLicense": "Unsplash License — https://unsplash.com/license (uso editoriale gratuito; attribuzione volontaria)"
+  "coverCredit": "Agorà APS — illustrazione editoriale originale (2026)",
+  "coverSource": "https://agora-scuoladidialogosocraticoecittadinanzattiva.site/assets/magazine/covers/archivio-filosofi-per-errore.svg",
+  "coverLicense": "Uso editoriale e social per Agorà APS autorizzato; nessun elemento fotografico di terzi"
 }
