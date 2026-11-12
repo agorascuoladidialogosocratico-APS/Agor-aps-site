@@ -25,11 +25,11 @@ export function selectRequest({payload=null,slug='',mode='draft'}={}){
   request={slug:basename(path,'.json'),mode:String(v.inputs?.mode??'draft')};
  }
  if(!slugOk(request.slug))throw Error('Slug articolo non valido');
- if(!['draft','queue'].includes(request.mode))throw Error('Modalità non valida: usare draft o queue');
+ if(!['draft','queue','now'].includes(request.mode))throw Error('Modalità non valida: usare draft o queue');
  return request;
 }
 export function createPlan(slug,article,mode='draft'){
- if(!slugOk(slug)||!['draft','queue'].includes(mode))throw Error('Richiesta non valida');
+ if(!slugOk(slug)||!['draft','queue','now'].includes(mode))throw Error('Richiesta non valida');
  if(article?.published!==true)throw Error('Articolo non pubblicato: salva la versione sul Magazine prima di condividere');
  const title=clean(article.title),excerpt=plain(article.excerpt);
  if(!title||!excerpt)throw Error('Titolo o sommario non presenti');
@@ -56,7 +56,7 @@ export function createPlan(slug,article,mode='draft'){
    text=short+(Array.from(text).length>Array.from(short).length?'…':'')+suffix;
   }
   if(!text)throw Error('Testo social vuoto '+platform);
-  const input={text,channelId:null,schedulingType:'automatic',mode:'addToQueue',assets:asset?[{image:{url:asset}}]:[],saveToDraft:mode==='draft',source:'Agora Magazine'};
+  const input={text,channelId:null,schedulingType:'automatic',mode:mode==='now'?'shareNow':'addToQueue',needsApproval:false,assets:asset?[{image:{url:asset}}]:[],saveToDraft:mode==='draft',source:'Agora Magazine'};
   if(platform==='instagram')input.metadata={instagram:{type:'post',shouldShareToFeed:true}};
   if(platform==='facebook')input.metadata={facebook:{type:'post'}};
   return {platform,mode,url,asset,text,input};
@@ -155,7 +155,11 @@ async function main(){
  const slugPos=args.indexOf('--article'),modePos=args.indexOf('--mode');
  const request=selectRequest({payload:process.env.PAGES_CMS_PAYLOAD||null,slug:slugPos>=0?args[slugPos+1]:'benvenuti-in-agora-magazine',mode:modePos>=0?args[modePos+1]:'draft'});
  const article=JSON.parse(readFileSync('content/magazine/'+request.slug+'.json','utf8'));
- const posts=createPlan(request.slug,article,request.mode);
+ const onlyPos=args.indexOf('--only');
+ const only=onlyPos>=0?args[onlyPos+1].split(',').map(p=>p.trim()):null;
+ if(only&&(!only.length||only.some(p=>!['facebook','instagram','x'].includes(p))))throw Error('Social --only non valido');
+ const posts=createPlan(request.slug,article,request.mode).filter(post=>!only||only.includes(post.platform));
+ if(!posts.length)throw Error('Nessuna piattaforma selezionata per la pubblicazione');
  console.log(JSON.stringify({article:request.slug,mode:request.mode,posts:posts.map(p=>({platform:p.platform,text:p.text,image:p.asset}))},null,2));
  if(action!=='execute')return;
  if(!process.env.BUFFER_API_KEY)throw Error('Manca BUFFER_API_KEY: collega Buffer e inserisci la chiave nei GitHub Secrets');
