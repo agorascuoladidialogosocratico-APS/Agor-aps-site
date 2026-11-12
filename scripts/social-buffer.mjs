@@ -80,16 +80,57 @@ export async function submitPost({key,channelId,post,fetchFn=fetch}){
  if(!result?.post?.id)throw Error('Buffer ha rifiutato '+post.platform+': '+(result?.message||'nessun ID restituito'));
  return {id:result.post.id,mode:post.mode,status:result.post.status||null,channelId};
 }
+/* Se esiste un solo canale attivo per piattaforma, recupera automaticamente
+   l'ID reale da Buffer. Con più account della stessa rete blocca l'invio:
+   l'operatore può specificare BUFFER_CHANNEL_* per scegliere senza ambiguità. */
+export async function resolveChannelIds({posts,env,fetchFn=fetch}){
+ const config={...env};
+ const missing=[...new Set(posts.map(p=>p.platform))].filter(platform=>
+  !String(config[TARGETS[platform]?.env]||'').trim()
+ );
+ if(!missing.length)return config;
+ const account=(await bufferRequest(config.BUFFER_API_KEY,
+  'query { account { organizations { id } } }',{},fetchFn)).account;
+ if(!Array.isArray(account?.organizations)||!account.organizations.length){
+  throw Error('Nessuna organizzazione Buffer disponibile');
+ }
+ const channels=[];
+ for(const org of account.organizations){
+  const id=String(org.id||'');
+  if(!/^[a-zA-Z0-9:_-]{2,150}$/.test(id))throw Error('ID organizzazione Buffer non valido');
+  const query='query { channels(input: { organizationId: '+JSON.stringify(id)+' }) { id service isDisconnected isLocked } }';
+  const result=(await bufferRequest(config.BUFFER_API_KEY,query,{},fetchFn)).channels;
+  if(!Array.isArray(result))throw Error('Impossibile ottenere i canali Buffer');
+  channels.push(...result);
+ }
+ for(const platform of missing){
+  const key=TARGETS[platform];
+  if(!key)throw Error('Piattaforma social non riconosciuta');
+  const candidates=channels.filter(c=>key.services.includes(String(c.service||'').toLowerCase())
+   && c.isDisconnected!==true && c.isLocked!==true);
+  if(candidates.length!==1){
+   throw Error('Buffer: '+platform+' ha '+candidates.length+' canali attivi. Collegane esattamente uno oppure configura esplicitamente '+key.env+' in GitHub Actions.');
+  }
+  config[key.env]=String(candidates[0].id);
+  if(!/^[a-zA-Z0-9:_-]{2,150}$/.test(config[key.env])){
+   throw Error('Buffer ha restituito un ID canale non valido');
+  }
+ }
+ return config;
+}
+
 export async function publishPlan({slug,posts,env,ledger,save,fetchFn=fetch}){
  if(!slugOk(slug))throw Error('Slug non valido');
  ledger.posts ||= {};ledger.posts[slug] ||= {};
+ const pending=posts.filter(post=>!ledger.posts[slug][post.platform]);
+ const selected=await resolveChannelIds({posts:pending,env,fetchFn});
  const results=[];
  for(const post of posts){
   if(ledger.posts[slug][post.platform]){
    results.push({platform:post.platform,status:'already-created',id:ledger.posts[slug][post.platform].id});continue;
   }
   try{
-   const created=await submitPost({key:env.BUFFER_API_KEY,channelId:env[TARGETS[post.platform].env],post,fetchFn});
+   const created=await submitPost({key:env.BUFFER_API_KEY,channelId:selected[TARGETS[post.platform].env],post,fetchFn});
    ledger.posts[slug][post.platform]={...created,at:new Date().toISOString()};
    save(ledger);
    results.push({platform:post.platform,status:'created',id:created.id,mode:post.mode});
