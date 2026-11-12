@@ -46,6 +46,26 @@ content:
     label: Sommario breve per le anteprime e Google
     type: text
     required: true
+  - name: seoTitle
+    label: Titolo SEO (opzionale, non cambia il titolo visibile)
+    type: string
+    description: Ideale 35-52 caratteri, specifico e distinto. Non inserire Agorà APS, aggiunto automaticamente.
+  - name: seoDescription
+    label: Meta description SEO (facoltativa)
+    type: text
+    description: Testo unico, verificabile e orientato alle domande degli utenti; il sito limita automaticamente a 155 caratteri.
+  - name: language
+    label: Lingua articolo (it/en)
+    type: select
+    options:
+      - label: Italiano
+        value: it
+      - label: English
+        value: en
+  - name: topics
+    label: Temi per articoli correlati e dati strutturati
+    type: list
+    description: 2-4 concetti autentici e pertinenti, non un elenco di parole chiave ripetute.
   - name: cover
     label: Fotografia di copertina (percorso oppure URL Unsplash)
     type: string
