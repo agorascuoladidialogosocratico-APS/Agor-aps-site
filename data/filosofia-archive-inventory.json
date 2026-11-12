@@ -1,0 +1,533 @@
+{
+  "total_candidates": 92,
+  "attempted": 92,
+  "complete": 16,
+  "unprocessed": 0,
+  "not_recovered": 76,
+  "items": [
+    {
+      "slug": "il-reale-colpevole",
+      "date": "2021-07-27",
+      "author": "Gioele Pio Fragale",
+      "status": "ready",
+      "originalTitle": "Il reale, colpevole",
+      "length": 4347,
+      "target": "content/magazine/archivio-il-reale-colpevole.json"
+    },
+    {
+      "slug": "vedere-la-realta-davanti-agli-occhi",
+      "date": "2021-08-30",
+      "author": "Gioele Pio Fragale",
+      "status": "ready",
+      "originalTitle": "Vedere la realtà davanti agli occhi:",
+      "length": 3996,
+      "target": "content/magazine/archivio-vedere-la-realta-davanti-agli-occhi.json"
+    },
+    {
+      "slug": "poesia-del-felice",
+      "status": "skipped",
+      "reason": "ValueError: snapshot assente"
+    },
+    {
+      "slug": "ll-ruolo-degli-intellettuali-nella-societa-odierna",
+      "date": "2022-01-18",
+      "author": "Gioele Pio Fragale",
+      "status": "ready",
+      "originalTitle": "ll ruolo degli intellettuali nella società odierna.",
+      "length": 13848,
+      "target": "content/magazine/archivio-ll-ruolo-degli-intellettuali-nella-societa-odierna.json"
+    },
+    {
+      "slug": "la-maggiore-ispirazione",
+      "status": "skipped",
+      "reason": "URLError: <urlopen error timed out>"
+    },
+    {
+      "slug": "herman-hesse-autore-filosofico-che-spiega-loriente-con-la-narrazione",
+      "status": "skipped",
+      "reason": "URLError: <urlopen error timed out>"
+    },
+    {
+      "slug": "cosi-parlo-zarathustra-di-friedrich-nietzsche-e-la-filosofia-delleterno-ritorno",
+      "status": "skipped",
+      "reason": "URLError: <urlopen error timed out>"
+    },
+    {
+      "slug": "gli-anime-come-metodo-educativo-3-buoni-motivi-per-guardarli",
+      "status": "skipped",
+      "reason": "URLError: <urlopen error timed out>"
+    },
+    {
+      "slug": "laurearsi-prima-subito-immediatamente-prematuramente",
+      "status": "skipped",
+      "reason": "URLError: <urlopen error timed out>"
+    },
+    {
+      "slug": "aristotele-e-la-filosofia-del-tempo",
+      "status": "skipped",
+      "reason": "URLError: <urlopen error timed out>"
+    },
+    {
+      "slug": "due-nuovi-libri-due-momenti-di-crescita-individuale-e-collettiva",
+      "status": "skipped",
+      "reason": "ValueError: snapshot assente"
+    },
+    {
+      "slug": "perche-leggere-tre-buone-motivazioni-per-farlo",
+      "status": "skipped",
+      "reason": "URLError: <urlopen error timed out>"
+    },
+    {
+      "slug": "studiare-per-piacere-e-un-buon-motivo-per-andare-alluniversita",
+      "status": "skipped",
+      "reason": "URLError: <urlopen error timed out>"
+    },
+    {
+      "slug": "la-filosofia-kantiana-cose",
+      "status": "skipped",
+      "reason": "ValueError: snapshot assente"
+    },
+    {
+      "slug": "il-disconoscimento-del-mondo-attraverso-i-desideri-nascosti",
+      "status": "skipped",
+      "reason": "ValueError: snapshot assente"
+    },
+    {
+      "slug": "la-legge-per-chi-legge-tra-anomia-e-disinformazione",
+      "status": "skipped",
+      "reason": "ValueError: snapshot assente"
+    },
+    {
+      "slug": "encomio-sullonesta-quando-un-folle-descrive-una-liberta-romantica-di-mario-guarnera-e-gioele-pio-fragale",
+      "status": "skipped",
+      "reason": "URLError: <urlopen error timed out>"
+    },
+    {
+      "slug": "recensione-breve-del-libro-racconti-di-filo-sofia-racconto-i-lapertura-della-caverna",
+      "status": "skipped",
+      "reason": "URLError: <urlopen error timed out>"
+    },
+    {
+      "slug": "rosso-malpelo-ed-il-mito-della-caverna-due-fenomeni-a-confronto",
+      "status": "skipped",
+      "reason": "ValueError: snapshot assente"
+    },
+    {
+      "slug": "three-ways-to-read-a-philosophy-book",
+      "date": "2022-11-10",
+      "author": "Gioele Pio Fragale",
+      "status": "ready",
+      "originalTitle": "Three ways to read a philosophy book",
+      "length": 4656,
+      "target": "content/magazine/archivio-three-ways-to-read-a-philosophy-book.json"
+    },
+    {
+      "slug": "socrates-the-man-who-knew-not-to-know",
+      "status": "skipped",
+      "reason": "ValueError: snapshot assente"
+    },
+    {
+      "slug": "recensione-sulletica-di-grey-anayomy-per-una-anatomia-dellumanita-in-storie-semplici-in-una-saggia-sapienza-alta-stagione-1-4",
+      "status": "skipped",
+      "reason": "ValueError: pagina non riconosciuta come articolo WordPress pubblico"
+    },
+    {
+      "slug": "10-buoni-motivi-filosofici-per-amare-la-vita",
+      "status": "skipped",
+      "reason": "URLError: <urlopen error timed out>"
+    },
+    {
+      "slug": "5-caratteristiche-per-riconoscere-un-amico-per-i-filosofi",
+      "status": "skipped",
+      "reason": "URLError: <urlopen error _ssl.c:994: The handshake operation timed out>"
+    },
+    {
+      "slug": "5-modi-per-non-capire-la-filosofia",
+      "status": "skipped",
+      "reason": "ValueError: pagina non riconosciuta come articolo WordPress pubblico"
+    },
+    {
+      "slug": "668-2",
+      "status": "skipped",
+      "reason": "URLError: <urlopen error timed out>"
+    },
+    {
+      "slug": "669-2",
+      "status": "skipped",
+      "reason": "URLError: <urlopen error timed out>"
+    },
+    {
+      "slug": "791-2",
+      "status": "skipped",
+      "reason": "ValueError: snapshot assente"
+    },
+    {
+      "slug": "827-2",
+      "status": "skipped",
+      "reason": "ValueError: pagina non riconosciuta come articolo WordPress pubblico"
+    },
+    {
+      "slug": "830-2",
+      "status": "skipped",
+      "reason": "ValueError: pagina non riconosciuta come articolo WordPress pubblico"
+    },
+    {
+      "slug": "843-2",
+      "status": "skipped",
+      "reason": "ValueError: snapshot assente"
+    },
+    {
+      "slug": "864-2",
+      "status": "skipped",
+      "reason": "URLError: <urlopen error timed out>"
+    },
+    {
+      "slug": "a-cosa-serve-la-storia-tre-buone-ragioni-per-studiarla",
+      "status": "skipped",
+      "reason": "URLError: <urlopen error timed out>"
+    },
+    {
+      "slug": "abolire-la-scrittura",
+      "date": "2021-08-01",
+      "author": "Mario Guarnera",
+      "status": "ready",
+      "originalTitle": "ABOLIRE LA SCRITTURA?",
+      "length": 2135,
+      "target": "content/magazine/archivio-abolire-la-scrittura.json"
+    },
+    {
+      "slug": "accendi-la-tua-creativita-iscriviti-al-primo-laboratorio-in-consulenza-filosofica-e-dialogo-socratico",
+      "status": "skipped",
+      "reason": "URLError: <urlopen error timed out>"
+    },
+    {
+      "slug": "agora-scuola-di-dialogo-socratico-e-cittadinanza-attiva",
+      "status": "skipped",
+      "reason": "ValueError: snapshot assente"
+    },
+    {
+      "slug": "antropologia-di-claude-levi-strauss",
+      "date": "2023-01-21",
+      "author": "Gioele Pio Fragale",
+      "status": "ready",
+      "originalTitle": "Antropologia di Claude Levi-Strauss",
+      "length": 3233,
+      "target": "content/magazine/archivio-antropologia-di-claude-levi-strauss.json"
+    },
+    {
+      "slug": "app-per-gaia-v",
+      "status": "skipped",
+      "reason": "URLError: <urlopen error timed out>"
+    },
+    {
+      "slug": "atomi-vuoto-e-crisiprogettuali",
+      "date": "2021-08-03",
+      "author": "Mario Guarnera",
+      "status": "ready",
+      "originalTitle": "Atomi, vuoto e crisi progettuali",
+      "length": 1333,
+      "target": "content/magazine/archivio-atomi-vuoto-e-crisiprogettuali.json"
+    },
+    {
+      "slug": "attestati-verificati",
+      "status": "skipped",
+      "reason": "URLError: <urlopen error timed out>"
+    },
+    {
+      "slug": "attestati-verificati-per-laboratori",
+      "status": "skipped",
+      "reason": "URLError: <urlopen error timed out>"
+    },
+    {
+      "slug": "banner",
+      "status": "skipped",
+      "reason": "URLError: <urlopen error timed out>"
+    },
+    {
+      "slug": "bellissimo-evento-fotografico-a-palermo",
+      "status": "skipped",
+      "reason": "ValueError: snapshot assente"
+    },
+    {
+      "slug": "capitolo-1",
+      "status": "skipped",
+      "reason": "ValueError: pagina non riconosciuta come articolo WordPress pubblico"
+    },
+    {
+      "slug": "capitolo-1-2",
+      "status": "skipped",
+      "reason": "ValueError: snapshot assente"
+    },
+    {
+      "slug": "carrello",
+      "status": "skipped",
+      "reason": "URLError: <urlopen error timed out>"
+    },
+    {
+      "slug": "cinque-minacce-per-le-collezioni-darte-scopriamo-come-tutelarle",
+      "status": "skipped",
+      "reason": "URLError: <urlopen error timed out>"
+    },
+    {
+      "slug": "come-loltreuomo-e-la-filosofia-di-nietzsche-possono-salvarti-la-vita",
+      "status": "skipped",
+      "reason": "URLError: <urlopen error timed out>"
+    },
+    {
+      "slug": "come-studiare-la-filosofia-puo-salvarti-la-vita",
+      "date": "2022-11-01",
+      "author": "Gioele Pio Fragale",
+      "status": "ready",
+      "originalTitle": "Come studiare la filosofia può salvarti la vita.",
+      "length": 4366,
+      "target": "content/magazine/archivio-come-studiare-la-filosofia-puo-salvarti-la-vita.json"
+    },
+    {
+      "slug": "costante-istante-silvano",
+      "date": "2021-09-06",
+      "author": "Gioele Pio Fragale",
+      "status": "ready",
+      "originalTitle": "Costante istante silvano",
+      "length": 4189,
+      "target": "content/magazine/archivio-costante-istante-silvano.json"
+    },
+    {
+      "slug": "dallintercultura-allepopea-di-gilgamesh-nei-giorni-nostri",
+      "status": "skipped",
+      "reason": "URLError: <urlopen error timed out>"
+    },
+    {
+      "slug": "dialogo-socratico-classe-3cc-liceo-classico-ruggero-vii-di-caltanissetta-una-storia-di-amicizia-tra-spongebob-e-scobby-doo",
+      "status": "skipped",
+      "reason": "ValueError: snapshot assente"
+    },
+    {
+      "slug": "ecologia-e-responsabilita-bisogna-fermare-lemissioni-di-co2",
+      "date": "2022-11-10",
+      "author": "Gioele Pio Fragale",
+      "status": "ready",
+      "originalTitle": "Ecologia e responsabilità, bisogna fermare l’emissioni di co2.",
+      "length": 5031,
+      "target": "content/magazine/archivio-ecologia-e-responsabilita-bisogna-fermare-lemissioni-di-co2.json"
+    },
+    {
+      "slug": "filosofi-per-errore",
+      "date": "2021-09-01",
+      "author": "Mario Guarnera",
+      "status": "ready",
+      "originalTitle": "Filosofi per errore",
+      "length": 1971,
+      "target": "content/magazine/archivio-filosofi-per-errore.json"
+    },
+    {
+      "slug": "filosofia-e-musica-nei-contesti-culturali-della-tardantichita",
+      "status": "skipped",
+      "reason": "URLError: <urlopen error timed out>"
+    },
+    {
+      "slug": "il-legge-per-chi-legge-tra-anomia-e-disinformazione",
+      "status": "skipped",
+      "reason": "URLError: <urlopen error timed out>"
+    },
+    {
+      "slug": "il-mare-per-una-filosofia",
+      "status": "skipped",
+      "reason": "URLError: <urlopen error timed out>"
+    },
+    {
+      "slug": "il-mondo-senza-la-mia-rappresentazione",
+      "status": "skipped",
+      "reason": "ValueError: snapshot assente"
+    },
+    {
+      "slug": "il-senso-della-comunicazione-vitale-di-federica-maria-andaloro-lab-cofil-caltanissetta",
+      "status": "skipped",
+      "reason": "ValueError: snapshot assente"
+    },
+    {
+      "slug": "il-soggetto-e-linciampo",
+      "status": "skipped",
+      "reason": "ValueError: snapshot assente"
+    },
+    {
+      "slug": "jose-ortega-y-gasset-un-maestro-di-saggezza-e-intuizioni",
+      "status": "skipped",
+      "reason": "URLError: <urlopen error timed out>"
+    },
+    {
+      "slug": "komi-cant-communicate-ma-cio-non-significa-che-non-voglia-farlo",
+      "date": "2022-09-30",
+      "author": "Gioele Pio Fragale",
+      "status": "ready",
+      "originalTitle": "Komi Can’t Communicate ma ciò non significa che non voglia farlo…",
+      "length": 3178,
+      "target": "content/magazine/archivio-komi-cant-communicate-ma-cio-non-significa-che-non-voglia-farlo.json"
+    },
+    {
+      "slug": "la-filosofia-e-consulenza-filosofica",
+      "date": "2022-10-31",
+      "author": "Gioele Pio Fragale",
+      "status": "ready",
+      "originalTitle": "La filosofia e consulenza filosofica",
+      "length": 5314,
+      "target": "content/magazine/archivio-la-filosofia-e-consulenza-filosofica.json"
+    },
+    {
+      "slug": "la-guerra-in-ucraina-cause-e-conseguenze",
+      "date": "2022-10-31",
+      "author": "Gioele Pio Fragale",
+      "status": "ready",
+      "originalTitle": "La guerra in Ucraina: cause e conseguenze",
+      "length": 4447,
+      "target": "content/magazine/archivio-la-guerra-in-ucraina-cause-e-conseguenze.json"
+    },
+    {
+      "slug": "la-meritocrazia-nellistruzione-italiana-unanalisi-la-meritocrazia-nellistruzione-italiana-unanalisi-introduzione-listruzione-e-fondamentale-per-costruire-una-socie",
+      "status": "skipped",
+      "reason": "URLError: <urlopen error _ssl.c:994: The handshake operation timed out>"
+    },
+    {
+      "slug": "la-poesia-di-paolo",
+      "status": "skipped",
+      "reason": "URLError: <urlopen error timed out>"
+    },
+    {
+      "slug": "la-prospettiva-della-caduta",
+      "status": "skipped",
+      "reason": "URLError: <urlopen error timed out>"
+    },
+    {
+      "slug": "la-venere-di-morgantina-bellezza-potere-e-leterno-conflitto-dellanima",
+      "status": "skipped",
+      "reason": "ValueError: snapshot assente"
+    },
+    {
+      "slug": "lancio-del-secondo-libro-della-serie-racconti-di-filo-sofia",
+      "status": "skipped",
+      "reason": "ValueError: pagina non riconosciuta come articolo WordPress pubblico"
+    },
+    {
+      "slug": "lavvento-delle-criptovalute-evoluzione-o-devoluzione",
+      "status": "skipped",
+      "reason": "ValueError: snapshot assente"
+    },
+    {
+      "slug": "le-universita-telematiche-vantaggio-o-piaga-della-formazione",
+      "status": "skipped",
+      "reason": "URLError: <urlopen error timed out>"
+    },
+    {
+      "slug": "luomo-e-mortale-poiche-egli-vive-attraverso-la-morte-la-vita",
+      "status": "skipped",
+      "reason": "URLError: <urlopen error timed out>"
+    },
+    {
+      "slug": "martin-heidegger-sintesi-esplicativa",
+      "status": "skipped",
+      "reason": "ValueError: pagina non riconosciuta come articolo WordPress pubblico"
+    },
+    {
+      "slug": "metodo-di-studio-efficace",
+      "status": "skipped",
+      "reason": "ValueError: pagina non riconosciuta come articolo WordPress pubblico"
+    },
+    {
+      "slug": "mio-account",
+      "status": "skipped",
+      "reason": "ValueError: pagina non riconosciuta come articolo WordPress pubblico"
+    },
+    {
+      "slug": "negozio",
+      "status": "skipped",
+      "reason": "ValueError: snapshot assente"
+    },
+    {
+      "slug": "notifiche-push",
+      "status": "skipped",
+      "reason": "URLError: <urlopen error timed out>"
+    },
+    {
+      "slug": "parmenides-in-thick-words-love-knowledge-mindfulness-beautiful-peace-ancient-archaeology-history-egypt-art-quote-namaste-laotzu-flow-daoism-tao-taoteching-beherenow-laotzuquote",
+      "status": "skipped",
+      "reason": "ValueError: pagina non riconosciuta come articolo WordPress pubblico"
+    },
+    {
+      "slug": "per-amare-il-prossimo-e-richiesto-essere-cristiani",
+      "date": "2022-10-31",
+      "author": "Tracy Ferraro",
+      "status": "ready",
+      "originalTitle": "Per amare il prossimo è  richiesto essere cristiani?",
+      "length": 2495,
+      "target": "content/magazine/archivio-per-amare-il-prossimo-e-richiesto-essere-cristiani.json"
+    },
+    {
+      "slug": "podcast-la-nottola-di-minerva",
+      "status": "skipped",
+      "reason": "ValueError: snapshot assente"
+    },
+    {
+      "slug": "pov-di-selene-vettore",
+      "status": "skipped",
+      "reason": "ValueError: snapshot assente"
+    },
+    {
+      "slug": "prezzi-e-regolamenti-di-udemy",
+      "status": "skipped",
+      "reason": "URLError: <urlopen error timed out>"
+    },
+    {
+      "slug": "rengoku-la-luce-che-illumina-la-notte",
+      "status": "skipped",
+      "reason": "ValueError: snapshot assente"
+    },
+    {
+      "slug": "riavvicinamento-allamore-e-comprensione",
+      "status": "skipped",
+      "reason": "URLError: <urlopen error timed out>"
+    },
+    {
+      "slug": "soffrire-e-creare",
+      "date": "2021-08-11",
+      "author": "Mario Guarnera",
+      "status": "ready",
+      "originalTitle": "Soffrire e creare",
+      "length": 1432,
+      "target": "content/magazine/archivio-soffrire-e-creare.json"
+    },
+    {
+      "slug": "spiegazione-teorema-di-grassman-redatta-e-scritta-per-rpr",
+      "status": "skipped",
+      "reason": "URLError: <urlopen error timed out>"
+    },
+    {
+      "slug": "spiegazioni-tra-liberta-e-uguaglianza-donna",
+      "status": "skipped",
+      "reason": "ValueError: pagina non riconosciuta come articolo WordPress pubblico"
+    },
+    {
+      "slug": "sumud-la-tenacia-palestinese-di-fronte-alla-storia",
+      "status": "skipped",
+      "reason": "ValueError: snapshot assente"
+    },
+    {
+      "slug": "tre-buoni-pensieri-da-fare-durante-il-giorno-per-migliorarci-la-vita",
+      "status": "skipped",
+      "reason": "ValueError: snapshot assente"
+    },
+    {
+      "slug": "vittoria-e-abdul-unesplorazione-reale-della-cultura-indiana",
+      "status": "skipped",
+      "reason": "ValueError: snapshot assente"
+    },
+    {
+      "slug": "continuamente",
+      "status": "skipped",
+      "reason": "ValueError: snapshot assente"
+    },
+    {
+      "slug": "ragione-e-intelletto-quando-pensare-e-un-optional",
+      "status": "skipped",
+      "reason": "ValueError: snapshot assente"
+    }
+  ]
+}
