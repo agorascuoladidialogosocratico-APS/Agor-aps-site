@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Restore editorial articles from archived Altervista WordPress."""
-import argparse,concurrent.futures,json,re,urllib.request,urllib.parse
+import argparse,concurrent.futures,json,re,urllib.request,urllib.parse,time
 from pathlib import Path
 from bs4 import BeautifulSoup
 from markdownify import markdownify as md
@@ -26,9 +26,14 @@ ARTICLES=[
 HEADERS={'User-Agent':'Mozilla/5.0 (compatible; AgoraAPS-EditorialArchivalRecovery/1.0)','Accept':'text/html,application/json'}
 def fetch(url,timeout=24,maxbytes=2_000_000):
     req=urllib.request.Request(url,headers=HEADERS)
-    with urllib.request.urlopen(req,timeout=timeout) as res:
-        if res.status!=200: raise ValueError('HTTP '+str(res.status))
-        return res.read(maxbytes)
+    for attempt in range(3):
+        try:
+            with urllib.request.urlopen(req,timeout=timeout) as res:
+                if res.status!=200: raise ValueError('HTTP '+str(res.status))
+                return res.read(maxbytes)
+        except (urllib.error.URLError,TimeoutError) as exc:
+            if attempt>=2:raise
+            time.sleep(2*(attempt+1))
 def links(slug,date):
     src=ROOT+'/'+slug+'/'
     u='https://archive.org/wayback/available?'+urllib.parse.urlencode({'url':src,'timestamp':date.replace('-','')+'120000'})
@@ -54,7 +59,9 @@ def extract(raw):
     for elem in body.select('img,picture,video,audio,iframe,script,style,noscript,form,input,button,svg'):
         elem.decompose()
     for a in body.select('a[href]'):
-        if not a.get('href','').startswith(('https://','http://','/')):a.unwrap()
+        href=a.get('href','')
+        if any(q in href for q in ('facebook.com/sharer','twitter.com/intent','pinterest.com/pin/create','linkedin.com/shareArticle','addtoany.com/add_to')):a.decompose()
+        elif not href.startswith(('https://','http://','/')):a.unwrap()
     markdown=md(str(body),heading_style='ATX',bullets='-',strip=['img']).strip()
     markdown=re.sub(r'\n{3,}','\n\n',markdown)
     markdown=re.sub(r'(?im)^\s*(Vuoi abilitare le notifiche\?|Attiva|Notifiche push abilitate|Condividi sui social|Stampa)\s*$','',markdown).strip()
@@ -78,12 +85,12 @@ def one(article):
         return {'slug':slug,'status':'skipped','reason':type(exc).__name__+': '+str(exc)[:150]}
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--write',action='store_true');args=parser.parse_args()
-    with concurrent.futures.ThreadPoolExecutor(max_workers=4) as p:
+    with concurrent.futures.ThreadPoolExecutor(max_workers=2) as p:
         results=list(p.map(one,ARTICLES))
     ready=[r for r in results if r['status']=='ready']
     for result in results:print(json.dumps({k:v for k,v in result.items() if k!='data'},ensure_ascii=False),flush=True)
     if args.write:
-        if len(ready)<3:raise SystemExit('Meno di 3 articoli completi: annullato')
+        if len(ready)<8:raise SystemExit('Meno di 8 articoli completi: annullato per evitare pubblicazioni parziali')
         for row in ready:
             path=Path(row['target'])
             if path.exists():print('SKIP existing',path);continue
