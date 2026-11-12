@@ -82,16 +82,17 @@ function layout(path,title,description,body,img,post){
  const lang=post?.language==='en'?'en':'it';
  const seoTitle=String(post?.seoTitle||title).trim();
  const seoDescription=shortMeta(post?.seoDescription||description,155);
- const browserTitle=shortMeta(seoTitle,54)+(seoTitle.includes('Agorà')?'':' | Agorà APS');
+ const browserTitle=shortMeta(seoTitle,47)+(seoTitle.includes('Agorà')?'':' | Agorà APS');
  const dateModified=post?.editorialReviewDate&&dateOk(post.editorialReviewDate)?post.editorialReviewDate:post?.date;
- const orgId=base+'/#organizzazione',websiteId=base+'/#website',pageId=canon+'#pagina';
+ const orgId=base+'/#agora',websiteId=base+'/#website',pageId=canon+'#pagina';
  const publisher={'@type':'NGO','@id':orgId,name:'Agorà – Scuola di Dialogo Socratico e Cittadinanza Attiva APS',alternateName:'Agorà APS',url:base+'/',logo:{'@type':'ImageObject',url:base+'/assets/agora_icon.png'},email:mail};
- const breadcrumb={'@type':'BreadcrumbList','@id':canon+'#breadcrumb',itemListElement:[
-  {'@type':'ListItem',position:1,name:'Agorà APS',item:base+'/'},
-  ...(post?[{'@type':'ListItem',position:2,name:'Magazine',item:base+'/magazine/'},{'@type':'ListItem',position:3,name:title,item:canon}]:[{'@type':'ListItem',position:2,name:'Magazine',item:canon}])
- ]};
+ const isMagazine=path.startsWith('/magazine/');
+ const trail=[{'@type':'ListItem',position:1,name:'Agorà APS',item:base+'/'}];
+ if(isMagazine&&path!=='/magazine/')trail.push({'@type':'ListItem',position:2,name:'Magazine',item:base+'/magazine/'});
+ trail.push({'@type':'ListItem',position:trail.length+1,name:path==='/magazine/'?'Magazine':title,item:canon});
+ const breadcrumb={'@type':'BreadcrumbList','@id':canon+'#breadcrumb',itemListElement:trail};
  const graph=[publisher,{'@type':'WebSite','@id':websiteId,name:'Agorà APS',url:base+'/',inLanguage:'it-IT',publisher:{'@id':orgId}},breadcrumb,
- {'@type':post?'WebPage':'CollectionPage','@id':pageId,url:canon,name:title,description:seoDescription,inLanguage:lang,isPartOf:{'@id':websiteId},breadcrumb:{'@id':breadcrumb['@id']}}];
+ {'@type':path==='/magazine/'?'CollectionPage':'WebPage','@id':pageId,url:canon,name:title,description:seoDescription,inLanguage:lang,isPartOf:{'@id':websiteId},breadcrumb:{'@id':breadcrumb['@id']}}];
  if(post){
   const imageObj={'@type':'ImageObject',url:photoUrl,contentUrl:photoUrl,width:1300,height:731,caption:post.coverAlt||title};
   if(post.coverCredit)imageObj.creditText=post.coverCredit;
