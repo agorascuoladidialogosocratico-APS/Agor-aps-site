@@ -66,6 +66,51 @@ content:
     options:
       format: markdown
       switcher: true
+  - name: socialFacebook
+    label: Condividi su Facebook
+    type: boolean
+    description: Se attivo, l'azione Social Buffer prepara la versione per la Pagina Facebook.
+  - name: socialInstagram
+    label: Condividi su Instagram
+    type: boolean
+    description: Richiede una copertina pubblica e un account Instagram professionale collegato a Buffer.
+  - name: socialX
+    label: Condividi su X (Twitter)
+    type: boolean
+    description: Il testo viene adattato a un post breve con link all'articolo.
+  - name: socialFacebookText
+    label: Testo specifico per Facebook (facoltativo)
+    type: text
+    description: Lascia vuoto per utilizzare titolo, sommario e link del Magazine.
+  - name: socialInstagramText
+    label: Didascalia Instagram (facoltativa)
+    type: text
+    description: Lascia vuoto per un adattamento breve con rimando al sito. L'URL in una didascalia Instagram non è cliccabile.
+  - name: socialXText
+    label: Testo X (facoltativo)
+    type: text
+    description: Deve rimanere breve; l'automazione aggiunge l'URL dell'articolo.
+  actions:
+    - name: send-to-buffer
+      label: Prepara post per Instagram, Facebook e X
+      scope: entry
+      workflow: social-buffer.yml
+      ref: current
+      confirm:
+        title: Preparare i post social di questo articolo?
+        message: Le bozze non vengono pubblicate. Se scegli la coda, i post saranno programmati automaticamente sugli account collegati. Le versioni già inviate non verranno duplicate.
+        button: Conferma
+      fields:
+        - name: mode
+          label: Modalità
+          type: select
+          required: true
+          default: draft
+          options:
+            - label: Salva come bozze su Buffer (consigliato)
+              value: draft
+            - label: Inserisci nella coda Buffer (pubblicazione programmata)
+              value: queue
 - name: membership
   label: 00 · Quote associative e bonifico
   type: file
