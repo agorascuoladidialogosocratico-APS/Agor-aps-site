@@ -1,0 +1,50 @@
+name: Recupera e prepara l'archivio Filosofia sul divano
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/recover-filosofia-articles.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: agora-wayback-import
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout ramo recupero
+        uses: actions/checkout@v4
+        with:
+          ref: feat/import-all-filosofia-archive-20261112
+          persist-credentials: true
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Installa parser archivio
+        run: python -m pip install --quiet beautifulsoup4 markdownify
+      - name: Scarica solo articoli pubblici e completi
+        run: python scripts/import-filosofia-wayback.py --write
+      - name: Rigenera l'archivio Magazine
+        run: |
+          npm ci --no-audit --no-fund
+          npm run build
+      - name: Salva articoli e pagine nel ramo di revisione
+        shell: bash
+        run: |
+          git config user.name "agora-editorial-bot"
+          git config user.email "agora-editorial-bot@users.noreply.github.com"
+          git add content/magazine magazine sitemap.xml data/filosofia-archive-inventory.json
+          if git diff --cached --quiet; then
+            echo "Nessun nuovo articolo integrale disponibile."
+            exit 0
+          fi
+          git commit -m "content(magazine): recupera articoli storici da Wayback con fonti e date"
+          git push origin HEAD:feat/import-all-filosofia-archive-20261112
