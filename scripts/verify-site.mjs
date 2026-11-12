@@ -214,7 +214,7 @@ assert(editorApp.includes('https://publish.buffer.com/'),'Agorà Studio: pannell
 assert(editorApp.includes('id="install-button"'),'Agorà Studio: controllo installazione assente');
 const manifest=JSON.parse(read('editor/manifest.webmanifest'));
 assert(manifest.start_url==='/editor/' && manifest.display==='standalone','Agorà Studio: app non installabile');
-assert(read('.pages.yml').includes('value: now'),'Agorà Magazine: pubblicazione diretta non disponibile nell'editor');
+assert(read('.pages.yml').includes('value: now'),"Agorà Magazine: pubblicazione diretta non disponibile nell'editor");
 
 if (errors.length) {
   console.error('Verifica Agorà APS: ' + errors.length + ' problema/i:\n- ' + errors.join('\n- '));
