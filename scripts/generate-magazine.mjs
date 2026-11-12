@@ -43,7 +43,7 @@ if(existsSync('content/magazine')){
   d.date=String(d.date||'').slice(0,10);
   if(d.published!==true)continue;
   if(!d.title||!d.excerpt||!d.body||!dateOk(d.date))throw Error('Articolo pubblicato incompleto: '+file);
-  posts.push({...d,slug,url:'/magazine/'+slug+'/',cover:cover(d.cover)});
+  posts.push({...d,slug,url:'/magazine/'+slug+'/',cover:cover(d.coverUpload||d.cover)});
  }
 }
 posts.sort((a,b)=>b.date.localeCompare(a.date)||a.title.localeCompare(b.title,'it'));
