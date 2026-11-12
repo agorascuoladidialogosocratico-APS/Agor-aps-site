@@ -66,6 +66,14 @@ content:
     options:
       format: markdown
       switcher: true
+  - name: sourceTitle
+    label: Provenienza storica (se articolo recuperato)
+    type: string
+    description: Testata di pubblicazione originale. Per gli articoli d'archivio è Filosofia sul divano.
+  - name: sourceUrl
+    label: Collegamento alla copia originale della Wayback Machine
+    type: string
+    description: URL verificato della copia storica; non modifica la data di pubblicazione.
   - name: socialFacebook
     label: Condividi su Facebook
     type: boolean
