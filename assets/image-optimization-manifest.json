@@ -1,0 +1,54 @@
+{
+  "files": {
+    "assets/agora_chi_siamo-480.webp": {
+      "output_sha256": "64dc8a542f21ab1e47bbb72a20eefab0ff0e836d38f91f4eeddd25e6f0462695",
+      "recipe": "quality-76-method-6-v1"
+    },
+    "assets/agora_chi_siamo-800.webp": {
+      "output_sha256": "870112e11b8c14165494a8b8fc58c0370aa5f2d4354ebc449a53d967c63e91ff",
+      "recipe": "quality-76-method-6-v1"
+    },
+    "assets/agora_chi_siamo.webp": {
+      "output_sha256": "e26b31231e2b192d5da811d5184f227ba7ae47afa3af9b8a49d757f3a4171711",
+      "recipe": "quality-76-method-6-v1"
+    },
+    "assets/agora_dialogo-480.webp": {
+      "output_sha256": "00c5b0a6720db55da47f37de2bc4088f76ae48ddbf9b405319b2470973a641dd",
+      "recipe": "quality-76-method-6-v1"
+    },
+    "assets/agora_dialogo-800.webp": {
+      "output_sha256": "22948eaeee7cfe0e61babf7738b47f1e65866b9d8e4a9fe3aafe2b037fdd89c0",
+      "recipe": "quality-76-method-6-v1"
+    },
+    "assets/agora_dialogo.webp": {
+      "output_sha256": "f6a3199e9d4f35755ede513ebf59c2472cec8b3edae59df31dba7d59e388b178",
+      "recipe": "quality-76-method-6-v1"
+    },
+    "assets/agora_gruppo_home-480.webp": {
+      "output_sha256": "e81a7bfbc09452521960bac36de9946c24193e3f442e276fceeb5780125452ea",
+      "recipe": "quality-76-method-6-v1"
+    },
+    "assets/agora_gruppo_home-800.webp": {
+      "output_sha256": "62c0a2e1df0cbb26bd13c6571acd2a508cdb6637f252546cde62937525717aee",
+      "recipe": "quality-76-method-6-v1"
+    },
+    "assets/agora_gruppo_home.webp": {
+      "output_sha256": "41c38095f642dfa8913f9053387c6ffc9561d0708d2002e3a3ba5914a22d2051",
+      "recipe": "quality-76-method-6-v1"
+    },
+    "assets/agora_viaggio-480.webp": {
+      "output_sha256": "6ccdb89db312bc462fc762232e9d3342185f2d194f5c77f93ddf3083505d4a9d",
+      "recipe": "quality-76-method-6-v1"
+    },
+    "assets/agora_viaggio-800.webp": {
+      "output_sha256": "fde92c8a8cc70416ae2459aab8d0fcdb17a08f2b8cd056f650f0e3f193559864",
+      "recipe": "quality-76-method-6-v1"
+    },
+    "assets/agora_viaggio.webp": {
+      "output_sha256": "a7d9827873aef07c3b2983e012449b717db75e49eb89a80104781beac0678cc5",
+      "recipe": "quality-76-method-6-v1"
+    }
+  },
+  "logo_source_sha256": "cf6589e2fc4a927bd9e34594bd7d5341be426e3cf7d217d711025189a83f2e68",
+  "version": "quality-76-method-6-v1"
+}
