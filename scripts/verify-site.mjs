@@ -203,6 +203,19 @@ assert(existsSync(join(root,'data/buffer-posts.json')),'Registro di idempotenza 
 assert(read('.pages.yml').includes('name: send-to-buffer'),'Pulsante Pages CMS social non presente');
 assert(JSON.parse(read('data/buffer-posts.json')).posts!==undefined,'Registro Buffer malformato');
 
+assert(existsSync(join(root,'editor/manifest.webmanifest')),'Agorà Studio: manifesto app mancante');
+assert(existsSync(join(root,'editor/studio.js')),'Agorà Studio: logica app mancante');
+assert(existsSync(join(root,'editor/studio.css')),'Agorà Studio: stile app mancante');
+assert(existsSync(join(root,'editor/sw.js')),'Agorà Studio: servizio offline mancante');
+const editorApp=read('editor/index.html');
+assert(editorApp.includes('rel="manifest"'),'Agorà Studio: collegamento manifesto assente');
+assert(editorApp.includes('https://app.pagescms.org/'),'Agorà Studio: editor contenuti non raggiungibile');
+assert(editorApp.includes('https://publish.buffer.com/'),'Agorà Studio: pannello social non raggiungibile');
+assert(editorApp.includes('id="install-button"'),'Agorà Studio: controllo installazione assente');
+const manifest=JSON.parse(read('editor/manifest.webmanifest'));
+assert(manifest.start_url==='/editor/' && manifest.display==='standalone','Agorà Studio: app non installabile');
+assert(read('.pages.yml').includes('value: now'),'Agorà Magazine: pubblicazione diretta non disponibile nell'editor');
+
 if (errors.length) {
   console.error('Verifica Agorà APS: ' + errors.length + ' problema/i:\n- ' + errors.join('\n- '));
   process.exitCode = 1;
