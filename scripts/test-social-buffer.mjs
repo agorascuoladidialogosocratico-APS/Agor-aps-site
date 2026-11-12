@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import {createPlan,selectRequest,publishPlan} from './social-buffer.mjs';
+import {createPlan,selectRequest,publishPlan,resolveChannelIds} from './social-buffer.mjs';
 const data={
  title:'Il dialogo cambia la cittadinanza',excerpt:'Un laboratorio di confronto e cittadinanza attiva.',
  cover:'/assets/agora_dialogo.webp',published:true,
@@ -45,4 +45,39 @@ const again=await publishPlan({slug,posts:plan,env,ledger:record,fetchFn,save:()
 assert(again.every(x=>x.status==='already-created'));
 const wrongChannel=await publishPlan({slug:'nuovo-articolo',posts:[plan[0]],env:{...env,BUFFER_CHANNEL_FACEBOOK:'twitter-1'},ledger:{posts:{}},fetchFn,save:()=>{}});
 assert.equal(wrongChannel[0].status,'failed');
+const fetchDiscovery=async (_url,options)=>{
+ const query=JSON.parse(options.body).query;
+ let data;
+ if(query.includes('account { organizations'))data={account:{organizations:[{id:'agora-org'}]}};
+ else if(query.includes('channels(input:'))data={channels:[
+  {id:'facebook-1',service:'facebook',isDisconnected:false,isLocked:false},
+  {id:'instagram-1',service:'instagram',isDisconnected:false,isLocked:false},
+  {id:'twitter-1',service:'twitter',isDisconnected:false,isLocked:false}
+ ]};
+ else if(query.includes('channel(input:')){
+  const c=query.includes('facebook')?'facebook':query.includes('instagram')?'instagram':'twitter';
+  data={channel:{id:c+'-1',name:'Agorà',service:c,isQueuePaused:false}};
+ }else data={createPost:{post:{id:'testpost',status:'draft'}}};
+ return {ok:true,json:async()=>({data})};
+};
+const discovered=await resolveChannelIds({posts:plan,env:{BUFFER_API_KEY:'unit-test'},fetchFn:fetchDiscovery});
+assert.equal(discovered.BUFFER_CHANNEL_FACEBOOK,'facebook-1');
+assert.equal(discovered.BUFFER_CHANNEL_INSTAGRAM,'instagram-1');
+assert.equal(discovered.BUFFER_CHANNEL_X,'twitter-1');
+const autoLedger={posts:{}};
+const autoResults=await publishPlan({
+ slug:'rilevamento-automatico',posts:plan,env:{BUFFER_API_KEY:'unit-test'},
+ ledger:autoLedger,fetchFn:fetchDiscovery,save:()=>{}
+});
+assert(autoResults.every(x=>x.status==='created'));
+const noX=async (url,options)=>{
+ const request=JSON.parse(options.body);
+ if(request.query.includes('channels(input:'))return {ok:true,json:async()=>({data:{channels:[
+  {id:'facebook-1',service:'facebook',isDisconnected:false,isLocked:false},
+  {id:'instagram-1',service:'instagram',isDisconnected:false,isLocked:false}
+ ]}})};
+ return fetchDiscovery(url,options);
+};
+await assert.rejects(resolveChannelIds({posts:plan,env:{BUFFER_API_KEY:'unit-test'},fetchFn:noX}),/x ha 0 canali/);
+
 console.log('Agorà Buffer: formati social, azione CMS, bozza/coda, API e deduplicazione verificati.');
