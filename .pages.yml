@@ -1,4 +1,5 @@
 # Agorà APS — editor su GitHub, con pubblicazione su Cloudflare Workers
+# Copertine originali: rigenera i PNG per recepire l'ottimizzazione dei titoli lunghi.
 media:
   input: assets
   output: /assets
