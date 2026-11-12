@@ -32,6 +32,20 @@ const buildPages=function buildPages(D){
  const projectGalleryPaths=new Set(['/chi-siamo/','/progetti/','/tirocini/','/partecipa/']);
  const picture=(photo,lazy=true)=>{const src=photo.src;const low=src.replace(/\.webp$/,'-480.webp');const mid=src.replace(/\.webp$/,'-800.webp');return '<img src="'+e(src)+'" srcset="'+e(low)+' 480w, '+e(mid)+' 800w, '+e(src)+' 1300w" sizes="(max-width:760px) 94vw, 60vw" alt="'+e(photo.alt)+'" width="1300" height="731" decoding="async" loading="'+(lazy?'lazy':'eager')+'"' +(lazy?'':' fetchpriority="high"')+'>';};
 
+ const pageSeoTitles={
+  '/chi-siamo/':'Chi siamo: identità e attività',
+  '/dialogo-socratico/':'Dialogo socratico: metodo e laboratori',
+  '/progetti/':'Progetti Erasmus+ e cittadinanza',
+  '/progetti/soda-labs/':'SODA-LABS: dialogo per la democrazia',
+  '/progetti/odisseo-philosophorum/':'Odisseo Philosophorum: DiscoverEU',
+  '/tirocini/':'Tirocini universitari con Agorà',
+  '/volontariato-esc/':'Volontariato ESC con Agorà',
+  '/partecipa/':'Come partecipare ad Agorà',
+  '/contatti/':'Contatta Agorà APS',
+  '/trasparenza/':'Trasparenza e RUNTS di Agorà',
+  '/privacy/':'Privacy e protezione dei dati',
+  '/accessibilita/':'Accessibilità del sito Agorà'
+ };
  const p=(path,title,desc,eyebrow,body)=>{
    const canonical=base+path;
    const leadPhoto=photographs[photoForPath[path]??0];
@@ -39,17 +53,32 @@ const buildPages=function buildPages(D){
    const heroVisual='<figure class="visual-cover-photo">'+picture(leadPhoto,false)+'<figcaption><span class="visual-photo-count">AGORÀ / VISIONI</span><span>'+e(leadPhoto.label)+'</span></figcaption></figure>';
    const visualGallery=projectGalleryPaths.has(path)?'<section class="visual-gallery" aria-label="Fotografie delle esperienze di Agorà"><div class="visual-gallery-heading"><span>La nostra galleria</span><p>Il dialogo è fatto di persone, luoghi e incontri.</p></div><div class="visual-gallery-grid">'+photographs.filter(p=>p.src!==leadPhoto.src).map((photo,i)=>'<figure class="visual-gallery-item">'+picture(photo,true)+'<figcaption><span>0'+(i+1)+'</span> '+e(photo.label)+'</figcaption></figure>').join('')+'</div></section>':'';
 
-   const schema=JSON.stringify({"@context":"https://schema.org","@graph":[{"@type":"NGO","@id":base+"/#agora","name":"Agorà – Scuola di Dialogo Socratico e Cittadinanza Attiva APS","url":base+"/"},{"@type":"WebPage","@id":canonical,"url":canonical,"name":title,"description":desc,"inLanguage":"it-IT","isPartOf":{"@id":base+"/#agora"}}]});
+   const orgId=base+'/#agora';
+   const siteId=base+'/#website';
+   const seoTitle=(pageSeoTitles[path]||title)+' | Agorà APS';
+   const bc=[{'@type':'ListItem',position:1,name:'Agorà APS',item:base+'/'}];
+   if(path.startsWith('/progetti/')&&path!=='/progetti/')bc.push({'@type':'ListItem',position:2,name:'Progetti',item:base+'/progetti/'});
+   bc.push({'@type':'ListItem',position:bc.length+1,name:title,item:canonical});
+   const schema=JSON.stringify({'@context':'https://schema.org','@graph':[
+    {'@type':'NGO','@id':orgId,name:'Agorà – Scuola di Dialogo Socratico e Cittadinanza Attiva APS',alternateName:'Agorà APS',url:base+'/',logo:{'@type':'ImageObject',url:base+'/assets/agora_icon.png'},email,description:'Associazione di promozione sociale per dialogo socratico, educazione non formale e cittadinanza attiva.'},
+    {'@type':'WebSite','@id':siteId,name:'Agorà APS',url:base+'/',inLanguage:'it-IT',publisher:{'@id':orgId}},
+    {'@type':'BreadcrumbList','@id':canonical+'#breadcrumb',itemListElement:bc},
+    {'@type':'WebPage','@id':canonical+'#pagina',url:canonical,name:title,description:desc,inLanguage:'it-IT',
+     isPartOf:{'@id':siteId},breadcrumb:{'@id':canonical+'#breadcrumb'},primaryImageOfPage:{'@type':'ImageObject',url:base+leadPhoto.src}}
+   ]}).replace(/</g,'\u003c');
    const nav=internal.map(([url,label])=>`<a href="${url}"${path===url?' aria-current="page"':""}>${e(label)}</a>`).join("");
    return `<!doctype html>
 <html lang="it"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#193b4a">
-<title>${e(title)} | Agorà APS</title><meta name="description" content="${e(desc)}">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<title>${e(seoTitle)}</title><meta name="description" content="${e(desc)}">
 <link rel="canonical" href="${canonical}">
-<meta property="og:type" content="website"><meta property="og:title" content="${e(title)} | Agorà APS"><meta property="og:description" content="${e(desc)}"><meta property="og:url" content="${canonical}">
-<meta property="og:image" content="${base}/assets/agora_gruppo_home.webp">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Agorà APS"><meta property="og:locale" content="it_IT"><meta property="og:title" content="${e(seoTitle)}"><meta property="og:description" content="${e(desc)}"><meta property="og:url" content="${canonical}">
+<meta property="og:image" content="${base}${leadPhoto.src}"><meta property="og:image:alt" content="${e(leadPhoto.alt)}"><meta property="og:image:width" content="1300"><meta property="og:image:height" content="731">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${e(seoTitle)}"><meta name="twitter:description" content="${e(desc)}"><meta name="twitter:image" content="${base}${leadPhoto.src}">
 <link rel="icon" type="image/png" href="/assets/agora_icon.png">
+<link rel="alternate" type="application/rss+xml" title="Agorà Magazine" href="/magazine/rss.xml">
 <link rel="stylesheet" href="/assets/sections.css?v=20261111"><link rel="stylesheet" href="/assets/accessibility.css?v=20261111"><link rel="stylesheet" href="/assets/experience.css?v=20261111"><link rel="stylesheet" href="/assets/visual-story.css?v=20261111"><link rel="stylesheet" href="/assets/site-polish.css?v=20261112"><link rel="stylesheet" href="/assets/whatsapp-chat.css?v=20261112">
 <script type="application/ld+json">${schema}</script><script defer src="/assets/a11y.js?v=20261111"></script><script defer src="/assets/experience.js?v=20261111"></script><script defer src="/assets/contact-form.js?v=20261111"></script><script defer src="/assets/whatsapp-chat.js?v=20261112"></script>
 </head><body class="info-page">
