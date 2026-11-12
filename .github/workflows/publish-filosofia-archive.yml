@@ -1,0 +1,53 @@
+name: Pubblica gli articoli storici Filosofia sul divano nel Magazine
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-filosofia-archive.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: agora-magazine-archive-import
+  cancel-in-progress: false
+jobs:
+  restore:
+    if: github.repository == 'agorascuoladidialogosocratico-APS/Agor-aps-site'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ottieni sito Agorà
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Prepara la conversione conservativa del testo
+        run: python -m pip install --disable-pip-version-check 'beautifulsoup4>=4.12,<5' 'markdownify>=0.14,<2'
+      - name: Recupera soltanto articoli completi firmati Gioele
+        run: python scripts/import-filosofia-wayback.py --write
+      - name: Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Installa dipendenze
+        run: npm ci --no-audit --no-fund
+      - name: Ricrea Magazine, singoli articoli, RSS e sitemap e verifica
+        run: npm run build
+      - name: Versiona e pubblica soltanto articoli recuperati
+        shell: bash
+        run: |
+          git config user.name "agora-editorial-bot"
+          git config user.email "agora-editorial-bot@users.noreply.github.com"
+          git add content/magazine magazine sitemap.xml
+          if git diff --cached --quiet; then
+            echo "Nessun nuovo articolo da pubblicare."
+            exit 0
+          fi
+          git commit -m "content: ripristina articoli storici Filosofia sul divano su Agorà Magazine [skip ci]"
+          git pull --rebase origin main
+          git push origin HEAD:main
