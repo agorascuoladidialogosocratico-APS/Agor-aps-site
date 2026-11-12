@@ -4,8 +4,8 @@
   "category": "Archivio Filosofia sul divano",
   "author": "Gioele Pio Fragale",
   "excerpt": "Komi Can’t Communicate può essere letto anche attraverso la pedagogia delle relazioni. La protagonista, Komi, è una ragazza che incontra grandi difficoltà nel comunicare con gli altri, nonostante desideri profondamente costruire…",
-  "cover": "https://images.unsplash.com/photo-1704966029445-82c499aff85e?auto=format&fit=crop&w=1300&h=731&q=78",
-  "coverAlt": "Taccuino con una penna, simbolo della comunicazione scritta",
+  "cover": "/assets/magazine/covers/archivio-komi-cant-communicate-ma-cio-non-significa-che-non-voglia-farlo.png",
+  "coverAlt": "Illustrazione originale con grande fumetto e taccuino, simboli di comunicazione non verbale",
   "published": true,
   "featured": false,
   "body": "> **Nota editoriale (12 novembre 2026).** Questa è una versione rivista dell’articolo storico: sono stati corretti problemi di forma e, dove necessario, imprecisioni concettuali o fattuali. Il testo d’archivio resta consultabile attraverso il collegamento alla fonte originale.\n\n*Komi Can’t Communicate* può essere letto anche attraverso la pedagogia delle relazioni. La protagonista, Komi, è una ragazza che incontra grandi difficoltà nel comunicare con gli altri, nonostante desideri profondamente costruire legami.\n\nLa narrazione non riduce la sua esperienza alla timidezza: mostra, piuttosto, lo scarto tra ciò che una persona vorrebbe esprimere e ciò che riesce a dire. Il silenzio, talvolta, viene scambiato per distanza o disinteresse; per Komi è invece una condizione che gli altri devono imparare ad ascoltare senza giudicare.\n\nL’incontro con Tadano apre uno spazio di fiducia. Invece di pretendere che Komi parli subito e senza difficoltà, il ragazzo presta attenzione anche ai gesti, ai messaggi scritti e ai piccoli tentativi di avvicinamento. È qui che la storia suggerisce una lezione educativa: comunicare non significa soltanto trovare le parole, ma costruire una relazione nella quale ciascuno possa sentirsi accolto.\n\nL'anime non è un manuale di pedagogia né una descrizione clinica della difficoltà comunicativa. Può però invitare a riflettere sull’empatia, sull’ascolto e sul tempo che ogni persona richiede per trovare la propria voce.\n\nBuona visione e buona riflessione.",
@@ -22,7 +22,7 @@
   "socialXText": "",
   "editorialReviewDate": "2026-11-12",
   "editorialReviewType": "revisione di forma e contenuti con nota pubblica",
-  "coverCredit": "Giulia Bertelli",
-  "coverSource": "https://unsplash.com/photos/moBe51cEI0E",
-  "coverLicense": "Unsplash License — https://unsplash.com/license (uso editoriale gratuito; attribuzione volontaria)"
+  "coverCredit": "Agorà APS — illustrazione editoriale originale (2026)",
+  "coverSource": "https://agora-scuoladidialogosocraticoecittadinanzattiva.site/assets/magazine/covers/archivio-komi-cant-communicate-ma-cio-non-significa-che-non-voglia-farlo.svg",
+  "coverLicense": "Uso editoriale e social per Agorà APS autorizzato; nessun elemento fotografico di terzi"
 }
