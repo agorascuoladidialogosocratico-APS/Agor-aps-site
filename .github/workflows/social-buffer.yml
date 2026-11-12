@@ -21,6 +21,7 @@ on:
         options:
           - draft
           - queue
+          - now
       task:
         description: Anteprima, invio o elenco canali collegati (solo manuale GitHub)
         type: choice
