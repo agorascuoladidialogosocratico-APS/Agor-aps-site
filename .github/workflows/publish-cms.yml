@@ -36,6 +36,7 @@ jobs:
         run: |
           set -euo pipefail
           node scripts/generate-editorial-covers.mjs
+          node scripts/generate-editorial-covers-extra.mjs
           python3 -m venv /tmp/agora-cover-venv
           /tmp/agora-cover-venv/bin/python -m pip install --quiet "CairoSVG==2.9.1"
           /tmp/agora-cover-venv/bin/python - <<'PY'
