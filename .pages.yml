@@ -92,13 +92,13 @@ content:
     description: Deve rimanere breve; l'automazione aggiunge l'URL dell'articolo.
   actions:
     - name: send-to-buffer
-      label: Prepara post per Instagram, Facebook e X
+      label: Condividi l'articolo sui social collegati
       scope: entry
       workflow: social-buffer.yml
       ref: current
       confirm:
         title: Preparare i post social di questo articolo?
-        message: Le bozze non vengono pubblicate. Se scegli la coda, i post saranno programmati automaticamente sugli account collegati. Le versioni già inviate non verranno duplicate.
+        message: L'invio viene effettuato solo sui social selezionati nella scheda. Bozze non pubbliche; Coda programmata; Pubblica ora è immediato. Le versioni già inviate non vengono duplicate.
         button: Conferma
       fields:
         - name: mode
@@ -111,6 +111,8 @@ content:
               value: draft
             - label: Inserisci nella coda Buffer (pubblicazione programmata)
               value: queue
+            - label: Pubblica subito sui social selezionati
+              value: now
 - name: membership
   label: 00 · Quote associative e bonifico
   type: file
