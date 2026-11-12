@@ -15,10 +15,7 @@ Buffer Free comprende fino a tre canali, dieci post programmati contemporaneamen
 2. Apri Buffer Settings → API e genera la chiave personale. Non pubblicarla in GitHub e non inviarla tramite email o chat.
 3. Apri GitHub, repository agorascuoladidialogosocratico-APS/Agor-aps-site → Settings → Secrets and variables → Actions → Secrets. Crea il secret BUFFER_API_KEY con il valore della chiave.
 4. Apri GitHub Actions → **Agorà Magazine - Buffer social** → Run workflow. Imposta task = channels, branch main, quindi avvia. Leggi gli ID dei tre canali restituiti dall'API (sono identificativi Buffer, non nomi utente social).
-5. In GitHub → Settings → Secrets and variables → Actions → Variables crea:
-   - BUFFER_CHANNEL_FACEBOOK: ID della Pagina Facebook da Buffer.
-   - BUFFER_CHANNEL_INSTAGRAM: ID dell'Instagram professionale da Buffer.
-   - BUFFER_CHANNEL_X: ID del profilo X da Buffer.
+5. **Gli ID non servono più quando Buffer contiene un solo canale attivo per piattaforma.** L'automazione identifica Facebook, Instagram e X direttamente tramite API e verifica che non siano disconnessi o bloccati. Prima di inviare bozze, controlla che siano gli account ufficiali Agorà. Se esistono più canali della stessa rete, inserisci esplicitamente i tre ID tramite GitHub → Settings → Secrets and variables → Actions → Variables con i nomi BUFFER_CHANNEL_FACEBOOK, BUFFER_CHANNEL_INSTAGRAM, BUFFER_CHANNEL_X. Con canali ambigui, l'invio viene bloccato.
 6. In GitHub Actions lancia una prova con task = preview. Stampa i tre testi e le foto senza alcun invio social.
 7. In https://app.pagescms.org/ apri la raccolta Agorà Magazine, scegli un articolo già pubblicato e modifica le tre selezioni social o le didascalie, se necessario. Salva e attendi la pubblicazione della pagina.
 8. Premi il pulsante **Prepara post per Instagram, Facebook e X** nella scheda articolo e scegli **Bozze**. Controlla le bozze nel tuo Buffer; poi, per gli articoli successivi, usa **Coda** se vuoi programmarli direttamente.
