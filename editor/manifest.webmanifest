@@ -1,0 +1,32 @@
+{
+  "name": "Agorà Studio — Redazione e Magazine",
+  "short_name": "Agorà Studio",
+  "description": "Controllo editoriale per Agorà Magazine e social dell'associazione.",
+  "start_url": "/editor/",
+  "scope": "/editor/",
+  "id": "/editor/",
+  "display": "standalone",
+  "background_color": "#fffaf5",
+  "theme_color": "#193b4a",
+  "lang": "it",
+  "icons": [
+    {
+      "src": "/assets/agora_icon.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Scrivi articolo",
+      "url": "/editor/?azione=articolo",
+      "description": "Accedi all'editor Pages CMS"
+    },
+    {
+      "name": "Controlla Magazine",
+      "url": "/magazine/",
+      "description": "Magazine pubblico"
+    }
+  ]
+}
