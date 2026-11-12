@@ -1,0 +1,19 @@
+name: Anteprima recupero articoli Filosofia sul divano
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/preview-wayback-import.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check 'beautifulsoup4>=4.12,<5' 'markdownify>=0.14,<2'
+      - run: python scripts/import-filosofia-wayback.py
