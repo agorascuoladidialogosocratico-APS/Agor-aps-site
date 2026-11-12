@@ -1,6 +1,8 @@
 name: Agorà Magazine - Buffer social
 
 on:
+  schedule:
+    - cron: '0 10 * * *' # 11:00 Europe/Rome during the Nov–Dec 2026 campaign
   workflow_dispatch:
     inputs:
       payload:
@@ -66,6 +68,18 @@ jobs:
         shell: bash
         run: |
           set -u
+          if [[ "$GITHUB_EVENT_NAME" == "schedule" ]]; then
+            status=0
+            node scripts/daily-magazine-buffer.mjs || status=$?
+            git config user.name "agora-editorial-bot"
+            git config user.email "agora-editorial-bot@users.noreply.github.com"
+            git add data/buffer-posts.json
+            if ! git diff --cached --quiet; then
+              git commit -m "chore(social): registra il post quotidiano Magazine [skip ci]"
+              git push origin HEAD:main || exit 1
+            fi
+            exit "$status"
+          fi
           task="$TASK"
           if [[ -n "$PAGES_CMS_PAYLOAD" ]]; then
             task=send
