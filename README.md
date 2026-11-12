@@ -22,6 +22,14 @@ La pubblicazione è gestita dal workflow GitHub Actions .github/workflows/social
 
 Il file data/buffer-posts.json tiene traccia dei post già creati evitando un secondo invio per lo stesso articolo/canale. Per prima prova usare GitHub Actions con task=preview, poi task=channels per conoscere gli ID, infine salvare bozze per un singolo articolo. Guida completa: **BUFFER-SOCIAL.md**.
 
+## Agorà Studio come app da telefono
+
+L'indirizzo **/editor/** ora ospita **Agorà Studio**, una web app installabile (PWA) per aprire da un'unica schermata Pages CMS, Buffer, il Magazine pubblico e il controllo delle automazioni GitHub. Usa il logo e la palette originale, funziona su smartphone e dispone di un manifesto web, di un'app shell con cache locale e di scorciatoie ai servizi. **Non contiene credenziali né concede da sola i permessi di modifica**: Pages CMS continua ad autenticarsi tramite GitHub e Buffer tramite il proprio account. Le pagine private dei servizi esterni non vengono salvate nella cache del sito.
+
+Installazione: su iPhone aprire `https://agora-scuoladidialogosocraticoecittadinanzattiva.site/editor/` in Safari, condividere e scegliere "Aggiungi alla schermata Home". Su Android aprire la pagina in Chrome e scegliere "Installa app" quando il browser lo consente. Per informazioni operative aprire **STUDIO-APP.md**.
+
+Il primo articolo è predisposto soltanto per **Facebook e Instagram**, i due canali già collegati all'account Buffer. L'account terzo non viene toccato, e X non riceve post finché non sarà collegato. La scheda articolo offre bozze, coda e la scelta esplicita "Pubblica subito", sempre dopo conferma.
+
 ## Architettura e navigazione
 La homepage conserva il **libro digitale interattivo**. Sono disponibili pagine HTML **statiche e indicizzabili** per Chi siamo, Progetti (e schede SODA-LABS / Odisseo Philosophorum), Tirocini, Volontariato ESC, Partecipa, Contatti, Trasparenza, Privacy, Accessibilità, Agorà Magazine, singoli articoli pubblicati e Sostienici.
 
