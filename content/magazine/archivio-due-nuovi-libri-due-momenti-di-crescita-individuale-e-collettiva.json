@@ -4,8 +4,8 @@
   "category": "Archivio Filosofia sul divano",
   "author": "Gioele Pio Fragale",
   "excerpt": "Mario Guarnera e Gioele Pio Fragale hanno pubblicato due testi nella collana Le domande irrinunciabili, dell’Editrice Pensare Criticamente. Il testo di Mario Guarnera rievoca la vicenda di un ragazzo nella Francia…",
-  "cover": "/assets/agora_dialogo.webp",
-  "coverAlt": "Immagine editoriale Agorà APS dedicata al dialogo filosofico",
+  "cover": "https://images.unsplash.com/photo-1646775814663-95874b77fd4f?auto=format&fit=crop&w=1300&h=731&q=78",
+  "coverAlt": "Due libri disposti su un tavolo insieme a una penna",
   "published": true,
   "featured": false,
   "body": "> **Nota editoriale (12 novembre 2026).** Versione riveduta di un articolo del 07/11/2022. L’originale è disponibile nella [copia d’archivio](https://web.archive.org/web/20221107145632/https://filosofiasuldivano.altervista.org/due-nuovi-libri-due-momenti-di-crescita-individuale-e-collettiva/).\n\nMario Guarnera e Gioele Pio Fragale hanno pubblicato due testi nella collana *Le domande irrinunciabili*, dell’Editrice Pensare Criticamente.\n\nIl testo di Mario Guarnera rievoca la vicenda di un ragazzo nella Francia dell’Ottocento, cresciuto lontano dai rapporti sociali abituali. Attraverso questa storia affiora una domanda fondamentale: quale ruolo hanno l’educazione e la cultura nella costruzione della nostra umanità?\n\nIl testo di Gioele Pio Fragale prende invece in esame l’incontro tra culture differenti e le sue implicazioni antropologiche, filosofiche ed etiche. Interrogarsi sull’alterità significa imparare a riconoscere l’altro senza ridurlo a pregiudizi o generalizzazioni.\n\nDue prospettive che si incontrano nella medesima aspirazione: pensare criticamente l'esperienza umana e aprire nuove possibilità di comprensione reciproca.\n\n*Nota editoriale (2026): la notizia storica è stata ripulita da duplicazioni e da link commerciali non verificati. I dati bibliografici completi devono essere controllati prima di nuovi rimandi all’acquisto.*",
@@ -18,5 +18,7 @@
   "socialInstagramText": "",
   "socialXText": "",
   "editorialReviewDate": "2026-11-12",
-  "editorialReviewType": "revisione documentata con testo storico consultabile"
+  "editorialReviewType": "revisione documentata con testo storico consultabile",
+  "coverCredit": "Steven Ungermann",
+  "coverSource": "https://unsplash.com/photos/p3KY7JCpNwk"
 }
