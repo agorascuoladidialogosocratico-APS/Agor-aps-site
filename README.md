@@ -42,6 +42,11 @@ Il workflow `.github/workflows/publish-filosofia-archive.yml` esegue il recupero
 
 Il Magazine include 23 articoli storici recuperati (10 iniziali e 13 aggiuntivi) con date originali e copie Wayback. I testi ripubblicati sono versioni editorialmente revisionate nel 2026, talvolta con riorganizzazioni sostanziali esplicitamente dichiarate: non vanno spacciati per trascrizioni diplomatiche degli originali. Ogni scheda offre il collegamento alla fonte storica. Per l'articolo «Il ruolo degli intellettuali nella società odierna» la firma conclusiva dell'originale è «Alessandro Agnello», perciò la scheda gli attribuisce l'autorialità anziché a Gioele Pio Fragale. I contenuti recuperati hanno la condivisione social disattivata.
 
+
+### Copertine editoriali distinte
+
+Le 23 pubblicazioni di «Filosofia sul divano» utilizzano fotografie tematiche diverse, provenienti da Unsplash, indicate come fotografie **editoriali**, non come immagini originali del sito storico. I campi `coverSource` e `coverCredit` conservano la provenienza della foto per ogni articolo. Le immagini vengono caricate da `images.unsplash.com`: in seguito potranno essere sostituite da fotografie locali autorizzate. Il generatore `scripts/generate-magazine.mjs` rifiuta copertine duplicate o assenti per i contenuti pubblicati. I nuovi articoli importati da Wayback rimangono bozze finché non viene selezionata una copertina specifica.
+
 ## Architettura e navigazione
 La homepage conserva il **libro digitale interattivo**. Sono disponibili pagine HTML **statiche e indicizzabili** per Chi siamo, Progetti (e schede SODA-LABS / Odisseo Philosophorum), Tirocini, Volontariato ESC, Partecipa, Contatti, Trasparenza, Privacy, Accessibilità, Agorà Magazine, singoli articoli pubblicati e Sostienici.
 
