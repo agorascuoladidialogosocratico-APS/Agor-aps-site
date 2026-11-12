@@ -4,8 +4,8 @@
   "category": "Archivio Filosofia sul divano",
   "author": "Gioele Pio Fragale",
   "excerpt": "Reading philosophy is not simply a matter of collecting memorable quotations. It means following an argument, understanding the questions that give rise to it, and considering what the text asks of us as readers. Here are three…",
-  "cover": "/assets/agora_dialogo.webp",
-  "coverAlt": "Immagine illustrativa della redazione Agorà APS, non originale dell’articolo",
+  "cover": "https://images.unsplash.com/photo-1652711475965-61d2e00904e1?auto=format&fit=crop&w=1300&h=731&q=78",
+  "coverAlt": "Un libro aperto tenuto fra le mani, illuminato da luce calda",
   "published": true,
   "featured": false,
   "body": "> **Editorial note (12 November 2026).** This revised version corrects unclear passages and removes an unverifiable quotation from the archived article. The historical original remains available through the source link.\n\nReading philosophy is not simply a matter of collecting memorable quotations. It means following an argument, understanding the questions that give rise to it, and considering what the text asks of us as readers. Here are three complementary ways to approach a philosophical book.\n\n## 1. Read it in context\n\nBegin by asking who wrote the work, when it was written and which debates shaped it. An introduction from a reliable edition can help you place the text in its historical setting. If you are reading Plato, for instance, it is useful to know something about classical Athens, Socratic dialogue and the relationship between Plato and Socrates.\n\nContext helps us avoid treating ancient concepts as if they had exactly the same meaning today. It also reminds us that a philosophical work is not always a straightforward statement of its author’s own beliefs: some texts use dialogue, irony or competing voices.\n\n## 2. Follow the argument\n\nRead slowly enough to identify the central problem and the steps of the reasoning. What does the author claim? Which premises support the conclusion? Are there important distinctions, examples or objections?\n\nMake brief notes in your own words. If a sentence seems obscure, revisit the paragraphs before it rather than searching immediately for a simplified summary. A glossary can help with technical terms, but the aim is to understand how those terms function within the argument.\n\n## 3. Enter into dialogue with the text\n\nOnce you understand a position, test it. Look for counterexamples, compare it with another philosopher’s view and consider what it would mean in ordinary life. Reading actively does not require immediate agreement or disagreement: it requires intellectual patience.\n\nYou might discuss a passage with a friend, write a response or return to the book after some time has passed. New questions often reveal aspects you missed on a first reading.\n\nThese three approaches — historical, analytical and dialogical — work best together. Philosophy becomes more rewarding when we take its arguments seriously while remaining willing to question them. The purpose is not to finish as many books as possible, but to become a more careful and independent thinker.",
@@ -21,5 +21,7 @@
   "socialInstagramText": "",
   "socialXText": "",
   "editorialReviewDate": "2026-11-12",
-  "editorialReviewType": "revisione di forma e contenuti con nota pubblica"
+  "editorialReviewType": "revisione di forma e contenuti con nota pubblica",
+  "coverCredit": "Fotografo su Unsplash",
+  "coverSource": "https://unsplash.com/photos/vX5psT8DULw"
 }
