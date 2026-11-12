@@ -4,8 +4,8 @@
   "category": "Archivio Filosofia sul divano",
   "author": "Mario Guarnera",
   "excerpt": "L’Occidente (cioè noi) ha avuto in sorte una benedizione e, insieme, una sfida quanto mai impegnativa: la confluenza di due visioni differenti del rapporto tra pensiero e sua trasmissione, nel presente e ai posteri. I Greci non possedevano…",
-  "cover": "/assets/agora_dialogo.webp",
-  "coverAlt": "Immagine illustrativa della redazione Agorà APS, non originale dell’articolo",
+  "cover": "https://images.unsplash.com/photo-1767547109500-db6a9d411ae9?auto=format&fit=crop&w=1300&h=731&q=78",
+  "coverAlt": "Penna stilografica e calamaio su un taccuino, fotografia editoriale",
   "published": true,
   "featured": false,
   "body": "L’Occidente (cioè noi) ha avuto in sorte una benedizione e, insieme, una sfida quanto mai impegnativa: la confluenza di due visioni differenti del rapporto tra pensiero e sua trasmissione, nel presente e ai posteri.\n\nI Greci non possedevano un testo sacro unico e normativo. Socrate, per quanto ne sappiamo, non lasciò scritti; Platone compose dialoghi e, pur utilizzando la scrittura, rifletté criticamente sui suoi limiti. Aristotele affidò alle opere anche una funzione di insegnamento e ricerca all’interno della scuola.\n\nLa tradizione biblica, invece, attribuisce alle Scritture un’autorità religiosa particolare. I filosofi cristiani dovettero confrontarsi con il rapporto tra ricerca razionale e rispetto della tradizione. La formula *credo ut intelligam* («credo per comprendere»), legata soprattutto ad Anselmo d’Aosta, mostra uno dei modi in cui fede e ragione sono state messe in relazione.\n\n«Verba volant, scripta manent», dice un noto proverbio latino. La scrittura conserva e trasmette, ma può anche cristallizzare affermazioni che meriterebbero di essere rimesse in discussione.\n\nOggi siamo sommersi da parole e immagini. Siamo davvero nelle condizioni di affrontare con libertà ciò che accade, oppure i messaggi che riceviamo condizionano profondamente il nostro pensiero e il nostro agire?\n\n*Nota editoriale (2026): revisione linguistica e chiarimento di alcuni riferimenti storici. Il testo originale resta accessibile nella fonte d’archivio.*",
@@ -21,5 +21,7 @@
   "socialInstagramText": "",
   "socialXText": "",
   "editorialReviewDate": "2026-11-12",
-  "editorialReviewType": "revisione editoriale con attribuzione originale conservata"
+  "editorialReviewType": "revisione editoriale con attribuzione originale conservata",
+  "coverCredit": "atelierbyvineeth",
+  "coverSource": "https://unsplash.com/photos/bBV9kt-rC4c"
 }

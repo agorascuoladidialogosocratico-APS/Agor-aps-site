@@ -4,8 +4,8 @@
   "category": "Archivio Filosofia sul divano",
   "author": "Mario Guarnera",
   "excerpt": "Se Don Abbondio avesse avuto più coraggio, Manzoni non avrebbe scritto il suo capolavoro. Se Dante, come personaggio della Commedia, non si fosse smarrito nella selva oscura, il poema non avrebbe preso la forma che conosciamo. Se Giacomo…",
-  "cover": "/assets/agora_dialogo.webp",
-  "coverAlt": "Immagine illustrativa della redazione Agorà APS, non originale dell’articolo",
+  "cover": "https://images.unsplash.com/photo-1774820270817-d5003075461d?auto=format&fit=crop&w=1300&h=731&q=78",
+  "coverAlt": "Tavolozza con colori e pennelli, immagine del processo creativo",
   "published": true,
   "featured": false,
   "body": "Se Don Abbondio avesse avuto più coraggio, Manzoni non avrebbe scritto il suo capolavoro.\n\nSe Dante, come personaggio della *Commedia*, non si fosse smarrito nella selva oscura, il poema non avrebbe preso la forma che conosciamo.\n\nSe Giacomo Leopardi avesse vissuto una vita diversa, forse ci avrebbe consegnato opere altrettanto diverse.\n\nLe avversità, come suggeriscono questi esempi letterari, possono smuovere gli animi sensibili e spingerli a trasformare l’esperienza del dolore in arte. Non ogni sofferenza genera bellezza, né la creazione richiede necessariamente il patimento; eppure, talvolta, la scrittura offre un modo per attraversare tempi difficili.\n\nDa quasi due anni attraversiamo un periodo complicato. Chissà quante opere, testimonianze e nuove domande nasceranno da ciò che stiamo vivendo.\n\n*Nota editoriale (2026): testo leggermente rivisto; il riferimento temporale finale appartiene all’epoca della pubblicazione originale (2021).*",
@@ -21,5 +21,7 @@
   "socialInstagramText": "",
   "socialXText": "",
   "editorialReviewDate": "2026-11-12",
-  "editorialReviewType": "revisione editoriale con attribuzione originale conservata"
+  "editorialReviewType": "revisione editoriale con attribuzione originale conservata",
+  "coverCredit": "Phil Hearing",
+  "coverSource": "https://unsplash.com/photos/45bhxlidxYg"
 }

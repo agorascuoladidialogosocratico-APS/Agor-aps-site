@@ -4,8 +4,8 @@
   "category": "Archivio Filosofia sul divano",
   "author": "Mario Guarnera",
   "excerpt": "Siamo fatti di atomi e vuoto. Per quanto siano forti le relazioni tra gli atomi che creano universi giocando nel vuoto, resta il fatto che ogni atomo conserva, nella nostra immagine poetica, una propria individualità. Ogni obbligo porta…",
-  "cover": "/assets/agora_dialogo.webp",
-  "coverAlt": "Immagine illustrativa della redazione Agorà APS, non originale dell’articolo",
+  "cover": "https://images.unsplash.com/photo-1594644192078-7506e3802251?auto=format&fit=crop&w=1300&h=731&q=78",
+  "coverAlt": "Miriadi di stelle nella Via Lattea, metafora di atomi e universo",
   "published": true,
   "featured": false,
   "body": "Siamo fatti di atomi e vuoto.\n\nPer quanto siano forti le relazioni tra gli atomi che creano universi giocando nel vuoto, resta il fatto che ogni atomo conserva, nella nostra immagine poetica, una propria individualità.\n\nOgni obbligo porta dunque con sé il rischio di un fallimento che, prima o poi, può venire alla luce.\n\n*Nota editoriale (2026): lievi interventi linguistici; l’immagine degli atomi è una metafora filosofica, non una descrizione scientifica delle particelle.*",
@@ -21,5 +21,7 @@
   "socialInstagramText": "",
   "socialXText": "",
   "editorialReviewDate": "2026-11-12",
-  "editorialReviewType": "revisione editoriale con attribuzione originale conservata"
+  "editorialReviewType": "revisione editoriale con attribuzione originale conservata",
+  "coverCredit": "Tamas Tuzes-Katai",
+  "coverSource": "https://unsplash.com/photos/bQnQrVT7gsQ"
 }

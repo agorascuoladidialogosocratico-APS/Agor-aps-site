@@ -144,9 +144,9 @@ def one(article):
         excerpt=clean[:230].rsplit(' ',1)[0].rstrip(' ,.;')+('…' if len(clean)>230 else '')
         original_url=ROOT+'/'+slug+'/'
         obj={'title':heading or guess_title,'date':date,'category':'Archivio Filosofia sul divano',
-          'author':byline,'excerpt':excerpt,'cover':'/assets/agora_dialogo.webp',
+          'author':byline,'excerpt':excerpt,'cover':'',
           'coverAlt':'Immagine illustrativa della redazione Agorà APS, non originale dell’articolo',
-          'published':True,'featured':False,'body':text,
+          'published':False,'featured':False,'body':text,
           'archiveSource':'Filosofia sul divano','archiveOriginalUrl':original_url,'archiveUrl':archive,'sourceUrl':archive,'sourceTitle':'Filosofia sul divano (archivio storico)',
           'socialFacebook':False,'socialInstagram':False,'socialX':False,
           'socialFacebookText':'','socialInstagramText':'','socialXText':''}

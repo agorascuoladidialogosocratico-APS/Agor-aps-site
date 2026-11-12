@@ -46,9 +46,20 @@ content:
     type: text
     required: true
   - name: cover
-    label: Fotografia di copertina
+    label: Fotografia di copertina (percorso oppure URL Unsplash)
+    type: string
+    required: true
+    description: Ogni articolo deve avere un'immagine unica. Percorso /assets/ oppure URL Unsplash verificato. Le immagini mancanti impediscono la pubblicazione.
+  - name: coverUpload
+    label: Carica una copertina originale sul sito (prevale sull'URL)
     type: image
-    description: Usa immagini dell'associazione autorizzate alla pubblicazione.
+    description: Per nuove fotografie autorizzate; assegna un file differente a ogni articolo.
+  - name: coverCredit
+    label: Fotografo della copertina
+    type: string
+  - name: coverSource
+    label: Pagina originale della fotografia
+    type: string
   - name: coverAlt
     label: Testo alternativo della fotografia
     type: string
