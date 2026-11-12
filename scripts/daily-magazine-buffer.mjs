@@ -1,5 +1,5 @@
 import {readFileSync,writeFileSync,existsSync} from 'node:fs';
-import {createPlan,publishPlan,SITE} from './social-buffer.mjs';
+import {createPlan,publishPlan,resolveChannelIds,SITE} from './social-buffer.mjs';
 
 const load=(path)=>JSON.parse(readFileSync(path,'utf8'));
 const campaign=load('data/social-magazine-23-giorni.json');
@@ -15,7 +15,8 @@ if(!Array.isArray(campaign.posts)||campaign.posts.length!==23)throw new Error('C
 const eligible=campaign.posts.filter(item=>item.date<=localDay).sort((a,b)=>a.date.localeCompare(b.date));
 const ledgerPath='data/buffer-posts.json';
 const ledger=existsSync(ledgerPath)?load(ledgerPath):{posts:{}};
-const required=['facebook','instagram',...(String(process.env.BUFFER_CHANNEL_X||'').trim()?['x']:[])];
+// Facebook and Instagram define completion of a daily slot; optional X must never block them.
+const required=['facebook','instagram'];
 const item=eligible.find(item=>required.some(p=>!ledger.posts?.[item.slug]?.[p]));
 if(!item){
  console.log('Nessun articolo arretrato da pubblicare al '+localDay);
@@ -40,7 +41,17 @@ try{
  if(String(error.message||'').includes('Pagina non raggiungibile'))throw error;
  console.warn('Controllo HEAD non disponibile; HTML e immagine locali verificati.');
 }
-const enabled={...article,socialFacebook:true,socialInstagram:true,socialX:required.includes('x')};
+let xEnabled=false;
+try{
+ const channels=await resolveChannelIds({posts:[{platform:'x'}],env:process.env});
+ if(channels.BUFFER_CHANNEL_X){
+  process.env.BUFFER_CHANNEL_X=channels.BUFFER_CHANNEL_X;
+  xEnabled=true;
+ }
+}catch(error){
+ console.warn('X non è disponibile o non è univocamente collegato: pubblicazione solo su Facebook e Instagram.');
+}
+const enabled={...article,socialFacebook:true,socialInstagram:true,socialX:xEnabled};
 const posts=createPlan(slug,enabled,'now');
 console.log(JSON.stringify({campaign:campaign.title,localDay,slot:item.date,article:slug,platforms:posts.map(p=>p.platform),image:imagePath},null,2));
 const result=await publishPlan({slug,posts,env:process.env,ledger,save:data=>writeFileSync(ledgerPath,JSON.stringify(data,null,2)+'\n')});
