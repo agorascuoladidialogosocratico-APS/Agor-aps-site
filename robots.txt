@@ -1,3 +1,7 @@
 User-agent: *
 Allow: /
+Disallow: /editor/
+Disallow: /operatore/
+Disallow: /api/
+
 Sitemap: https://agora-scuoladidialogosocraticoecittadinanzattiva.site/sitemap.xml
