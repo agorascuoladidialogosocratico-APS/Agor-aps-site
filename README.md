@@ -32,11 +32,15 @@ Il primo articolo è predisposto soltanto per **Facebook e Instagram**, i due ca
 
 ## Biblioteca storica «Filosofia sul divano» (recupero Wayback)
 
-Nel 2026 il dominio `filosofiasuldivano.org` è stato cancellato, ma la Wayback Machine conserva copie dell'indirizzo storico `filosofiasuldivano.altervista.org`. L'archivio viene recuperato tramite `scripts/import-filosofia-wayback.py`, esclusivamente per articoli pubblici del 2021–2023 attribuiti a Gioele Pio Fragale, senza pagine protette, esercizi privati, articoli di altri autori o contenuti esterni incorporati. In particolare, link social di condivisione e video esterni non sono copiati nei testi. I testi storici sono attribuiti al loro autore e includono la fonte Wayback originale.
+Nel 2026 il dominio `filosofiasuldivano.org` è stato cancellato, ma la Wayback Machine conserva copie dell'indirizzo storico `filosofiasuldivano.altervista.org`. L'archivio viene recuperato tramite `scripts/import-filosofia-wayback.py`, per articoli pubblici del 2021–2023, con attribuzione alle firme originali: Gioele Pio Fragale, Mario Guarnera, Tracy Ferraro e Alessandro Agnello nei testi finora recuperati. Sono esclusi contenuti protetti e contenuti esterni incorporati. Gli articoli di altri autori non vengono attribuiti automaticamente a Gioele. In particolare, link social di condivisione e video esterni non sono copiati nei testi. I testi storici sono attribuiti al loro autore e includono la fonte Wayback originale.
 
 Le pubblicazioni hanno la rubrica **Archivio Filosofia sul divano**, la data storica e la foto di copertina **editoriale Agorà** (non presentata come foto originale). Possono essere aggiornate via Pages CMS attraverso i campi `sourceTitle` e `sourceUrl`. Vengono pubblicate nel Magazine e nel suo RSS, non sui social: `socialFacebook=false`, `socialInstagram=false`, `socialX=false`. La presenza di un testo del 2021–2023 nell'archivio non indica che esprima necessariamente le posizioni attuali dell'associazione.
 
 Il workflow `.github/workflows/publish-filosofia-archive.yml` esegue il recupero, verifica che almeno otto articoli abbiano un testo completo e un autore confermato, rigenera tutte le pagine e pubblica via commit su `main`. Gli articoli già importati non vengono sovrascritti, per preservare le modifiche dell'editor.
+
+### Revisione editoriale e provenienza
+
+Il Magazine include 23 articoli storici recuperati (10 iniziali e 13 aggiuntivi) con date originali e copie Wayback. I testi ripubblicati sono versioni editorialmente revisionate nel 2026, talvolta con riorganizzazioni sostanziali esplicitamente dichiarate: non vanno spacciati per trascrizioni diplomatiche degli originali. Ogni scheda offre il collegamento alla fonte storica. Per l'articolo «Il ruolo degli intellettuali nella società odierna» la firma conclusiva dell'originale è «Alessandro Agnello», perciò la scheda gli attribuisce l'autorialità anziché a Gioele Pio Fragale. I contenuti recuperati hanno la condivisione social disattivata.
 
 ## Architettura e navigazione
 La homepage conserva il **libro digitale interattivo**. Sono disponibili pagine HTML **statiche e indicizzabili** per Chi siamo, Progetti (e schede SODA-LABS / Odisseo Philosophorum), Tirocini, Volontariato ESC, Partecipa, Contatti, Trasparenza, Privacy, Accessibilità, Agorà Magazine, singoli articoli pubblicati e Sostienici.
