@@ -65,7 +65,7 @@ const buildPages=function buildPages(D){
     {'@type':'BreadcrumbList','@id':canonical+'#breadcrumb',itemListElement:bc},
     {'@type':'WebPage','@id':canonical+'#pagina',url:canonical,name:title,description:desc,inLanguage:'it-IT',
      isPartOf:{'@id':siteId},breadcrumb:{'@id':canonical+'#breadcrumb'},primaryImageOfPage:{'@type':'ImageObject',url:base+leadPhoto.src}}
-   ]}).replace(/</g,'\u003c');
+   ]}).replace(/</g,'\\u003c');
    const nav=internal.map(([url,label])=>`<a href="${url}"${path===url?' aria-current="page"':""}>${e(label)}</a>`).join("");
    return `<!doctype html>
 <html lang="it"><head>
