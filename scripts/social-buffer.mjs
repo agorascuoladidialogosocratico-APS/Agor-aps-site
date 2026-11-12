@@ -163,8 +163,27 @@ async function main(){
  console.log(JSON.stringify({article:request.slug,mode:request.mode,posts:posts.map(p=>({platform:p.platform,text:p.text,image:p.asset}))},null,2));
  if(action!=='execute')return;
  if(!process.env.BUFFER_API_KEY)throw Error('Manca BUFFER_API_KEY: collega Buffer e inserisci la chiave nei GitHub Secrets');
- const check=await fetch(posts[0].url,{method:'HEAD',redirect:'follow',signal:AbortSignal.timeout(12000)});
- if(!check.ok)throw Error('Articolo non raggiungibile sul sito: HTTP '+check.status+'; nessun invio a Buffer');
+ /* Il dominio Cloudflare può rispondere 403 ai robot GitHub anche quando
+    l'articolo è pubblico (controllato da un crawler separato). Verifica sempre
+    i file generati e non scambiare un blocco anti-bot per un 404. */
+ const localPage='magazine/'+request.slug+'/index.html';
+ if(!existsSync(localPage)||!readFileSync(localPage,'utf8').includes('<h1>')){
+  throw Error('Pagina articolo non generata correttamente: nessun invio');
+ }
+ const localImage=String(article.cover||'').replace(/^\/+/, '');
+ if(!localImage.startsWith('assets/')||!existsSync(localImage)){
+  throw Error('Fotografia articolo non trovata nel repository: nessun invio');
+ }
+ try{
+  const check=await fetch(posts[0].url,{method:'HEAD',redirect:'follow',signal:AbortSignal.timeout(12000)});
+  if(!check.ok&&![403,405,429].includes(check.status)){
+    throw Error('Articolo non raggiungibile: HTTP '+check.status);
+  }
+  if(!check.ok)console.warn('Cloudflare limita il controllo automatico (HTTP '+check.status+'); file HTML e foto locali verificati.');
+ }catch(error){
+  if(String(error.message||'').includes('Articolo non raggiungibile'))throw error;
+  console.warn('Controllo remoto non disponibile; HTML e foto presenti nella build GitHub.');
+ }
  const ledgerPath='data/buffer-posts.json';
  const ledger=existsSync(ledgerPath)?JSON.parse(readFileSync(ledgerPath,'utf8')):{posts:{}};
  const results=await publishPlan({slug:request.slug,posts,env:process.env,ledger,save:doc=>writeFileSync(ledgerPath,JSON.stringify(doc,null,2)+'\n')});
