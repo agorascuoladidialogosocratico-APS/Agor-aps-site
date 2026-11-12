@@ -1,6 +1,6 @@
 import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';
 import {dirname} from 'node:path';
-const keys=["association","method","projects","opportunities","contact","transparency","governance","home","whatsapp"];
+const keys=["association","method","projects","opportunities","contact","transparency","governance","home","whatsapp","identity"];
 const D=Object.fromEntries(keys.map(key=>[key,JSON.parse(readFileSync('content/'+key+'.json','utf8'))]));
 const buildPages=function buildPages(D){
  const e=s=>String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#39;");
@@ -60,7 +60,7 @@ const buildPages=function buildPages(D){
    if(path.startsWith('/progetti/')&&path!=='/progetti/')bc.push({'@type':'ListItem',position:2,name:'Progetti',item:base+'/progetti/'});
    bc.push({'@type':'ListItem',position:bc.length+1,name:title,item:canonical});
    const schema=JSON.stringify({'@context':'https://schema.org','@graph':[
-    {'@type':'NGO','@id':orgId,name:'Agorà – Scuola di Dialogo Socratico e Cittadinanza Attiva APS',alternateName:'Agorà APS',url:base+'/',logo:{'@type':'ImageObject',url:base+'/assets/agora_icon.png'},email,description:'Associazione di promozione sociale per dialogo socratico, educazione non formale e cittadinanza attiva.'},
+    {'@type':'NGO','@id':orgId,name:'Agorà – Scuola di Dialogo Socratico e Cittadinanza Attiva APS',alternateName:'Agorà APS',url:base+'/',logo:{'@type':'ImageObject',url:base+'/assets/agora_icon.png'},email,description:'Associazione di promozione sociale per dialogo socratico, educazione non formale e cittadinanza attiva.',sameAs:(D.identity.externalProfiles||[]).map(p=>p.url)},
     {'@type':'WebSite','@id':siteId,name:'Agorà APS',url:base+'/',inLanguage:'it-IT',publisher:{'@id':orgId}},
     {'@type':'BreadcrumbList','@id':canonical+'#breadcrumb',itemListElement:bc},
     {'@type':'WebPage','@id':canonical+'#pagina',url:canonical,name:title,description:desc,inLanguage:'it-IT',
@@ -100,6 +100,7 @@ const buildPages=function buildPages(D){
  <section class="info-section"><h2>Una comunità che pensa e agisce</h2><p>${e(A.description1)}</p><p>${e(A.description2)}</p>
  <p>Agorà promuove conversazioni strutturate, competenze critiche e opportunità formative per giovani, educatori, ricercatori e comunità.</p></section>
  <section class="info-section"><h2>Come lavoriamo</h2><p>${e(M.description1)}</p><p>${e(M.description2)}</p><p>Approfondisci <a href="/dialogo-socratico/">che cos’è il dialogo socratico</a> e come si svolge un laboratorio.</p></section>
+ <section class="info-section"><h2>Dove verificare le informazioni sull'associazione</h2><p>La denominazione dell'ente può essere confrontata con riferimenti esterni che riportano i dati organizzativi. Il <a href="https://youth.europa.eu/volunteering/organisation/83571_mt" target="_blank" rel="noopener noreferrer">Portale europeo per i giovani</a> descrive Agorà e il ruolo di sostegno del Marchio di Qualità ESC; <a href="https://italianonprofit.it/scheda-ente/93254890879/" target="_blank" rel="noopener noreferrer">Italia non profit</a> riporta una scheda ricavata da dati pubblici del RUNTS. Le informazioni registrate più aggiornate vanno sempre verificate alla fonte istituzionale.</p><p>Questi collegamenti servono a documentare l'identità dell'associazione, non implicano che tutti i progetti siano stati finanziati o che le due organizzazioni abbiano avallato ogni contenuto del sito.</p></section>
  <section class="info-section" id="direttivo"><h2>Le persone e gli incarichi</h2><p>Gli incarichi qui riportati provengono dalla documentazione associativa disponibile per le convenzioni universitarie di giugno 2026. Per l'assetto formalmente registrato più recente fa fede la scheda nel RUNTS.</p><div class="info-grid governance-grid">${governanceCards}</div><p class="info-note">Verifica la composizione registrata nel <a href="${runts}" rel="noopener noreferrer" target="_blank">RUNTS</a>, cercando il codice fiscale <strong>93254890879</strong>. Le informazioni qui riportate non sostituiscono la visura ufficiale.</p></section>
  <section class="info-section"><h2>Approfondisci</h2><div class="info-grid">
  ${card("Progetti e mobilità",'<p>Scambi, laboratori e cittadinanza europea.</p><p><a href="/progetti/">Esplora i progetti</a></p>')}
