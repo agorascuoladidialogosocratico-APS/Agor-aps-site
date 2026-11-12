@@ -14,6 +14,14 @@ Sito dell'associazione Agorà – Scuola di Dialogo Socratico e Cittadinanza Att
 
 **Design:** riprende logo e fotografie già presenti e mantiene la palette blu petrolio `#193b4a`, terracotta `#b85628`, avorio `#f8f0e6`. Layout responsive con navigazione mobile e supporto `prefers-reduced-motion`.
 
+## Campagna 23 giorni — copertine originali e social (novembre–dicembre 2026)
+
+Le **23 copertine** degli articoli dell'archivio sono illustrazioni editoriali originali, prodotte in SVG sorgente e PNG pubblicabile (1300 × 731), **una diversa per ogni articolo**. I sorgenti sono generati dai file `scripts/generate-editorial-covers.mjs` (prime dieci) e `scripts/generate-editorial-covers-extra.mjs` (restanti tredici). La pubblicazione del CMS genera gli SVG e li converte in PNG tramite CairoSVG 2.9.1; entrambi vengono salvati nel repository. Ogni articolo contiene `coverAlt`, `coverCredit`, `coverSource` e `coverLicense`. Credito: «Agorà APS — illustrazione editoriale originale (2026)». Fonte: SVG pubblicato nel sito. Uso autorizzato per la comunicazione editoriale e social di Agorà APS; **nessuna fotografia o immagine di terzi è incorporata nelle copertine**. Non usare l'etichetta «fotografia originale storica» per queste illustrazioni.
+
+Il calendario in `data/social-magazine-23-giorni.json` prevede un articolo al giorno dal **13 novembre al 5 dicembre 2026**, alle **11:00 CET** (cron GitHub Actions `0 10 * * *`, che può subire ritardi operativi). Il workflow `.github/workflows/social-buffer.yml` esegue `scripts/daily-magazine-buffer.mjs`: invia il post del primo giorno maturato non ancora completato su **Facebook e Instagram** tramite Buffer, controllando che le copertine PNG siano presenti e registrando gli ID nel ledger `data/buffer-posts.json` per evitare duplicazioni. **X è opzionale e viene incluso soltanto con `BUFFER_CHANNEL_X` configurato**. Il solo salvataggio del Magazine non pubblica social e nessun articolo viene inviato prima dell'inizio del calendario. Gli articoli già condivisi in passato restano protetti dal ledger.
+
+La riuscita dei post dipende dall'API Buffer, dai canali ancora collegati e dal corretto deploy delle immagini pubbliche. In caso di errore il job segnala il fallimento; le piattaforme già riuscite vengono conservate nel ledger per impedire duplicati. Non interpretare un calendario su GitHub come una conferma che Buffer abbia già programmato tutti i post.
+
 ## Pubblicazione coordinata Magazine e social (Buffer Free)
 
 Il Magazine mantiene Pages CMS come unico editor di riferimento, senza installare WordPress. La scheda articolo offre i campi Facebook, Instagram e X, testi diversi per ciascun canale e il pulsante **Prepara post per Instagram, Facebook e X**. Con il pulsante si possono creare bozze su Buffer o inserire i post nella coda di pubblicazione. Di default il pulsante prepara soltanto bozze, e **nessun contenuto parte automaticamente quando si salva un articolo**.

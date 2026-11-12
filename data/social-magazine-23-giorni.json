@@ -1,0 +1,108 @@
+{
+  "title": "Agorà Magazine — 23 giorni, 23 articoli di Filosofia sul divano",
+  "startDate": "2026-11-13",
+  "timezone": "Europe/Rome",
+  "dailyTime": "11:00",
+  "platformsRequired": [
+    "facebook",
+    "instagram"
+  ],
+  "platformOptional": [
+    "x"
+  ],
+  "captionPolicy": "titolo, estratto e link al Magazine; l'immagine punta alla copertina autorizzata dell'articolo",
+  "posts": [
+    {
+      "date": "2026-11-13",
+      "slug": "archivio-come-studiare-la-filosofia-puo-salvarti-la-vita"
+    },
+    {
+      "date": "2026-11-14",
+      "slug": "archivio-la-filosofia-e-consulenza-filosofica"
+    },
+    {
+      "date": "2026-11-15",
+      "slug": "archivio-cosi-parlo-zarathustra-di-friedrich-nietzsche-e-la-filosofia-delleterno-ritorno"
+    },
+    {
+      "date": "2026-11-16",
+      "slug": "archivio-la-filosofia-kantiana-cose"
+    },
+    {
+      "date": "2026-11-17",
+      "slug": "archivio-aristotele-e-la-filosofia-del-tempo"
+    },
+    {
+      "date": "2026-11-18",
+      "slug": "archivio-herman-hesse-autore-filosofico-che-spiega-loriente-con-la-narrazione"
+    },
+    {
+      "date": "2026-11-19",
+      "slug": "archivio-antropologia-di-claude-levi-strauss"
+    },
+    {
+      "date": "2026-11-20",
+      "slug": "archivio-three-ways-to-read-a-philosophy-book"
+    },
+    {
+      "date": "2026-11-21",
+      "slug": "archivio-due-nuovi-libri-due-momenti-di-crescita-individuale-e-collettiva"
+    },
+    {
+      "date": "2026-11-22",
+      "slug": "archivio-ecologia-e-responsabilita-bisogna-fermare-lemissioni-di-co2"
+    },
+    {
+      "date": "2026-11-23",
+      "slug": "archivio-la-guerra-in-ucraina-cause-e-conseguenze"
+    },
+    {
+      "date": "2026-11-24",
+      "slug": "archivio-per-amare-il-prossimo-e-richiesto-essere-cristiani"
+    },
+    {
+      "date": "2026-11-25",
+      "slug": "archivio-komi-cant-communicate-ma-cio-non-significa-che-non-voglia-farlo"
+    },
+    {
+      "date": "2026-11-26",
+      "slug": "archivio-la-maggiore-ispirazione"
+    },
+    {
+      "date": "2026-11-27",
+      "slug": "archivio-ll-ruolo-degli-intellettuali-nella-societa-odierna"
+    },
+    {
+      "date": "2026-11-28",
+      "slug": "archivio-poesia-del-felice"
+    },
+    {
+      "date": "2026-11-29",
+      "slug": "archivio-costante-istante-silvano"
+    },
+    {
+      "date": "2026-11-30",
+      "slug": "archivio-filosofi-per-errore"
+    },
+    {
+      "date": "2026-12-01",
+      "slug": "archivio-vedere-la-realta-davanti-agli-occhi"
+    },
+    {
+      "date": "2026-12-02",
+      "slug": "archivio-soffrire-e-creare"
+    },
+    {
+      "date": "2026-12-03",
+      "slug": "archivio-atomi-vuoto-e-crisiprogettuali"
+    },
+    {
+      "date": "2026-12-04",
+      "slug": "archivio-abolire-la-scrittura"
+    },
+    {
+      "date": "2026-12-05",
+      "slug": "archivio-il-reale-colpevole"
+    }
+  ]
+}

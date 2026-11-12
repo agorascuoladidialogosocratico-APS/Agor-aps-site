@@ -55,11 +55,15 @@ content:
     type: image
     description: Per nuove fotografie autorizzate; assegna un file differente a ogni articolo.
   - name: coverCredit
-    label: Fotografo della copertina
+    label: Credito immagine / autore della copertina
     type: string
   - name: coverSource
-    label: Pagina originale della fotografia
+    label: Fonte originale dell'immagine (URL)
     type: string
+  - name: coverLicense
+    label: Licenza e condizioni di riutilizzo dell'immagine
+    type: string
+    description: Per immagini originali, indicare l'autorizzazione Agorà APS; per fonti esterne, riportare la licenza verificata.
   - name: coverAlt
     label: Testo alternativo della fotografia
     type: string

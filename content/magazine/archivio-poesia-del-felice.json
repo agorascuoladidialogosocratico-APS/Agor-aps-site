@@ -4,8 +4,8 @@
   "category": "Archivio Filosofia sul divano",
   "author": "Gioele Pio Fragale",
   "excerpt": "La poesia può esprimere ciò che facciamo fatica a comprendere con il linguaggio ordinario. La gioia, il trauma e la memoria entrano nell’esperienza umana e, talvolta, trovano nei versi una forma che non sapremmo dare loro in…",
-  "cover": "https://images.unsplash.com/photo-1489040923758-eaacd66c37a5?auto=format&fit=crop&w=1300&h=731&q=78",
-  "coverAlt": "Petali di rosa su un foglio stampato, evocazione della scrittura poetica",
+  "cover": "/assets/magazine/covers/archivio-poesia-del-felice.png",
+  "coverAlt": "Illustrazione originale di un cuore-fiore con stelo e una penna stilizzata",
   "published": true,
   "featured": false,
   "body": "> **Nota editoriale (12 novembre 2026).** Il testo storico del 12/12/2021 è stato rivisto e, ove necessario, riorganizzato per chiarezza. La [versione originale](https://web.archive.org/web/20211212091921/https://filosofiasuldivano.altervista.org/poesia-del-felice/) rimane consultabile.\n\nLa poesia può esprimere ciò che facciamo fatica a comprendere con il linguaggio ordinario. La gioia, il trauma e la memoria entrano nell’esperienza umana e, talvolta, trovano nei versi una forma che non sapremmo dare loro in altro modo.\n\nLa poesia è creazione: un incontro di immagini, ritmo e significati che può dire più di quanto le singole parole lascino intendere.\n\n## Sei cuore…\n\nSe le realtà fossero congiunte e quel tuo sorriso fosse cielo…  \ni miei baci sarebbero nuvole appostate accanto al sole…  \nSei la rappresentazione della frescura che il cielo conosce  \ne l’aria innevata percorre…  \nSei il puzzle di un cuore  \ncomposto da tessere dispari,  \ndi baci in pezzi che divengono pari…  \nSei quel cuore di mondo divenuto terramare per far nascere universi di uno specchio parallelo…  \nSei il sorriso per me indiscernibile,  \ntu, Regina della notte,  \nfuoco e respiro da cui il valore nasce.\n\n## You are heart…\n\nIf realities were joined and your smile were the sky…  \nmy kisses would be clouds beside the sun…  \nYou are the coolness that the sky knows,  \ncarried by the snow-filled air…  \nYou are the puzzle of a heart  \nmade of mismatched pieces,  \nof scattered kisses that become a whole…  \nYou are the heart of a world  \nthat gives birth to universes reflected in a parallel mirror…  \nYou are the smile I cannot fully grasp,  \nyou, Queen of the night,  \nfire and breath from which all value is born.\n\n*Nota editoriale: la poesia italiana è stata conservata con correzioni minime di punteggiatura; la traduzione inglese è stata resa più scorrevole.*",
@@ -19,6 +19,7 @@
   "socialXText": "",
   "editorialReviewDate": "2026-11-12",
   "editorialReviewType": "revisione editoriale con originale conservato",
-  "coverCredit": "Hans Vivek",
-  "coverSource": "https://unsplash.com/photos/meS9tfs9CWE"
+  "coverCredit": "Agorà APS — illustrazione editoriale originale (2026)",
+  "coverSource": "https://agora-scuoladidialogosocraticoecittadinanzattiva.site/assets/magazine/covers/archivio-poesia-del-felice.svg",
+  "coverLicense": "Uso editoriale e social per Agorà APS autorizzato; nessun elemento fotografico di terzi"
 }

@@ -4,8 +4,8 @@
   "category": "Archivio Filosofia sul divano",
   "author": "Gioele Pio Fragale",
   "excerpt": "I limiti e le possibilità della ragione Immanuel Kant (1724–1804) ha rivoluzionato la filosofia moderna chiedendosi non solo che cosa conosciamo, ma a quali condizioni possiamo conoscere. Nella Critica della ragion pura…",
-  "cover": "https://images.unsplash.com/photo-1591360236499-9c2355422926?auto=format&fit=crop&w=1300&h=731&q=78",
-  "coverAlt": "Una clessidra vintage evocativa delle domande sul tempo e sulla ragione",
+  "cover": "/assets/magazine/covers/archivio-la-filosofia-kantiana-cose.png",
+  "coverAlt": "Illustrazione originale con sfere concentriche che evocano la ragione e le categorie kantiane",
   "published": true,
   "featured": false,
   "body": "> **Nota editoriale (12 novembre 2026).** Versione riveduta di un articolo del 10/11/2022. L’originale è disponibile nella [copia d’archivio](https://web.archive.org/web/20221115164935/https://filosofiasuldivano.altervista.org/la-filosofia-kantiana-cose/).\n\n## I limiti e le possibilità della ragione\n\nImmanuel Kant (1724–1804) ha rivoluzionato la filosofia moderna chiedendosi non solo che cosa conosciamo, ma a quali condizioni possiamo conoscere. Nella *Critica della ragion pura* indaga le forme attraverso cui la nostra esperienza è organizzata.\n\nLo spazio e il tempo sono, per Kant, forme della sensibilità; l’intelletto utilizza categorie che rendono possibile pensare gli oggetti dell’esperienza. Non significa che tutto sia una semplice opinione personale: Kant cerca di spiegare le condizioni della conoscenza oggettiva, distinguendo i fenomeni dalla cosa in sé.\n\n## Il dovere morale\n\nLa riflessione kantiana riguarda anche l’agire. Non basta chiedersi se una scelta sia conveniente: dobbiamo esaminare il principio in base al quale la compiamo.\n\nL’imperativo categorico invita a verificare se la massima della nostra azione possa valere universalmente. Un’altra formulazione ci chiede di trattare ogni persona sempre anche come fine e mai soltanto come mezzo.\n\nLa libertà, in questa prospettiva, non equivale all’assenza di ogni limite. È collegata all’autonomia della volontà e alla capacità di riconoscere principi giustificabili razionalmente.\n\n## Perché leggere Kant oggi?\n\nLe domande kantiane continuano a essere decisive quando discutiamo di conoscenza, dignità, responsabilità e giustizia. Il pensiero critico non consiste nel negare ogni certezza, ma nel chiarire le ragioni e i limiti delle nostre affermazioni.",
@@ -19,6 +19,7 @@
   "socialXText": "",
   "editorialReviewDate": "2026-11-12",
   "editorialReviewType": "revisione documentata con testo storico consultabile",
-  "coverCredit": "Daniele Franchi",
-  "coverSource": "https://unsplash.com/photos/dyXoMMxDplY"
+  "coverCredit": "Agorà APS — illustrazione editoriale originale (2026)",
+  "coverSource": "https://agora-scuoladidialogosocraticoecittadinanzattiva.site/assets/magazine/covers/archivio-la-filosofia-kantiana-cose.svg",
+  "coverLicense": "Uso editoriale e social per Agorà APS autorizzato; nessun elemento fotografico di terzi"
 }

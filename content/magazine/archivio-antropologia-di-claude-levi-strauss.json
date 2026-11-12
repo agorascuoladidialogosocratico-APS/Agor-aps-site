@@ -4,8 +4,8 @@
   "category": "Archivio Filosofia sul divano",
   "author": "Gioele Pio Fragale",
   "excerpt": "L’antropologia strutturale di Claude Lévi-Strauss ha trasformato il modo di studiare le culture umane. Il suo interrogativo non riguarda soltanto ciò che gli individui fanno, ma le relazioni e le regole attraverso cui una società…",
-  "cover": "https://images.unsplash.com/photo-1771414092711-7b88202eb996?auto=format&fit=crop&w=1300&h=731&q=78",
-  "coverAlt": "Maschere tradizionali balinesi intagliate e disposte in una raccolta",
+  "cover": "/assets/magazine/covers/archivio-antropologia-di-claude-levi-strauss.png",
+  "coverAlt": "Illustrazione originale con due maschere geometriche e un motivo di relazioni culturali",
   "published": true,
   "featured": false,
   "body": "> **Nota editoriale (12 novembre 2026).** Questa è una versione rivista dell’articolo storico: sono stati corretti problemi di forma e, dove necessario, imprecisioni concettuali o fattuali. Il testo d’archivio resta consultabile attraverso il collegamento alla fonte originale.\n\nL’antropologia strutturale di Claude Lévi-Strauss ha trasformato il modo di studiare le culture umane. Il suo interrogativo non riguarda soltanto ciò che gli individui fanno, ma le relazioni e le regole attraverso cui una società organizza significati, pratiche e istituzioni.\n\nLévi-Strauss applica all’antropologia un metodo ispirato alla linguistica strutturale: come i suoni di una lingua acquistano significato nei rapporti che li distinguono, così miti, sistemi di parentela e classificazioni culturali possono essere compresi esaminando le relazioni fra i loro elementi.\n\nUn esempio importante è lo studio della parentela. Le modalità con cui le comunità stabiliscono alleanze, matrimoni e rapporti tra gruppi non vengono interpretate come semplici decisioni individuali: sono pratiche inserite in sistemi di regole che possono essere confrontati tra culture differenti.\n\nNell’analisi dei miti, Lévi-Strauss osserva ricorrenze, trasformazioni e opposizioni concettuali — come natura e cultura, crudo e cotto — senza ridurre le diverse tradizioni a un unico racconto. Le strutture, in questa prospettiva, non sono necessariamente norme dichiarate dalle persone: sono modelli di relazione che l’antropologo cerca di ricostruire.\n\nCiò non significa che ogni società sia immobile o che gli individui siano privi di iniziativa. Significa, piuttosto, che comprendere un comportamento richiede di considerare il sistema culturale nel quale esso assume significato.\n\nL’eredità di Lévi-Strauss ci invita così a superare una lettura superficiale delle differenze: ciò che appare estraneo può diventare intelligibile quando ne studiamo con attenzione la logica interna.",
@@ -22,6 +22,7 @@
   "socialXText": "",
   "editorialReviewDate": "2026-11-12",
   "editorialReviewType": "revisione di forma e contenuti con nota pubblica",
-  "coverCredit": "Niklas Neumann",
-  "coverSource": "https://unsplash.com/photos/ALpCHiPcC1A"
+  "coverCredit": "Agorà APS — illustrazione editoriale originale (2026)",
+  "coverSource": "https://agora-scuoladidialogosocraticoecittadinanzattiva.site/assets/magazine/covers/archivio-antropologia-di-claude-levi-strauss.svg",
+  "coverLicense": "Uso editoriale e social per Agorà APS autorizzato; nessun elemento fotografico di terzi"
 }

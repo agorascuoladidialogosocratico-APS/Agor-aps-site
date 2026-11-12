@@ -4,8 +4,8 @@
   "category": "Archivio Filosofia sul divano",
   "author": "Gioele Pio Fragale",
   "excerpt": "Forse non esiste una sola «maggiore ispirazione». Esistono incontri, cause e circostanze che, a un certo punto della vita, ci spingono a scegliere una direzione. Abbiamo talvolta bisogno di costruire idoli e di attribuire un…",
-  "cover": "https://images.unsplash.com/photo-1774518755203-38a27959fd90?auto=format&fit=crop&w=1300&h=731&q=78",
-  "coverAlt": "Una porta aperta attraversata da fasci di luce, simbolo di nuove possibilità",
+  "cover": "/assets/magazine/covers/archivio-la-maggiore-ispirazione.png",
+  "coverAlt": "Illustrazione originale di una porta aperta attraversata da fasci di luce",
   "published": true,
   "featured": false,
   "body": "> **Nota editoriale (12 novembre 2026).** Il testo storico del 25/01/2022 è stato rivisto e, ove necessario, riorganizzato per chiarezza. La [versione originale](https://web.archive.org/web/20220125150455/https://filosofiasuldivano.altervista.org/la-maggiore-ispirazione/) rimane consultabile.\n\nForse non esiste una sola «maggiore ispirazione». Esistono incontri, cause e circostanze che, a un certo punto della vita, ci spingono a scegliere una direzione.\n\nAbbiamo talvolta bisogno di costruire idoli e di attribuire un volto ai problemi, come se fossero entità distinte da noi. Eppure bene e male non sono sempre categorie sufficienti a descrivere ciò che viviamo: le contraddizioni entrano nelle nostre relazioni e ci chiedono di osservare con più attenzione.\n\nCiascuno dovrebbe cercare una sorta di «respirazione assoluta», uno spazio di consapevolezza nel quale trovare un senso al conflitto tra desideri, responsabilità e libertà. Non sempre comprendiamo da dove nasca la nostra volontà, né fino a che punto possiamo dirci liberi delle scelte che compiamo.\n\nQuante volte ci sentiamo, nello stesso momento, dominati dalla volontà e capaci di scegliere? Quali esperienze ci renderanno più partecipi della nostra vita? Le domande, forse, contano almeno quanto le risposte.\n\nQuesti interrogativi attraversano anche il libro scritto insieme a Mario Guarnera, *Libro presente. Lettura di Esopo per una dialettica della sospensione dell’incredulità*.\n\nGrazie per la lettura.",
@@ -19,6 +19,7 @@
   "socialXText": "",
   "editorialReviewDate": "2026-11-12",
   "editorialReviewType": "revisione editoriale con originale conservato",
-  "coverCredit": "Metin Ozer",
-  "coverSource": "https://unsplash.com/photos/EfUmP_YwRrI"
+  "coverCredit": "Agorà APS — illustrazione editoriale originale (2026)",
+  "coverSource": "https://agora-scuoladidialogosocraticoecittadinanzattiva.site/assets/magazine/covers/archivio-la-maggiore-ispirazione.svg",
+  "coverLicense": "Uso editoriale e social per Agorà APS autorizzato; nessun elemento fotografico di terzi"
 }
