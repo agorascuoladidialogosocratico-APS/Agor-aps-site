@@ -47,12 +47,14 @@ jobs:
           PY
       - name: Genera e verifica il sito
         run: npm run build
+      - name: Verifica metadati e provenienza SEO
+        run: node scripts/verify-seo.mjs
       - name: Aggiorna pagine statiche dal CMS
         shell: bash
         run: |
           git config user.name "agora-editorial-bot"
           git config user.email "agora-editorial-bot@users.noreply.github.com"
-          git add chi-siamo progetti tirocini volontariato-esc partecipa contatti trasparenza privacy accessibilita magazine sostienici sitemap.xml assets/magazine/covers
+          git add chi-siamo dialogo-socratico progetti tirocini volontariato-esc partecipa contatti trasparenza privacy accessibilita magazine sostienici sitemap.xml assets/magazine/covers
           if git diff --cached --quiet; then
             echo "Pagine già aggiornate."
             exit 0
