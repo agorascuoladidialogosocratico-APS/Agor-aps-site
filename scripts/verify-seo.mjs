@@ -40,7 +40,7 @@ for(const file of readdirSync('content/magazine').filter(x=>x.endsWith('.json'))
  assert.equal(article.author.name,post.author,slug+': autore');
  assert.equal(article.datePublished,post.date,slug+': data originale');
  assert.equal(article.dateModified,post.editorialReviewDate||post.date,slug+': data modifica');
- assert.equal(article.image.url,root+post.cover,slug+': URL immagine');
+ assert.equal(article.image.url,post.cover.startsWith('/')?root+post.cover:post.cover,slug+': URL immagine');
  assert.equal(article.mainEntityOfPage['@id'],root+'/magazine/'+slug+'/#pagina',slug+': @id pagina');
  const title=post.seoTitle||post.title;
  assert.ok(!titles.has(title),slug+': titolo SEO duplicato');
