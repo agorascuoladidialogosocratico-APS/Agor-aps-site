@@ -83,6 +83,14 @@ content:
   - name: archiveUrl
     label: Copia verificata su Internet Archive
     type: string
+  - name: editorialReviewDate
+    label: Data della revisione editoriale (facoltativa)
+    type: date
+    description: Non sostituisce la data della pubblicazione originale.
+  - name: editorialReviewType
+    label: Tipologia della revisione editoriale
+    type: string
+    description: Esempio revisione formale o revisione sostanziale con verifica delle fonti.
   - name: socialFacebook
     label: Condividi su Facebook
     type: boolean
