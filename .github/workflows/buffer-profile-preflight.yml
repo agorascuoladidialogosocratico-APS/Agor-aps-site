@@ -35,18 +35,18 @@ jobs:
           for(const org of orgs){
            const id=String(org.id||'');
            if(!/^[A-Za-z0-9:_-]{2,150}$/.test(id))throw Error('Organization ID Buffer errato');
-           const query='query { channels(input: { organizationId: '+JSON.stringify(id)+' }) { name service url isDisconnected isLocked } }';
+           const query='query { channels(input: { organizationId: '+JSON.stringify(id)+' }) { name service isDisconnected isLocked } }';
            const values=(await request(query)).channels;
            if(!Array.isArray(values))throw Error('Canali non restituiti');
            channels.push(...values);
           }
           const rows=channels.filter(c=>['facebook','instagram'].includes(c.service));
-          const lines=['## Profili utilizzabili per Agorà Magazine','','**Nessuna pubblicazione o bozza creata.**','','| Rete | Nome | URL | Stato |','| --- | --- | --- | --- |'];
+          const lines=['## Profili utilizzabili per Agorà Magazine','','**Nessuna pubblicazione o bozza creata.**','','| Rete | Nome | Stato |','| --- | --- | --- |'];
           for(const c of rows){
            const clean=s=>String(s||'').replace(/[|<>\r\n]/g,' ').slice(0,160);
            const status=c.isDisconnected?'Disconnesso':c.isLocked?'Bloccato':'Collegato';
-           lines.push('| '+clean(c.service)+' | '+clean(c.name)+' | '+clean(c.url)+' | '+status+' |');
-           console.log(c.service+' | '+clean(c.name)+' | '+clean(c.url)+' | '+status);
+           lines.push('| '+clean(c.service)+' | '+clean(c.name)+' | '+status+' |');
+           console.log(c.service+' | '+clean(c.name)+' | '+status);
           }
           if(!rows.length)throw Error('Nessun canale Facebook o Instagram');
           appendFileSync(process.env.GITHUB_STEP_SUMMARY,lines.join('\n')+'\n');
