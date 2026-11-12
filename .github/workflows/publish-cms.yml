@@ -51,6 +51,8 @@ jobs:
         run: npm run build
       - name: Verifica metadati e provenienza SEO
         run: node scripts/verify-seo.mjs
+      - name: Verifica regressioni di performance e immagini
+        run: node scripts/verify-performance.mjs
       - name: Aggiorna pagine statiche dal CMS
         shell: bash
         run: |
