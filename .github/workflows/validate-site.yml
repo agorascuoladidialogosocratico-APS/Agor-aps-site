@@ -35,3 +35,5 @@ jobs:
           node --check assets/operator-chat.js
           node --check src/site-chat.js
           node --check src/chat-email.js
+          node --check scripts/social-buffer.mjs
+          node --check scripts/test-social-buffer.mjs
