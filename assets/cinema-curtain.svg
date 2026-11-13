@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="950" viewBox="0 0 680 950">
+<defs>
+<linearGradient id="cloth" x1="0" x2="1"><stop stop-color="#e1e0d6"/><stop offset=".18" stop-color="#8f969c"/><stop offset=".39" stop-color="#f2f0e8"/><stop offset=".56" stop-color="#7c8897"/><stop offset=".74" stop-color="#e6e8e3"/><stop offset=".93" stop-color="#929aa1"/><stop offset="1" stop-color="#e9e7e1"/></linearGradient>
+<linearGradient id="fade" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#ffffff" stop-opacity=".9"/><stop offset="1" stop-color="#141923" stop-opacity=".05"/></linearGradient>
+</defs>
+<path d="M130 0H680V950C619 910 587 802 545 724C480 589 417 477 321 349C239 241 200 105 130 0Z" fill="url(#cloth)" opacity=".95"/>
+<path d="M130 0 C205 165 241 278 313 352C419 487 499 637 553 791L680 950" stroke="url(#fade)" stroke-width="14" fill="none" opacity=".55"/>
+<path d="M246 0 C259 105 297 215 371 338C441 460 535 612 592 852" stroke="#535f6b" stroke-width="21" fill="none" opacity=".27"/>
+<path d="M366 0 C338 135 382 266 451 402C536 570 621 708 680 860" stroke="#ffffff" stroke-width="18" fill="none" opacity=".27"/>
+<path d="M500 0 C454 167 487 293 551 449C598 569 645 669 680 739" stroke="#6f7a85" stroke-width="17" fill="none" opacity=".20"/>
+</svg>
