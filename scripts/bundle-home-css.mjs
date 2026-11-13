@@ -7,9 +7,10 @@ const files = [
   'assets/experience.css',
   'assets/visual-story.css',
   'assets/site-polish.css',
-  'assets/whatsapp-chat.css'
+  'assets/whatsapp-chat.css',
+  'assets/dialogue-3d.css'
 ];
-const css = '/* Generated from the six original stylesheets, preserving cascade order. */\n'
+const css = '/* Generated from the original stylesheets, preserving cascade order. */\n'
   + files.map(path => '/* SOURCE: '+path+' */\n'+readFileSync(path,'utf8').trim()+'\n').join('\n');
 const digest = createHash('sha256').update(css).digest('hex').slice(0,12);
 const bundle='assets/agora-home.css';
