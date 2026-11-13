@@ -4,7 +4,7 @@ import {readFileSync} from 'node:fs';
 const read=p=>readFileSync(p,'utf8');
 const files=[
  'assets/book.css','assets/site.css','assets/magazine.css',
- 'assets/cinematic-agora.css','assets/cinematic-system.css',
+ 'assets/cinematic-agora.css','assets/cinematic-system.css','assets/cinematic-overture.css',
  'assets/visual-story.css','assets/experience.css','assets/accessibility.css',
  'assets/site-polish.css','assets/sections.css','assets/whatsapp-chat.css',
  'assets/site-chat.css','assets/operator-chat.css','editor/studio.css',
@@ -37,8 +37,9 @@ for(const file of files){
 const home=read('index.html');
 assert.ok(home.includes('content="#b85628" name="theme-color"'),'Browser bar must be terracotta');
 assert.ok(!home.includes('class="cinema-progress-track"'),'Unwanted white progress bar came back');
-assert.ok(home.includes('src="/assets/cinema-plato.png"'));
-assert.ok(home.includes('src="/assets/cinema-aristotle.png"'));
+assert.ok(!home.includes('src="/assets/cinema-plato.png"'),'Low-resolution painting cutout returned');
+assert.ok(!home.includes('src="/assets/cinema-aristotle.png"'),'Low-resolution painting cutout returned');
+assert.ok(home.includes('src="/assets/cinema-raphael-detail.webp"'),'Authentic high-resolution fresco not referenced');
 assert.ok(home.includes('src="/assets/agora_gruppo_home.webp"'),'Authentic Agorà photos should remain');
 assert.ok(home.includes('class="book-stage"')&&home.includes('class="book-index"'),'Book and navigation must survive');
 for(const asset of ['assets/cinematic-agora.css','assets/cinematic-system.css']){
