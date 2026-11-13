@@ -152,6 +152,22 @@ content:
     label: Testo X (facoltativo)
     type: text
     description: Deve rimanere breve; l'automazione aggiunge l'URL dell'articolo.
+  - name: editorialSeries
+    label: Serie editoriale (facoltativa)
+    type: string
+    description: Indica la collana o il filone, ad esempio Filosofia e vita contemporanea.
+  - name: socialCarouselImages
+    label: Carosello Instagram (percorsi delle immagini in ordine)
+    type: list
+    description: Da 2 a 10 immagini PNG distinte sotto /assets/. Se compilato, Instagram condividerà il carosello anziché la sola copertina.
+  - name: socialStoryImages
+    label: Storie Instagram 9:16 (percorsi originali)
+    type: list
+    description: La campagna programmata utilizza la prima storia; le altre restano disponibili per l'editor.
+  - name: socialAiAssisted
+    label: Grafica o testo assistiti da AI
+    type: boolean
+    description: Utilizzato per la dichiarazione di AI assistance nel canale Buffer.
   actions:
     - name: send-to-buffer
       label: Condividi l'articolo sui social collegati
