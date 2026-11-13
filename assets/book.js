@@ -62,6 +62,7 @@
     paused = !paused;
     try { localStorage.setItem('agora-motion-paused', String(paused)); } catch {}
     updateMotion();
+    document.dispatchEvent(new CustomEvent('agora:motion-change', {detail:{paused}}));
   });
   reduced.addEventListener('change', updateMotion);
   updateMotion();
