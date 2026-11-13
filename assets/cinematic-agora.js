@@ -6,6 +6,7 @@
  const story=document.querySelector('.cinema-story');
  if(!story)return;
  const acts=[...story.querySelectorAll('[data-cinema-act]')];
+ const chapterMarkers=[...story.querySelectorAll('[data-cinema-step]')];
  const media=window.matchMedia('(min-width:760px)');
  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
  const saveData=Boolean(navigator.connection?.saveData);
@@ -14,11 +15,17 @@
  const ease=n=>{n=clamp(n);return n*n*(3-2*n)};
  let frame=0,enhanced=false,visible=true;
  let pointerX=0,pointerY=0;
- const canEnhance=()=>media.matches&&!reduced.matches&&!saveData;
+ let paused=false;
+ try{paused=localStorage.getItem('agora-motion-paused')==='true';}catch{}
+ const canEnhance=()=>media.matches&&!reduced.matches&&!saveData&&!paused&&!document.hidden;
  const clean=()=>{
   enhanced=false;story.classList.remove('is-enhanced');
   story.style.removeProperty('--agora-tilt-x');
   story.style.removeProperty('--agora-tilt-y');
+  story.style.removeProperty('--cinema-zoom');
+  story.style.removeProperty('--cinema-progress');
+  root.style.removeProperty('--cinema-progress');
+  chapterMarkers.forEach((marker,i)=>marker.classList.toggle('is-current',i===0));
   acts.forEach(act=>{
    act.style.removeProperty('opacity');act.style.removeProperty('visibility');
    act.classList.remove('is-active');act.inert=false;
@@ -39,6 +46,10 @@
   const o3=ease((p-.63)/.18);
   const o2=clamp(1-o1-o3);
   const values=[o1,o2,o3];
+  const activeIndex=values.indexOf(Math.max(...values));
+  chapterMarkers.forEach((marker,i)=>marker.classList.toggle('is-current',i===activeIndex));
+  story.style.setProperty('--cinema-progress',p.toFixed(4));
+  story.style.setProperty('--cinema-zoom',(1.028+Math.sin(p*Math.PI*3)*0.021).toFixed(4));
   const intro=clamp(p/.40),growth=clamp((p-.26)/.45),community=clamp((p-.64)/.36);
   acts.forEach((act,i)=>{
    const opacity=values[i];
@@ -63,7 +74,7 @@
   root.style.setProperty('--cinema-progress',p.toFixed(4));
  }
  function schedule(){
-  if(!enhanced||frame||!visible)return;
+  if(!enhanced||frame||!visible||document.hidden)return;
   frame=requestAnimationFrame(update);
  }
  function init(){
@@ -81,11 +92,13 @@
  media.addEventListener('change',init);
  reduced.addEventListener('change',init);
  document.addEventListener('agora:motion-change',event=>{
-  if(event.detail?.paused)clean();
+  paused=Boolean(event.detail?.paused);
+  if(paused)clean();
   else init();
  });
  document.addEventListener('visibilitychange',()=>{
-  if(!document.hidden)schedule();
+  if(document.hidden){if(frame){cancelAnimationFrame(frame);frame=0;}}
+  else init();
  });
  window.addEventListener('scroll',schedule,{passive:true});
  window.addEventListener('resize',schedule,{passive:true});
@@ -95,7 +108,5 @@
    if(visible)schedule();
   },{rootMargin:'100% 0px'}).observe(story);
  }
- let paused=false;
- try{paused=localStorage.getItem('agora-motion-paused')==='true';}catch{}
  if(!paused)init();
 })();
