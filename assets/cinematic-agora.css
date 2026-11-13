@@ -357,3 +357,6 @@ body.cinematic-home{overflow-x:hidden}
  .cinematic-home .book-header{border-bottom:0!important}
  .cinematic-home .cinema-figure{filter:sepia(.1) saturate(.8) drop-shadow(0 8px 14px rgba(48,41,33,.25))}
 }
+
+/* No incidental white framing bars around the opening. */
+.cinematic-home .cinema-act::after{border:0!important}
