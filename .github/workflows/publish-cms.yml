@@ -5,8 +5,8 @@ on:
     paths:
       - 'content/**'
       - '.pages.yml'
-      - 'assets/dialogue-3d.*'
-      - 'assets/dialogue-sculpture.svg'
+      - 'assets/cinematic-agora.*'
+      - 'assets/cinema-*.svg'
       - 'scripts/bundle-home-css.mjs'
   workflow_dispatch:
 
