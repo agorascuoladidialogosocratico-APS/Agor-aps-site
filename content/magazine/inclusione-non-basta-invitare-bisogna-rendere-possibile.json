@@ -31,5 +31,17 @@
   "socialXText": "",
   "editorialSeries": "Filosofia e vita contemporanea",
   "socialCarouselSlides": 5,
-  "socialStorySlides": 2
+  "socialStorySlides": 2,
+  "socialCarouselImages": [
+    "/assets/magazine/contemporaneo/inclusione-non-basta-invitare-bisogna-rendere-possibile/carousel-01.png",
+    "/assets/magazine/contemporaneo/inclusione-non-basta-invitare-bisogna-rendere-possibile/carousel-02.png",
+    "/assets/magazine/contemporaneo/inclusione-non-basta-invitare-bisogna-rendere-possibile/carousel-03.png",
+    "/assets/magazine/contemporaneo/inclusione-non-basta-invitare-bisogna-rendere-possibile/carousel-04.png",
+    "/assets/magazine/contemporaneo/inclusione-non-basta-invitare-bisogna-rendere-possibile/carousel-05.png"
+  ],
+  "socialStoryImages": [
+    "/assets/magazine/contemporaneo/inclusione-non-basta-invitare-bisogna-rendere-possibile/story-01.png",
+    "/assets/magazine/contemporaneo/inclusione-non-basta-invitare-bisogna-rendere-possibile/story-02.png"
+  ],
+  "socialAiAssisted": true
 }
