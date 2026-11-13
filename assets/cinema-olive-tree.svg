@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1100" viewBox="0 0 1200 1100">
 <defs>
-<linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d8eaba"/><stop offset=".45" stop-color="#78a89c"/><stop offset="1" stop-color="#245b66"/></linearGradient>
+<linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d8eaba"/><stop offset=".45" stop-color="#91a080"/><stop offset="1" stop-color="#596c4d"/></linearGradient>
 <radialGradient id="fruit" cx=".3" cy=".25"><stop stop-color="#fff7c2"/><stop offset=".34" stop-color="#e4bf6c"/><stop offset=".7" stop-color="#b78b48"/><stop offset="1" stop-color="#6d583b"/></radialGradient>
-<linearGradient id="wood" x1="0" y1="0" x2="1" y2=".5"><stop stop-color="#b1c2a0"/><stop offset=".55" stop-color="#637b69"/><stop offset="1" stop-color="#314d52"/></linearGradient>
+<linearGradient id="wood" x1="0" y1="0" x2="1" y2=".5"><stop stop-color="#b1c2a0"/><stop offset=".55" stop-color="#637b69"/><stop offset="1" stop-color="#535b43"/></linearGradient>
 </defs>
 <g fill="none" stroke="url(#wood)" stroke-linecap="round">
 <path d="M225 1090 C338 915 349 778 408 624 C503 396 656 239 1084 70" stroke-width="50"/>
