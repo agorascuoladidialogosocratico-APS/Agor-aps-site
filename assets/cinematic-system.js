@@ -8,6 +8,7 @@
   const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
   const narrow=window.matchMedia('(max-width: 819px)');
   const saveData=Boolean(navigator.connection&&navigator.connection.saveData);
+  if(saveData)body.classList.add('cinema-save-data');
   let motionPaused=false;
   try{motionPaused=localStorage.getItem('agora-motion-paused')==='true';}catch{}
   let scheduled=false;
