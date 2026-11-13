@@ -17,7 +17,7 @@
  let active=false,visible=false,initialized=false,unavailable=false,autoAttempted=false;
  let gl,program,projection,positionLocation,normalLocation,uniforms,meshes=[];
  let frame=0,lastFrame=0,animationTime=0;
- let targetX=0,targetY=0,pointerX=0,pointerY=0;
+ let targetX=0,targetY=0,pointerX=0,pointerY=0,scrollRotation=0;
  const clamp=(x,low,high)=>Math.max(low,Math.min(high,x));
  const autoAllowed=()=>desktop.matches&&!reduced.matches&&!saveData&&!globalPaused&&!document.hidden;
  const V=(x,y,z)=>[x,y,z];
@@ -163,7 +163,7 @@
    gl.vertexAttribPointer(positionLocation,3,gl.FLOAT,false,24,0);
    gl.enableVertexAttribArray(normalLocation);
    gl.vertexAttribPointer(normalLocation,3,gl.FLOAT,false,24,12);
-   gl.uniform1f(uniforms.yaw,animationTime*.18+pointerX*.38+mesh.phase);
+   gl.uniform1f(uniforms.yaw,animationTime*.18+pointerX*.38+scrollRotation+mesh.phase);
    gl.uniform1f(uniforms.pitch,.19+pointerY*.29+Math.sin(animationTime*.15)*.07);
    gl.uniform1f(uniforms.scale,mesh.scale);
    gl.uniform3fv(uniforms.color,mesh.color);
@@ -207,11 +207,19 @@
  });
  reduced.addEventListener('change',()=>{if(reduced.matches)deactivate();});
  window.addEventListener('resize',()=>{if(initialized)resize();},{passive:true});
+ window.addEventListener('scroll',()=>{if(visible)scrollRotation=clamp(window.scrollY/Math.max(window.innerHeight,1),0,4)*.15;},{passive:true});
  if('IntersectionObserver' in window){
   const observer=new IntersectionObserver(entries=>{
    visible=entries.some(entry=>entry.isIntersecting);
    if(!visible){suspend();return;}
-   if(!autoAttempted&&autoAllowed()){autoAttempted=true;activate();}
+   if(!autoAttempted&&autoAllowed()){
+    autoAttempted=true;
+    // Start only after important visual content has had an opportunity to paint.
+    const start=()=>{if(visible&&autoAllowed())activate();};
+    if('requestIdleCallback' in window)requestIdleCallback(start,{timeout:2300});
+    else if(document.readyState==='complete')requestAnimationFrame(start);
+    else window.addEventListener('load',start,{once:true});
+   }
    else resume();
   },{rootMargin:'80px 0px',threshold:.12});
   observer.observe(section);
