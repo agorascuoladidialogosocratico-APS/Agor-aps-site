@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1100" viewBox="0 0 1200 1100">
+<defs>
+<linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d8eaba"/><stop offset=".45" stop-color="#78a89c"/><stop offset="1" stop-color="#245b66"/></linearGradient>
+<radialGradient id="fruit" cx=".3" cy=".25"><stop stop-color="#fff7c2"/><stop offset=".34" stop-color="#e4bf6c"/><stop offset=".7" stop-color="#b78b48"/><stop offset="1" stop-color="#6d583b"/></radialGradient>
+<linearGradient id="wood" x1="0" y1="0" x2="1" y2=".5"><stop stop-color="#b1c2a0"/><stop offset=".55" stop-color="#637b69"/><stop offset="1" stop-color="#314d52"/></linearGradient>
+</defs>
+<g fill="none" stroke="url(#wood)" stroke-linecap="round">
+<path d="M225 1090 C338 915 349 778 408 624 C503 396 656 239 1084 70" stroke-width="50"/>
+<path d="M415 638 C306 448 258 307 167 90" stroke-width="29"/>
+<path d="M522 442 C516 286 462 175 410 18" stroke-width="23"/>
+<path d="M632 322 C780 429 876 493 1134 480" stroke-width="22"/>
+<path d="M784 221 C800 129 866 85 931 15" stroke-width="17"/>
+<path d="M390 741 C589 661 814 666 1041 748" stroke-width="19"/>
+<path d="M554 440 C679 525 730 584 798 603" stroke-width="13"/>
+</g>
+<g fill="url(#leaf)" opacity=".96">
+<path d="M1000 42 Q920 -15 885 80 Q963 122 1000 42Z"/><path d="M1080 128 Q1084 27 971 62 Q955 156 1080 128Z"/>
+<path d="M930 182 Q860 91 812 187 Q880 266 930 182Z"/><path d="M816 285 Q734 207 696 312 Q781 376 816 285Z"/>
+<path d="M746 330 Q683 414 754 447 Q842 404 746 330Z"/><path d="M1046 434 Q965 343 905 435 Q949 525 1046 434Z"/>
+<path d="M1147 513 Q1048 472 1015 584 Q1110 640 1147 513Z"/><path d="M913 513 Q847 430 796 525 Q850 605 913 513Z"/>
+<path d="M631 245 Q593 132 525 177 Q525 270 631 245Z"/><path d="M503 127 Q495 39 415 66 Q424 160 503 127Z"/>
+<path d="M336 156 Q269 53 201 139 Q253 242 336 156Z"/><path d="M287 310 Q202 208 155 316 Q226 404 287 310Z"/>
+<path d="M383 387 Q362 294 305 333 Q301 408 383 387Z"/><path d="M464 514 Q400 432 345 511 Q393 586 464 514Z"/>
+<path d="M313 550 Q231 461 198 553 Q249 635 313 550Z"/><path d="M508 714 Q490 617 406 669 Q430 753 508 714Z"/>
+<path d="M683 680 Q613 568 542 645 Q580 735 683 680Z"/><path d="M796 750 Q750 645 694 709 Q725 808 796 750Z"/>
+<path d="M935 777 Q878 671 825 742 Q847 833 935 777Z"/><path d="M1056 801 Q1024 709 956 758 Q967 859 1056 801Z"/>
+</g>
+<g fill="url(#fruit)" stroke="#e2c987" stroke-width="2">
+<ellipse cx="719" cy="346" rx="47" ry="61" transform="rotate(-14 719 346)"/>
+<ellipse cx="896" cy="556" rx="35" ry="49" transform="rotate(10 896 556)"/>
+<ellipse cx="373" cy="465" rx="34" ry="45" transform="rotate(-23 373 465)"/>
+<ellipse cx="608" cy="743" rx="31" ry="44" transform="rotate(-12 608 743)"/>
+<ellipse cx="1029" cy="690" rx="38" ry="50" transform="rotate(15 1029 690)"/>
+</g>
+<g fill="#fff7d3" opacity=".43"><ellipse cx="704" cy="320" rx="10" ry="19"/><ellipse cx="883" cy="543" rx="9" ry="14"/><ellipse cx="354" cy="448" rx="8" ry="12"/></g>
+</svg>
