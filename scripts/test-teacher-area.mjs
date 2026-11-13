@@ -1,7 +1,5 @@
 import assert from 'node:assert/strict';
-import {webcrypto} from 'node:crypto';
 import {handleTeacherArea} from '../src/teacher-area.js';
-globalThis.crypto=globalThis.crypto||webcrypto;
 const base='https://agora-scuoladidialogosocraticoecittadinanzattiva.site';
 const path='/area-docenti/cornaredo/';
 const pass='not-a-real-secret-for-testing-only-482973590104';
