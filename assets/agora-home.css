@@ -959,3 +959,153 @@ body.cinematic-home{overflow-x:hidden}
  .info-page.cinema-system .info-header,.mag-body.cinema-system .mag-header{position:static}
  .info-page.cinema-system .visual-cover,.mag-body.cinema-system .mag-article-head{min-height:auto;display:block;padding:22px!important}
 }
+/* AGORA_BRAND_DEPTH_V1 — identity-first 3D enhancement.
+   The official logo image and its six editorial color tokens remain unchanged.
+   Static layout, permalinks, CMS data and native scrolling are untouched. */
+.cinema-system{
+ --agora-petrol:#193b4a;--agora-petrol-mid:#315866;
+ --agora-terracotta:#b85628;--agora-paper:#fffaf5;
+ --agora-ivory:#f8f0e6;--agora-sage:#e5ebe6;--agora-gold:#efbb82;
+ --cx-blue:var(--agora-petrol);--cx-deep:#142f3b;--cx-night:#0e2530;
+ --cx-ivory:var(--agora-paper);--cx-gold:var(--agora-gold);
+ --cx-sage:var(--agora-sage);
+ --cinema-blue:var(--agora-petrol);--cinema-blue-deep:#142f3b;
+ --cinema-sky:var(--agora-petrol-mid);--cinema-cream:var(--agora-ivory);
+ --cinema-charcoal:#0e2530;--cinema-gold:var(--agora-gold);
+}
+.cinematic-home .cinema-act--opening{
+ background:radial-gradient(ellipse at 76% 55%,#507986 0%,var(--agora-petrol) 46%,#102833 100%);
+}
+.cinematic-home .cinema-act--ideas{
+ background:radial-gradient(circle at 70% 47%,#567b7d 0%,#315866 44%,#142f3b 100%);
+}
+.cinematic-home .cinema-act--community{
+ background:linear-gradient(125deg,#315866 0%,var(--agora-petrol) 58%,#102833 100%);
+}
+.cinematic-home.nav-scrolled .book-header{
+ background:rgba(25,59,74,.94);
+ box-shadow:0 7px 42px rgba(14,37,48,.25);
+}
+.cinematic-home .book-header .index-toggle{background:rgba(25,59,74,.22)}
+.cinematic-home .book-header .header-cta,
+.cinematic-home .cinema-cta{color:var(--agora-petrol)!important}
+.cinematic-home .cinema-copy h2 em,
+.cinematic-home .cinema-quotes em{color:var(--agora-gold)}
+.cinematic-home .cinema-figure-caption,
+.cinematic-home .cinema-quotes{background:rgba(25,59,74,.45)}
+.info-page.cinema-system .info-header,
+.mag-body.cinema-system .mag-header{
+ background:rgba(25,59,74,.96);
+ box-shadow:0 9px 34px rgba(14,37,48,.16);
+}
+.info-page.cinema-system .info-main{
+ background:linear-gradient(180deg,#142f3b 0%,var(--agora-ivory) min(95svh,820px));
+}
+.info-page.cinema-system .info-breadcrumbs{background:#244956;color:var(--agora-paper)}
+.info-page.cinema-system .visual-cover{
+ background:radial-gradient(circle at 75% 42%,#507986 0%,var(--agora-petrol) 49%,#102833 100%);
+}
+.info-page.cinema-system .visual-cover.theme-travel{
+ background:radial-gradient(circle at 77% 37%,#66827a 0%,#315866 48%,#152f39 100%);
+}
+.info-page.cinema-system .visual-cover.theme-community{
+ background:radial-gradient(circle at 75% 48%,#50766d 0%,var(--agora-petrol) 51%,#102833 100%);
+}
+.info-page.cinema-system .visual-cover.theme-method{
+ background:radial-gradient(circle at 75% 41%,#536c79 0%,#315866 56%,#102833 100%);
+}
+.info-page.cinema-system .visual-cover.theme-contact{
+ background:radial-gradient(circle at 70% 45%,#507986 0%,#315866 56%,#102833 100%);
+}
+.info-page.cinema-system .visual-cover-photo::before{
+ background:linear-gradient(90deg,rgba(25,59,74,.92),transparent 54%),
+ linear-gradient(0deg,rgba(14,37,48,.65),transparent 35%);
+}
+.info-page.cinema-system .visual-cover-explore{color:var(--agora-petrol)!important}
+.info-page.cinema-system .visual-story-body .info-section h2,
+.mag-body.cinema-system .mag-prose h2{color:var(--agora-petrol)}
+.cinema-system .cinema-interlude,.cinema-system .cinema-endmark{
+ background:radial-gradient(circle at 75% 55%,#466e78 0%,var(--agora-petrol) 50%,#102833 100%);
+}
+.cinema-system .cinema-interlude a,.cinema-system .cinema-endmark a{
+ color:var(--agora-petrol);
+}
+.mag-body.cinema-system .mag-cover{
+ background:radial-gradient(circle at 74% 40%,#507986 0%,var(--agora-petrol) 49%,#102833 100%);
+}
+.mag-body.cinema-system .mag-article-head{
+ background:radial-gradient(circle at 86% 30%,#426977 0%,var(--agora-petrol) 60%,#102833 100%);
+}
+.cinematic-home .home-magazine-teaser{
+ background:radial-gradient(circle at 85% 0%,#507986 0%,var(--agora-petrol) 60%,#102833 100%);
+}
+.cinema-scene-art .cinema-scene-orb{
+ background:radial-gradient(circle at 31% 25%,#fff6e4 2%,var(--agora-gold) 27%,#b87c42 65%,#553f35 100%);
+ box-shadow:inset -24px -20px 32px rgba(66,37,26,.30),0 24px 80px rgba(14,37,48,.22);
+}
+/* True CSS 3D depth in the existing illustrations. No new routes or canvases. */
+@media(min-width:900px) and (prefers-reduced-motion:no-preference){
+ .cinema-story.is-enhanced .cinema-art{
+  perspective:1400px;transform-style:preserve-3d;
+  transform:rotateX(var(--agora-tilt-x,0deg)) rotateY(var(--agora-tilt-y,0deg));
+  transition:transform 180ms ease-out;
+ }
+ .cinema-story.is-enhanced .cinema-figure--plato{
+  transform:translate3d(0,var(--figure-shift,0px),70px) rotateY(-9deg);
+  transform-origin:bottom center;
+ }
+ .cinema-story.is-enhanced .cinema-figure--aristotle{
+  transform:translate3d(0,var(--figure-shift,0px),120px) rotateY(7deg);
+  transform-origin:bottom center;
+ }
+ .cinema-story.is-enhanced .cinema-orbit{
+  transform:translateZ(-125px) rotateX(19deg);
+ }
+ .cinema-story.is-enhanced .cinema-sun{transform:translateZ(-65px)}
+ .cinema-story.is-enhanced .cinema-curtain{
+  transform:translate3d(var(--curtain-slide,0%),0,160px) rotateY(-12deg);
+ }
+ .cinema-story.is-enhanced .cinema-orchard{
+  transform:translate3d(0,var(--orchard-shift,0px),-80px) rotateY(5deg);
+ }
+ .cinema-story.is-enhanced .cinema-sphere{
+  transform:translate3d(var(--sphere-x,0px),var(--sphere-y,0px),115px)
+  rotateY(var(--sphere-rotation,0deg));
+ }
+ .cinema-story.is-enhanced .cinema-columns{
+  transform:translate3d(0,var(--column-shift,0px),-70px) rotateX(3deg);
+ }
+ .cinema-story.is-enhanced .cinema-quotes{
+  transform:translate3d(var(--paper-x,0px),var(--paper-y,0px),130px)
+  rotateY(-10deg) rotateZ(-3deg);
+ }
+ .info-page.cinema-system .visual-cover,.mag-body.cinema-system .mag-cover{
+  perspective:1400px;
+ }
+ .info-page.cinema-system .visual-cover .cinema-scene-art,
+ .mag-body.cinema-system .mag-cover .cinema-scene-art{
+  transform-style:preserve-3d;perspective:1200px;
+ }
+ .info-page.cinema-system .visual-cover:hover .cinema-scene-asset,
+ .mag-body.cinema-system .mag-cover:hover .cinema-scene-asset{
+  transform:translate3d(0,var(--cx-depth,0px),75px) rotateY(-11deg);
+ }
+ .mag-body.cinema-system .mag-card{
+  transform-style:preserve-3d;perspective:900px;
+ }
+ .mag-body.cinema-system .mag-card:hover{
+  transform:translate3d(0,-8px,22px) rotateX(1.4deg);
+ }
+}
+/* Reduced-motion applies even if JS fails or a user disables motion. */
+@media(prefers-reduced-motion:reduce){
+ .cinema-story .cinema-art,.cinema-story .cinema-figure,
+ .cinema-story .cinema-curtain,.cinema-story .cinema-orbit,
+ .cinema-story .cinema-sphere,.cinema-story .cinema-sun,
+ .cinema-story .cinema-orchard,.cinema-story .cinema-columns,
+ .cinema-story .cinema-quotes{transform:none!important;transition:none!important}
+}
+@media(forced-colors:active){
+ .cinema-story .cinema-act{background:Canvas;color:CanvasText}
+ .cinema-system .cinema-interlude,.cinema-system .cinema-endmark{background:Canvas;color:CanvasText}
+}
