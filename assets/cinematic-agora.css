@@ -1,23 +1,23 @@
 /* AGORÀ — cinematic scroll editorial direction, original stage scenery.
    Inspired by an aesthetic reference, without copying another site's layout,
    brand identity or proprietary artwork. Mobile/reduced-motion are linear. */
-:root{--cinema-blue:#065bdd;--cinema-blue-deep:#0347ba;--cinema-sky:#0685ec;--cinema-cream:#f8f3e8;--cinema-charcoal:#101d29;--cinema-gold:#f1c779}
+:root{--cinema-blue:#728466;--cinema-blue-deep:#526247;--cinema-sky:#728466;--cinema-cream:#f8f3e8;--cinema-charcoal:#302921;--cinema-gold:#f1c779}
 body.cinematic-home{overflow-x:hidden}
 .cinematic-home .book-header{
  position:absolute;inset:0 0 auto;min-height:95px;width:100%;max-width:none;margin:0;
  padding:14px clamp(20px,4.4vw,74px);color:#fdfaf1;z-index:80;
- border-bottom:1px solid rgba(250,252,255,.18);
- background:linear-gradient(180deg,rgba(2,36,98,.20),transparent);
+ border-bottom:1px solid rgba(243,240,229,.18);
+ background:linear-gradient(180deg,rgba(59,61,47,.20),transparent);
 }
 .cinematic-home .book-header .brand-name,.cinematic-home .book-header .brand-caption{color:#fff!important}
-.cinematic-home .book-header .quick-nav a{color:#f6f9ff}
+.cinematic-home .book-header .quick-nav a{color:#f3f0e5}
 .cinematic-home .book-header .index-toggle{
- color:#fff;border:1px solid rgba(255,255,255,.6);background:rgba(5,51,143,.14);
+ color:#fff;border:1px solid rgba(255,255,255,.6);background:rgba(82,98,71,.14);
 }
 .cinematic-home .book-header .index-toggle:hover{background:rgba(255,255,255,.16)}
 .cinematic-home .book-header .book-index{color:var(--ink)}
 .cinematic-home .book-header .book-index a{color:var(--ink)}
-.cinematic-home .book-header .header-cta{color:#153f92!important;background:#f7f2e7;padding:11px 20px!important;border-radius:32px}
+.cinematic-home .book-header .header-cta{color:#526247!important;background:#f7f2e7;padding:11px 20px!important;border-radius:32px}
 .cinema-story{position:relative;isolation:isolate;background:var(--cinema-blue);color:#fff}
 .cinema-stage{position:relative;isolation:isolate}
 .cinema-act{
@@ -35,9 +35,9 @@ body.cinematic-home{overflow-x:hidden}
  content:"";pointer-events:none;position:absolute;inset:0;z-index:2;
  border:1px solid rgba(255,255,255,.13);
 }
-.cinema-act--opening{background:radial-gradient(ellipse at 76% 59%,#087cf2 0,#055fdc 43%,#064cba 100%)}
-.cinema-act--ideas{background:radial-gradient(circle at 70% 48%,#219df2,#0075e7 49%,#0357c5 100%)}
-.cinema-act--community{background:linear-gradient(125deg,#055bd4,#0348b3 62%,#042b90)}
+.cinema-act--opening{background:radial-gradient(ellipse at 76% 59%,#728466 0,#728466 43%,#526247 100%)}
+.cinema-act--ideas{background:radial-gradient(circle at 70% 48%,#728466,#728466 49%,#526247 100%)}
+.cinema-act--community{background:linear-gradient(125deg,#728466,#526247 62%,#526247)}
 .cinema-noise{position:absolute;inset:0;pointer-events:none;opacity:.25;z-index:3;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.62' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E")}
 .cinema-copy{
  position:relative;z-index:8;width:min(58vw,890px);
@@ -46,14 +46,14 @@ body.cinematic-home{overflow-x:hidden}
 .cinema-eyebrow,.cinema-counter,.cinema-lower-caption,.cinema-stage-tag,.cinema-scroll,.cinema-art-credit{
  font:600 10px/1.6 var(--sans);letter-spacing:.20em;text-transform:uppercase;
 }
-.cinema-eyebrow{display:block;margin:0 0 30px;color:#e3f1ff}
+.cinema-eyebrow{display:block;margin:0 0 30px;color:#f3f0e5}
 .cinema-copy h2{
  font:400 clamp(66px,8vw,145px)/.82 var(--serif);
  color:#fffdf4;letter-spacing:-.056em;
  max-width:11.4ch;text-wrap:balance;margin:0 0 26px;
 }
 .cinema-copy h2 em{font-style:italic;font-weight:350;color:#f5cc83}
-.cinema-copy>p{font:400 clamp(16px,1.6vw,22px)/1.5 var(--serif);max-width:38ch;color:#ecf4ff}
+.cinema-copy>p{font:400 clamp(16px,1.6vw,22px)/1.5 var(--serif);max-width:38ch;color:#f3f0e5}
 .cinema-act--ideas .cinema-copy{width:min(49vw,700px);padding-top:clamp(180px,24vh,260px)}
 .cinema-act--ideas .cinema-copy h2{font-size:clamp(65px,7.6vw,130px)}
 .cinema-act--community .cinema-copy{width:min(54vw,770px);padding-top:clamp(173px,23vh,260px)}
@@ -61,8 +61,8 @@ body.cinematic-home{overflow-x:hidden}
 .cinema-cta{
  margin-top:40px;display:inline-flex;align-items:center;justify-content:space-between;
  gap:38px;min-height:50px;max-width:100%;padding:12px 22px;
- text-decoration:none;background:#f6f2e9;color:#08469f;
- border:1px solid #fff;box-shadow:0 10px 24px rgba(3,36,95,.10);
+ text-decoration:none;background:#f6f2e9;color:#526247;
+ border:1px solid #fff;box-shadow:0 10px 24px rgba(59,61,47,.10);
  font:700 11px/1.4 var(--sans);letter-spacing:.11em;text-transform:uppercase;
  transition:transform .25s ease,background .25s ease;
 }
@@ -74,10 +74,10 @@ body.cinematic-home{overflow-x:hidden}
 .cinema-lower{
  position:absolute;bottom:38px;left:clamp(24px,4.5vw,80px);right:clamp(24px,4.5vw,80px);
  z-index:16;display:flex;align-items:flex-end;justify-content:space-between;gap:22px;
- border-top:1px solid rgba(255,255,255,.32);padding-top:20px;color:#e3f0fa;
+ border-top:1px solid rgba(255,255,255,.32);padding-top:20px;color:#f3f0e5;
 }
 .cinema-lower p{font:400 13px/1.7 var(--sans);max-width:42ch}
-.cinema-lower-caption{display:block;color:#d5e4ee;white-space:nowrap}
+.cinema-lower-caption{display:block;color:#f3f0e5;white-space:nowrap}
 .cinema-scroll{
  position:absolute;z-index:25;bottom:40px;right:clamp(24px,4.5vw,80px);
  writing-mode:vertical-rl;color:#fff;display:flex;align-items:center;gap:13px;
@@ -86,7 +86,7 @@ body.cinematic-home{overflow-x:hidden}
 .cinema-art{position:absolute;inset:0;z-index:5;pointer-events:none}
 .cinema-figure{
  position:absolute;bottom:0;max-width:none;object-fit:contain;object-position:bottom;
- filter:drop-shadow(25px 25px 20px rgba(1,34,98,.17));
+ filter:drop-shadow(25px 25px 20px rgba(59,61,47,.17));
  transform:translate3d(0,var(--figure-shift,0px),0);
  transition:filter .35s ease;will-change:transform;
 }
@@ -107,45 +107,45 @@ body.cinematic-home{overflow-x:hidden}
 .cinema-plinth{
  position:absolute;bottom:-2px;right:0;width:66%;height:13%;
  border-top:11px solid #f0e4cc;background:linear-gradient(90deg,#a99f92 0,#e1d6be 19%,#b8ad99 38%,#efe5d2 69%,#b4a58f 100%);
- transform:skewX(-7deg);box-shadow:0 -6px 24px rgba(4,42,112,.10);z-index:8;
+ transform:skewX(-7deg);box-shadow:0 -6px 24px rgba(59,61,47,.10);z-index:8;
 }
 .cinema-plinth::after{content:"";position:absolute;top:18px;left:0;right:0;height:5px;background:#aaa08c;opacity:.65}
 .cinema-curtain{
  position:absolute;right:-2%;top:-10%;height:107%;width:46%;z-index:12;
- object-fit:fill;filter:drop-shadow(-20px 4px 22px rgba(6,32,92,.35));
+ object-fit:fill;filter:drop-shadow(-20px 4px 22px rgba(59,61,47,.35));
  transform:translateX(var(--curtain-slide,0%));opacity:.87;
 }
 .cinema-figure-caption{
  position:absolute;right:3%;bottom:calc(13% + 19px);z-index:16;
- color:#fff9f0;background:rgba(4,49,123,.46);padding:8px 13px;
+ color:#fff9f0;background:rgba(59,61,47,.46);padding:8px 13px;
  border:1px solid rgba(255,255,255,.3);font:600 9px/1.3 var(--sans);
  letter-spacing:.15em;text-transform:uppercase;
 }
 .cinema-orchard{
  position:absolute;right:-7%;top:-5%;height:125%;width:min(75%,960px);
- object-fit:contain;filter:drop-shadow(-25px 28px 28px rgba(0,47,137,.13));
+ object-fit:contain;filter:drop-shadow(-25px 28px 28px rgba(59,61,47,.13));
  transform:translate3d(0,var(--orchard-shift,0px),0);
 }
 .cinema-sphere{
  position:absolute;z-index:6;right:29%;top:30%;width:min(22vw,310px);aspect-ratio:1;border-radius:50%;
  background:radial-gradient(circle at 32% 27%,#fffbe3 1%,#f5d79b 18%,#cd9a51 43%,#996833 77%,#55412e);
- box-shadow:inset -18px -22px 24px #68452c44,0 18px 68px #0050b953;
+ box-shadow:inset -18px -22px 24px #68452c44,0 18px 68px #52624753;
  transform:translate3d(var(--sphere-x,0px),var(--sphere-y,0px),0) rotate(var(--sphere-rotation,0deg));
 }
 .cinema-sphere::after{content:"";position:absolute;inset:7%;border:1px solid rgba(255,255,255,.24);border-radius:50%;transform:rotate(-17deg)}
 .cinema-caption-side{
  position:absolute;top:26%;right:5%;max-width:19ch;text-align:right;
- color:#ebf5ff;font:600 12px/1.6 var(--serif);z-index:8;
+ color:#f3f0e5;font:600 12px/1.6 var(--serif);z-index:8;
 }
 .cinema-columns{
  position:absolute;right:-2%;bottom:-5%;width:87%;height:auto;opacity:.82;
  transform:translateY(var(--column-shift,0px));
- filter:drop-shadow(0 9px 25px rgba(7,36,105,.15));
+ filter:drop-shadow(0 9px 25px rgba(59,61,47,.15));
 }
 .cinema-quotes{
  position:absolute;right:8%;top:15%;z-index:8;width:min(32vw,450px);
  border:1px solid rgba(255,255,255,.47);
- padding:clamp(22px,3vw,42px);color:#fff;background:rgba(1,38,123,.32);
+ padding:clamp(22px,3vw,42px);color:#fff;background:rgba(59,61,47,.32);
  backdrop-filter:blur(4px);
  transform:translate3d(var(--paper-x,0px),var(--paper-y,0px),0) rotate(-3deg);
 }
@@ -161,7 +161,7 @@ body.cinematic-home{overflow-x:hidden}
 .cinema-skip{
  position:absolute;top:117px;right:clamp(22px,4.4vw,74px);z-index:50;
  color:#fff;text-decoration:none;font:650 10px/1.5 var(--sans);
- text-transform:uppercase;letter-spacing:.14em;padding:9px 0;border-bottom:1px solid #d8e5f8;
+ text-transform:uppercase;letter-spacing:.14em;padding:9px 0;border-bottom:1px solid #f3f0e5;
 }
 .cinema-story.is-enhanced{height:340svh}
 .cinema-story.is-enhanced .cinema-stage{position:sticky;top:0;height:100svh;min-height:590px;overflow:hidden}
@@ -305,3 +305,58 @@ body.cinematic-home{overflow-x:hidden}
  .cinema-progress-track{display:none!important}
  .cinema-chapter-rail{display:none!important}
 }
+
+
+/* AGORA_EARTH_DESIGN_V3 — authentic Raphael painted figures in paper-theatre
+   treatment. The site deliberately avoids petrol, cobalt and electric blues. */
+:root{
+ --cinema-blue:#526247;--cinema-blue-deep:#302921;
+ --cinema-sky:#8a9778;--cinema-cream:#f8f0e6;
+ --cinema-charcoal:#302921;--cinema-gold:#efbb82;
+}
+.cinematic-home .cinema-story,.cinematic-home .cinema-act{background:#35412f}
+.cinematic-home .cinema-act--opening{
+ background:radial-gradient(ellipse at 76% 52%,#a7b398 0%,#748264 30%,#4a5740 61%,#302921 100%);
+}
+.cinematic-home .cinema-act--ideas{
+ background:radial-gradient(circle at 70% 45%,#bcb58f 0%,#8b956e 34%,#546348 63%,#332c23 100%);
+}
+.cinematic-home .cinema-act--community{
+ background:linear-gradient(125deg,#768367,#526247 42%,#332b24 100%);
+}
+.cinematic-home .cinema-copy h2,.cinematic-home .cinema-copy h2 em{color:#fffaf5}
+.cinematic-home .cinema-copy h2 em,.cinematic-home .cinema-quotes em{color:#efbb82}
+.cinematic-home .cinema-noise{opacity:.16;mix-blend-mode:soft-light}
+.cinematic-home .book-header{
+ border-bottom:0!important;
+ background:linear-gradient(180deg,rgba(48,41,33,.28),transparent);
+}
+.cinematic-home.nav-scrolled .book-header{background:rgba(48,41,33,.94)}
+.cinematic-home .cinema-lower{border-top:0;padding-top:0}
+.cinematic-home .book-intro .intro-line{display:none}
+.cinematic-home .cinema-progress-track,.cinematic-home .cinema-rail-step i{display:none!important}
+.cinematic-home .cinema-rail-step.is-current{color:#efbb82}
+.cinematic-home .cinema-figure{
+ filter:sepia(.12) saturate(.78) contrast(1.05)
+  drop-shadow(1px 0 0 #f8e8cf) drop-shadow(0 20px 24px rgba(44,34,21,.35));
+}
+.cinematic-home .cinema-plinth{
+ border-top:7px solid #ebd7b6;
+ background:linear-gradient(90deg,#bda883,#edddc5 24%,#d5c3a6 65%,#9b8b71);
+ box-shadow:0 -9px 28px rgba(48,41,33,.16);
+}
+.cinematic-home .cinema-curtain{
+ filter:sepia(.24) saturate(.63) drop-shadow(-14px 8px 24px rgba(48,41,33,.28));
+}
+.cinematic-home .cinema-figure-caption{background:rgba(48,41,33,.65)}
+.cinematic-home .cinema-cta{background:#fffaf5;color:#332b24!important;border-color:#ead9c5}
+.cinematic-home .cinema-cta:hover{background:#efbb82}
+.cinematic-home .cinema-quotes{background:rgba(48,41,33,.48);border-color:#efbb82aa}
+.cinematic-home .cinema-skip{border-bottom-color:rgba(239,187,130,.5)}
+@media(max-width:759px){
+ .cinematic-home .book-header{border-bottom:0!important}
+ .cinematic-home .cinema-figure{filter:sepia(.1) saturate(.8) drop-shadow(0 8px 14px rgba(48,41,33,.25))}
+}
+
+/* No incidental white framing bars around the opening. */
+.cinematic-home .cinema-act::after{border:0!important}

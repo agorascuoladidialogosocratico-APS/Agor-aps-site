@@ -92,7 +92,7 @@ const buildPages=function buildPages(D){
    return `<!doctype html>
 <html lang="it"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#193b4a">
+<meta name="theme-color" content="#b85628">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <title>${e(seoTitle)}</title><meta name="description" content="${e(desc)}">
 <link rel="canonical" href="${canonical}">

@@ -8,7 +8,7 @@ const shared=read('assets/cinematic-system.css');
 const sharedJS=read('assets/cinematic-system.js');
 const bundled=read('assets/agora-home.css');
 assert.equal((home.match(/data-cinema-step="[012]"/g)||[]).length,3,'Need three cinematic chapter markers');
-assert.ok(home.includes('class="cinema-progress-track"'),'Scene scroll progress missing');
+assert.ok(!home.includes('class="cinema-progress-track"'),'Stray white scroll bar reintroduced');
 assert.ok(home.includes('class="book-stage"')&&home.includes('class="book-index"'),'Book/index lost');
 assert.equal((home.match(/<h1\b/g)||[]).length,1,'Original homepage H1 contract');
 assert.ok(scene.includes('!paused&&!document.hidden'),'Pause and tab visibility guard missing');
@@ -25,6 +25,6 @@ assert.ok(shared.includes('prefers-reduced-motion:no-preference'),'Motion sensit
 assert.ok(shared.includes('html:not(.motion-paused)'),'Manual pause must disable native scroll effects');
 assert.ok(sharedJS.includes("body.classList.add('cinema-save-data')"),'Save-data guard missing');
 assert.ok(bundled.includes('AGORA_NATIVE_SCROLL_V2')&&bundled.includes('AGORA_CINEMATIC_CHAPTERS_V2'),'Home bundle must contain new styles');
-assert.ok(home.includes('content="#193b4a" name="theme-color"'),'Brand color changed');
+assert.ok(home.includes('content="#b85628" name="theme-color"'),'Brand color changed');
 for(const p of ['assets/cinematic-agora.js','assets/cinematic-system.js'])execFileSync(process.execPath,['--check',p],{stdio:'pipe'});
 console.log('Cinematic chapters v2: scene rail, native scroll, pause state, palette and URL-preserving fallback verified.');

@@ -6,7 +6,7 @@ Un'associazione di persone che pensano insieme: fotografie autentiche, parole le
 
 ## Sistema
 
-- Petrolio `#193b4a`: testo, navigazione e superfici istituzionali.
+- Inchiostro caldo `#332b24`: testo, navigazione e superfici istituzionali. Nessun petrolio, cobalto o blu nei fondi e nei controlli.
 - Carta `#fffaf5`: fondo principale.
 - Avorio `#f8f0e6`: raccordi tra sezioni.
 - Terracotta `#b85628`: azioni e piccoli accenti.
@@ -40,7 +40,7 @@ associazione, dialogo, progetti, trasparenza e partecipazione. Ogni doppia pagin
 ha un messaggio principale, un'illustrazione o una fotografia reale e un invito
 chiaro. L'indice e i tre collegamenti rapidi permettono di saltare il racconto.
 
-Carta avorio, coperta verde salvia e inchiostro petrolio riprendono l'identità
+Carta avorio, coperta verde salvia e inchiostro caldo riprendono l'identità
 Agorà. Le illustrazioni sono SVG originali, leggere e scalabili: un piccolo
 teatro di carta per la copertina e una lettera per i contatti. Le fotografie
 restano testimonianze delle persone e dei viaggi. Non si aggiungono librerie.
