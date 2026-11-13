@@ -1,32 +1,27 @@
-# Area riservata docenti Cornaredo — configurazione sicura
+# Area docenti Cornaredo — pagina informativa accessibile tramite link
 
-## Stato
-La rotta `/area-docenti/cornaredo/` è implementata nel Worker in `src/teacher-area.js`, ma **rimane chiusa se non è configurato il secret server** `ERASMUS_DAVINCI_PASSWORD` (almeno 20 caratteri).
+## Stato e indirizzo
+Pagina informativa prevista: `/area-docenti/cornaredo/`.
+È una pagina del sito Agorà **accessibile senza password** e non inclusa nei menu o nella sitemap. La mancata indicizzazione (`noindex`) non è una misura di sicurezza: qualunque persona in possesso del link può consultarla.
 
-Il repository è pubblico. Non inserire mai nel repository una password, un hash di password utilizzabile, link Google Meet, dati identificativi di studenti, documenti interni o riferimenti a casi individuali.
+## Contenuti ammessi
+Solo spiegazioni non riservate sull'organizzazione dei colloqui Erasmus+, sintesi delle pratiche educative, domande formative e aggiornamenti generali sui partner. Nel repository PUBBLICO non pubblicare: nomi o casi degli alunni, allegati del questionario, firme o timbri, password, link Meet, contenuti di email non destinati al pubblico o informazioni individuali delle insegnanti.
 
-## Attivazione
-1. Aprire Cloudflare → Workers & Pages → Worker `agor-aps-site` → Settings → Variables and Secrets.
-2. Aggiungere `ERASMUS_DAVINCI_PASSWORD` come **Secret**, con password casuale lunga almeno 24 caratteri. Non aggiungerla in `wrangler.jsonc`, GitHub o documenti pubblici.
-3. Pubblicare il ramo solo dopo verifica dei test e controllo dell’assetto del Worker.
-4. Testare il sito: una visita anonima deve mostrare la schermata login, una password sbagliata non concede l’accesso, la password corretta imposta cookie HttpOnly/Secure/SameSite=Strict, `logout` chiude la sessione.
-5. Configurare nel pannello Cloudflare una regola di rate limiting per `POST /area-docenti/cornaredo/login` (es. massimo 5 tentativi/minuto/IP) e, se possibile, protezione bot.
-6. Distribuire la password alle sole insegnanti tramite un canale adeguato; non pubblicarla sul sito né nella corrispondenza aperta a soggetti terzi.
+## Documenti completi
+Le due guide Google Docs e il questionario corretto sono nel Drive della scuola. I documenti sono condivisi in sola lettura esclusivamente con le cinque docenti autorizzate e non si aprono automaticamente a chi visita la pagina informativa.
 
-## Separazione dati
-Il portale contiene una sintesi metodologica non sensibile. I documenti completi restano nel Drive istituzionale e richiedono autorizzazioni Drive distinte. Le guide non vanno copiate nel repo pubblico se contengono elementi non destinati a essere divulgati.
+Guida rapida: https://docs.google.com/document/d/1z_rnBKVo35XdTxElyDK0wy1Y02mNFwiJ61fCG1_UxpI/edit
+Guida completa: https://docs.google.com/document/d/1wYMBUlvfVKdvyZDrkyAErIRV3A0dZWroHUJheO0lSGY/edit
 
-## Limiti
-- La pagina non sincronizza automaticamente Gmail o Google Calendar; le date e le schede vanno aggiornate nel codice dopo verifica.
-- La password è condivisa: tutti gli utenti autorizzati hanno lo stesso accesso e non esiste un audit per singolo utente. Per accesso nominativo e revoca per persona, preferire Cloudflare Access con allowlist di email e codice OTP.
-- I dati reali su partecipazioni, mobilità e finanziamenti devono essere confermati dalla dirigenza scolastica.
-- Non aggiungere l'area a sitemap o indicizzatori.
+## Pubblicazione e controlli
+1. `npm run build` deve superare i test del sito e `scripts/test-teacher-area.mjs`.
+2. `wrangler deploy --dry-run` deve verificare la configurazione Cloudflare Worker Static Assets.
+3. Pubblicare su `main` solo dopo i controlli. Per il deploy Cloudflare controllare la pipeline disponibile oppure usare il deploy ufficiale del Worker.
+4. Dal dominio reale verificare risposta HTTP 200 senza login, presenza del banner di non indicizzazione e dei link alla documentazione privata.
+5. Non aggiungere questa pagina ai menu pubblici, alla sitemap o ai feed; usare i link diretti soltanto per il gruppo.
+6. Dopo ogni call aggiornare sintesi e decisioni verificabili, indicando la data dell'ultimo aggiornamento.
 
-## Test
-`node scripts/test-teacher-area.mjs`
-`npm run build`
-`npx wrangler deploy --dry-run --outdir .wrangler-check`
+## Limiti e scelta futura
+L'URL senza password **non è riservato in senso tecnico**. Se si desidera pubblicare verbali interni, liste di persone, dati specifici, documenti integrali, accessi per ruolo o allegati, integrare Cloudflare Access con allowlist di email e OTP, oppure lasciare tali materiali nel Drive scolastico con accesso personale.
 
-## URL previsto
-`https://agora-scuoladidialogosocraticoecittadinanzattiva.site/area-docenti/cornaredo/`
-Non comunicare il link come **attivo** finché Cloudflare non ha distribuito la versione con il secret configurato e i test dal dominio reale non sono passati.
+Il sito offre orientamento; il Drive rimane l'archivio controllato. Nessuna presenza ai colloqui, candidatura o mobilità è autorizzata automaticamente.
