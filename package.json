@@ -7,7 +7,7 @@
     "build": "node scripts/bundle-home-css.mjs && node scripts/generate-pages.mjs && node scripts/generate-magazine.mjs && npm run check",
     "deploy": "npm run build && wrangler deploy",
     "preview": "wrangler preview",
-    "check": "node scripts/verify-site.mjs && npm test",
+    "check": "node scripts/verify-site.mjs && node scripts/verify-immersion.mjs && npm test",
     "test": "node scripts/test-contact.mjs && node scripts/test-site-chat.mjs && node scripts/test-email-replies.mjs && node scripts/test-social-buffer.mjs && node scripts/test-teacher-area.mjs",
     "build:content": "node scripts/generate-pages.mjs && node scripts/generate-magazine.mjs",
     "social:preview": "node scripts/social-buffer.mjs --preview --article benvenuti-in-agora-magazine --mode draft"
