@@ -6,7 +6,7 @@ const read=path=>readFileSync(path,'utf8');
 const home=read('index.html'),css=read('assets/agora-home.css');
 const script=read('assets/dialogue-3d.js');
 const book=read('assets/book.js');
-const sections=[...home.matchAll(/<section class="agora-immersion"\b/g)];
+const sections=[...home.matchAll(/<section class="agora-immersion"(?=\s|>)/g)];
 assert.equal(sections.length,1,'Homepage must contain exactly one 3D experience');
 assert.ok(home.includes('id="immersion-title"'),'The experience must have a visible heading');
 assert.ok(home.includes('id="immersion-description"'),'The experience needs a real textual explanation');
