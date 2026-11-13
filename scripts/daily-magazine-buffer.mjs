@@ -67,7 +67,7 @@ if(item.series==='contemporaneo'){
  }
 }
 console.log(JSON.stringify({campaign:campaign.title,localDay,slot:item.date,article:slug,platforms:posts.map(p=>p.platform),image:imagePath},null,2));
-const save=data=>writeFileSync(ledgerPath,JSON.stringify(data,null,2)+'\\n');
+const save=data=>writeFileSync(ledgerPath,JSON.stringify(data,null,2)+'\n');
 const result=await publishPlan({slug,posts,env:process.env,ledger,save});
 console.log(JSON.stringify({results:result},null,2));
 if(result.some(r=>r.status==='failed'))throw new Error('Invio parziale: riprovare nella prossima finestra, conservando i post riusciti nel registro anti-duplicato.');
