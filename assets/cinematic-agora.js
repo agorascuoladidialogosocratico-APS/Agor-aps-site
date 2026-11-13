@@ -13,9 +13,12 @@
  const clamp=(n,a=0,b=1)=>Math.max(a,Math.min(b,n));
  const ease=n=>{n=clamp(n);return n*n*(3-2*n)};
  let frame=0,enhanced=false,visible=true;
+ let pointerX=0,pointerY=0;
  const canEnhance=()=>media.matches&&!reduced.matches&&!saveData;
  const clean=()=>{
   enhanced=false;story.classList.remove('is-enhanced');
+  story.style.removeProperty('--agora-tilt-x');
+  story.style.removeProperty('--agora-tilt-y');
   acts.forEach(act=>{
    act.style.removeProperty('opacity');act.style.removeProperty('visibility');
    act.classList.remove('is-active');act.inert=false;
@@ -27,6 +30,8 @@
  };
  function update(){
   frame=0;if(!enhanced)return;
+  story.style.setProperty('--agora-tilt-x',(-pointerY*2.4).toFixed(2)+'deg');
+  story.style.setProperty('--agora-tilt-y',(pointerX*3.2).toFixed(2)+'deg');
   const rect=story.getBoundingClientRect();
   const range=Math.max(1,story.offsetHeight-window.innerHeight);
   const p=clamp(-rect.top/range);
@@ -58,7 +63,7 @@
   root.style.setProperty('--cinema-progress',p.toFixed(4));
  }
  function schedule(){
-  if(!enhanced||frame)return;
+  if(!enhanced||frame||!visible)return;
   frame=requestAnimationFrame(update);
  }
  function init(){
@@ -66,6 +71,13 @@
   enhanced=true;story.classList.add('is-enhanced');
   update();
  }
+ story.addEventListener('pointermove',event=>{
+  if(!enhanced||event.pointerType==='touch')return;
+  pointerX=clamp((event.clientX/window.innerWidth-.5)*2,-1,1);
+  pointerY=clamp((event.clientY/window.innerHeight-.5)*2,-1,1);
+  schedule();
+ },{passive:true});
+ story.addEventListener('pointerleave',()=>{pointerX=pointerY=0;schedule();});
  media.addEventListener('change',init);
  reduced.addEventListener('change',init);
  document.addEventListener('agora:motion-change',event=>{
