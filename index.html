@@ -3,6 +3,7 @@
 <html lang="it"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
+<script>try{if(!sessionStorage.getItem('agora-overture-seen')&&!matchMedia('(prefers-reduced-motion: reduce)').matches&&!navigator.connection?.saveData){document.documentElement.classList.add('agora-opening');sessionStorage.setItem('agora-overture-seen','1')}}catch{}</script>
 <meta content="#b85628" name="theme-color"/>
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1"/>
 <meta content="Agorà APS promuove dialogo socratico, cittadinanza attiva, educazione non formale e mobilità Erasmus+ in Sicilia e in Europa." name="description"/>
@@ -35,6 +36,8 @@
 <nav aria-label="Navigazione rapida" class="quick-nav"><a href="/chi-siamo/">Chi siamo</a><a href="/progetti/">Progetti</a><a href="/magazine/">Magazine</a><a href="/tirocini/">Tirocini e ESC</a><a class="header-cta" href="/partecipa/">Partecipa</a></nav>
 <button aria-controls="book-index" aria-expanded="false" class="index-toggle">Indice <span aria-hidden="true">☰</span></button>
 <nav aria-label="Indice del libro" class="book-index" id="book-index"><p>Il libro di Agorà</p><a href="#esperienza">Esperienza immersiva<span>00</span></a><a href="/magazine/">Agorà Magazine<span>↗</span></a><a href="/dialogo-socratico/">Guida al dialogo socratico<span>↗</span></a><a href="/sostienici/">Quote e sostegno<span>↗</span></a><a href="#home">Copertina<span>01</span></a><a href="#sommario">Sommario<span>02</span></a><a href="#associazione">1 · Chi siamo<span>03</span></a><a href="#attivita">2 · Cosa facciamo<span>04</span></a><a href="#laboratori">3 · Il nostro metodo<span>06</span></a><a href="#progetti">4 · Opportunità europee<span>07</span></a><a href="#volontariato-esc">4 · Volontariato ESC<span>08</span></a><a href="#direttivo">5 · Il Direttivo<span>09</span></a><a href="#tirocini">6 · Convenzioni e formazione<span>10</span></a><a href="#pubblicazioni">7 · Opere e materiali<span>11</span></a><a href="#ricerca">7 · Ricerca filosofica<span>12</span></a><a href="#iscrizioni">8 · Iscrizioni e sostenitori<span>13</span></a><a href="#contatti">9 · Dove trovarci<span>14</span></a><a href="#privacy">10 · Privacy<span>15</span></a><a href="#trasparenza">Trasparenza<span>16</span></a><a href="#epilogo">Epilogo · Il dialogo continua<span>17</span></a></nav></header>
+<div class="agora-overture" aria-hidden="true"><div class="overture-panel overture-panel--left"></div><div class="overture-panel overture-panel--right"></div><div class="overture-title"><span class="overture-title__eyebrow">Una piazza aperta al pensiero</span><strong>AGORÀ</strong><span class="overture-title__sub">Il dialogo comincia qui</span></div></div>
+<button type="button" class="agora-overture-skip" hidden>Salta introduzione <span aria-hidden="true">↗</span></button>
 <section class="cinema-story" id="esperienza" aria-label="Un viaggio visivo nella filosofia di Agorà APS">
  <div class="cinema-stage">
   <section class="cinema-act cinema-act--opening is-active" data-cinema-act="0" aria-labelledby="cinema-title-1">
@@ -48,14 +51,13 @@
    </div>
    <div class="cinema-art" aria-hidden="true">
     <div class="cinema-orbit"></div><div class="cinema-sun"></div>
-    <img class="cinema-figure cinema-figure--plato" src="/assets/cinema-plato.png" width="211" height="493" alt="" decoding="async" fetchpriority="low" />
-    <img class="cinema-figure cinema-figure--aristotle" src="/assets/cinema-aristotle.png" width="220" height="502" alt="" decoding="async" fetchpriority="low" />
+    <div class="cinema-mural-wrap"><img class="cinema-raphael" src="/assets/cinema-raphael-detail.webp" data-fallback-src="https://upload.wikimedia.org/wikipedia/commons/d/dc/Raffael_058FXD.jpg" width="1800" height="1800" alt="" decoding="async" loading="eager" fetchpriority="high" /></div>
     <div class="cinema-plinth"></div>
     <img class="cinema-curtain" src="/assets/cinema-curtain.svg" width="680" height="950" alt="" decoding="async" />
     <span class="cinema-figure-caption">Due visioni · Un dialogo</span>
    </div>
    <div class="cinema-lower"><div><span class="cinema-lower-caption">01 — La domanda</span><p>La filosofia non è un museo di risposte. È un modo di abitare il presente.</p></div></div>
-   <div class="cinema-illustration-credit"><span>Figure: Raffaello, <em>La Scuola di Atene</em> · pubblico dominio</span><a href="https://commons.wikimedia.org/wiki/File:The_School_of_Athens,_Plato.png" target="_blank" rel="noopener noreferrer">Platone · fonte</a><a href="https://commons.wikimedia.org/wiki/File:The_School_of_Athens,_Aristotle.png" target="_blank" rel="noopener noreferrer">Aristotele · fonte</a></div>
+   <div class="cinema-illustration-credit"><span>Raffaello, <em>La Scuola di Atene</em> · dettaglio da riproduzione in pubblico dominio</span><a href="https://commons.wikimedia.org/wiki/File:Raffael_058FXD.jpg" target="_blank" rel="noopener noreferrer">Immagine originale · Wikimedia Commons</a><a href="https://commons.wikimedia.org/wiki/File:The_School_of_Athens,_Plato.png" target="_blank" rel="noopener noreferrer">Platone · fonte</a><a href="https://commons.wikimedia.org/wiki/File:The_School_of_Athens,_Aristotle.png" target="_blank" rel="noopener noreferrer">Aristotele · fonte</a></div>
   </section>
   <section class="cinema-act cinema-act--ideas" data-cinema-act="1" aria-labelledby="cinema-title-2">
    <div class="cinema-noise" aria-hidden="true"></div>
@@ -140,4 +142,5 @@
 <p aria-atomic="true" aria-live="polite" class="book-status" role="status"></p>
 <nav class="mobile-dock" aria-label="Accessi rapidi"><a href="/" aria-current="page"><span aria-hidden="true">⌂</span>Home</a><a href="/progetti/"><span aria-hidden="true">◇</span>Progetti</a><a href="/magazine/"><span aria-hidden="true">✎</span>Magazine</a><a href="/sostienici/"><span aria-hidden="true">♡</span>Sostienici</a><a href="/contatti/#scrivici"><span aria-hidden="true">✉</span>Scrivici</a></nav><footer class="book-footer"><div class="accessibility-tools" aria-label="Preferenze di lettura"><button type="button" data-a11y="text" aria-pressed="false" title="Aumenta la dimensione dei testi">A+ Testo</button><button type="button" data-a11y="contrast" aria-pressed="false" title="Attiva il contrasto elevato">Contrasto</button></div><span class="footer-copyright">© 2026 Agorà APS</span><span class="footer-tagline">Dialogo socratico · Educazione · Cittadinanza europea</span><button aria-pressed="false" class="motion-toggle">Ferma le animazioni <span aria-hidden="true">Ⅱ</span></button><a href="/magazine/">Magazine</a><a href="/sostienici/">Sostienici</a><a href="/trasparenza/">Trasparenza</a><a href="/privacy/">Privacy</a><a href="/accessibilita/">Accessibilità</a><a href="#home">Copertina</a></footer>
 <noscript><style>.book-header{flex-wrap:wrap}.book-index{width:100%;max-width:none;box-shadow:none}.quick-nav{display:none}.book-controls,.index-toggle,.motion-toggle{display:none!important}.book-index{position:static;display:block}.book-page{margin-bottom:24px}</style></noscript>
+<script defer src="/assets/cinematic-overture.js?v=20261113v4"></script>
 <script defer src="/assets/cinematic-agora.js?v=earthv3"></script><script defer src="/assets/cinematic-system.js?v=earthv3"></script><script defer src="/assets/experience.js?v=20261111"></script><script defer src="/assets/whatsapp-chat.js?v=20261112"></script></body></html>

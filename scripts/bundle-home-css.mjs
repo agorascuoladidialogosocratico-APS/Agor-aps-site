@@ -9,7 +9,8 @@ const files = [
   'assets/site-polish.css',
   'assets/whatsapp-chat.css',
   'assets/cinematic-agora.css',
-  'assets/cinematic-system.css'
+  'assets/cinematic-system.css',
+  'assets/cinematic-overture.css'
 ];
 const css = '/* Generated from the original stylesheets, preserving cascade order. */\n'
   + files.map(path => '/* SOURCE: '+path+' */\n'+readFileSync(path,'utf8').trim()+'\n').join('\n');
