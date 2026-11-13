@@ -11,6 +11,19 @@ assert.equal(plan.length,3);
 assert.deepEqual(plan.map(x=>x.platform),['facebook','instagram','x']);
 assert.equal(plan[0].input.saveToDraft,true);
 assert.equal(plan[1].input.metadata.instagram.type,'post');
+const carouselArticle={...data,socialCarouselImages:[
+ '/assets/magazine/contemporaneo/test/carousel-01.png',
+ '/assets/magazine/contemporaneo/test/carousel-02.png',
+ '/assets/magazine/contemporaneo/test/carousel-03.png',
+ '/assets/magazine/contemporaneo/test/carousel-04.png',
+ '/assets/magazine/contemporaneo/test/carousel-05.png'
+],socialAiAssisted:true};
+const carouselPlan=createPlan(slug,carouselArticle,'now');
+assert.equal(carouselPlan.find(x=>x.platform==='instagram').input.assets.length,5);
+assert.equal(carouselPlan.find(x=>x.platform==='facebook').input.assets.length,1);
+assert.equal(carouselPlan.find(x=>x.platform==='instagram').input.aiAssisted,true);
+assert.throws(()=>createPlan(slug,{...carouselArticle,socialCarouselImages:['/assets/a.png','/assets/a.png']},'now'),/Carosello/);
+
 assert.equal(plan[0].input.metadata.facebook.type,'post');
 assert(plan[2].text.includes('/magazine/'+slug+'/'));
 assert.equal(Array.from(plan[2].text).length<=280,true);
