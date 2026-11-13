@@ -8,7 +8,7 @@ const files = [
   'assets/visual-story.css',
   'assets/site-polish.css',
   'assets/whatsapp-chat.css',
-  'assets/dialogue-3d.css'
+  'assets/cinematic-agora.css'
 ];
 const css = '/* Generated from the original stylesheets, preserving cascade order. */\n'
   + files.map(path => '/* SOURCE: '+path+' */\n'+readFileSync(path,'utf8').trim()+'\n').join('\n');

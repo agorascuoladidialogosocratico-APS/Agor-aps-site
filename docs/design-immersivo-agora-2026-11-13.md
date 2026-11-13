@@ -1,3 +1,5 @@
+> **Superato dalla revisione cinematografica del 13 novembre 2026.** Questo documento descrive la prima proposta con scultura astratta WebGL, non più presente nella homepage. Il progetto attuale è documentato in `docs/design-cinematografico-riferimento-pear-2026-11-13.md`.
+
 # Agorà — una nuova esperienza web immersiva
 
 **Data:** 13 novembre 2026 · **Ambito:** homepage istituzionale, nessun cambiamento al Magazine o alle automazioni social.

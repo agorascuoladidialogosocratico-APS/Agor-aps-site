@@ -3,38 +3,46 @@ import {readFileSync,existsSync,statSync} from 'node:fs';
 import {execFileSync} from 'node:child_process';
 
 const read=path=>readFileSync(path,'utf8');
-const home=read('index.html'),css=read('assets/agora-home.css');
-const script=read('assets/dialogue-3d.js');
+const home=read('index.html');
+const css=read('assets/agora-home.css');
+const js=read('assets/cinematic-agora.js');
 const book=read('assets/book.js');
-const sections=[...home.matchAll(/<section class="agora-immersion"(?=\s|>)/g)];
-assert.equal(sections.length,1,'Homepage must contain exactly one 3D experience');
-assert.ok(home.includes('id="immersion-title"'),'The experience must have a visible heading');
-assert.ok(home.includes('id="immersion-description"'),'The experience needs a real textual explanation');
-assert.ok(home.includes('href="/dialogo-socratico/"'),'The experience must have a meaningful internal CTA');
-assert.ok(home.includes('href="/magazine/"'),'The new scene must link to the Magazine');
-assert.ok(home.includes('src="/assets/dialogue-sculpture.svg"'),'The static SVG fallback must exist');
-assert.ok(home.includes('class="immersion-canvas"')&&home.includes('aria-hidden="true"'),'Canvas must be decorative');
-assert.ok(home.includes('class="immersion-toggle"')&&home.includes('aria-pressed="false"'),'3D control must be opt-in reversible');
-assert.ok(home.includes('/assets/dialogue-3d.js?v='),'The 3D controller must be loaded');
-assert.ok(existsSync('assets/dialogue-sculpture.svg'),'Fallback image missing');
-assert.ok(statSync('assets/dialogue-sculpture.svg').size>500,'Fallback image too small');
-assert.ok(existsSync('assets/dialogue-3d.css'),'Source stylesheet missing');
-assert.ok(css.includes('/* SOURCE: assets/dialogue-3d.css */'),'Single CSS bundle did not include 3D styles');
-assert.ok(css.includes('@media (prefers-reduced-motion:reduce)'),'Reduced-motion CSS missing');
-assert.equal((home.match(/rel="stylesheet"/g)||[]).length,1,'Do not add render-blocking stylesheets');
-assert.equal((home.match(/<h1\b/g)||[]).length,1,'Preserve single brand H1');
-assert.ok(script.includes("getContext('webgl'"),'Scene must use actual WebGL');
-assert.ok(script.includes('requestIdleCallback'),'Do not initialize GPU during the critical render path');
-assert.ok(script.includes('IntersectionObserver'),'Stop rendering outside viewport');
-assert.ok(script.includes('visibilitychange'),'Stop rendering in background tabs');
-assert.ok(script.includes('saveData'),'Respect data saving mode');
-assert.ok(script.includes('prefers-reduced-motion: reduce'),'Respect reduced motion');
-assert.ok(script.includes('t-lastFrame<38'),'Limit frame rate');
-assert.ok(script.includes('Math.min(window.devicePixelRatio'),'Cap GPU resolution');
-assert.ok(book.includes("new CustomEvent('agora:motion-change'"),'Global motion toggle must control 3D as well');
-assert.ok(!script.includes('http://')&&!script.includes('https://'),'3D must have no external runtime dependencies');
-execFileSync(process.execPath,['--check','assets/dialogue-3d.js'],{stdio:'pipe'});
-execFileSync(process.execPath,['--check','assets/book.js'],{stdio:'pipe'});
-const generated=read('scripts/bundle-home-css.mjs');
-assert.ok(generated.includes("'assets/dialogue-3d.css'"),'Bundler must preserve 3D styling on every rebuild');
-console.log('Agorà immersive WebGL: fallback, controls, SEO headings, reduced motion, lazy GPU, FPS cap and CSS bundle verified.');
+const bundle=read('scripts/bundle-home-css.mjs');
+
+assert.equal((home.match(/<section class="cinema-story"/g)||[]).length,1,'One cinematic story');
+assert.equal((home.match(/class="cinema-act cinema-act--/g)||[]).length,3,'Three cinematic chapters');
+for(const id of ['cinema-title-1','cinema-title-2','cinema-title-3','esperienza']){
+ assert.ok(home.includes('id="'+id+'"'),'Missing scene anchor '+id);
+}
+assert.ok(home.includes('href="#pathways-title"'),'Must offer a skip-to-content link');
+assert.ok(home.includes('href="/dialogo-socratico/"'),'Dialogue link missing');
+assert.ok(home.includes('href="/magazine/"'),'Magazine link missing');
+assert.ok(home.includes('href="/progetti/"'),'Project link missing');
+assert.ok(home.includes('href="/partecipa/"'),'Participation link missing');
+assert.ok(home.includes('class="book-stage"')&&home.includes('class="story-book"'),'Existing book preserved');
+assert.ok(!home.includes('class="agora-immersion"'),'Old generic abstract cube section should be removed');
+assert.ok(!home.includes('src="/assets/dialogue-3d.js'),'Obsolete WebGL controller still loaded');
+assert.ok(home.includes('src="/assets/cinematic-agora.js'),'Cinematic motion controller missing');
+for(const asset of ['assets/cinema-curtain.svg','assets/cinema-columns.svg','assets/cinema-olive-tree.svg','assets/cinematic-agora.css']){
+ assert.ok(existsSync(asset),'Missing original visual asset '+asset);
+ assert.ok(statSync(asset).size>700,'Suspiciously small asset '+asset);
+}
+assert.ok(css.includes('/* SOURCE: assets/cinematic-agora.css */'),'Styles not included in one bundle');
+assert.ok(bundle.includes("'assets/cinematic-agora.css'"),'Bundler must include cinematic styles on every rebuild');
+assert.ok(css.includes('@media (prefers-reduced-motion:reduce)'),'Reduced-motion fallback absent');
+assert.ok(css.includes('@media (max-width:759px)'),'Mobile fallback absent');
+assert.equal((home.match(/rel="stylesheet"/g)||[]).length,1,'Do not add render-blocking CSS');
+assert.equal((home.match(/<h1\b/g)||[]).length,1,'Preserve one H1');
+assert.ok(home.includes('https://commons.wikimedia.org/wiki/File:The_School_of_Athens,_Plato.png'),'Plato attribution missing');
+assert.ok(home.includes('https://commons.wikimedia.org/wiki/File:The_School_of_Athens,_Aristotle.png'),'Aristotle attribution missing');
+assert.ok(js.includes('requestAnimationFrame'),'Motion controller must be RAF-scheduled');
+assert.ok(js.includes('prefers-reduced-motion: reduce'),'Respect reduced motion');
+assert.ok(js.includes('saveData'),'Respect low-bandwidth requests');
+assert.ok(js.includes('act.inert'),'Hide inactive links from keyboard');
+assert.ok(js.includes("addEventListener('scroll',schedule,{passive:true})"),'Do not hijack native scrolling');
+assert.ok(!js.includes('window.scrollTo('),'No forced scroll position');
+assert.ok(book.includes("new CustomEvent('agora:motion-change'"),'Preserve global motion setting');
+for(const script of ['assets/cinematic-agora.js','assets/book.js','scripts/bundle-home-css.mjs']){
+ execFileSync(process.execPath,['--check',script],{stdio:'pipe'});
+}
+console.log('Cinematic Agorà: scene count, original artwork, public domain attribution, accessibility, native scroll and CSS verified.');
