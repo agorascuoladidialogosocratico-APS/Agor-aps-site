@@ -1,0 +1,68 @@
+{
+  "title": "Agorà Magazine — filosofia e attualità, serie originale 2026",
+  "editorialPolicy": "Articoli originali ispirati a idee e materiali interni di Agorà, con fonti esterne verificate quando necessarie. Non ripubblicare documenti interni o foto di persone senza liberatorie.",
+  "startDate": "2026-12-06",
+  "endDate": "2026-12-10",
+  "timezone": "Europe/Rome",
+  "dailyTime": "11:00",
+  "previousSeries": "data/social-magazine-23-giorni.json",
+  "socialChannels": [
+    "facebook",
+    "instagram"
+  ],
+  "optional": [
+    "x"
+  ],
+  "formats": {
+    "facebook": "post con copertina e link",
+    "instagram": "carosello di 5 immagini 4:5",
+    "instagramStory": "storia verticale originale 9:16 con invito al Magazine (quando supportata dal canale Buffer)"
+  },
+  "posts": [
+    {
+      "date": "2026-12-06",
+      "slug": "intelligenza-artigianale-ai-e-liberta-di-giudizio",
+      "formats": [
+        "facebook_post",
+        "instagram_carousel",
+        "instagram_story"
+      ]
+    },
+    {
+      "date": "2026-12-07",
+      "slug": "algoritmi-feed-e-democrazia-chi-decide-cosa-vediamo",
+      "formats": [
+        "facebook_post",
+        "instagram_carousel",
+        "instagram_story"
+      ]
+    },
+    {
+      "date": "2026-12-08",
+      "slug": "inclusione-non-basta-invitare-bisogna-rendere-possibile",
+      "formats": [
+        "facebook_post",
+        "instagram_carousel",
+        "instagram_story"
+      ]
+    },
+    {
+      "date": "2026-12-09",
+      "slug": "che-cosa-significa-essere-cittadini-oggi",
+      "formats": [
+        "facebook_post",
+        "instagram_carousel",
+        "instagram_story"
+      ]
+    },
+    {
+      "date": "2026-12-10",
+      "slug": "viaggiare-non-basta-cambiare-sguardo-filosofia",
+      "formats": [
+        "facebook_post",
+        "instagram_carousel",
+        "instagram_story"
+      ]
+    }
+  ]
+}

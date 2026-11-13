@@ -3,6 +3,13 @@ import {createPlan,publishPlan,resolveChannelIds,SITE} from './social-buffer.mjs
 
 const load=(path)=>JSON.parse(readFileSync(path,'utf8'));
 const campaign=load('data/social-magazine-23-giorni.json');
+const contemporary=load('data/social-editoriali-contemporanei.json');
+// Keep the previously approved 23-day campaign intact. Append the new series after its last slot.
+if(campaign.posts.length!==23||contemporary.posts.length!==5)throw new Error('I calendari editoriali sono incompleti');
+const upcoming=[
+ ...campaign.posts.map(item=>({...item,series:'archivio'})),
+ ...contemporary.posts.map(item=>({...item,series:'contemporaneo'}))
+].sort((a,b)=>a.date.localeCompare(b.date));
 const localDay=new Intl.DateTimeFormat('sv-SE',{year:'numeric',month:'2-digit',day:'2-digit',timeZone:'Europe/Rome'}).format(new Date());
 
 if(!/^\d{4}-\d{2}-\d{2}$/.test(localDay))throw new Error('Data locale non valida');
@@ -11,8 +18,8 @@ if(localDay<campaign.startDate){
  process.exit(0);
 }
 if(!process.env.BUFFER_API_KEY)throw new Error('BUFFER_API_KEY non configurata: nessun invio effettuato');
-if(!Array.isArray(campaign.posts)||campaign.posts.length!==23)throw new Error('Campagna incompleta, invio bloccato');
-const eligible=campaign.posts.filter(item=>item.date<=localDay).sort((a,b)=>a.date.localeCompare(b.date));
+if(!upcoming.every(x=>/^\d{4}-\d{2}-\d{2}$/.test(x.date)))throw new Error('Calendario con date non valide');
+const eligible=upcoming.filter(item=>item.date<=localDay);
 const ledgerPath='data/buffer-posts.json';
 const ledger=existsSync(ledgerPath)?load(ledgerPath):{posts:{}};
 // Facebook and Instagram define completion of a daily slot; optional X must never block them.
@@ -53,7 +60,36 @@ try{
 }
 const enabled={...article,socialFacebook:true,socialInstagram:true,socialX:xEnabled};
 const posts=createPlan(slug,enabled,'now');
+if(item.series==='contemporaneo'){
+ const media=[...(article.socialCarouselImages||[]),...(article.socialStoryImages||[])];
+ if(media.length!==7||media.some(p=>!/^\/assets\/[a-z0-9/_-]+\.png$/.test(p)||!existsSync(p.slice(1)))){
+  throw new Error('Carosello o storia non generati: pubblicazione social sospesa per '+slug);
+ }
+}
 console.log(JSON.stringify({campaign:campaign.title,localDay,slot:item.date,article:slug,platforms:posts.map(p=>p.platform),image:imagePath},null,2));
-const result=await publishPlan({slug,posts,env:process.env,ledger,save:data=>writeFileSync(ledgerPath,JSON.stringify(data,null,2)+'\n')});
+const save=data=>writeFileSync(ledgerPath,JSON.stringify(data,null,2)+'\n');
+const result=await publishPlan({slug,posts,env:process.env,ledger,save});
 console.log(JSON.stringify({results:result},null,2));
 if(result.some(r=>r.status==='failed'))throw new Error('Invio parziale: riprovare nella prossima finestra, conservando i post riusciti nel registro anti-duplicato.');
+if(item.series==='contemporaneo'){
+ // A Story is a separate Buffer post, with its own anti-duplicate ledger key.
+ const storyKey=slug+'-storia';
+ if(!ledger.posts?.[storyKey]?.instagram){
+  const basePost=posts.find(p=>p.platform==='instagram');
+  if(basePost){
+   const storyAsset=SITE+article.socialStoryImages[0];
+   const story={...basePost,asset:storyAsset,text:'Una domanda per il tuo presente. Leggi e confrontati sul Magazine di Agorà APS.',input:{
+    ...basePost.input,text:'Una domanda per il tuo presente. Leggi Agorà Magazine.',
+    assets:[{image:{url:storyAsset}}],
+    metadata:{instagram:{type:'story',shouldShareToFeed:false,isAiGenerated:true}},
+    aiAssisted:true
+   }};
+   try{
+    const storyResults=await publishPlan({slug:storyKey,posts:[story],env:process.env,ledger,save});
+    console.log(JSON.stringify({storyResults},null,2));
+    // Story failures must not block the next day's primary editorial post.
+    if(storyResults.some(r=>r.status==='failed'))console.warn('Storia non confermata; grafica disponibile per ripubblicazione manuale in Buffer.');
+   }catch(error){console.warn('Storia non inviata: '+String(error.message||error));}
+  }
+ }
+}
