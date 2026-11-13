@@ -487,3 +487,32 @@
  .cinema-story .cinema-act{background:Canvas;color:CanvasText}
  .cinema-system .cinema-interlude,.cinema-system .cinema-endmark{background:Canvas;color:CanvasText}
 }
+
+
+/* AGORA_NATIVE_SCROLL_V2 — native view-timeline progressive enhancement.
+   Only compositor-friendly opacity/transform, fully static on unsupported
+   browsers, reduced-motion, mobile and manually paused sessions. */
+@keyframes agora-depth-arrive{
+ from{opacity:.88;transform:translate3d(0,32px,0) scale(.975)}
+ to{opacity:1;transform:translate3d(0,0,0) scale(1)}
+}
+@supports ((animation-timeline: view()) and (animation-range: entry)){
+ @media(min-width:900px) and (prefers-reduced-motion:no-preference){
+  html:not(.motion-paused) body.cinema-system:not(.cinema-save-data)
+  :is(.home-photo-item,.home-magazine-image,.cinema-interlude > div){
+   animation:agora-depth-arrive 1s linear both;
+   animation-timeline:view(block);
+   animation-range:entry 0% entry 90%;
+  }
+  html:not(.motion-paused) body.info-page.cinema-system:not(.cinema-save-data)
+  .visual-story-body .info-section{
+   animation:agora-depth-arrive 1s linear both;
+   animation-timeline:view(block);
+   animation-range:entry 0% entry 90%;
+  }
+ }
+}
+@media(prefers-reduced-motion:reduce),print{
+ .cinema-system :is(.home-photo-item,.home-magazine-image,.cinema-interlude>div,
+ .visual-story-body .info-section){animation:none!important}
+}
