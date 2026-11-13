@@ -57,6 +57,14 @@ export function createPlan(slug,article,mode='draft'){
   }
   if(!text)throw Error('Testo social vuoto '+platform);
   const input={text,channelId:null,schedulingType:'automatic',mode:mode==='now'?'shareNow':'addToQueue',needsApproval:false,assets:asset?[{image:{url:asset}}]:[],saveToDraft:mode==='draft',source:'Agora Magazine'};
+  if(platform==='instagram'&&Array.isArray(article.socialCarouselImages)){
+   const images=article.socialCarouselImages;
+   if(images.length<2||images.length>10||images.some(path=>!imageOk(path))||new Set(images).size!==images.length){
+    throw Error('Carosello Instagram non valido: richiede da 2 a 10 immagini uniche sotto /assets/');
+   }
+   input.assets=images.map(path=>({image:{url:SITE+path}}));
+  }
+  if(article.socialAiAssisted===true)input.aiAssisted=true;
   if(platform==='instagram')input.metadata={instagram:{type:'post',shouldShareToFeed:true}};
   if(platform==='facebook')input.metadata={facebook:{type:'post'}};
   return {platform,mode,url,asset,text,input};
