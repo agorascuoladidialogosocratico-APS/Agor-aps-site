@@ -253,3 +253,55 @@ body.cinematic-home{overflow-x:hidden}
  .cinema-copy h2,.cinema-copy>p,.cinema-eyebrow,.cinema-lower,.cinema-illustration-credit{color:CanvasText}
  .cinema-cta{background:ButtonFace;color:ButtonText;border:1px solid ButtonText}
 }
+
+
+/* AGORA_CINEMATIC_CHAPTERS_V2
+   A restrained editorial chapter-rail and scroll progress, decorative and inert.
+   No controls, new links, URL rewrites or scroll interception are introduced. */
+.cinema-story.is-enhanced .cinema-chapter-rail{
+ position:absolute;right:clamp(15px,2.8vw,44px);top:50%;z-index:42;
+ transform:translateY(-50%);display:grid;gap:18px;pointer-events:none;
+}
+.cinema-chapter-rail{display:none}
+.cinema-rail-step{
+ display:flex;align-items:center;gap:11px;
+ opacity:.44;color:var(--agora-paper,#fffaf5);
+ transition:opacity .28s ease,transform .28s ease;
+}
+.cinema-rail-step b{
+ font:650 11px/1 var(--sans,'DM Sans',sans-serif);
+ letter-spacing:.14em;font-variant-numeric:tabular-nums;
+}
+.cinema-rail-step i{
+ display:block;width:14px;height:1px;background:currentColor;
+ transform-origin:right center;transition:transform .28s ease,background .28s ease;
+}
+.cinema-rail-step.is-current{opacity:1;transform:translateX(-5px)}
+.cinema-rail-step.is-current i{
+ background:var(--agora-gold,#efbb82);transform:scaleX(2.3);
+}
+.cinema-progress-track{
+ display:none;position:absolute;inset:auto 0 0;z-index:50;
+ height:3px;background:rgba(255,250,245,.18);
+ pointer-events:none;overflow:hidden;
+}
+.cinema-story.is-enhanced .cinema-progress-track{display:block}
+.cinema-progress-fill{
+ display:block;position:absolute;inset:0;transform-origin:left center;
+ transform:scaleX(var(--cinema-progress,0));
+ background:linear-gradient(90deg,var(--agora-gold,#efbb82),#fff2d4);
+}
+@media(min-width:900px) and (prefers-reduced-motion:no-preference){
+ .cinema-story.is-enhanced .cinema-art{
+  transform:scale(var(--cinema-zoom,1)) rotateX(var(--agora-tilt-x,0deg))
+  rotateY(var(--agora-tilt-y,0deg));
+  transform-origin:70% 54%;
+ }
+}
+@media(max-width:1100px), (max-height:680px){
+ .cinema-chapter-rail{display:none!important}
+}
+@media(max-width:759px),(prefers-reduced-motion:reduce){
+ .cinema-progress-track{display:none!important}
+ .cinema-chapter-rail{display:none!important}
+}
