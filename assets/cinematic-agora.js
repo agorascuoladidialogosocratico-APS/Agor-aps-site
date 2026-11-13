@@ -10,7 +10,6 @@
  const media=window.matchMedia('(min-width:760px)');
  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
  const saveData=Boolean(navigator.connection?.saveData);
- const root=document.documentElement;
  const clamp=(n,a=0,b=1)=>Math.max(a,Math.min(b,n));
  const ease=n=>{n=clamp(n);return n*n*(3-2*n)};
  let frame=0,enhanced=false,visible=true;
@@ -23,8 +22,6 @@
   story.style.removeProperty('--agora-tilt-x');
   story.style.removeProperty('--agora-tilt-y');
   story.style.removeProperty('--cinema-zoom');
-  story.style.removeProperty('--cinema-progress');
-  root.style.removeProperty('--cinema-progress');
   chapterMarkers.forEach((marker,i)=>marker.classList.toggle('is-current',i===0));
   acts.forEach(act=>{
    act.style.removeProperty('opacity');act.style.removeProperty('visibility');
@@ -48,7 +45,6 @@
   const values=[o1,o2,o3];
   const activeIndex=values.indexOf(Math.max(...values));
   chapterMarkers.forEach((marker,i)=>marker.classList.toggle('is-current',i===activeIndex));
-  story.style.setProperty('--cinema-progress',p.toFixed(4));
   story.style.setProperty('--cinema-zoom',(1.028+Math.sin(p*Math.PI*3)*0.021).toFixed(4));
   const intro=clamp(p/.40),growth=clamp((p-.26)/.45),community=clamp((p-.64)/.36);
   acts.forEach((act,i)=>{
@@ -71,7 +67,6 @@
   acts[2].style.setProperty('--column-shift',(community*-55)+'px');
   acts[2].style.setProperty('--paper-x',((1-community)*120)+'px');
   acts[2].style.setProperty('--paper-y',((1-community)*-70)+'px');
-  root.style.setProperty('--cinema-progress',p.toFixed(4));
  }
  function schedule(){
   if(!enhanced||frame||!visible||document.hidden)return;
