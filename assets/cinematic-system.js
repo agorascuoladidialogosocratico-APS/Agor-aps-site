@@ -25,6 +25,7 @@
     const y=window.scrollY||0;
     body.classList.toggle('nav-scrolled',y>30);
     if(!canAnimate()){reset();return;}
+    body.classList.add('motion-ready');
     for(const layer of visibleLayers){
       const rect=layer.parentElement?.getBoundingClientRect();
       if(!rect)continue;
@@ -59,7 +60,7 @@
       targets.forEach(el=>revealObserver.observe(el));
       // During warm-up all content remains visible and accessible; after
       // observers register, tiny transitions may be activated.
-      body.classList.add('motion-ready');
+      if(canAnimate())body.classList.add('motion-ready');
     }
   }else reset();
   document.addEventListener('agora:motion-change',event=>{
