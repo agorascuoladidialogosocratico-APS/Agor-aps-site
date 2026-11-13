@@ -7,6 +7,8 @@ on:
       - '.pages.yml'
       - 'assets/cinematic-agora.*'
       - 'assets/cinematic-system.*'
+      - 'assets/cinematic-overture.*'
+      - 'scripts/generate-cinematic-mural.py'
       - 'scripts/verify-url-contract.mjs'
       - 'data/url-contract-2026-11-13.json'
       - 'assets/cinema-*.svg'
@@ -58,6 +60,8 @@ jobs:
         run: /tmp/agora-cover-venv/bin/python scripts/optimize-home-images.py
       - name: Conserva localmente le opere di Raffaello in pubblico dominio
         run: node scripts/cache-cinematic-art.mjs
+      - name: Genera fotografia storica in alta definizione
+        run: /tmp/agora-cover-venv/bin/python scripts/generate-cinematic-mural.py
       - name: Genera e verifica il sito
         run: npm run build
       - name: Verifica metadati e provenienza SEO
@@ -80,6 +84,9 @@ jobs:
           git add chi-siamo dialogo-socratico progetti tirocini volontariato-esc partecipa contatti trasparenza privacy accessibilita magazine sostienici sitemap.xml assets/magazine/covers assets/magazine/contemporaneo index.html assets/agora-home.css assets/image-optimization-manifest.json assets/agora_icon-144.webp assets/agora_dialogo*.webp assets/agora_gruppo_home*.webp assets/agora_viaggio*.webp assets/agora_chi_siamo*.webp
           if compgen -G 'assets/cinema-*.png' > /dev/null; then
             git add assets/cinema-*.png
+          fi
+          if test -f assets/cinema-raphael-detail.webp; then
+            git add assets/cinema-raphael-detail.webp
           fi
           if git diff --cached --quiet; then
             echo "Pagine già aggiornate."
