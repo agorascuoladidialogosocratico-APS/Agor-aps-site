@@ -1,3 +1,4 @@
+import {handleTeacherArea} from './teacher-area.js';
 import {receiveChatEmailReply} from './chat-email.js';
 import {handleSiteChat,deleteExpiredChats} from './site-chat.js';
 /* Worker Agorà: invio email per il modulo contatti, senza salvare le richieste.
@@ -49,6 +50,7 @@ async function processContact(request,env){
 export default {
  async fetch(request,env){
    const pathname=new URL(request.url).pathname;
+   if(pathname==='/area-docenti/cornaredo'||pathname.startsWith('/area-docenti/cornaredo/'))return handleTeacherArea(request,env);
    if(pathname.startsWith('/api/site-chat/')||pathname==='/api/meta-whatsapp-webhook')return handleSiteChat(request,env);
    if(pathname==='/api/contact')return processContact(request,env);
    if(pathname.startsWith('/api/'))return result(404,{ok:false,message:'Indirizzo non trovato.'});
