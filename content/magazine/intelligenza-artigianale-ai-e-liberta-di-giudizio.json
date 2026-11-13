@@ -31,5 +31,17 @@
   "socialXText": "",
   "editorialSeries": "Filosofia e vita contemporanea",
   "socialCarouselSlides": 5,
-  "socialStorySlides": 2
+  "socialStorySlides": 2,
+  "socialCarouselImages": [
+    "/assets/magazine/contemporaneo/intelligenza-artigianale-ai-e-liberta-di-giudizio/carousel-01.png",
+    "/assets/magazine/contemporaneo/intelligenza-artigianale-ai-e-liberta-di-giudizio/carousel-02.png",
+    "/assets/magazine/contemporaneo/intelligenza-artigianale-ai-e-liberta-di-giudizio/carousel-03.png",
+    "/assets/magazine/contemporaneo/intelligenza-artigianale-ai-e-liberta-di-giudizio/carousel-04.png",
+    "/assets/magazine/contemporaneo/intelligenza-artigianale-ai-e-liberta-di-giudizio/carousel-05.png"
+  ],
+  "socialStoryImages": [
+    "/assets/magazine/contemporaneo/intelligenza-artigianale-ai-e-liberta-di-giudizio/story-01.png",
+    "/assets/magazine/contemporaneo/intelligenza-artigianale-ai-e-liberta-di-giudizio/story-02.png"
+  ],
+  "socialAiAssisted": true
 }
