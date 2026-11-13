@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="640" viewBox="0 0 640 640" role="img" aria-label="Due forme intrecciate simboleggiano il dialogo e l'incontro di idee diverse">
+<defs>
+ <linearGradient id="sage" x1="0%" y1="10%" x2="100%" y2="90%"><stop stop-color="#f5faec"/><stop offset=".43" stop-color="#b7d9c5"/><stop offset="1" stop-color="#6caa9b"/></linearGradient>
+ <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%"><stop stop-color="#ffebbb"/><stop offset=".58" stop-color="#e8be83"/><stop offset="1" stop-color="#b77953"/></linearGradient>
+ <radialGradient id="orb"><stop stop-color="#fff5dd"/><stop offset=".32" stop-color="#e2b985"/><stop offset="1" stop-color="#c78952"/></radialGradient>
+</defs>
+<g fill="none" stroke-linecap="round">
+ <circle cx="320" cy="320" r="258" stroke="#a2cfc2" stroke-width="1.5" opacity=".19" stroke-dasharray="3 17"/>
+ <circle cx="320" cy="320" r="206" stroke="#e8be83" stroke-width="1" opacity=".2"/>
+ <ellipse cx="320" cy="319" rx="212" ry="111" transform="rotate(-35 320 319)" stroke="url(#gold)" stroke-width="24" opacity=".76"/>
+ <ellipse cx="320" cy="321" rx="122" ry="232" transform="rotate(33 320 321)" stroke="url(#sage)" stroke-width="26" opacity=".95"/>
+ <ellipse cx="320" cy="319" rx="211" ry="109" transform="rotate(-35 320 319)" stroke="#fff9e7" stroke-width="4" opacity=".28"/>
+</g>
+<circle cx="320" cy="321" r="44" fill="url(#orb)" opacity=".94"/>
+<circle cx="330" cy="309" r="14" fill="#fff3d2" opacity=".55"/>
+<g fill="#e8be83"><circle cx="116" cy="355" r="7"/><circle cx="503" cy="221" r="5"/></g>
+<g stroke="#b7d9c5" opacity=".45"><path d="M116 355 L157 355"/><path d="M503 221 L503 256"/></g>
+</svg>

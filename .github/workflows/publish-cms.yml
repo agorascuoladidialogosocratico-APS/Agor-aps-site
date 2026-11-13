@@ -5,6 +5,9 @@ on:
     paths:
       - 'content/**'
       - '.pages.yml'
+      - 'assets/dialogue-3d.*'
+      - 'assets/dialogue-sculpture.svg'
+      - 'scripts/bundle-home-css.mjs'
   workflow_dispatch:
 
 permissions:
@@ -56,6 +59,8 @@ jobs:
         run: node scripts/verify-seo.mjs
       - name: Verifica regressioni di performance e immagini
         run: node scripts/verify-performance.mjs
+      - name: Verifica esperienza WebGL accessibile
+        run: node scripts/verify-immersion.mjs
       - name: Verifica nuove copertine e asset social
         run: node scripts/verify-editorial-social.mjs
       - name: Aggiorna pagine statiche dal CMS
