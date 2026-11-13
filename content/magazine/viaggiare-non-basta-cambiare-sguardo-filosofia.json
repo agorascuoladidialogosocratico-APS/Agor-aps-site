@@ -31,5 +31,17 @@
   "socialXText": "",
   "editorialSeries": "Filosofia e vita contemporanea",
   "socialCarouselSlides": 5,
-  "socialStorySlides": 2
+  "socialStorySlides": 2,
+  "socialCarouselImages": [
+    "/assets/magazine/contemporaneo/viaggiare-non-basta-cambiare-sguardo-filosofia/carousel-01.png",
+    "/assets/magazine/contemporaneo/viaggiare-non-basta-cambiare-sguardo-filosofia/carousel-02.png",
+    "/assets/magazine/contemporaneo/viaggiare-non-basta-cambiare-sguardo-filosofia/carousel-03.png",
+    "/assets/magazine/contemporaneo/viaggiare-non-basta-cambiare-sguardo-filosofia/carousel-04.png",
+    "/assets/magazine/contemporaneo/viaggiare-non-basta-cambiare-sguardo-filosofia/carousel-05.png"
+  ],
+  "socialStoryImages": [
+    "/assets/magazine/contemporaneo/viaggiare-non-basta-cambiare-sguardo-filosofia/story-01.png",
+    "/assets/magazine/contemporaneo/viaggiare-non-basta-cambiare-sguardo-filosofia/story-02.png"
+  ],
+  "socialAiAssisted": true
 }
