@@ -50,7 +50,7 @@ const buildPages=function buildPages(D){
    const canonical=base+path;
    const leadPhoto=photographs[photoForPath[path]??0];
    const theme=visualThemes[path]||'community';
-   const heroVisual='<figure class="visual-cover-photo">'+picture(leadPhoto,false)+'<figcaption><span class="visual-photo-count">AGORÀ / VISIONI</span><span>'+e(leadPhoto.label)+'</span></figcaption></figure>';
+   const heroVisual='<figure class="visual-cover-photo">'+picture(leadPhoto,false).replace('<img ','<img data-cinema-depth="0.10" ')+'<figcaption><span class="visual-photo-count">AGORÀ / VISIONI</span><span>'+e(leadPhoto.label)+'</span></figcaption></figure>';
 
    const sceneByTheme={
     community:{asset:'/assets/cinema-olive-tree.svg',title:'Persone, idee, comunità'},
