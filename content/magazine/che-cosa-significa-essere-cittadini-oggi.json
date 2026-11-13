@@ -31,5 +31,17 @@
   "socialXText": "",
   "editorialSeries": "Filosofia e vita contemporanea",
   "socialCarouselSlides": 5,
-  "socialStorySlides": 2
+  "socialStorySlides": 2,
+  "socialCarouselImages": [
+    "/assets/magazine/contemporaneo/che-cosa-significa-essere-cittadini-oggi/carousel-01.png",
+    "/assets/magazine/contemporaneo/che-cosa-significa-essere-cittadini-oggi/carousel-02.png",
+    "/assets/magazine/contemporaneo/che-cosa-significa-essere-cittadini-oggi/carousel-03.png",
+    "/assets/magazine/contemporaneo/che-cosa-significa-essere-cittadini-oggi/carousel-04.png",
+    "/assets/magazine/contemporaneo/che-cosa-significa-essere-cittadini-oggi/carousel-05.png"
+  ],
+  "socialStoryImages": [
+    "/assets/magazine/contemporaneo/che-cosa-significa-essere-cittadini-oggi/story-01.png",
+    "/assets/magazine/contemporaneo/che-cosa-significa-essere-cittadini-oggi/story-02.png"
+  ],
+  "socialAiAssisted": true
 }
