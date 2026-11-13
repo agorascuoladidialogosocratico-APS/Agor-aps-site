@@ -51,6 +51,28 @@ const buildPages=function buildPages(D){
    const leadPhoto=photographs[photoForPath[path]??0];
    const theme=visualThemes[path]||'community';
    const heroVisual='<figure class="visual-cover-photo">'+picture(leadPhoto,false)+'<figcaption><span class="visual-photo-count">AGORÀ / VISIONI</span><span>'+e(leadPhoto.label)+'</span></figcaption></figure>';
+
+   const sceneByTheme={
+    community:{asset:'/assets/cinema-olive-tree.svg',title:'Persone, idee, comunità'},
+    projects:{asset:'/assets/cinema-columns.svg',title:'Le idee costruiscono possibilità'},
+    method:{asset:'/assets/cinema-curtain.svg',title:'Il dialogo cambia le prospettive'},
+    travel:{asset:'/assets/cinema-olive-tree.svg',title:'Attraversare e interrogare'},
+    contact:{asset:'/assets/cinema-columns.svg',title:'La prossima domanda è tua'}
+   };
+   const scene=sceneByTheme[theme]||sceneByTheme.community;
+   const sceneVisual='<div class="cinema-scene-art" aria-hidden="true"><img class="cinema-scene-asset" data-cinema-depth="0.28" src="'+scene.asset+'" alt="" width="1200" height="1100" loading="lazy" decoding="async"><span class="cinema-scene-orb" data-cinema-depth="-0.15"></span><span class="cinema-scene-label">'+e(scene.title)+'</span></div>';
+   const interludeByTheme={
+    community:['Ogni voce può cambiare la storia.','La partecipazione comincia da chi ascoltiamo.','/partecipa/','Partecipa'],
+    projects:['Le idee diventano cammini.','Scopri come il confronto si traduce in percorsi educativi e civici.','/progetti/','Esplora i progetti'],
+    method:['La domanda è solo l’inizio.','Nel dialogo socratico ogni risposta può aprire una nuova ricerca.','/dialogo-socratico/','Approfondisci il metodo'],
+    travel:['Muoversi è cambiare sguardo.','I progetti europei sono occasioni per incontrare differenze reali.','/progetti/','Scopri le opportunità'],
+    contact:['La prossima domanda è tua.','Scrivi, proponi e prendi parte alla comunità Agorà.','/partecipa/','Entra nella comunità']
+   };
+   const interludeConfig=interludeByTheme[theme]||interludeByTheme.community;
+   const includeInterlude=!['/privacy/','/accessibilita/','/trasparenza/'].includes(path);
+   const interlude=includeInterlude?'<section class="cinema-interlude cinema-motion-target" aria-label="Prosegui il viaggio in Agorà"><div><small>Agorà / Dialoghi in movimento</small><h2>'+e(interludeConfig[0])+'</h2><p>'+e(interludeConfig[1])+'</p><a href="'+interludeConfig[2]+'">'+e(interludeConfig[3])+' ↗</a></div><img src="'+scene.asset+'" alt="" loading="lazy" decoding="async" width="1200" height="1100" data-cinema-depth="0.18"></section>':'';
+   const stagedBody=body.replace(/class="info-section"/g,'class="info-section cinema-motion-target"');
+
    const visualGallery=projectGalleryPaths.has(path)?'<section class="visual-gallery" aria-label="Fotografie delle esperienze di Agorà"><div class="visual-gallery-heading"><span>La nostra galleria</span><p>Il dialogo è fatto di persone, luoghi e incontri.</p></div><div class="visual-gallery-grid">'+photographs.filter(p=>p.src!==leadPhoto.src).map((photo,i)=>'<figure class="visual-gallery-item">'+picture(photo,true)+'<figcaption><span>0'+(i+1)+'</span> '+e(photo.label)+'</figcaption></figure>').join('')+'</div></section>':'';
 
    const orgId=base+'/#agora';
@@ -79,13 +101,13 @@ const buildPages=function buildPages(D){
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${e(seoTitle)}"><meta name="twitter:description" content="${e(desc)}"><meta name="twitter:image" content="${base}${leadPhoto.src}">
 <link rel="icon" type="image/png" href="/assets/agora_icon.png">
 <link rel="alternate" type="application/rss+xml" title="Agorà Magazine" href="/magazine/rss.xml">
-<link rel="stylesheet" href="/assets/sections.css?v=20261111"><link rel="stylesheet" href="/assets/accessibility.css?v=20261111"><link rel="stylesheet" href="/assets/experience.css?v=20261111"><link rel="stylesheet" href="/assets/visual-story.css?v=20261111"><link rel="stylesheet" href="/assets/site-polish.css?v=20261112"><link rel="stylesheet" href="/assets/whatsapp-chat.css?v=20261112">
-<script type="application/ld+json">${schema}</script><script defer src="/assets/a11y.js?v=20261111"></script><script defer src="/assets/experience.js?v=20261111"></script><script defer src="/assets/contact-form.js?v=20261111"></script><script defer src="/assets/whatsapp-chat.js?v=20261112"></script>
-</head><body class="info-page">
+<link rel="stylesheet" href="/assets/sections.css?v=20261111"><link rel="stylesheet" href="/assets/accessibility.css?v=20261111"><link rel="stylesheet" href="/assets/experience.css?v=20261111"><link rel="stylesheet" href="/assets/visual-story.css?v=20261111"><link rel="stylesheet" href="/assets/site-polish.css?v=20261112"><link rel="stylesheet" href="/assets/whatsapp-chat.css?v=20261112"><link rel="stylesheet" href="/assets/cinematic-system.css?v=20261113">
+<script type="application/ld+json">${schema}</script><script defer src="/assets/a11y.js?v=20261111"></script><script defer src="/assets/experience.js?v=20261111"></script><script defer src="/assets/contact-form.js?v=20261111"></script><script defer src="/assets/whatsapp-chat.js?v=20261112"></script><script defer src="/assets/cinematic-system.js?v=20261113"></script>
+</head><body class="info-page cinema-system">
 <a class="skip-link" href="#contenuto">Salta al contenuto</a>
 <header class="info-header"><div class="info-header-inner"><a class="info-brand" href="/" aria-label="Agorà APS, torna all'inizio"><img alt="" src="/assets/agora_icon.png" width="48" height="48"><span>Agorà APS<small>Scuola di Dialogo Socratico</small></span></a><nav class="info-nav" aria-label="Navigazione principale">${nav}</nav></div></header>
 <main class="info-main" id="contenuto"><nav class="info-breadcrumbs" aria-label="Percorso di navigazione"><a href="/">Home</a> / <span aria-current="page">${e(eyebrow)}</span></nav>
-<header class="info-hero visual-cover theme-${theme}"><div class="visual-cover-copy"><p class="eyebrow">${e(eyebrow)}</p><span class="visual-cover-number" aria-hidden="true">AG / 2026</span><h1>${e(title)}</h1><p class="lead">${e(desc)}</p><a class="visual-cover-explore" href="#approfondisci">Scopri di più <span aria-hidden="true">↘</span></a></div>${heroVisual}<span class="visual-cover-decor" aria-hidden="true">✳</span></header><div id="approfondisci" class="visual-story-body">${body}</div>${visualGallery}</main>
+<header class="info-hero visual-cover theme-${theme}"><div class="visual-cover-copy"><p class="eyebrow">${e(eyebrow)}</p><span class="visual-cover-number" aria-hidden="true">AG / 2026</span><h1>${e(title)}</h1><p class="lead">${e(desc)}</p><a class="visual-cover-explore" href="#approfondisci">Scopri di più <span aria-hidden="true">↘</span></a></div>${heroVisual}${sceneVisual}<span class="visual-cover-decor" aria-hidden="true">✳</span></header><div id="approfondisci" class="visual-story-body">${stagedBody}</div>${interlude}${visualGallery}</main>
 <footer class="info-footer"><div class="info-footer-inner"><span>© 2026 Agorà APS</span><nav class="info-footer-links" aria-label="Informazioni e documenti"><a href="/magazine/">Magazine</a><a href="/sostienici/">Sostienici</a><a href="/trasparenza/">Trasparenza</a><a href="/privacy/">Privacy</a><a href="/accessibilita/">Accessibilità</a><a href="${runts}" rel="noopener noreferrer" target="_blank">RUNTS</a></nav><div class="accessibility-tools" aria-label="Preferenze di lettura"><button type="button" data-a11y="text" aria-pressed="false">A+ Testo</button><button type="button" data-a11y="contrast" aria-pressed="false">Contrasto</button></div></div></footer></body></html>\n`;
  };
  const A=D.association,M=D.method,P=D.projects,O=D.opportunities,C=D.contact,G=D.governance,W=D.whatsapp;
