@@ -1,0 +1,621 @@
+{
+  "version": "2026-11-15",
+  "as_of": "2026-11-15",
+  "sources": [
+    {
+      "id": "inpa",
+      "name": "inPA – Portale del reclutamento",
+      "kind": "portale",
+      "url": "https://www.inpa.gov.it/bandi-e-avvisi/",
+      "rss": null
+    },
+    {
+      "id": "guri",
+      "name": "Gazzetta Ufficiale – 4ª serie concorsi",
+      "kind": "gazzetta",
+      "url": "https://www.gazzettaufficiale.it/30giorni/concorsi",
+      "rss": "https://www.gazzettaufficiale.it/rss/S4"
+    },
+    {
+      "id": "gurs",
+      "name": "GURS – Serie concorsi Regione Siciliana",
+      "kind": "gazzetta",
+      "url": "https://www.gurs.regione.sicilia.it/",
+      "rss": null
+    },
+    {
+      "id": "sicve",
+      "name": "SICVE – Bandi e concorsi",
+      "kind": "società scientifica",
+      "url": "https://sicve.it/bandi-e-concorsi/",
+      "rss": null
+    },
+    {
+      "id": "as-ag",
+      "name": "ASP Agrigento – Avvisi aperti",
+      "kind": "azienda pubblica",
+      "url": "https://www.aspag.it/avvisi-straordinari-avviso-aperto/",
+      "rss": null
+    },
+    {
+      "id": "as-cl",
+      "name": "ASP Caltanissetta – Selezioni",
+      "kind": "azienda pubblica",
+      "url": "https://aspcaltanissetta.selezionieconcorsi.it/",
+      "rss": null
+    },
+    {
+      "id": "cannizzaro",
+      "name": "AO Cannizzaro – Bandi di concorso",
+      "kind": "azienda pubblica",
+      "url": "https://www.aocannizzaro.it/trasparenza/lista_bandi.aspx?obligation=174&title=Bandi-di-concorso",
+      "rss": null
+    },
+    {
+      "id": "garibaldi",
+      "name": "ARNAS Garibaldi – Concorsi",
+      "kind": "azienda pubblica",
+      "url": "https://www.ao-garibaldi.ct.it/comunicazione/concorsi/default.aspx",
+      "rss": null
+    },
+    {
+      "id": "aoup-ct",
+      "name": "AOUP Rodolico–San Marco – Concorsi",
+      "kind": "azienda pubblica",
+      "url": "https://www.policlinicorodolicosanmarco.it/professionista/concorsi/",
+      "rss": null
+    },
+    {
+      "id": "morgagni",
+      "name": "Policlinico Morgagni – Pedara",
+      "kind": "privato accreditato",
+      "url": "https://www.policlinicomorgagni.it/centro-cuore-pedara/",
+      "rss": null
+    },
+    {
+      "id": "asp-me",
+      "name": "ASP Messina – Portale istituzionale",
+      "kind": "azienda pubblica",
+      "url": "https://www.asp.messina.it/",
+      "rss": null
+    },
+    {
+      "id": "aoup-me",
+      "name": "AOUP Gaetano Martino – Concorsi",
+      "kind": "azienda pubblica",
+      "url": "https://www.polime.it/",
+      "rss": null
+    },
+    {
+      "id": "papardo",
+      "name": "AO Papardo – Portale istituzionale",
+      "kind": "azienda pubblica",
+      "url": "https://www.aopapardo.it/",
+      "rss": null
+    },
+    {
+      "id": "cot",
+      "name": "COT Messina – Lavora con noi",
+      "kind": "privato accreditato",
+      "url": "https://cotmessina.com/",
+      "rss": null
+    },
+    {
+      "id": "cristore",
+      "name": "Casa di Cura Cristo Re",
+      "kind": "privato accreditato",
+      "url": "https://www.casadicuracristore.it/",
+      "rss": null
+    },
+    {
+      "id": "iomi",
+      "name": "IOMI Franco Scalabrino – Lavora con noi",
+      "kind": "privato accreditato",
+      "url": "https://iomime.giomi.com/lavora-con-noi/",
+      "rss": null
+    },
+    {
+      "id": "carmona",
+      "name": "Casa di Cura Carmona",
+      "kind": "privato accreditato",
+      "url": "https://www.carmonacasadicura.it/",
+      "rss": null
+    },
+    {
+      "id": "aoup-pa",
+      "name": "Policlinico Giaccone – Concorsi e atti",
+      "kind": "azienda pubblica",
+      "url": "https://www.policlinico.pa.it/web/guest/",
+      "rss": null
+    },
+    {
+      "id": "civico",
+      "name": "ARNAS Civico – Concorsi",
+      "kind": "azienda pubblica",
+      "url": "https://www.arnascivico.it/index.php/concorsi",
+      "rss": null
+    },
+    {
+      "id": "villasofia",
+      "name": "AO Villa Sofia–Cervello – Concorsi",
+      "kind": "azienda pubblica",
+      "url": "https://www.ospedaliriunitipalermo.it/amministrazione-trasparente/bandi-di-concorso/",
+      "rss": null
+    },
+    {
+      "id": "mariaeleonora",
+      "name": "Maria Eleonora Hospital",
+      "kind": "privato accreditato",
+      "url": "https://www.gvmnet.it/",
+      "rss": null
+    },
+    {
+      "id": "notopasqualino",
+      "name": "Casa di Cura Noto Pasqualino – ricerca sito",
+      "kind": "privato accreditato",
+      "url": "https://www.google.com/search?q=Casa+di+Cura+Noto+Pasqualino+Palermo+lavora+con+noi",
+      "rss": null
+    },
+    {
+      "id": "giglio",
+      "name": "Fondazione Giglio di Cefalù",
+      "kind": "struttura convenzionata",
+      "url": "https://www.ospedalegiglio.it/",
+      "rss": null
+    },
+    {
+      "id": "asp-rg",
+      "name": "ASP Ragusa – ricerca concorsi",
+      "kind": "azienda pubblica",
+      "url": "https://www.google.com/search?q=ASP+Ragusa+bandi+di+concorso+sito+ufficiale",
+      "rss": null
+    },
+    {
+      "id": "clinmed",
+      "name": "Clinica del Mediterraneo Ragusa – ricerca",
+      "kind": "privato accreditato",
+      "url": "https://www.google.com/search?q=Clinica+del+Mediterraneo+Ragusa+lavora+con+noi",
+      "rss": null
+    },
+    {
+      "id": "asp-sr",
+      "name": "ASP Siracusa – sito istituzionale",
+      "kind": "azienda pubblica",
+      "url": "https://www.asp.sr.it/",
+      "rss": null
+    },
+    {
+      "id": "villasalus",
+      "name": "Villa Salus (SR) – ricerca sito",
+      "kind": "privato accreditato",
+      "url": "https://www.google.com/search?q=Villa+Salus+Siracusa+chirurgia+vascolare+clinica",
+      "rss": null
+    },
+    {
+      "id": "asp-tp",
+      "name": "ASP Trapani – Selezioni",
+      "kind": "azienda pubblica",
+      "url": "https://asptrapani.selezionieconcorsi.it/",
+      "rss": null
+    }
+  ],
+  "facilities": [
+    {
+      "province": "AG",
+      "city": "Agrigento",
+      "name": "Ospedale San Giovanni di Dio",
+      "unit": "UOC (classificazione da riconfermare su atto aziendale)",
+      "sector": "pubblico",
+      "employer": "as-ag",
+      "priority": "alta"
+    },
+    {
+      "province": "CL",
+      "city": "Caltanissetta",
+      "name": "Ospedale Sant’Elia",
+      "unit": "UOC",
+      "sector": "pubblico",
+      "employer": "as-cl",
+      "priority": "altissima"
+    },
+    {
+      "province": "CT",
+      "city": "Catania",
+      "name": "AO Cannizzaro",
+      "unit": "UOC",
+      "sector": "pubblico",
+      "employer": "cannizzaro",
+      "priority": "alta"
+    },
+    {
+      "province": "CT",
+      "city": "Catania",
+      "name": "ARNAS Garibaldi – Nesima",
+      "unit": "UOC",
+      "sector": "pubblico",
+      "employer": "garibaldi",
+      "priority": "altissima"
+    },
+    {
+      "province": "CT",
+      "city": "Catania",
+      "name": "Policlinico Gaspare Rodolico",
+      "unit": "UOC",
+      "sector": "pubblico",
+      "employer": "aoup-ct",
+      "priority": "alta"
+    },
+    {
+      "province": "CT",
+      "city": "Catania",
+      "name": "Ospedale San Marco",
+      "unit": "UOC",
+      "sector": "pubblico",
+      "employer": "aoup-ct",
+      "priority": "alta"
+    },
+    {
+      "province": "CT",
+      "city": "Pedara",
+      "name": "Centro Cuore Morgagni",
+      "unit": "Chirurgia grandi vasi; UOC autonoma di Chirurgia vascolare non confermata",
+      "sector": "privato",
+      "employer": "morgagni",
+      "priority": "esplorativa"
+    },
+    {
+      "province": "ME",
+      "city": "Messina",
+      "name": "Policlinico Gaetano Martino",
+      "unit": "Unità operativa; livello da verificare",
+      "sector": "pubblico",
+      "employer": "aoup-me",
+      "priority": "alta"
+    },
+    {
+      "province": "ME",
+      "city": "Messina",
+      "name": "AO Papardo",
+      "unit": "UOSD",
+      "sector": "pubblico",
+      "employer": "papardo",
+      "priority": "alta"
+    },
+    {
+      "province": "ME",
+      "city": "Patti",
+      "name": "Ospedale Barone Romeo",
+      "unit": "Unità operativa; livello da verificare",
+      "sector": "pubblico",
+      "employer": "asp-me",
+      "priority": "alta"
+    },
+    {
+      "province": "ME",
+      "city": "Messina",
+      "name": "COT Istituto Clinico Polispecialistico",
+      "unit": "Unità funzionale privata (4 posti, carta servizi 2026)",
+      "sector": "privato",
+      "employer": "cot",
+      "priority": "media"
+    },
+    {
+      "province": "ME",
+      "city": "Messina",
+      "name": "Casa di Cura Cristo Re",
+      "unit": "Reparto / unità funzionale privata",
+      "sector": "privato",
+      "employer": "cristore",
+      "priority": "media"
+    },
+    {
+      "province": "ME",
+      "city": "Messina",
+      "name": "IOMI Franco Scalabrino",
+      "unit": "Sezione specialistica privata",
+      "sector": "privato",
+      "employer": "iomi",
+      "priority": "altissima"
+    },
+    {
+      "province": "ME",
+      "city": "Messina",
+      "name": "Casa di Cura Carmona",
+      "unit": "Unità funzionale privata",
+      "sector": "privato",
+      "employer": "carmona",
+      "priority": "media"
+    },
+    {
+      "province": "PA",
+      "city": "Palermo",
+      "name": "Policlinico Paolo Giaccone",
+      "unit": "UOC",
+      "sector": "pubblico",
+      "employer": "aoup-pa",
+      "priority": "alta"
+    },
+    {
+      "province": "PA",
+      "city": "Palermo",
+      "name": "ARNAS Ospedale Civico",
+      "unit": "UOC",
+      "sector": "pubblico",
+      "employer": "civico",
+      "priority": "alta"
+    },
+    {
+      "province": "PA",
+      "city": "Palermo",
+      "name": "Ospedale Villa Sofia",
+      "unit": "UOC",
+      "sector": "pubblico",
+      "employer": "villasofia",
+      "priority": "alta"
+    },
+    {
+      "province": "PA",
+      "city": "Palermo",
+      "name": "Maria Eleonora Hospital",
+      "unit": "Specialità privata; direzione autonoma da verificare",
+      "sector": "privato",
+      "employer": "mariaeleonora",
+      "priority": "media"
+    },
+    {
+      "province": "PA",
+      "city": "Palermo",
+      "name": "Casa di Cura Noto Pasqualino",
+      "unit": "Unità funzionale privata",
+      "sector": "privato",
+      "employer": "notopasqualino",
+      "priority": "media"
+    },
+    {
+      "province": "PA",
+      "city": "Cefalù",
+      "name": "Fondazione Istituto Giglio",
+      "unit": "Unità / servizio; classificazione da verificare",
+      "sector": "convenzionato",
+      "employer": "giglio",
+      "priority": "media"
+    },
+    {
+      "province": "RG",
+      "city": "Ragusa",
+      "name": "Clinica del Mediterraneo",
+      "unit": "Unità funzionale privata",
+      "sector": "privato",
+      "employer": "clinmed",
+      "priority": "media"
+    },
+    {
+      "province": "RG",
+      "city": "Vittoria",
+      "name": "Ospedale Riccardo Guzzardi",
+      "unit": "UOSD (da verificare su atto aziendale)",
+      "sector": "pubblico",
+      "employer": "asp-rg",
+      "priority": "alta"
+    },
+    {
+      "province": "SR",
+      "city": "Siracusa",
+      "name": "Ospedale Umberto I",
+      "unit": "UOC",
+      "sector": "pubblico",
+      "employer": "asp-sr",
+      "priority": "altissima"
+    },
+    {
+      "province": "SR",
+      "city": "Melilli",
+      "name": "Villa Salus (sede e unità da riconfermare)",
+      "unit": "Struttura privata; unità di Chirurgia vascolare da confermare",
+      "sector": "privato",
+      "employer": "villasalus",
+      "priority": "esplorativa"
+    },
+    {
+      "province": "TP",
+      "city": "Erice",
+      "name": "Ospedale Sant’Antonio Abate",
+      "unit": "Servizio ambulatoriale; degenza autonoma non confermata",
+      "sector": "pubblico",
+      "employer": "asp-tp",
+      "priority": "altissima"
+    },
+    {
+      "province": "TP",
+      "city": "Marsala",
+      "name": "Ospedale Paolo Borsellino",
+      "unit": "UOC menzionata da ASP, operatività attuale da verificare",
+      "sector": "pubblico",
+      "employer": "asp-tp",
+      "priority": "esplorativa"
+    }
+  ],
+  "opportunities": [
+    {
+      "id": "cl-td-2026",
+      "title": "Dirigente medico – Chirurgia vascolare, incarichi a tempo determinato / sostituzioni",
+      "employer": "ASP Caltanissetta",
+      "province": "CL",
+      "kind": "Tempo determinato",
+      "status": "aperto",
+      "published": "2026-01-12",
+      "deadline": "2026-12-31",
+      "places": "non determinato dalla pagina riepilogativa",
+      "eligibility": "Candidature online, verificare avviso completo",
+      "url": "https://aspcaltanissetta.selezionieconcorsi.it/azione.php?name=selezioni&ref_categoria=5",
+      "verified": true,
+      "note": "La pagina dichiara candidature aperte per Chirurgia vascolare."
+    },
+    {
+      "id": "tp-lp-2026",
+      "title": "Elenco specialisti Angiologia e Chirurgia vascolare – ecocolordoppler",
+      "employer": "ASP Trapani",
+      "province": "TP",
+      "kind": "Lavoro autonomo",
+      "status": "aperto",
+      "published": "2026-08-11",
+      "deadline": "2026-12-31",
+      "places": "elenco multi-disciplina; il numero 1 di inPA non rappresenta posti specifici vascolari",
+      "eligibility": "Prestazioni libero-professionali, non assunzione stabile",
+      "url": "https://www.inpa.gov.it/bandi-e-avvisi/dettaglio-bando-avviso/?concorso_id=72c7cc4ee6f94e50b5435df53976060c",
+      "verified": true,
+      "note": "Avviso ufficiale inPA, aperto fino al 31 dicembre 2026."
+    },
+    {
+      "id": "me-iomi-2026",
+      "title": "Ricerca medico specialista in Chirurgia vascolare",
+      "employer": "IOMI Franco Scalabrino – Messina",
+      "province": "ME",
+      "kind": "Selezione privata",
+      "status": "senza_scadenza",
+      "published": "2026-09-18",
+      "deadline": null,
+      "places": "non indicato",
+      "eligibility": "CV via e-mail o form dedicato",
+      "url": "https://www.omceo.me.it/2026/09/lo-iomi-franco-scalabrino-di-messina-ricerca-personale-da-inserire-nel-proprio-organico/",
+      "application": "https://iomime.giomi.com/lavora-con-noi/",
+      "verified": true,
+      "note": "Annuncio dell’Ordine dei medici di Messina: verificare con la struttura se la selezione è ancora attiva."
+    },
+    {
+      "id": "ag-grad-2026",
+      "title": "Avviso aperto per graduatorie temporanee, tra le discipline elencate Chirurgia vascolare",
+      "employer": "ASP Agrigento",
+      "province": "AG",
+      "kind": "Graduatorie / incarichi temporanei",
+      "status": "verificare",
+      "published": null,
+      "deadline": null,
+      "places": "non indicato",
+      "eligibility": "Domanda per disciplina distinta tramite PEC secondo istruzioni della pagina",
+      "url": "https://www.aspag.it/avvisi-straordinari-avviso-aperto/",
+      "verified": true,
+      "note": "Il sito dichiara attivo l’avviso ma non mostra una graduatoria vascolare cliccabile; verificare l’attuale inclusione della disciplina."
+    },
+    {
+      "id": "cl-lp-2026",
+      "title": "Avviso aperto per incarichi libero-professionali in varie discipline (inclusa Chirurgia vascolare)",
+      "employer": "ASP Caltanissetta",
+      "province": "CL",
+      "kind": "Lavoro autonomo",
+      "status": "verificare",
+      "published": "2026-03-12",
+      "deadline": null,
+      "places": "non indicato",
+      "eligibility": "Verificare nell’avviso integrato condizioni e presentazione",
+      "url": "https://aspcaltanissetta.selezionieconcorsi.it/",
+      "verified": true,
+      "note": "Indizione n. 264 del 25/02/2026 integrata dalla n. 329 del 12/03/2026; pagina pubblica un avviso aperto."
+    },
+    {
+      "id": "ct-gar-ptfp",
+      "title": "Piano fabbisogno 2026–2028: copertura di posti di Chirurgia vascolare",
+      "employer": "ARNAS Garibaldi – Catania",
+      "province": "CT",
+      "kind": "Fabbisogno programmato",
+      "status": "segnale",
+      "published": "2026-02-01",
+      "deadline": null,
+      "places": "coperture programmate; non sono posizioni candidabili",
+      "eligibility": "Monitorare avvisi futuri, mobilità e utilizzo graduatorie",
+      "url": "https://www.ao-garibaldi.ct.it/repository/AmministrazioneTrasparente/allegati/Docs4460/All.5_Piano%20Triennale%20del%20Fabbisogno%20di%20Personale%202026-2028.pdf",
+      "verified": true,
+      "note": "Il piano menziona trasformazione del rapporto di uno specializzando nel 2027 e ulteriori procedure da definire. Possibili modifiche successive."
+    },
+    {
+      "id": "ct-aoup-grad",
+      "title": "Scorrimenti graduatoria del concorso per quattro dirigenti medici",
+      "employer": "AOUP Rodolico–San Marco – Catania",
+      "province": "CT",
+      "kind": "Graduatoria / scorrimento",
+      "status": "segnale",
+      "published": "2026-10-28",
+      "deadline": null,
+      "places": "concorso originario 4 posti nel 2025",
+      "eligibility": "Procedura originaria chiusa; monitorare ulteriori scorrimenti",
+      "url": "https://www.policlinicorodolicosanmarco.it/professionista/concorsi/concorsi-a-tempo-indeterminato/dirigenza/2025/default.aspx?news=13752",
+      "verified": true,
+      "note": "Pagina ufficiale elenca ulteriore utilizzo della graduatoria il 28/10/2026."
+    },
+    {
+      "id": "sr-conc-2026",
+      "title": "Concorso per un dirigente medico di Chirurgia vascolare a tempo indeterminato",
+      "employer": "ASP Siracusa",
+      "province": "SR",
+      "kind": "Tempo indeterminato",
+      "status": "scaduto",
+      "published": "2026-07-03",
+      "deadline": "2026-08-02",
+      "places": "1",
+      "eligibility": "Bando chiuso; verificare esiti e graduatoria",
+      "url": "https://www.gazzettaufficiale.it/atto/vediMenuHTML?atto.codiceRedazionale=26E03639&atto.dataPubblicazioneGazzetta=2026-07-03&tipoSerie=concorsi&tipoVigenza=originario",
+      "verified": true,
+      "note": "Pubblicato in GU 4ª Serie Speciale n. 50 del 03/07/2026."
+    },
+    {
+      "id": "pa-aoup-stab",
+      "title": "Stabilizzazione di due dirigenti medici di Chirurgia vascolare",
+      "employer": "Policlinico Paolo Giaccone – Palermo",
+      "province": "PA",
+      "kind": "Stabilizzazione riservata",
+      "status": "storico",
+      "published": "2026-06-09",
+      "deadline": null,
+      "places": "2",
+      "eligibility": "Riservata a personale precario con requisiti; non candidatura libera",
+      "url": "https://www.policlinico.pa.it/documents/20117/393496/Delibera%2Bn.%2B554_2026.pdf/f6b1619a-3b39-c4fe-92ac-23e3213c3ee4?t=1781395079109",
+      "verified": true,
+      "note": "Delibera dispone decorrenza stabilizzazione dal 01/07/2026: non indicare come vacancy."
+    },
+    {
+      "id": "me-patti-td",
+      "title": "Eventuali incarichi di Chirurgia vascolare per l’ospedale di Patti",
+      "employer": "ASP Messina – PO Barone Romeo",
+      "province": "ME",
+      "kind": "Tempo determinato",
+      "status": "scaduto",
+      "published": "2026-01-12",
+      "deadline": "2026-01-21",
+      "places": "non indicato",
+      "eligibility": "Avviso chiuso; può essere reiterato",
+      "url": "https://policlinico.pa.it/documents/20117/0/1820.pdf/f20f5711-2ecc-92c2-0914-5ba333925fe2?t=1768308318983",
+      "verified": true,
+      "note": "Fonte ASP Messina ripubblicata sul portale del Policlinico di Palermo."
+    },
+    {
+      "id": "ct-interno-uos",
+      "title": "Conferimento incarico responsabile UOS patologie vascolari nel paziente diabetico",
+      "employer": "AOUP Rodolico–San Marco – Catania",
+      "province": "CT",
+      "kind": "Selezione interna",
+      "status": "storico",
+      "published": "2026-04-02",
+      "deadline": null,
+      "places": "incarico interno",
+      "eligibility": "Riservato a dipendenti dell’AOUP",
+      "url": "https://www.policlinicorodolicosanmarco.it/professionista/concorsi/selezioni-interne/2026/chirurgia-vascolare/AVVISO.pdf",
+      "verified": true,
+      "note": "Non è un concorso per nuovi chirurghi vascolari esterni."
+    },
+    {
+      "id": "pa-civico-primario",
+      "title": "Direzione UOC Chirurgia vascolare assegnata per cinque anni",
+      "employer": "ARNAS Civico – Palermo",
+      "province": "PA",
+      "kind": "Nomina di direzione",
+      "status": "storico",
+      "published": "2026-03-03",
+      "deadline": null,
+      "places": "incarico già attribuito",
+      "eligibility": "Non candidabile",
+      "url": "https://www.ansa.it/sicilia/notizie/sanita_regionale/2026/03/03/la-barbera-alla-direzione-della-chirurgia-vascolare-del-civico-di-palermo_b9a4de79-334c-43b8-a5dd-be19c4c5b013.html",
+      "verified": true,
+      "note": "Nomina completata; non è posto vacante."
+    }
+  ]
+}

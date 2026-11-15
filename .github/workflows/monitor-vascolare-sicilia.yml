@@ -1,0 +1,47 @@
+name: Monitor Chirurgia vascolare Sicilia (RSS)
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/monitor-vascolare-sicilia.yml'
+      - 'scripts/monitor_vascolare_update.py'
+      - 'osservatorio-vascolare/index.html'
+      - 'osservatorio-vascolare/registry.json'
+  schedule:
+    - cron: '30 6 * * *'
+permissions:
+  contents: write
+concurrency:
+  group: monitor-vascolare-sicilia
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    if: github.repository == 'agorascuoladidialogosocratico-APS/Agor-aps-site'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Aggiorna RSS e JSON
+        run: python scripts/monitor_vascolare_update.py
+      - name: Pubblica nuovi risultati
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add osservatorio-vascolare/live.json osservatorio-vascolare/feed.xml
+          if git diff --cached --quiet; then
+            echo "Nessun aggiornamento"
+            exit 0
+          fi
+          git commit -m "chore(monitor): aggiorna segnalazioni chirurghi vascolari"
+          git pull --rebase origin main
+          git push origin HEAD:main
