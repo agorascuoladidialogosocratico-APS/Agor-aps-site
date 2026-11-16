@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-15T23:16:12+01:00",
+  "generated_at": "2026-11-16T10:14:22+01:00",
   "status": "checked",
   "scope": "Segnalazioni RSS automatiche da verificare; non dimostrano bandi aperti",
   "sources_checked": 7,
@@ -13,19 +13,8 @@
       "date": "2026-09-28",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-15T23:16:12+01:00",
-      "new": true
-    },
-    {
-      "id": "8a8b00098cc13407",
-      "title": "Prevenzione, chirurgia mininvasiva e sanità d'iniziativa: la sfida alle patologie vascolari e croniche - AgrigentoNotizie",
-      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNVW5IWlF6VHZfaHhsbmg4WjNsaHpIaS1SaXdLWUQ4TVAwN09TTXpoZGZ1V0ZJSjdEUHgycVNIRnVQelRCS3NQcC1IbFlOeDRnanl4M1o5cHVDTTliOGFmYlBpSjRlb1laNFBXZm5TR0tfN3l5NHc0dTE0aTMtXzZBWlBoT3pFOGpKUzFBU3dZZkhLdUtRY3dGRHlaQmVTMi1LWm56STU5UWtPeWNCTGc?oc=5",
-      "source": "Ricerca RSS 4",
-      "date": "2026-09-26",
-      "verified": false,
-      "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-15T23:16:12+01:00",
-      "new": true
+      "last_seen": "2026-11-16T10:14:22+01:00",
+      "new": false
     },
     {
       "id": "2c74efe198bd1576",
@@ -35,8 +24,8 @@
       "date": "2026-03-03",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-15T23:16:12+01:00",
-      "new": true
+      "last_seen": "2026-11-16T10:14:22+01:00",
+      "new": false
     },
     {
       "id": "80196f5bb6b85555",
@@ -46,8 +35,8 @@
       "date": "2026-03-03",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-15T23:16:12+01:00",
-      "new": true
+      "last_seen": "2026-11-16T10:14:22+01:00",
+      "new": false
     },
     {
       "id": "25a5f5d0ca37e860",
@@ -57,7 +46,18 @@
       "date": "2025-11-13",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-15T23:16:12+01:00",
+      "last_seen": "2026-11-16T10:14:22+01:00",
+      "new": false
+    },
+    {
+      "id": "46302e8ea6a011a9",
+      "title": "Patti: emodinamica e chirurgia vascolare insieme nella lotta contro le amputazioni d’arto. Nasce la rete Tirrenico- Nebroidea del piede diabetico - EventiPress",
+      "url": "https://news.google.com/rss/articles/CBMijgJBVV95cUxOb0F1U1FUc2p3clRJVFpZdUgwNlZVSG41OTNYbXRmd2FfRHNCUHBHUUR6bnJaVGp5dW1jMWVobjhPb0FROEVaN2RVSnpUdnpoZ1ozU1hlZ2ZpNExvUklpcTE4bG9CcU1MWlhacFo4M2o3c3lCTW5LTWZJclJvVHJSRHAzX3pyMDN6OU5JRW41U21oQktuWnFmMktrSmJQa3VUT3kyaVF6LUcxVGxuVmFhbW9SNE8xeGt3REQ5dTBwS2tFQzdpUUFaOHFaczVGMWRWTWxpSU1aZGxIV3JXUk5ock15b2JrWHhyd3dqRkR6QzhpWjk3bDgtUXg3Q3VTZ1JJR1oyY21DNndxQ2hNbWc?oc=5",
+      "source": "Ricerca RSS 6",
+      "date": "2025-10-20",
+      "verified": false,
+      "first_seen": "2026-11-16T10:14:22+01:00",
+      "last_seen": "2026-11-16T10:14:22+01:00",
       "new": true
     },
     {
@@ -68,18 +68,18 @@
       "date": "2025-10-14",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-15T23:16:12+01:00",
-      "new": true
+      "last_seen": "2026-11-16T10:14:22+01:00",
+      "new": false
     },
     {
       "id": "ec29ab40cc1e2555",
       "title": "Il neo-primario di chirurgia vascolare dell’ospedale di Agrigento firma il contratto - Sicilia ON Press",
       "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOOHVPOWctWW5RMExqem1iNHl1dGg1TGNyTHhfQnBEZURCaHdjemlBcFo2MlljQjcwNmwzMlRDdTRXY3h5SDNsSkMwVzlGUUlvYTFHbnFOQlRtREZWc3JXeE4ySEVTYlZ5ME5ZUjUtM2E1aTN1NnpfVzJkMHIwTW5LdmtGZ0NmTjRDVlJkRWNLY0RscDFJWGl0QU1XWlNNUkVjS1ZkdE1YNFMwck01ZlgxaWJQYk9VY0g0c0tYSlRIdERMaEN1?oc=5",
-      "source": "Ricerca RSS 1",
+      "source": "Ricerca RSS 2",
       "date": "2025-10-13",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-15T23:16:12+01:00",
+      "last_seen": "2026-11-16T10:14:22+01:00",
       "new": false
     },
     {
@@ -90,8 +90,8 @@
       "date": "2025-08-16",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-15T23:16:12+01:00",
-      "new": true
+      "last_seen": "2026-11-16T10:14:22+01:00",
+      "new": false
     },
     {
       "id": "64c2340c1518b1e3",
@@ -101,8 +101,8 @@
       "date": "2025-08-08",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-15T23:16:12+01:00",
-      "new": true
+      "last_seen": "2026-11-16T10:14:22+01:00",
+      "new": false
     },
     {
       "id": "30ce42dc5b9c2e51",
@@ -112,7 +112,7 @@
       "date": "2025-07-31",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-15T23:16:12+01:00",
+      "last_seen": "2026-11-16T10:14:22+01:00",
       "new": false
     },
     {
@@ -123,8 +123,8 @@
       "date": "2024-10-02",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-15T23:16:12+01:00",
-      "new": true
+      "last_seen": "2026-11-16T10:14:22+01:00",
+      "new": false
     },
     {
       "id": "1709e27738085b17",
@@ -134,8 +134,8 @@
       "date": "2024-10-02",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-15T23:16:12+01:00",
-      "new": true
+      "last_seen": "2026-11-16T10:14:22+01:00",
+      "new": false
     },
     {
       "id": "94dd51d49228979b",
@@ -145,7 +145,7 @@
       "date": "2024-06-04",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-15T23:16:12+01:00",
+      "last_seen": "2026-11-16T10:14:22+01:00",
       "new": false
     },
     {
@@ -156,8 +156,8 @@
       "date": "2022-11-13",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-15T23:16:12+01:00",
-      "new": true
+      "last_seen": "2026-11-16T10:14:22+01:00",
+      "new": false
     },
     {
       "id": "c0ba179a0566c22f",
@@ -167,8 +167,8 @@
       "date": "2020-03-03",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-15T23:16:12+01:00",
-      "new": true
+      "last_seen": "2026-11-16T10:14:22+01:00",
+      "new": false
     },
     {
       "id": "873dcb5df39130af",
@@ -178,8 +178,8 @@
       "date": "2020-03-03",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-15T23:16:12+01:00",
-      "new": true
+      "last_seen": "2026-11-16T10:14:22+01:00",
+      "new": false
     },
     {
       "id": "71529af27ab958c0",
@@ -189,8 +189,8 @@
       "date": "2019-12-10",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-15T23:16:12+01:00",
-      "new": true
+      "last_seen": "2026-11-16T10:14:22+01:00",
+      "new": false
     },
     {
       "id": "0ddfc0c46bd56f73",
@@ -200,11 +200,22 @@
       "date": "2017-12-22",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
+      "last_seen": "2026-11-16T10:14:22+01:00",
+      "new": false
+    },
+    {
+      "id": "8a8b00098cc13407",
+      "title": "Prevenzione, chirurgia mininvasiva e sanità d'iniziativa: la sfida alle patologie vascolari e croniche - AgrigentoNotizie",
+      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNVW5IWlF6VHZfaHhsbmg4WjNsaHpIaS1SaXdLWUQ4TVAwN09TTXpoZGZ1V0ZJSjdEUHgycVNIRnVQelRCS3NQcC1IbFlOeDRnanl4M1o5cHVDTTliOGFmYlBpSjRlb1laNFBXZm5TR0tfN3l5NHc0dTE0aTMtXzZBWlBoT3pFOGpKUzFBU3dZZkhLdUtRY3dGRHlaQmVTMi1LWm56STU5UWtPeWNCTGc?oc=5",
+      "source": "Ricerca RSS 4",
+      "date": "2026-09-26",
+      "verified": false,
+      "first_seen": "2026-11-15T23:16:12+01:00",
       "last_seen": "2026-11-15T23:16:12+01:00",
-      "new": true
+      "new": false
     }
   ],
-  "new_items": 15,
+  "new_items": 1,
   "errors": [],
   "registry_snapshot": "2026-11-15",
   "official_gazzetta_rss": "https://www.gazzettaufficiale.it/rss/S4"
