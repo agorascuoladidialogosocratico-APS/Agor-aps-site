@@ -79,6 +79,22 @@
         "channelId": "6af5173962b70b94b0001ce9",
         "at": "2026-11-16T11:13:49.682Z"
       }
+    },
+    "archivio-aristotele-e-la-filosofia-del-tempo": {
+      "facebook": {
+        "id": "6afc32d91ea16a156bb00942",
+        "mode": "now",
+        "status": "sent",
+        "channelId": "6af5165b62b70b94b00015eb",
+        "at": "2026-11-17T10:56:30.550Z"
+      },
+      "instagram": {
+        "id": "6afc32de1d0c352aa69d8279",
+        "mode": "now",
+        "status": "sending",
+        "channelId": "6af5173962b70b94b0001ce9",
+        "at": "2026-11-17T10:56:40.854Z"
+      }
     }
   }
 }
