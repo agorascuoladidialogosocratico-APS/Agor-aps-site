@@ -41,3 +41,25 @@ L'adesione non viene descritta come una compravendita del video, e nessun bonifi
 - [ ] Ricevere il file definitivo del Capitolo I esteso e conservarlo con permessi privati.
 - [ ] Configurare accesso soci, verifica iscrizione e controllo versamenti.
 - [ ] Testare un socio autorizzato e un visitatore non autorizzato.
+
+## Modulo di interesse operativo (19 novembre 2026)
+
+Pagina: `/formazione/il-libro-presente/#richiesta`.
+Endpoint: `POST /api/membership-interest` (Cloudflare Worker).
+
+- Campi: nome e cognome, email, eventuale messaggio di massimo 1.000 caratteri, lettura informativa privacy, campo antispam invisibile.
+- Controlli server: tipi di richiesta, origine, dimensione del corpo, email, conferma lettura privacy, categoria predefinita `Il libro presente`; risposta HTML accessibile e senza dati personali.
+- Il modulo usa il binding `CONTACT_EMAIL` per notificare alla segreteria l'interesse a essere ricontattati; nessuna iscrizione, pagamento o accesso automatico.
+- La segreteria deve richiedere il modulo di adesione statutario, verificare gli organi competenti per l'ammissione, confermare la quota deliberata, riscontrare il bonifico e attivare individualmente le credenziali.
+- Se manca il servizio email, il Worker risponde 503 e offre contatto diretto. Non dichiarare ai visitatori che un messaggio è stato inviato se il binding è inattivo.
+- `scripts/test-membership-interest.mjs` prova con invio email simulato esito positivo, antispam, campi, origine e gestione servizio non disponibile. Il collaudo del **reale recapito email** deve essere effettuato separatamente, prima di promuovere il modulo.
+- La homepage ora linka la pagina formativa dalle sezioni pubblicazioni e iscrizioni, più un link nel footer, senza modificare il menu principale.
+
+### Nota sulle quote
+Nella homepage originaria compaiono etichette `Socio ordinario 10 €` e `Socio sostenitore 25 €`. Tali cifre NON sono state utilizzate come importo dovuto nel nuovo flusso, perché serve verificare delibera/validità della quota e condizioni di adesione. L'adesione non è una vendita di accesso al video.
+
+### Punti di attivazione residui
+1. Rendere fruibile nel sito la **sola anteprima pubblica** dopo scelta dell'hosting e controllo dei permessi Drive.
+2. Verificare Cloudflare Email Routing/Send Email binding e fare un test di ricezione reale del modulo.
+3. Attivare Cloudflare Access e whitelist soci: al momento il portale è fail-closed.
+4. Dopo aver ricevuto la versione estesa, caricare il video in archivio riservato e associarlo ai soci ammessi e verificati.
