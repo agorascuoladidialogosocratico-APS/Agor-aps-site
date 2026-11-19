@@ -46,7 +46,7 @@ async function authorized(request,env){
    non esporre i due vecchi video brevi come lezioni riservate o completate. */
 function presentePage(path){
  const base='/soci/il-libro-presente/';
- const suffix=path.slice(base.length).replace(/^\\/|\\/$/g,'');
+ const suffix=path.slice(base.length).replace(/^\/|\/$/g,'');
  if(suffix==='capitolo-1'||suffix==='capitolo-2'){
   return '<nav aria-label="Percorso didattico"><a href="/soci/">Area soci</a> / <a href="'+base+'">Il libro presente</a></nav>'+
    '<h1>Il libro presente · capitolo integrale non ancora disponibile</h1>'+
