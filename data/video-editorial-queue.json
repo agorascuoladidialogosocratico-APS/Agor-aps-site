@@ -1,0 +1,40 @@
+{
+  "updatedAt": "2026-11-19",
+  "campaign": "Il libro presente",
+  "status": "media_not_public",
+  "notes": "Archivio sorgente sul Google Drive istituzionale Agorà. Non usare link Drive per Buffer: richiede URL MP4 HTTPS pubblico, diretto e stabile. Non pubblicare automaticamente.",
+  "items": [
+    {
+      "id": "il-libro-presente-reel",
+      "sourceFilename": "libro-presente-reel.mp4",
+      "durationSeconds": 50.867,
+      "dimensions": "512x910",
+      "targets": [
+        "site:magazine",
+        "instagram:reel",
+        "facebook:reel"
+      ],
+      "mode": "draft",
+      "assetPublicUrl": null,
+      "readyForPublish": false,
+      "captionFrom": "content/magazine/il-libro-presente.json"
+    },
+    {
+      "id": "il-libro-presente-capitolo-1",
+      "sourceFilename": "libro-presente-capitolo-1.mp4",
+      "durationSeconds": 172.3,
+      "dimensions": "910x512",
+      "targets": [
+        "site:video"
+      ],
+      "excludePlatforms": [
+        "instagram",
+        "facebook",
+        "x"
+      ],
+      "mode": "site-only",
+      "assetPublicUrl": null,
+      "readyForPublish": false
+    }
+  ]
+}
