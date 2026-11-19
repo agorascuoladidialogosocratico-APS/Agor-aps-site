@@ -215,7 +215,7 @@ const buildPages=function buildPages(D){
 const pages=buildPages(D);
 for(const [path,html] of Object.entries(pages)){mkdirSync(dirname(path),{recursive:true});writeFileSync(path,html);}
 const site='https://agora-scuoladidialogosocraticoecittadinanzattiva.site';
-const urls=['/',...Object.keys(pages).map(path=>'/'+path.replace(/index\\.html$/,'').replace(/index\.html$/,''))];
+const urls=['/','/formazione/','/formazione/il-libro-presente/',...Object.keys(pages).map(path=>'/'+path.replace(/index\\.html$/,'').replace(/index\.html$/,''))];
 const xml='<?xml version="1.0" encoding="UTF-8"?>\\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\\n'+urls.map(path=>'  <url><loc>'+site+path+'</loc><lastmod>2026-11-12</lastmod></url>').join('\\n')+'\\n</urlset>\\n';
 writeFileSync('sitemap.xml',xml.replace(/\\n/g,'\n'));
 console.log('Agorà: generate '+Object.keys(pages).length+' pagine autonome e sitemap.');
