@@ -30,6 +30,8 @@ jobs:
           node --check assets/experience.js
           node --check assets/contact-form.js
           node --check src/worker.js
+          node --check src/members-area.js
+          node --check scripts/test-members-area.mjs
           node --check assets/whatsapp-chat.js
           node --check assets/site-chat.js
           node --check assets/operator-chat.js
