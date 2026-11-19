@@ -2,7 +2,7 @@
   "updatedAt": "2026-11-19",
   "campaign": "Il libro presente",
   "status": "media_not_public",
-  "notes": "Archivio sorgente sul Google Drive istituzionale Agorà. Non usare link Drive per Buffer: richiede URL MP4 HTTPS pubblico, diretto e stabile. Non pubblicare automaticamente.",
+  "notes": "Conservare le due sorgenti video nel Drive istituzionale. Entrambi i contenuti necessitano di hosting pubblico MP4 per pubblicazione sito/Buffer. Nessun social va pubblicato immediatamente: il capitolo orizzontale è una seconda uscita da preparare e approvare senza data automatica.",
   "items": [
     {
       "id": "il-libro-presente-reel",
@@ -17,7 +17,9 @@
       "mode": "draft",
       "assetPublicUrl": null,
       "readyForPublish": false,
-      "captionFrom": "content/magazine/il-libro-presente.json"
+      "captionFrom": "content/magazine/il-libro-presente.json",
+      "phase": 1,
+      "sequence": "primo contenuto social; inserimento nel Magazine"
     },
     {
       "id": "il-libro-presente-capitolo-1",
@@ -27,14 +29,25 @@
       "targets": [
         "site:video"
       ],
-      "excludePlatforms": [
-        "instagram",
-        "facebook",
-        "x"
-      ],
-      "mode": "site-only",
+      "mode": "site-first",
       "assetPublicUrl": null,
-      "readyForPublish": false
+      "readyForPublish": false,
+      "phase": 2,
+      "futureSocial": {
+        "enabled": true,
+        "phase": 3,
+        "targets": [
+          "instagram:reel",
+          "facebook:reel"
+        ],
+        "status": "editorial_draft",
+        "publishAfter": "after-first-reel-and-website-release",
+        "scheduledDate": null,
+        "automaticDispatch": false,
+        "requiresEditorialApproval": true,
+        "mediaSource": "libro-presente-capitolo-1.mp4",
+        "note": "Versione sociale differita del Capitolo I: predisporre export verticale 9:16 mantenendo un formato leggibile o ritaglio coerente; non usare la sorgente orizzontale come reel se causa tagli."
+      }
     }
   ]
 }
