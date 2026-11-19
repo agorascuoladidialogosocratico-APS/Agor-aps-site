@@ -164,6 +164,21 @@ content:
     label: Storie Instagram 9:16 (percorsi originali)
     type: list
     description: La campagna programmata utilizza la prima storia; le altre restano disponibili per l'editor.
+  - name: socialVideoReel
+    label: Pubblica il video come Reel (Instagram e Facebook)
+    type: boolean
+    description: Richiede videoReelUrl MP4 pubblico diretto. Non usa la copertina come post fotografico.
+  - name: videoReelUrl
+    label: URL MP4 pubblico del Reel
+    type: string
+    description: HTTPS diretto a file .mp4 ospitato pubblicamente; non un link Google Drive.
+  - name: videoSiteUrl
+    label: URL MP4 del video lungo riservato al sito
+    type: string
+    description: Questo video viene inserito nella pagina Magazine, mai nel post social.
+  - name: videoSiteOnly
+    label: Video lungo destinato soltanto al sito
+    type: boolean
   - name: socialAiAssisted
     label: Grafica o testo assistiti da AI
     type: boolean
