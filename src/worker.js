@@ -74,12 +74,12 @@ async function processMembershipInterest(request,env){
  const topic=normalized(payload?.topic,80);
  // Honypot: non inviare messaggi e non creare falsi errori visibili ai bot.
  if(website)return membershipPage('Richiesta ricevuta','<p>Grazie per l’interesse. La richiesta sarà presa in esame dalla segreteria.</p>');
- if(!privacy||name.length<3||name.length>120||!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)||message.length>1000||topic!=='Il libro presente')
+ if(!privacy||name.length<3||name.length>120||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)||message.length>1000||topic!=='Il libro presente')
   return membershipPage('Controlla i dati','<p>Indica nome completo, indirizzo email valido e conferma di aver letto l’informativa privacy.</p>',422);
  if(!env.CONTACT_EMAIL||typeof env.CONTACT_EMAIL.send!=='function')
   return membershipPage('Invio non disponibile','<p>Il servizio email non è attivo. Puoi scriverci direttamente a <a href="mailto:agora.scuoladidialogosocratico@gmail.com?subject=Richiesta%20adesione%20Il%20libro%20presente">agora.scuoladidialogosocratico@gmail.com</a>.</p>',503);
- const clean=s=>s.replace(/[\\r\\n\\0]/g,' ').replace(/[<>]/g,'').trim();
- const body=['Richiesta di informazioni sull’adesione – Il libro presente','', 'Nome e cognome: '+clean(name),'Email del richiedente: '+clean(email),'', 'Messaggio: '+(message||'(non fornito)'),'', 'Il richiedente dichiara di aver letto l’informativa privacy.','', 'Questa richiesta NON equivale a domanda formalmente accettata né a pagamento.','La segreteria deve rispondere con indicazioni su adesione, quota attuale e bonifico.'].join('\\n');
+ const clean=s=>s.replace(/[\r\n\0]/g,' ').replace(/[<>]/g,'').trim();
+ const body=['Richiesta di informazioni sull’adesione – Il libro presente','', 'Nome e cognome: '+clean(name),'Email del richiedente: '+clean(email),'', 'Messaggio: '+(message||'(non fornito)'),'', 'Il richiedente dichiara di aver letto l’informativa privacy.','', 'Questa richiesta NON equivale a domanda formalmente accettata né a pagamento.','La segreteria deve rispondere con indicazioni su adesione, quota attuale e bonifico.'].join('\n');
  try{
   await env.CONTACT_EMAIL.send({from:SENDER,to:RECEIVER,subject:'[Agorà APS] Interesse ad aderire – Il libro presente',text:body});
   return membershipPage('Richiesta inviata','<p>Abbiamo trasmesso la tua richiesta alla segreteria di Agorà.</p><p><strong>Prossimi passi:</strong> attendi le indicazioni sulla procedura associativa e sull’importo della quota. Non versare importi senza prima aver ricevuto le istruzioni.</p><p>L’invio non comporta ammissione automatica, pagamento o abilitazione all’area soci.</p>');
