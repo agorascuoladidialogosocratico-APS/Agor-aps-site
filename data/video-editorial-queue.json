@@ -1,8 +1,8 @@
 {
   "updatedAt": "2026-11-19",
   "campaign": "Il libro presente",
-  "status": "media_not_public",
-  "notes": "Conservare le due sorgenti video nel Drive istituzionale. Entrambi i contenuti necessitano di hosting pubblico MP4 per pubblicazione sito/Buffer. Nessun social va pubblicato immediatamente: il capitolo orizzontale è una seconda uscita da preparare e approvare senza data automatica.",
+  "status": "promotional_preview_private_on_drive",
+  "notes": "Il video di 2m38s consegnato come Capitolo II è stato ridefinito quale anteprima promozionale per l'adesione. Il Capitolo I esteso è in produzione, non ancora caricato. Per soci: richiesta di adesione, conferma quota, bonifico, ammissione e abilitazione; nessun accesso automatico. I social rimangono non programmati.",
   "items": [
     {
       "id": "il-libro-presente-reel",
@@ -27,9 +27,9 @@
       "durationSeconds": 172.3,
       "dimensions": "910x512",
       "targets": [
-        "site:video"
+        "site:archive_draft"
       ],
-      "mode": "site-first",
+      "mode": "archive_review",
       "assetPublicUrl": null,
       "readyForPublish": false,
       "phase": 2,
@@ -40,14 +40,51 @@
           "instagram:reel",
           "facebook:reel"
         ],
-        "status": "editorial_draft",
+        "status": "editorial_review_required",
         "publishAfter": "after-first-reel-and-website-release",
         "scheduledDate": null,
         "automaticDispatch": false,
         "requiresEditorialApproval": true,
         "mediaSource": "libro-presente-capitolo-1.mp4",
-        "note": "Versione sociale differita del Capitolo I: predisporre export verticale 9:16 mantenendo un formato leggibile o ritaglio coerente; non usare la sorgente orizzontale come reel se causa tagli."
-      }
+        "note": "La successiva diffusione social richiede conferma editoriale perché il nuovo video promozionale è un'altra risorsa. Nessun invio automatico."
+      },
+      "sequence": "Materiale video breve precedente: non corrisponde alla versione estesa del Capitolo I; mantenere solo in archivio fino a nuove indicazioni editoriali",
+      "isExtendedChapter": false
+    },
+    {
+      "id": "il-libro-presente-anteprima-adesione",
+      "sourceFilename": "libro-presente-capitolo-2.mp4",
+      "driveFilename": "Agorà - Il libro presente - Anteprima per adesione (2m38s).mp4",
+      "driveFileId": "1N1TLEByDJ9iqqXIHZFViioUVuOc4EGYG",
+      "durationSeconds": 158,
+      "format": "horizontal",
+      "editorialRole": "anteprima per conoscere Agorà e avviare l'adesione associativa; non Capitolo II",
+      "targets": [
+        "site:formazione/il-libro-presente"
+      ],
+      "mode": "preview_pending_public_hosting",
+      "assetPublicUrl": null,
+      "readyForPublish": false,
+      "socialTargets": [],
+      "automaticDispatch": false,
+      "phase": 1,
+      "notes": "Al momento permessi Drive solo proprietario; non incorporare iframe non riproducibile pubblicamente."
+    },
+    {
+      "id": "il-libro-presente-capitolo-1-esteso",
+      "sourceFilename": null,
+      "editorialRole": "Capitolo I integrale per soci ammessi",
+      "targets": [
+        "site:soci/il-libro-presente"
+      ],
+      "mode": "awaiting_video_production",
+      "readyForPublish": false,
+      "requiresMembership": true,
+      "requiresAdmissionAndPaymentVerification": true,
+      "requiresAuth": true,
+      "automaticDispatch": false,
+      "phase": 2,
+      "notes": "Video in produzione: non esiste ancora un file integrale da pubblicare. La quota associativa non è il prezzo di acquisto del contenuto."
     }
   ]
 }
