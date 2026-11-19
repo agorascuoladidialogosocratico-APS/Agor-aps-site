@@ -15,6 +15,7 @@
   "videoReelUrl": "",
   "videoSiteUrl": "",
   "videoSiteOnly": true,
+  "socialVideoReel": true,
   "socialFacebook": true,
   "socialInstagram": true,
   "socialX": false,
