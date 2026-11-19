@@ -35,9 +35,13 @@ export function createPlan(slug,article,mode='draft'){
  if(!title||!excerpt)throw Error('Titolo o sommario non presenti');
  const url=SITE+'/magazine/'+slug+'/';
  const asset=imageOk(article.cover)?SITE+article.cover:null;
+ const reel=article.socialVideoReel===true;
+ const reelUrl=String(article.videoReelUrl||'').trim();
+ if(reel && (!/^https:\/\/[^\s?#]+\.mp4$/i.test(reelUrl) || /https:\/\/(?:drive|docs)\.google\.com\//i.test(reelUrl))) throw Error('Reel: serve un URL MP4 HTTPS pubblico e diretto, non un link Drive');
+ if(reel && article.socialX===true)throw Error('Il reel editoriale è destinato soltanto a Instagram e Facebook');
  const enabled=Object.keys(TARGETS).filter(p=>article[TARGETS[p].field]===true);
  if(!enabled.length)throw Error('Attiva almeno un social nella scheda dell’articolo');
- if(enabled.includes('instagram')&&!asset)throw Error('Instagram richiede una foto pubblica sotto /assets/');
+ if(enabled.includes('instagram')&&!asset&&!reel)throw Error('Instagram richiede una foto pubblica sotto /assets/');
  const suffix='\n'+url;
  const xIntro=title+' — '+excerpt;
  const maxX=270-Array.from(suffix).length-1;
@@ -56,8 +60,8 @@ export function createPlan(slug,article,mode='draft'){
    text=short+(Array.from(text).length>Array.from(short).length?'…':'')+suffix;
   }
   if(!text)throw Error('Testo social vuoto '+platform);
-  const input={text,channelId:null,schedulingType:'automatic',mode:mode==='now'?'shareNow':'addToQueue',needsApproval:false,assets:asset?[{image:{url:asset}}]:[],saveToDraft:mode==='draft',source:'Agora Magazine'};
-  if(platform==='instagram'&&Array.isArray(article.socialCarouselImages)){
+  const input={text,channelId:null,schedulingType:'automatic',mode:mode==='now'?'shareNow':'addToQueue',needsApproval:false,assets:reel?[{video:{url:reelUrl,metadata:{thumbnailOffset:2000}}}]:(asset?[{image:{url:asset}}]:[]),saveToDraft:mode==='draft',source:'Agora Magazine'};
+  if(!reel&&platform==='instagram'&&Array.isArray(article.socialCarouselImages)){
    const images=article.socialCarouselImages;
    if(images.length<2||images.length>10||images.some(path=>!imageOk(path))||new Set(images).size!==images.length){
     throw Error('Carosello Instagram non valido: richiede da 2 a 10 immagini uniche sotto /assets/');
@@ -65,8 +69,8 @@ export function createPlan(slug,article,mode='draft'){
    input.assets=images.map(path=>({image:{url:SITE+path}}));
   }
   if(article.socialAiAssisted===true)input.aiAssisted=true;
-  if(platform==='instagram')input.metadata={instagram:{type:'post',shouldShareToFeed:true}};
-  if(platform==='facebook')input.metadata={facebook:{type:'post'}};
+  if(platform==='instagram')input.metadata={instagram:{type:reel?'reel':'post',shouldShareToFeed:true}};
+  if(platform==='facebook')input.metadata={facebook:{type:reel?'reel':'post'}};
   return {platform,mode,url,asset,text,input};
  });
 }
