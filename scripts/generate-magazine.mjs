@@ -134,7 +134,7 @@ for(const p of posts){
   const score=item=>(item.topics||[]).filter(t=>topicSet.has(String(t).toLocaleLowerCase('it'))).length;
   return score(b)-score(a)||b.date.localeCompare(a.date);
  }).slice(0,3);
- const mediaUrl=v=>typeof v==='string' && (/^https:\/\/[^\\s<>"']+\\.mp4$/i.test(v)||/^\/assets\/video\/[a-zA-Z0-9_-]+\\.mp4$/.test(v))?v:null;
+ const mediaUrl=v=>typeof v==='string' && (/^https:\/\/[^\s<>"']+\.mp4$/i.test(v)||/^\/assets\/video\/[a-zA-Z0-9_-]+\.mp4$/.test(v))?v:null;
  const videoParts=[];
  if(mediaUrl(p.videoReelUrl)) videoParts.push('<figure style="margin:28px 0"><video controls playsinline preload="metadata" style="display:block;width:min(100%,410px);height:auto;margin:auto;border-radius:12px" aria-label="Il libro presente - reel" src="'+esc(p.videoReelUrl)+'"></video><figcaption style="text-align:center;font-size:.85rem;margin-top:8px">Il libro presente · Reel introduttivo</figcaption></figure>');
  if(mediaUrl(p.videoSiteUrl)) videoParts.push('<figure style="margin:28px 0"><video controls playsinline preload="metadata" style="display:block;width:100%;height:auto;border-radius:12px" aria-label="Il libro presente - Capitolo I" src="'+esc(p.videoSiteUrl)+'"></video><figcaption style="text-align:center;font-size:.85rem;margin-top:8px">Il libro presente · Capitolo I integrale, solo sul sito</figcaption></figure>');
