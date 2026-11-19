@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-18T08:45:02+01:00",
+  "generated_at": "2026-11-19T08:47:15+01:00",
   "status": "checked",
   "scope": "Segnalazioni RSS automatiche da verificare; non dimostrano bandi aperti",
   "sources_checked": 7,
@@ -13,7 +13,7 @@
       "date": "2026-09-28",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-18T08:45:02+01:00",
+      "last_seen": "2026-11-19T08:47:15+01:00",
       "new": false
     },
     {
@@ -24,7 +24,7 @@
       "date": "2026-09-26",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-18T08:45:02+01:00",
+      "last_seen": "2026-11-19T08:47:15+01:00",
       "new": false
     },
     {
@@ -35,7 +35,7 @@
       "date": "2026-03-03",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-18T08:45:02+01:00",
+      "last_seen": "2026-11-19T08:47:15+01:00",
       "new": false
     },
     {
@@ -46,7 +46,7 @@
       "date": "2026-03-03",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-18T08:45:02+01:00",
+      "last_seen": "2026-11-19T08:47:15+01:00",
       "new": false
     },
     {
@@ -57,7 +57,7 @@
       "date": "2025-11-13",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-18T08:45:02+01:00",
+      "last_seen": "2026-11-19T08:47:15+01:00",
       "new": false
     },
     {
@@ -68,7 +68,7 @@
       "date": "2025-10-14",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-18T08:45:02+01:00",
+      "last_seen": "2026-11-19T08:47:15+01:00",
       "new": false
     },
     {
@@ -79,7 +79,7 @@
       "date": "2025-10-13",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-18T08:45:02+01:00",
+      "last_seen": "2026-11-19T08:47:15+01:00",
       "new": false
     },
     {
@@ -90,7 +90,7 @@
       "date": "2025-08-16",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-18T08:45:02+01:00",
+      "last_seen": "2026-11-19T08:47:15+01:00",
       "new": false
     },
     {
@@ -101,7 +101,7 @@
       "date": "2025-08-08",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-18T08:45:02+01:00",
+      "last_seen": "2026-11-19T08:47:15+01:00",
       "new": false
     },
     {
@@ -112,7 +112,7 @@
       "date": "2025-07-31",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-18T08:45:02+01:00",
+      "last_seen": "2026-11-19T08:47:15+01:00",
       "new": false
     },
     {
@@ -123,7 +123,18 @@
       "date": "2024-10-02",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-18T08:45:02+01:00",
+      "last_seen": "2026-11-19T08:47:15+01:00",
+      "new": false
+    },
+    {
+      "id": "1709e27738085b17",
+      "title": "Chiude Oncologia al Papardo, ridotti i posti letto di Chirurgia vascolare e Chirurgia plastica - Il Giornale di Lipari",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQVFZySHAwTDRYSE9xSXpuS0pWU2puRWpkUmpWd2laTGI3MVhRc1M1ZmNLTnNVZ2dmZnM4X3BUVVZSeGJvSnkwWFlEaTVaenJ4TlNkc2RRUW5OZVNlN1h6TlVTOHB5dWNSLWI5VGpGSmJJTHFuYUVkczBOczhxSDhHdUpFMUNsSGxONE10VmV0UzlmOXZ3SlhZNXhBYVlzZTM2SnlMMXE0bWZqNmJ0TFJMRDg1Unc5eEg5RkIybENhTWRzaDQw?oc=5",
+      "source": "Ricerca RSS 6",
+      "date": "2024-10-02",
+      "verified": false,
+      "first_seen": "2026-11-15T23:16:12+01:00",
+      "last_seen": "2026-11-19T08:47:15+01:00",
       "new": false
     },
     {
@@ -134,7 +145,7 @@
       "date": "2024-06-04",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-18T08:45:02+01:00",
+      "last_seen": "2026-11-19T08:47:15+01:00",
       "new": false
     },
     {
@@ -145,8 +156,19 @@
       "date": "2022-11-13",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-18T08:45:02+01:00",
+      "last_seen": "2026-11-19T08:47:15+01:00",
       "new": false
+    },
+    {
+      "id": "a55c8339e62b3769",
+      "title": "Ospedale di Vittoria, nuovo direttore della Chirurgia vascolare - in sanitas",
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPMzFOR2huNUkzUFZ3NWpNNU41WHJuYk9uRzNUdzEyRG13eldMVFJrTnh1MHZhcjFXVXpuZzJXMXozZU0tUE1TZUw3WjZoc0dVTkdDdXNLOWNkM0JaZTJTOUxZNVY0Uk9vUEN6T3dXMWJsdzRhY1JrOTJfYzJpS0hnakg2MjBvZzluN0RYZEU1eVo4T0VJT1lNRnlzcEk0YVpVb3VVTmppbzEzM2gtZDluR3JyUDk1dkFrSWxmQk9UQQ?oc=5",
+      "source": "Ricerca RSS 1",
+      "date": "2021-02-18",
+      "verified": false,
+      "first_seen": "2026-11-19T08:47:15+01:00",
+      "last_seen": "2026-11-19T08:47:15+01:00",
+      "new": true
     },
     {
       "id": "c0ba179a0566c22f",
@@ -156,7 +178,7 @@
       "date": "2020-03-03",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-18T08:45:02+01:00",
+      "last_seen": "2026-11-19T08:47:15+01:00",
       "new": false
     },
     {
@@ -167,7 +189,7 @@
       "date": "2020-03-03",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-18T08:45:02+01:00",
+      "last_seen": "2026-11-19T08:47:15+01:00",
       "new": false
     },
     {
@@ -178,7 +200,7 @@
       "date": "2019-12-10",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-18T08:45:02+01:00",
+      "last_seen": "2026-11-19T08:47:15+01:00",
       "new": false
     },
     {
@@ -189,8 +211,19 @@
       "date": "2017-12-22",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-18T08:45:02+01:00",
+      "last_seen": "2026-11-19T08:47:15+01:00",
       "new": false
+    },
+    {
+      "id": "c2dfde0edeec448c",
+      "title": "Chirurgia vascolare al S.Antonio Abate, convenzione tra l'Asp di Trapani e il Civico di Palermo - BlogSicilia",
+      "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQWWpIX19qRHRCSWZreDNuUDdMZVByTnZOV0tTbE1uWmtHM1VDVzRGY2NBWVB4WFBCRXk2LTJYVkhpTEJ4OHltODlXYmNaNUN6aEpsSE1SY2lpTXRoMUpHa0t1LTlmZ0dwWEJoTDBVWmEtY0YtNktjMm14eHNiMTdJR1lDaEFhZEFEaHllcGVnVHRLNzllczBCQl95dldjVjFsVU8wbktRelp3b0RuNHZhZGsyR1R0RmJOeVhOVURCZGh4Q3UwNEtpdExLRm8wVzR1QUE?oc=5",
+      "source": "Ricerca RSS 3",
+      "date": "2017-10-13",
+      "verified": false,
+      "first_seen": "2026-11-19T08:47:15+01:00",
+      "last_seen": "2026-11-19T08:47:15+01:00",
+      "new": true
     },
     {
       "id": "46302e8ea6a011a9",
@@ -202,20 +235,9 @@
       "first_seen": "2026-11-16T10:14:22+01:00",
       "last_seen": "2026-11-16T10:14:22+01:00",
       "new": false
-    },
-    {
-      "id": "1709e27738085b17",
-      "title": "Chiude Oncologia al Papardo, ridotti i posti letto di Chirurgia vascolare e Chirurgia plastica - Il Giornale di Lipari",
-      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQVFZySHAwTDRYSE9xSXpuS0pWU2puRWpkUmpWd2laTGI3MVhRc1M1ZmNLTnNVZ2dmZnM4X3BUVVZSeGJvSnkwWFlEaTVaenJ4TlNkc2RRUW5OZVNlN1h6TlVTOHB5dWNSLWI5VGpGSmJJTHFuYUVkczBOczhxSDhHdUpFMUNsSGxONE10VmV0UzlmOXZ3SlhZNXhBYVlzZTM2SnlMMXE0bWZqNmJ0TFJMRDg1Unc5eEg5RkIybENhTWRzaDQw?oc=5",
-      "source": "Ricerca RSS 6",
-      "date": "2024-10-02",
-      "verified": false,
-      "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-16T10:14:22+01:00",
-      "new": false
     }
   ],
-  "new_items": 0,
+  "new_items": 2,
   "errors": [],
   "registry_snapshot": "2026-11-15",
   "official_gazzetta_rss": "https://www.gazzettaufficiale.it/rss/S4"
