@@ -5,19 +5,60 @@
   "members": [
     {
       "name": "Gioele Pio Fragale",
-      "role": "Presidente e legale rappresentante"
+      "role": "Presidente e legale rappresentante",
+      "slug": "gioele-pio-fragale",
+      "summary": "Presiede l'associazione e ne cura la rappresentanza legale.",
+      "published": true,
+      "founder": false,
+      "bio": "",
+      "photo": "",
+      "photoApproved": false,
+      "photoAlt": "",
+      "projects": [],
+      "links": []
     },
     {
       "name": "Mario Guarnera",
-      "role": "Vicepresidente"
+      "role": "Vicepresidente",
+      "slug": "mario-guarnera",
+      "summary": "Ricopre la carica di vicepresidente del Consiglio Direttivo.",
+      "published": true,
+      "founder": false,
+      "bio": "",
+      "photo": "",
+      "photoApproved": false,
+      "photoAlt": "",
+      "projects": [],
+      "links": []
     },
     {
       "name": "Benedetta Spampinato",
-      "role": "Segretaria"
+      "role": "Segretaria",
+      "slug": "benedetta-spampinato",
+      "summary": "Ricopre la carica di segretaria del Consiglio Direttivo.",
+      "published": true,
+      "founder": false,
+      "bio": "",
+      "photo": "",
+      "photoApproved": false,
+      "photoAlt": "",
+      "projects": [],
+      "links": []
     },
     {
       "name": "Paolo Putrino",
-      "role": "Tesoriere"
+      "role": "Tesoriere",
+      "slug": "paolo-putrino",
+      "summary": "Ricopre la carica di tesoriere del Consiglio Direttivo.",
+      "published": true,
+      "founder": false,
+      "bio": "",
+      "photo": "",
+      "photoApproved": false,
+      "photoAlt": "",
+      "projects": [],
+      "links": []
     }
-  ]
+  ],
+  "collaborators": []
 }
