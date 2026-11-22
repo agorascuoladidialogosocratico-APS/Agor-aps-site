@@ -12,14 +12,14 @@ La pagina non è nel menu, non è nella sitemap, ha `X-Robots-Tag: noindex, nofo
 2. Il Worker riusa la validazione già sviluppata per i soci, ma con allowlist distinta: **AGORA_CANDIDATE_EMAILS**. Non inserire il candidato fra i soci solo per far funzionare la guida.
 3. In Cloudflare imposta **secret** (non valori nel codice né nel file wrangler pubblico):
    - `CF_ACCESS_TEAM_DOMAIN`: issuer `https://<team>.cloudflareaccess.com` già previsto dal Worker.
-   - `CF_ACCESS_AUD`: application AUD tag di questa specifica applicazione Access. Se serve un AUD diverso da quello dei soci, considera il refactor descritto nel punto successivo.
+   - `AGORA_CANDIDATE_ACCESS_AUD`: application AUD tag dedicato all'area candidature. Conserva `CF_ACCESS_AUD` dei soci senza cambiarlo.
    - `AGORA_CANDIDATE_EMAILS`: allowlist degli indirizzi autorizzati; separati da virgola.
    - `AGORA_CANDIDATE_NAME`: nome completo da mostrare solo dopo login.
    - `AGORA_CANDIDATE_CV_TEXT`: curriculum testuale essenziale, verificato sull'originale, evitando indirizzo domestico e data di nascita.
    - `AGORA_CANDIDATE_CREDIT`: formulazione editoriale autorizzata.
    - `AGORA_CANDIDATE_CONTACT_EMAIL`: recapito email del candidato.
    - `AGORA_CANDIDATE_CONTACT_PHONE`: recapito telefonico del candidato.
-4. **Attenzione alle applicazioni Access distinte:** il progetto attuale usa `CF_ACCESS_AUD` per l'area soci. Se l'applicazione candidata ha un AUD differente, si deve aggiungere `AGORA_CANDIDATE_ACCESS_AUD` alla funzione di verifica e conservarlo come secret, lasciando invariato l'AUD soci. L'implementazione attuale richiede quindi una configurazione coerente e un test su entrambe le aree prima del merge.
+4. **Applicazioni Access distinte:** il Worker ora usa `AGORA_CANDIDATE_ACCESS_AUD` per questa guida e conserva `CF_ACCESS_AUD` esclusivamente per i soci. Verifica entrambi i percorsi prima del merge.
 5. Esegui test anonimo: `GET /guida-candidature/` senza token -> **401** (o pagina Access prima del Worker). Con token valido e email non in allowlist -> **403**. Con secret mancanti -> **503**. Solo un token firmato con audience corretta e email autorizzata può visualizzare la pagina.
 6. Verifica che il personale possa aprire i link, che le mailto contengano testo e contatto completi e che nessuna richiesta parta automaticamente. Non inviare email a insaputa dell'utente.
 
