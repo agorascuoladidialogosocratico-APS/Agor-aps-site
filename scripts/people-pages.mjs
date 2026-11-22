@@ -10,7 +10,7 @@ const link = x => {
 };
 const people = data => {
   const result=[], seen=new Set();
-  for(const [group,entries] of [['Direttivo',data.members],['Collaboratori',data.collaborators]]){
+  for(const [group,entries] of [['Direttivo',data.members],['Collaboratori',data.collaborators],['Fondatori',data.founders]]){
     for(const item of Array.isArray(entries)?entries:[]){
       if(item?.published!==true || !validSlug(item.slug)||!item.name||!item.role||seen.has(item.slug))continue;
       seen.add(item.slug);result.push({...item,group});
@@ -35,7 +35,7 @@ export function buildPeopleSection(data,e,runts){
   return '<section class="info-section people-introduction" id="persone"><p class="person-kicker">Agorà / Le persone</p><h2>Le persone che danno vita ad Agorà</h2><p>Una comunità si costruisce attraverso responsabilità, idee e relazioni. Conosci le persone che contribuiscono alla vita dell’associazione.</p><nav class="people-anchor-nav" aria-label="Sezioni delle persone"><a href="#direttivo">Consiglio direttivo</a>'+(team.length?'<a href="#collaboratori">Collaboratori</a>':'')+(founders.length?'<a href="#fondatori">Fondatori</a>':'')+'</nav></section>'+
   '<section class="info-section" id="direttivo"><div class="people-section-heading"><div><p class="person-kicker">Governance</p><h2>Il Consiglio Direttivo</h2></div><p>Le cariche si riferiscono alla documentazione associativa del giugno 2026; per variazioni successive fa fede il RUNTS.</p></div><div class="people-grid governance-grid">'+board.map(x=>card(x,e,'Consiglio Direttivo')).join('')+'</div><p class="info-note">Verifica gli incarichi nel <a href="'+e(runts)+'" target="_blank" rel="noopener noreferrer">RUNTS</a> cercando il codice fiscale <strong>93254890879</strong>. Le schede personali non sostituiscono la visura ufficiale.</p></section>'+
   (team.length?'<section class="info-section" id="collaboratori"><p class="person-kicker">La comunità</p><h2>Collaboratori e professionisti</h2><div class="people-grid">'+team.map(x=>card(x,e,'Collaborazioni')).join('')+'</div></section>':'')+
-  (founders.length?'<section class="info-section" id="fondatori"><p class="person-kicker">Le origini</p><h2>I fondatori</h2><p>Le persone il cui ruolo di fondatore è documentato.</p><div class="people-grid">'+founders.map(x=>card(x,e,'Fondatori')).join('')+'</div></section>':'')+
+  (founders.length?'<section class="info-section" id="fondatori"><p class="person-kicker">Le origini</p><h2>I fondatori</h2><p>Questi sono i fondatori con una scheda pubblica, non necessariamente l’elenco integrale dell’atto costitutivo.</p><div class="people-grid">'+founders.map(x=>card(x,e,'Fondatori')).join('')+'</div></section>':'')+
   '<section class="info-section people-join"><div><p class="person-kicker">Una comunità aperta</p><h2>Le prossime persone di Agorà</h2><p>Vuoi contribuire come volontario, formatore, facilitatore o partner? Ogni percorso inizia con un incontro.</p></div><a class="info-btn" href="/partecipa/">Partecipa alla comunità</a></section>';
 }
 export function buildPeopleProfilePages(data,render,e){
