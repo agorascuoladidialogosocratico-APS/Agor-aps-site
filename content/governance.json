@@ -7,69 +7,94 @@
       "name": "Gioele Pio Fragale",
       "role": "Presidente e legale rappresentante",
       "slug": "gioele-pio-fragale",
-      "summary": "Presiede l'associazione e ne cura la rappresentanza legale.",
+      "summary": "Coniuga pratica filosofica, formazione e innovazione educativa per trasformare il dialogo in azione collettiva.",
       "published": true,
       "founder": true,
-      "bio": "",
+      "bio": "La filosofia è il punto di partenza del percorso di Gioele Pio Fragale: uno strumento per interrogare le parole, riconoscere i problemi e dare forma a possibilità concrete di apprendimento e partecipazione. Alla riflessione teorica affianca la consulenza filosofica, la progettazione didattica e l’utilizzo critico delle tecnologie digitali.\n\nLavora come formatore e progettista di attività educative per adulti, giovani e organizzazioni. I suoi interessi attraversano il pensiero critico, la comunicazione, l’intelligenza artificiale applicata alla formazione e la cittadinanza attiva, mantenendo il dialogo socratico come metodo di ricerca condivisa.",
       "photo": "/assets/people/gioele-pio-fragale.webp",
       "photoApproved": true,
       "photoAlt": "Gioele Pio Fragale, ritratto all'aperto con camicia azzurra e occhiali",
-      "projects": [],
-      "links": [],
+      "projects": [
+        {
+          "label": "Odisseo Philosophorum · DiscoverEU Inclusione",
+          "url": "/progetti/odisseo-philosophorum/"
+        }
+      ],
+      "links": [
+        {
+          "label": "Profilo culturale e professionale · Spazi Esclusi",
+          "url": "https://www.spaziesclusi.it/2024/06/15/gioele/"
+        }
+      ],
       "cvFile": "/assets/cv/cv-pubblico-gioele-pio-fragale.pdf",
       "cvApproved": true,
-      "cvUpdated": "novembre 2026"
+      "cvUpdated": "novembre 2026",
+      "specialty": "Filosofia, educazione e progettazione europea",
+      "education": "Laurea in Filosofia (L-5) e laurea magistrale in Scienze filosofiche (LM-78) all’Università di Catania; master universitario di II livello in Consulenza Filosofica all’Università Ca’ Foscari Venezia. Ha inoltre conseguito una qualifica professionale di formatore attraverso un percorso di 1.000 ore.",
+      "contribution": "Come presidente e rappresentante legale coordina la vita associativa, le proposte formative e lo sviluppo di partenariati nazionali ed europei. In Agorà mette in relazione filosofia, educazione non formale e progettazione giovanile, con particolare attenzione all’inclusione, alla media literacy e alla capacità di partecipare consapevolmente alla comunità."
     },
     {
       "name": "Mario Guarnera",
       "role": "Vicepresidente",
       "slug": "mario-guarnera",
-      "summary": "Ricopre la carica di vicepresidente del Consiglio Direttivo.",
+      "summary": "La ricerca filosofica incontra la lettura critica, la scrittura e la costruzione di percorsi di dialogo.",
       "published": true,
       "founder": true,
-      "bio": "",
+      "bio": "Mario Guarnera si muove fra studio filosofico, lavoro sui testi e divulgazione culturale. La sua ricerca ha approfondito l’idealismo e il pensiero di Antonio Gramsci, con attenzione al modo in cui le idee diventano categorie per interpretare la realtà contemporanea.\n\nNella scrittura e nella collaborazione editoriale esplora il legame fra ragionamento e narrazione. Ha collaborato con Gioele Pio Fragale a «Libro Presente. Lettura di Esopo per una dialettica della sospensione dell’incredulità» e a «Racconti di filo-Sofia», percorsi nei quali il racconto diventa occasione per formulare domande e chiarire concetti.",
       "photo": "/assets/people/mario-guarnera.webp",
       "photoApproved": true,
       "photoAlt": "Mario Guarnera, ritratto all'aperto con camicia polo e occhiali",
       "projects": [],
-      "links": [],
+      "links": [
+        {
+          "label": "Biografia e pubblicazioni · Il Papavero Rosso",
+          "url": "https://www.ilpapaverorossoweb.it/chi-siamo"
+        }
+      ],
       "cvFile": "",
       "cvApproved": false,
-      "cvUpdated": ""
+      "cvUpdated": "",
+      "specialty": "Ricerca filosofica, pensiero critico e narrazione",
+      "education": "Laureato in Filosofia nel 2005, ha approfondito il pensiero idealista e la filosofia della prassi di Antonio Gramsci. Tra i contributi pubblicati figura uno studio sull’oggettività scientifica nel pensiero gramsciano, apparso nel volume collettaneo «Ricerche sul pensiero italiano del Novecento» (2007).",
+      "contribution": "Vicepresidente dell’associazione, contribuisce alla riflessione pedagogica e metodologica sui percorsi di dialogo filosofico. Il suo apporto riguarda soprattutto la lettura critica, il lavoro su argomentazioni e testi e il rapporto fra narrazione e pratica socratica."
     },
     {
       "name": "Benedetta Spampinato",
       "role": "Segretaria",
       "slug": "benedetta-spampinato",
-      "summary": "Ricopre la carica di segretaria del Consiglio Direttivo.",
+      "summary": "Tra le fondatrici di Agorà, partecipa alla costruzione della sua identità associativa e organizzativa.",
       "published": true,
       "founder": true,
-      "bio": "",
-      "photo": "",
-      "photoApproved": false,
-      "photoAlt": "",
+      "bio": "Benedetta Spampinato è tra le persone che hanno contribuito alla nascita di Agorà nel settembre 2024. Il suo percorso nell’associazione si lega alla dimensione organizzativa della vita comune, che permette a un progetto culturale di diventare una realtà condivisa.\n\nLa sua scheda valorizza il ruolo nella storia e nell’organizzazione dell’ente. Gli studi e le ulteriori esperienze professionali saranno descritti quando saranno disponibili elementi documentali condivisi dall’interessata.",
+      "photo": "/assets/people/benedetta-spampinato.webp",
+      "photoApproved": true,
+      "photoAlt": "Foto individuale di Benedetta, capelli scuri, ritratto con abbigliamento nero",
       "projects": [],
       "links": [],
       "cvFile": "",
       "cvApproved": false,
-      "cvUpdated": ""
+      "cvUpdated": "",
+      "specialty": "Vita associativa e organizzazione",
+      "contribution": "La partecipazione all’assetto originario dell’associazione è attestata dall’atto costitutivo. Gli incarichi amministrativi risultano riportati in documenti di periodi diversi e richiedono un aggiornamento formale prima di essere presentati come cariche attuali."
     },
     {
       "name": "Paolo Putrino",
       "role": "Tesoriere",
       "slug": "paolo-putrino",
-      "summary": "Ricopre la carica di tesoriere del Consiglio Direttivo.",
+      "summary": "Uno dei fondatori di Agorà, parte della dimensione organizzativa che accompagna il progetto culturale.",
       "published": true,
       "founder": true,
-      "bio": "",
-      "photo": "",
-      "photoApproved": false,
-      "photoAlt": "",
+      "bio": "Paolo Putrino ha preso parte alla costituzione di Agorà e compare nella documentazione relativa alla vita amministrativa dell’associazione. Il suo profilo racconta il versante concreto del lavoro associativo: rendere possibili decisioni, riunioni e continuità organizzativa accanto alle attività culturali.\n\nNei documenti assembleari figura anche in funzioni di verbalizzazione. Ulteriori titoli di studio, specializzazioni e incarichi professionali non vengono anticipati in assenza di un curriculum personale verificato.",
+      "photo": "/assets/people/paolo-putrino.webp",
+      "photoApproved": true,
+      "photoAlt": "Paolo Putrino, ritratto all’aperto con maglia blu e occhiali",
       "projects": [],
       "links": [],
       "cvFile": "",
       "cvApproved": false,
-      "cvUpdated": ""
+      "cvUpdated": "",
+      "specialty": "Organizzazione, segreteria e vita associativa",
+      "contribution": "Socio fondatore, è citato nei documenti associativi per funzioni di segreteria e partecipazione ai momenti assembleari. La definizione dell’eventuale carica statutaria attuale richiede il confronto con le deliberazioni aggiornate."
     }
   ],
   "collaborators": [
@@ -77,10 +102,10 @@
       "name": "Silvia Morreale",
       "role": "Socia e consulente scientifica",
       "slug": "silvia-morreale",
-      "summary": "Socia dell'associazione e consulente scientifica, secondo le indicazioni della Presidenza.",
+      "summary": "Socia e consulente scientifica: accompagna il dialogo fra saperi e la riflessione sulle attività di Agorà.",
       "published": true,
       "founder": false,
-      "bio": "",
+      "bio": "Silvia Morreale partecipa alla comunità di Agorà in qualità di socia e consulente scientifica, secondo quanto indicato dalla Presidenza. Il suo ruolo introduce uno spazio di confronto interdisciplinare fra la prospettiva filosofica dell’associazione e l’attenzione al rigore delle conoscenze.\n\nLa sua presenza è distinta da quella dei soci fondatori. Il percorso accademico e professionale personale, così come gli eventuali contributi a progetti specifici, saranno integrati soltanto sulla base di materiali verificati e destinati alla pubblicazione.",
       "photo": "",
       "photoApproved": false,
       "photoAlt": "",
@@ -88,7 +113,9 @@
       "links": [],
       "cvFile": "",
       "cvApproved": false,
-      "cvUpdated": ""
+      "cvUpdated": "",
+      "specialty": "Consulenza scientifica e confronto interdisciplinare",
+      "contribution": "Il suo incarico nell’associazione è quello di consulente scientifica e socia, non di fondatrice. La scheda non le attribuisce progetti, pubblicazioni o titoli non forniti espressamente."
     }
   ],
   "founders": [
@@ -96,35 +123,50 @@
       "name": "Alessia Infantolino",
       "role": "Socia fondatrice (dato storico)",
       "slug": "alessia-infantolino",
-      "summary": "Figura tra i soci fondatori nell'atto costitutivo del 15 settembre 2024.",
+      "summary": "Socia fondatrice, parte della comunità che ha dato origine ad Agorà e al suo percorso culturale.",
       "published": true,
       "founder": true,
-      "bio": "",
-      "photo": "",
-      "photoApproved": false,
-      "photoAlt": "",
+      "bio": "Alessia Infantolino è tra le persone che hanno dato vita ad Agorà con l’atto costitutivo del settembre 2024. La sua presenza racconta l’origine plurale dell’associazione: un progetto che nasce dall’incontro di persone e dalla volontà di creare spazi nei quali la filosofia dialoghi con la cittadinanza.\n\nQuesta scheda riconosce il suo ruolo nella storia dell’ente. Informazioni su studi, professione e attività specifiche saranno aggiunte quando saranno condivise e documentate, senza attribuire competenze per deduzione.",
+      "photo": "/assets/people/alessia-infantolino.webp",
+      "photoApproved": true,
+      "photoAlt": "Alessia Infantolino, ritratto accanto a una finestra con occhiali e capelli biondi",
       "projects": [],
       "links": [],
       "cvFile": "",
       "cvApproved": false,
-      "cvUpdated": ""
+      "cvUpdated": "",
+      "specialty": "Le origini e la comunità di Agorà",
+      "contribution": "Figura nell’atto costitutivo fra i soci fondatori. Non è indicato un incarico del Consiglio Direttivo attualmente documentato."
     },
     {
       "name": "Rossano Pio Fragale",
       "role": "Socio fondatore (dato storico)",
       "slug": "rossano-pio-fragale",
-      "summary": "Figura tra i soci fondatori nell'atto costitutivo del 15 settembre 2024.",
+      "summary": "Porta nel dialogo filosofico la sensibilità delle lettere antiche, della lingua e della critica letteraria.",
       "published": true,
       "founder": true,
-      "bio": "",
-      "photo": "",
-      "photoApproved": false,
-      "photoAlt": "",
+      "bio": "Il percorso di Rossano Pio Fragale è legato alle lettere classiche, alla lingua latina e all’interpretazione dei testi. Lo studio delle parole, delle forme e delle narrazioni antiche si intreccia con il suo interesse per la scrittura critica e per il confronto pubblico.\n\nHa firmato un contributo dedicato alle «Lezioni americane» di Italo Calvino su «Voci di Carta» e ha partecipato, in rappresentanza di Agorà, al Simposio della Pietra Verde tenuto a Catania nel 2026. Sono esperienze che mostrano la relazione tra lettura, argomentazione e capacità di dialogare.",
+      "photo": "/assets/people/rossano-pio-fragale.webp",
+      "photoApproved": true,
+      "photoAlt": "Rossano Pio Fragale, ritratto all’aperto con camicia bianca e occhiali",
       "projects": [],
-      "links": [],
+      "links": [
+        {
+          "label": "Articolo sulle «Lezioni americane» · Voci di Carta",
+          "url": "https://www.vocidicarta.it/post/lezioni-americane-italo-calvino"
+        },
+        {
+          "label": "Intervento al Simposio della Pietra Verde · Catania",
+          "url": "https://eventandocatania.it/filosofia-al-bastione-degli-infetti-per-il-simposio/"
+        }
+      ],
       "cvFile": "",
       "cvApproved": false,
-      "cvUpdated": ""
+      "cvUpdated": "",
+      "specialty": "Lettere classiche, lingua latina e interpretazione dei testi",
+      "education": "Percorso di studi nell’ambito delle lettere antiche e classiche, con particolare attenzione al latino e alla lettura dei testi. La documentazione interna richiama un titolo di laurea, che non viene qui indicato come certificato in attesa di riscontro.",
+      "contribution": "Socio fondatore, ha preso parte a iniziative culturali pubbliche collegate ad Agorà. Nei documenti associativi dell’ottobre 2026 è anche menzionato come consigliere, mentre le cariche aggiornate devono essere verificate nei relativi atti sottoscritti."
     }
-  ]
+  ],
+  "profileUpdate": "Schede biografiche editoriale su base fonti di ottobre-novembre 2026; ritagli dalle fotografie fornite dal Presidente il 22/11/2026. I ruoli statutari dei periodi precedenti restano indicazioni storiche in attesa di confronto con atti aggiornati."
 }
