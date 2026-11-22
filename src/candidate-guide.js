@@ -62,7 +62,7 @@ export async function handleCandidateGuide(request,env){
  if(request.method!=='GET'&&request.method!=='HEAD')return deny(405,'Metodo non consentito.');
  const path=new URL(request.url).pathname;
  if(path!=='/guida-candidature'&&path!=='/guida-candidature/')return deny(404,'Pagina non trovata.');
- const auth=await authorized(request,env,'AGORA_CANDIDATE_EMAILS');
+ const auth=await authorized(request,env,'AGORA_CANDIDATE_EMAILS','AGORA_CANDIDATE_ACCESS_AUD');
  if(auth.status!==200)return deny(auth.status,auth.message);
  return render(request,env);
 }
