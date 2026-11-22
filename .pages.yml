@@ -426,6 +426,76 @@ content:
       collapsible:
         collapsed: true
         summary: '{name} · {role}'
+  - name: founders
+    label: Fondatori storici · Profili pubblici
+    type: object
+    description: Tenere il registro storico fedele all'atto costitutivo. Pubblicare soltanto i profili autorizzati; i componenti del Direttivo sono già rappresentati nella propria raccolta.
+    fields:
+    - name: name
+      label: Nome e cognome
+      type: string
+      required: true
+    - name: role
+      label: Qualifica storica
+      type: string
+      required: true
+    - name: slug
+      label: Indirizzo scheda
+      type: string
+      required: true
+    - name: published
+      label: Pubblica il profilo
+      type: boolean
+    - name: founder
+      label: Fondatore documentato
+      type: boolean
+    - name: summary
+      label: Presentazione breve
+      type: text
+    - name: bio
+      label: Biografia autorizzata
+      type: text
+    - name: photo
+      label: Fotografia
+      type: image
+    - name: photoApproved
+      label: Autorizzazione alla foto acquisita
+      type: boolean
+    - name: photoAlt
+      label: Descrizione della foto
+      type: string
+    - name: projects
+      label: Progetti verificati
+      type: object
+      fields:
+      - name: label
+        label: Nome progetto
+        type: string
+      - name: url
+        label: Collegamento
+        type: string
+      list:
+        collapsible:
+          collapsed: true
+          summary: '{label}'
+    - name: links
+      label: Collegamenti professionali
+      type: object
+      fields:
+      - name: label
+        label: Nome link
+        type: string
+      - name: url
+        label: URL
+        type: string
+      list:
+        collapsible:
+          collapsed: true
+          summary: '{label}'
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{name} · {role}'
 - name: identity
   label: 01 · Identità, logo e colori
   type: file

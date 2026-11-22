@@ -1,7 +1,7 @@
 {
-  "source": "Allegati associativi per convenzioni universitarie, giugno 2026",
-  "verification": "I nominativi e gli incarichi sono ripresi dalla scheda anagrafica associativa del giugno 2026. Il RUNTS resta la fonte ufficiale per le variazioni registrate; la sua scheda puntuale non è stata interrogabile automaticamente.",
-  "updated": "2026-06",
+  "source": "Atto costitutivo 15/09/2024 (fondatori); documentazione associativa giugno 2026 (cariche note); comunicazione del Presidente novembre 2026 (Silvia Morreale).",
+  "verification": "L’atto costitutivo documenta sette soci fondatori storici, senza certificare la permanenza dello status di socio o le cariche oggi ricoperte. I profili pubblici dei fondatori non sono necessariamente l’elenco completo. Le cariche del Direttivo visualizzate fanno riferimento ai documenti di giugno 2026. Al 19/11/2026 risulta documentata una composizione di sei membri, ma i nominativi completi e le cariche aggiornate richiedono la delibera di rinnovo e il RUNTS. L'incarico di Silvia Morreale è riportato su indicazione del Presidente.",
+  "updated": "2026-11",
   "members": [
     {
       "name": "Gioele Pio Fragale",
@@ -9,11 +9,11 @@
       "slug": "gioele-pio-fragale",
       "summary": "Presiede l'associazione e ne cura la rappresentanza legale.",
       "published": true,
-      "founder": false,
+      "founder": true,
       "bio": "",
-      "photo": "",
-      "photoApproved": false,
-      "photoAlt": "",
+      "photo": "/assets/people/gioele-pio-fragale.webp",
+      "photoApproved": true,
+      "photoAlt": "Gioele Pio Fragale, ritratto all'aperto con camicia azzurra e occhiali",
       "projects": [],
       "links": []
     },
@@ -23,11 +23,11 @@
       "slug": "mario-guarnera",
       "summary": "Ricopre la carica di vicepresidente del Consiglio Direttivo.",
       "published": true,
-      "founder": false,
+      "founder": true,
       "bio": "",
-      "photo": "",
-      "photoApproved": false,
-      "photoAlt": "",
+      "photo": "/assets/people/mario-guarnera.webp",
+      "photoApproved": true,
+      "photoAlt": "Mario Guarnera, ritratto all'aperto con camicia polo e occhiali",
       "projects": [],
       "links": []
     },
@@ -37,7 +37,7 @@
       "slug": "benedetta-spampinato",
       "summary": "Ricopre la carica di segretaria del Consiglio Direttivo.",
       "published": true,
-      "founder": false,
+      "founder": true,
       "bio": "",
       "photo": "",
       "photoApproved": false,
@@ -51,6 +51,22 @@
       "slug": "paolo-putrino",
       "summary": "Ricopre la carica di tesoriere del Consiglio Direttivo.",
       "published": true,
+      "founder": true,
+      "bio": "",
+      "photo": "",
+      "photoApproved": false,
+      "photoAlt": "",
+      "projects": [],
+      "links": []
+    }
+  ],
+  "collaborators": [
+    {
+      "name": "Silvia Morreale",
+      "role": "Socia e consulente scientifica",
+      "slug": "silvia-morreale",
+      "summary": "Socia dell'associazione e consulente scientifica, secondo le indicazioni della Presidenza.",
+      "published": true,
       "founder": false,
       "bio": "",
       "photo": "",
@@ -60,5 +76,34 @@
       "links": []
     }
   ],
-  "collaborators": []
+  "founders": [
+    {
+      "name": "Alessia Infantolino",
+      "role": "Socia fondatrice (dato storico)",
+      "slug": "alessia-infantolino",
+      "summary": "Figura tra i soci fondatori nell'atto costitutivo del 15 settembre 2024.",
+      "published": true,
+      "founder": true,
+      "bio": "",
+      "photo": "",
+      "photoApproved": false,
+      "photoAlt": "",
+      "projects": [],
+      "links": []
+    },
+    {
+      "name": "Rossano Pio Fragale",
+      "role": "Socio fondatore (dato storico)",
+      "slug": "rossano-pio-fragale",
+      "summary": "Figura tra i soci fondatori nell'atto costitutivo del 15 settembre 2024.",
+      "published": true,
+      "founder": true,
+      "bio": "",
+      "photo": "",
+      "photoApproved": false,
+      "photoAlt": "",
+      "projects": [],
+      "links": []
+    }
+  ]
 }
