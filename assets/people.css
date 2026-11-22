@@ -41,3 +41,12 @@
 @media(max-width:600px){.person-card{grid-template-columns:112px minmax(0,1fr);gap:13px}.person-portrait{min-height:180px}.person-card-copy{padding:17px 12px 17px 0}.person-card h3{font-size:1.33rem}.person-summary{display:none}.person-detail-layout{grid-template-columns:1fr}.person-portrait-large{width:min(100%,340px);justify-self:center}.people-introduction{padding:26px 21px}.people-join{padding:23px}}
 @media(prefers-reduced-motion:reduce){.person-card,.person-card-action span{transition:none}.person-card:hover{transform:none}}
 @media print{.people-anchor-nav,.people-join{display:none}.person-card{break-inside:avoid;box-shadow:none}.person-detail-layout{grid-template-columns:180px auto}}
+
+/* Curriculum individuali: pulsante solo quando il PDF è pubblicato e approvato */
+.person-card .person-cv-mini{display:inline-flex;align-items:center;gap:.4rem;margin-top:9px;color:#8d4628;text-underline-offset:4px;text-decoration:underline;font-size:.81rem;font-weight:750}
+.person-card .person-cv-mini:hover{color:#63301d}
+.person-cv-section{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;background:#f2ebe1;border:1px solid #dfd5c8;border-radius:16px;padding:clamp(23px,3.5vw,36px)}
+.person-cv-section h2{margin-bottom:9px}
+.person-cv-section p:not(.person-kicker){max-width:49ch;margin:0;color:#5f5e56}
+.person-cv-download{white-space:normal;text-align:center}
+@media(max-width:600px){.person-cv-section{align-items:stretch}.person-cv-download{width:100%}}
