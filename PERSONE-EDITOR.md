@@ -16,3 +16,15 @@ La sezione pubblica è /chi-siamo/. Ogni persona ha un indirizzo del tipo /chi-s
 Per rigenerare il sito: npm run build:content. Il workflow GitHub publish-cms.yml ripubblica automaticamente le pagine derivate dal CMS su main.
 
 Le fotografie andranno caricate individualmente da Pages CMS e associate al profilo corretto.
+
+## Aggiornamento 22 novembre 2026
+
+L'atto costitutivo elenca sette fondatori storici. Per la sezione pubblica, su richiesta della Presidenza, il profilo di Federica Stefania Catalano è **non pubblicato**; la sua qualità storica di fondatrice resta registrata nei dati interni senza essere attribuita a Silvia.
+
+**Silvia Morreale** compare separatamente fra i collaboratori con il ruolo di **socia e consulente scientifica** su indicazione della Presidenza; non è fondatrice.
+
+Per **Alessia Infantolino** e **Rossano Pio Fragale** il profilo riporta soltanto la qualifica storica di fondatori, senza presumere una carica nel Direttivo o un'iscrizione associativa attuale. Mancano informazioni certificate sull'elenco completo dei sei consiglieri indicati nei documenti assembleari del 19 novembre 2026.
+
+### Fotografie identificabili
+
+Il 22 novembre 2026 la Presidenza ha identificato nelle due immagini originali ricevute Mario Guarnera **a sinistra** e Gioele Pio Fragale **a destra**. I ritratti vanno caricati dall'editor con il consenso della persona e con l'interruttore `photoApproved` attivo. Non confondere la foto di gruppo con la scheda individuale.
