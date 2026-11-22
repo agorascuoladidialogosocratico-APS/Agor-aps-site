@@ -34,3 +34,11 @@ Il 22 novembre 2026 la Presidenza ha identificato nelle due immagini originali r
 Il CMS dispone di un campo **Curriculum pubblico (solo PDF)** con caricamento nel repository `assets/cv/`, interruttore **Curriculum approvato per il sito pubblico** e data di aggiornamento. La pagina individuale e la scheda di riepilogo mostrano il collegamento soltanto quando esiste il PDF e l'approvazione è attiva. Il test di build controlla che il file sia un PDF valido.
 
 Alla verifica di Drive e delle email del 22/11/2026, è stato trovato un CV individuale di Gioele Pio Fragale; ne è stata prodotta una versione pubblica derivata dal documento dell'interessato, senza telefono, email privata e firma. Per Mario Guarnera, Benedetta Spampinato, Paolo Putrino, Silvia Morreale, Alessia Infantolino e Rossano Pio Fragale non risultava disponibile un CV individuale identificato con sufficiente certezza. Le loro schede attendono i rispettivi PDF approvati: NON attribuire loro titoli inventati e NON sostituire un dossier interno con un CV personale.
+
+
+## Aggiornamento coordinato del 22 novembre 2026
+Sono state ricevute le fotografie e le identificazioni di Benedetta Spampinato, Paolo Putrino, Rossano Pio Fragale, Alessia Infantolino; ritratti di Mario Guarnera e Gioele Pio Fragale già pubblicati. Per Silvia Morreale nessuna fotografia è stata associata con sufficiente certezza: mantenere il monogramma, senza usare immagini di altre persone. Il collegamento al curriculum (dove effettivamente esiste) compare **solo in piccolo alla fine** del profilo, non nella scheda principale.
+
+La presentazione delle persone privilegia: identità professionale, percorso e studi documentati, contributo specifico all'APS, pubblicazioni e progetti attribuibili. I dati sono modificabili nel CMS nei campi `specialty`, `bio`, `education`, `contribution`, `projects`, `links`. La presenza come socio fondatore non implica automaticamente l'incarico di consigliere in carica. Prima di aggiornare cariche, tesoreria o segreteria confrontare le delibere sottoscritte e il RUNTS.
+
+Foto originali: file dell'utente del 22/11/2026; i ritagli sono fotografie autentiche senza generazione artificiale dei volti.
