@@ -287,15 +287,141 @@ content:
     label: Data di riferimento (AAAA-MM)
     type: string
   - name: members
-    label: Persone e ruoli
+    label: Consiglio Direttivo · Schede personali
     type: object
     fields:
     - name: name
       label: Nome e cognome
       type: string
+      required: true
     - name: role
-      label: Incarico
+      label: Carica associativa
       type: string
+      required: true
+    - name: slug
+      label: Indirizzo della scheda (es. mario-guarnera)
+      type: string
+      required: true
+      description: Usare solo lettere minuscole, numeri e trattini.
+    - name: published
+      label: Profilo visibile sul sito
+      type: boolean
+    - name: founder
+      label: Fondatore (solo se confermato dall'atto costitutivo)
+      type: boolean
+    - name: summary
+      label: Presentazione breve
+      type: text
+    - name: bio
+      label: Biografia professionale autorizzata
+      type: text
+    - name: photo
+      label: Fotografia personale
+      type: image
+    - name: photoApproved
+      label: Autorizzazione a pubblicare la fotografia acquisita
+      type: boolean
+    - name: photoAlt
+      label: Descrizione accessibile della fotografia
+      type: string
+    - name: projects
+      label: Progetti a cui la persona ha effettivamente contribuito
+      type: object
+      fields:
+      - name: label
+        label: Nome progetto
+        type: string
+      - name: url
+        label: Link progetto
+        type: string
+      list:
+        collapsible:
+          collapsed: true
+          summary: '{label}'
+    - name: links
+      label: Link professionali autorizzati
+      type: object
+      fields:
+      - name: label
+        label: Nome collegamento
+        type: string
+      - name: url
+        label: URL
+        type: string
+      list:
+        collapsible:
+          collapsed: true
+          summary: '{label}'
+    list:
+      collapsible:
+        collapsed: true
+        summary: '{name} · {role}'
+  - name: collaborators
+    label: Collaboratori, formatori e volontari
+    type: object
+    description: Non inserire incarichi del direttivo in questa lista.
+    fields:
+    - name: name
+      label: Nome e cognome
+      type: string
+      required: true
+    - name: role
+      label: Ruolo o collaborazione
+      type: string
+      required: true
+    - name: slug
+      label: Indirizzo scheda
+      type: string
+      required: true
+    - name: published
+      label: Pubblica il profilo
+      type: boolean
+    - name: founder
+      label: Fondatore documentato
+      type: boolean
+    - name: summary
+      label: Presentazione breve
+      type: text
+    - name: bio
+      label: Biografia autorizzata
+      type: text
+    - name: photo
+      label: Fotografia
+      type: image
+    - name: photoApproved
+      label: Autorizzazione alla foto acquisita
+      type: boolean
+    - name: photoAlt
+      label: Descrizione della foto
+      type: string
+    - name: projects
+      label: Progetti verificati
+      type: object
+      fields:
+      - name: label
+        label: Nome progetto
+        type: string
+      - name: url
+        label: Collegamento
+        type: string
+      list:
+        collapsible:
+          collapsed: true
+          summary: '{label}'
+    - name: links
+      label: Collegamenti professionali
+      type: object
+      fields:
+      - name: label
+        label: Nome link
+        type: string
+      - name: url
+        label: URL
+        type: string
+      list:
+        collapsible:
+          collapsed: true
+          summary: '{label}'
     list:
       collapsible:
         collapsed: true
