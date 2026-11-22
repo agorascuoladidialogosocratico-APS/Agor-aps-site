@@ -3,5 +3,6 @@ Allow: /
 Disallow: /editor/
 Disallow: /operatore/
 Disallow: /api/
+Disallow: /guida-candidature/
 
 Sitemap: https://agora-scuoladidialogosocraticoecittadinanzattiva.site/sitemap.xml
