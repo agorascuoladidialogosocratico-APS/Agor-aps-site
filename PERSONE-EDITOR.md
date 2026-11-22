@@ -28,3 +28,9 @@ Per **Alessia Infantolino** e **Rossano Pio Fragale** il profilo riporta soltant
 ### Fotografie identificabili
 
 Il 22 novembre 2026 la Presidenza ha identificato nelle due immagini originali ricevute Mario Guarnera **a sinistra** e Gioele Pio Fragale **a destra**. I ritratti vanno caricati dall'editor con il consenso della persona e con l'interruttore `photoApproved` attivo. Non confondere la foto di gruppo con la scheda individuale.
+
+## Curriculum individuali e pubblicazione (22/11/2026)
+
+Il CMS dispone di un campo **Curriculum pubblico (solo PDF)** con caricamento nel repository `assets/cv/`, interruttore **Curriculum approvato per il sito pubblico** e data di aggiornamento. La pagina individuale e la scheda di riepilogo mostrano il collegamento soltanto quando esiste il PDF e l'approvazione è attiva. Il test di build controlla che il file sia un PDF valido.
+
+Alla verifica di Drive e delle email del 22/11/2026, è stato trovato un CV individuale di Gioele Pio Fragale; ne è stata prodotta una versione pubblica derivata dal documento dell'interessato, senza telefono, email privata e firma. Per Mario Guarnera, Benedetta Spampinato, Paolo Putrino, Silvia Morreale, Alessia Infantolino e Rossano Pio Fragale non risultava disponibile un CV individuale identificato con sufficiente certezza. Le loro schede attendono i rispettivi PDF approvati: NON attribuire loro titoli inventati e NON sostituire un dossier interno con un CV personale.
