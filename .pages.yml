@@ -313,6 +313,17 @@ content:
     - name: founder
       label: Fondatore (solo se confermato dall'atto costitutivo)
       type: boolean
+    - name: specialty
+      label: Identità e ambito professionale (sottotitolo)
+      type: string
+    - name: education
+      label: Studi e formazione verificati
+      type: text
+      description: Non aggiungere qualifiche, titoli o dottorati non documentati.
+    - name: contribution
+      label: Il contributo ad Agorà
+      type: text
+      description: Solo attività e responsabilità effettivamente attribuibili alla persona.
     - name: summary
       label: Presentazione breve
       type: text
@@ -397,6 +408,17 @@ content:
     - name: founder
       label: Fondatore documentato
       type: boolean
+    - name: specialty
+      label: Identità e ambito professionale (sottotitolo)
+      type: string
+    - name: education
+      label: Studi e formazione verificati
+      type: text
+      description: Non aggiungere qualifiche, titoli o dottorati non documentati.
+    - name: contribution
+      label: Il contributo ad Agorà
+      type: text
+      description: Solo attività e responsabilità effettivamente attribuibili alla persona.
     - name: summary
       label: Presentazione breve
       type: text
@@ -481,6 +503,17 @@ content:
     - name: founder
       label: Fondatore documentato
       type: boolean
+    - name: specialty
+      label: Identità e ambito professionale (sottotitolo)
+      type: string
+    - name: education
+      label: Studi e formazione verificati
+      type: text
+      description: Non aggiungere qualifiche, titoli o dottorati non documentati.
+    - name: contribution
+      label: Il contributo ad Agorà
+      type: text
+      description: Solo attività e responsabilità effettivamente attribuibili alla persona.
     - name: summary
       label: Presentazione breve
       type: text

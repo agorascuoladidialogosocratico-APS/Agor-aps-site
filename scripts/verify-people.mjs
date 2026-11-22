@@ -23,13 +23,20 @@ for (const p of persons) {
  check(!html.includes('src=""'),'Immagine vuota: '+p.slug);
  check(html.includes('href="/chi-siamo/"'),'Link di ritorno assente: '+p.slug);
  if(!p.photoApproved) check(html.includes('person-monogram'),'Foto non approvata o placeholder errato: '+p.slug);
+ if(p.photoApproved){
+   check(typeof p.photo==='string' && p.photo.startsWith('/assets/people/') && existsSync('.'+p.photo),'Foto pubblica assente: '+p.slug);
+   check(html.includes('src="'+p.photo+'"'),'Foto non collegata al profilo: '+p.slug);
+ }
+ if(p.bio) check(html.includes('Il percorso') && html.includes(p.bio.split(/\n\s*\n/)[0].slice(0,30)),'Biografia non generata: '+p.slug);
  if(p.cvApproved){
    check(typeof p.cvFile==='string' && /^\/assets\/cv\/[a-z0-9][a-z0-9_.-]*\.pdf$/i.test(p.cvFile),'Percorso PDF invalido: '+p.slug);
    check(existsSync('.'+p.cvFile),'CV mancante sul filesystem: '+p.slug);
    if(existsSync('.'+p.cvFile)) check(readFileSync('.'+p.cvFile).subarray(0,5).toString('ascii')==='%PDF-','CV non in formato PDF: '+p.slug);
    check(html.includes('href="'+p.cvFile+'"'),'Link CV non presente nel profilo: '+p.slug);
- } else check(!html.includes('person-cv-download'),'Collegamento CV non autorizzato: '+p.slug);
+   check(html.includes('class="person-cv-footer"'),'CV non collocato discretamente a fondo pagina: '+p.slug);
+ } else check(!html.includes('person-cv-footer'),'Collegamento CV non autorizzato: '+p.slug);
 }
-check(persons.length>=4,'Mancano i membri del Direttivo iniziale');
+check(persons.length===7,'Il sito deve contenere sette schede personali');
+check(!root.includes('Federica Stefania Catalano'),'Il profilo escluso non deve apparire');
 if(errors.length){console.error(errors.join('\n'));process.exitCode=1;}
 else console.log('Schede Agorà verificate:',persons.length);
