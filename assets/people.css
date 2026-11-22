@@ -1,0 +1,43 @@
+/* Agorà · Le persone: fotografie autorizzate o monogrammi, palette terra e avorio */
+.people-introduction{padding:clamp(28px,5vw,60px);border-radius:18px;background:linear-gradient(130deg,#eee8dc 0%,#f7f2ea 55%,#e5eadd 100%);border:1px solid #dedbd0}
+.person-kicker{margin:0 0 12px!important;font:800 11px/1.4 'DM Sans',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#9b4b28}
+.people-introduction h2{max-width:19ch;font-size:clamp(2.5rem,5vw,4.3rem);letter-spacing:-.035em}
+.people-introduction>p:not(.person-kicker){max-width:61ch}
+.people-anchor-nav{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px}
+.people-anchor-nav a{display:inline-flex;align-items:center;padding:9px 14px;border:1px solid #c6bfae;border-radius:999px;color:#332b24;text-decoration:none;font-weight:700;font-size:.85rem;background:#fffaf5;min-height:44px}
+.people-anchor-nav a:hover,.people-anchor-nav a:focus-visible{background:#ebe3d8;border-color:#99522e}
+.people-section-heading{display:flex;align-items:end;justify-content:space-between;gap:22px;flex-wrap:wrap}
+.people-section-heading>p{max-width:47ch;color:#5b6058;font-size:.93rem}
+.people-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:26px}
+.person-card{display:grid;grid-template-columns:minmax(110px,36%) minmax(0,1fr);gap:20px;align-items:stretch;overflow:hidden;background:#fffaf5;border:1px solid #d9d4c3;border-radius:16px;box-shadow:0 9px 28px rgba(51,43,36,.045);transition:transform .25s,box-shadow .25s,border-color .25s}
+.person-card:hover{transform:translateY(-3px);box-shadow:0 14px 35px rgba(51,43,36,.11);border-color:#bfa17c}
+.person-portrait{display:flex;align-items:center;justify-content:center;min-height:220px;background:radial-gradient(circle at 30% 25%,#e3cab2 0%,#b9bfa5 56%,#7e8d77 100%);overflow:hidden}
+.person-portrait img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+.person-monogram span{font:400 clamp(2.7rem,4vw,4.8rem)/1 Newsreader,Georgia,serif;letter-spacing:-.08em;color:#fff9ee;text-shadow:0 2px 10px rgba(55,51,44,.15)}
+.person-card-copy{padding:23px 20px 21px 0;min-width:0;display:flex;align-items:start;flex-direction:column}
+.person-card h3{font:550 clamp(1.25rem,2vw,1.75rem)/1.17 Newsreader,Georgia,serif;margin:0 0 7px}
+.person-card h3 a{color:#332b24;text-decoration:none}
+.person-card h3 a:hover{text-decoration:underline}
+.person-role{color:#7e4023;font-weight:700;margin:0 0 11px!important;font-size:.93rem}
+.person-summary{font-size:.88rem;line-height:1.55;color:#62645b;margin:0 0 14px}
+.person-card-action{font-size:.83rem;font-weight:800;display:inline-flex;align-items:center;gap:7px;margin-top:auto;text-decoration:none!important}
+.person-card-action span{font-size:1.25rem;transition:transform .2s}
+.person-card-action:hover span{transform:translate(2px,-2px)}
+.people-join{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;background:#e7ecdf;border-radius:14px;padding:clamp(24px,4vw,42px);border:1px solid #d2dacd}
+.people-join p{max-width:55ch}
+.person-detail-layout{display:grid;grid-template-columns:minmax(200px,.75fr) minmax(0,1.25fr);gap:clamp(22px,5vw,70px);align-items:start}
+.person-portrait-large{aspect-ratio:4/5;min-height:0;border-radius:15px;box-shadow:0 20px 42px rgba(51,43,36,.1)}
+.person-portrait-large.person-monogram span{font-size:clamp(5rem,10vw,9rem)}
+.person-detail-copy{padding:clamp(8px,2vw,30px) 0}
+.person-detail-copy h2{margin-bottom:14px}
+.person-detail-copy .person-role{font-size:1.08rem}
+.person-detail-lead{font:450 clamp(1.2rem,2vw,1.6rem)/1.48 Newsreader,Georgia,serif;max-width:40ch;color:#332b24}
+.person-links{list-style:none;padding:0;margin:12px 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(225px,1fr));gap:11px}
+.person-links li a{display:block;background:#fffaf5;border:1px solid #d9d4c3;border-radius:9px;padding:15px 18px;text-decoration:none!important;font-weight:700;min-height:55px}
+.person-links li a:hover{border-color:#ae7959;background:#f4e9dd}
+.person-back{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.person-contact{font-weight:700}
+@media(max-width:850px){.people-grid{grid-template-columns:1fr}}
+@media(max-width:600px){.person-card{grid-template-columns:112px minmax(0,1fr);gap:13px}.person-portrait{min-height:180px}.person-card-copy{padding:17px 12px 17px 0}.person-card h3{font-size:1.33rem}.person-summary{display:none}.person-detail-layout{grid-template-columns:1fr}.person-portrait-large{width:min(100%,340px);justify-self:center}.people-introduction{padding:26px 21px}.people-join{padding:23px}}
+@media(prefers-reduced-motion:reduce){.person-card,.person-card-action span{transition:none}.person-card:hover{transform:none}}
+@media print{.people-anchor-nav,.people-join{display:none}.person-card{break-inside:avoid;box-shadow:none}.person-detail-layout{grid-template-columns:180px auto}}
