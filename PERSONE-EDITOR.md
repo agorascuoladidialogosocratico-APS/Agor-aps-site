@@ -19,7 +19,7 @@ Le fotografie andranno caricate individualmente da Pages CMS e associate al prof
 
 ## Aggiornamento 22 novembre 2026
 
-L'atto costitutivo elenca sette fondatori storici. Per la sezione pubblica, su richiesta della Presidenza, il profilo di Federica Stefania Catalano è **non pubblicato**; la sua qualità storica di fondatrice resta registrata nei dati interni senza essere attribuita a Silvia.
+L'atto costitutivo elenca sette fondatori storici. Per la sezione pubblica, su richiesta della Presidenza, il profilo di Federica Stefania Catalano non viene incluso nei dati pubblicati dal sito; la sua qualità storica di fondatrice resta documentata nell'atto costitutivo ufficiale senza essere attribuita a Silvia.
 
 **Silvia Morreale** compare separatamente fra i collaboratori con il ruolo di **socia e consulente scientifica** su indicazione della Presidenza; non è fondatrice.
 
