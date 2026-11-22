@@ -2,14 +2,18 @@
 # Agorà APS — editor su GitHub, con pubblicazione su Cloudflare Workers
 # Copertine originali: rigenera i PNG per recepire l'ottimizzazione dei titoli lunghi.
 media:
-  input: assets
-  output: /assets
-  rename: safe
-  extensions:
-  - png
-  - jpg
-  - jpeg
-  - webp
+  - name: images
+    label: Foto e grafica
+    input: assets
+    output: /assets
+    rename: safe
+    extensions: [png, jpg, jpeg, webp]
+  - name: documents
+    label: Curriculum pubblici (PDF)
+    input: assets/cv
+    output: /assets/cv
+    rename: safe
+    extensions: [pdf]
 content:
 - name: magazine
   label: 00 · Agorà Magazine — Articoli e aggiornamenti
@@ -321,6 +325,20 @@ content:
     - name: photoApproved
       label: Autorizzazione a pubblicare la fotografia acquisita
       type: boolean
+    - name: cvFile
+      label: Curriculum pubblico (solo PDF)
+      type: file
+      options:
+        media: documents
+        extensions: [pdf]
+      description: Caricare esclusivamente un CV dell'interessato approvato per la pubblicazione, senza dati personali superflui.
+    - name: cvApproved
+      label: Curriculum approvato per il sito pubblico
+      type: boolean
+      description: Il file compare sul sito solo se questo campo è attivo.
+    - name: cvUpdated
+      label: Ultimo aggiornamento del CV (es. novembre 2026)
+      type: string
     - name: photoAlt
       label: Descrizione accessibile della fotografia
       type: string
@@ -391,6 +409,20 @@ content:
     - name: photoApproved
       label: Autorizzazione alla foto acquisita
       type: boolean
+    - name: cvFile
+      label: Curriculum pubblico (solo PDF)
+      type: file
+      options:
+        media: documents
+        extensions: [pdf]
+      description: Caricare esclusivamente un CV dell'interessato approvato per la pubblicazione, senza dati personali superflui.
+    - name: cvApproved
+      label: Curriculum approvato per il sito pubblico
+      type: boolean
+      description: Il file compare sul sito solo se questo campo è attivo.
+    - name: cvUpdated
+      label: Ultimo aggiornamento del CV (es. novembre 2026)
+      type: string
     - name: photoAlt
       label: Descrizione della foto
       type: string
@@ -461,6 +493,20 @@ content:
     - name: photoApproved
       label: Autorizzazione alla foto acquisita
       type: boolean
+    - name: cvFile
+      label: Curriculum pubblico (solo PDF)
+      type: file
+      options:
+        media: documents
+        extensions: [pdf]
+      description: Caricare esclusivamente un CV dell'interessato approvato per la pubblicazione, senza dati personali superflui.
+    - name: cvApproved
+      label: Curriculum approvato per il sito pubblico
+      type: boolean
+      description: Il file compare sul sito solo se questo campo è attivo.
+    - name: cvUpdated
+      label: Ultimo aggiornamento del CV (es. novembre 2026)
+      type: string
     - name: photoAlt
       label: Descrizione della foto
       type: string

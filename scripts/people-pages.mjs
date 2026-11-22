@@ -19,13 +19,14 @@ const people = data => {
   return result;
 };
 const photoEnabled = x => x.photoApproved===true && validImage(x.photo);
+const cvEnabled = x => x.cvApproved===true && typeof x.cvFile==='string' && /^\/assets\/cv\/[a-z0-9][a-z0-9_.-]*\.pdf$/i.test(x.cvFile);
 const picture=(x,e,large=false)=>{
   const cls='person-portrait'+(large?' person-portrait-large':'');
   if(photoEnabled(x))return '<div class="'+cls+'"><img src="'+e(x.photo)+'" alt="'+e(x.photoAlt||('Ritratto di '+x.name))+'" loading="lazy" decoding="async"></div>';
   const initials=String(x.name).trim().split(/\s+/).slice(0,2).map(word=>word[0]||'').join('').toUpperCase();
   return '<div class="'+cls+' person-monogram" aria-hidden="true"><span>'+e(initials)+'</span></div>';
 };
-const card=(x,e,tag)=>'<article class="person-card">'+picture(x,e)+'<div class="person-card-copy"><p class="person-kicker">'+e(tag)+'</p><h3><a href="/chi-siamo/'+x.slug+'/">'+e(x.name)+'</a></h3><p class="person-role">'+e(x.role)+'</p>'+(x.summary?'<p class="person-summary">'+e(x.summary)+'</p>':'')+'<a class="person-card-action" aria-label="Apri il profilo di '+e(x.name)+'" href="/chi-siamo/'+x.slug+'/">Conosci la persona <span aria-hidden="true">↗</span></a></div></article>';
+const card=(x,e,tag)=>'<article class="person-card">'+picture(x,e)+'<div class="person-card-copy"><p class="person-kicker">'+e(tag)+'</p><h3><a href="/chi-siamo/'+x.slug+'/">'+e(x.name)+'</a></h3><p class="person-role">'+e(x.role)+'</p>'+(x.summary?'<p class="person-summary">'+e(x.summary)+'</p>':'')+'<a class="person-card-action" aria-label="Apri il profilo di '+e(x.name)+'" href="/chi-siamo/'+x.slug+'/">Conosci la persona <span aria-hidden="true">↗</span></a>'+(cvEnabled(x)?'<a class="person-cv-mini" href="'+e(x.cvFile)+'" download>Curriculum PDF ↓</a>':'')+'</div></article>';
 const links=(entries,e)=>{
   const items=(Array.isArray(entries)?entries:[]).map(x=>({name:String(x?.label||'').trim(),url:link(x?.url)})).filter(x=>x.name&&x.url);
   return items.length?'<ul class="person-links">'+items.map(x=>'<li><a href="'+e(x.url)+'"'+(x.url.startsWith('https://')?' target="_blank" rel="noopener noreferrer"':'')+'>'+e(x.name)+' <span aria-hidden="true">↗</span></a></li>').join('')+'</ul>':'';
@@ -42,14 +43,16 @@ export function buildPeopleProfilePages(data,render,e){
   const output={};
   for(const x of people(data)){
     const path='/chi-siamo/'+x.slug+'/';
+    const cvSection=cvEnabled(x)?'<section class="info-section person-cv-section" aria-label="Curriculum di '+e(x.name)+'"><div><p class="person-kicker">Documento professionale</p><h2>Curriculum vitae</h2><p>Versione pubblica del curriculum'+(x.cvUpdated?' · aggiornata a '+e(x.cvUpdated):'')+'.</p></div><a class="info-btn person-cv-download" href="'+e(x.cvFile)+'" download="'+e(x.slug)+'.pdf">Scarica CV (PDF) ↓</a></section>':'';
     const body='<section class="info-section person-detail-layout">'+picture(x,e,true)+'<div class="person-detail-copy"><p class="person-kicker">'+e(x.group)+'</p><h2>Il ruolo in Agorà</h2><p class="person-role">'+e(x.role)+'</p>'+(x.summary?'<p class="person-detail-lead">'+e(x.summary)+'</p>':'')+
-      (x.bio?'<div class="person-bio">'+String(x.bio).split(/\n\s*\n/).filter(Boolean).map(y=>'<p>'+e(y).replace(/\n/g,' ')+'</p>').join('')+'</div>':'<p>Informazioni biografiche e professionali saranno integrate quando verificate e autorizzate.</p>')+'</div></section>'+
+      (x.bio?'<div class="person-bio">'+String(x.bio).split(/\n\s*\n/).filter(Boolean).map(y=>'<p>'+e(y).replace(/\n/g,' ')+'</p>').join('')+'</div>':'<p>Informazioni biografiche e professionali saranno integrate quando verificate e autorizzate.</p>')+'</div></section>'+cvSection+
       '<section class="info-section"><h2>Progetti e contributi</h2>'+(links(x.projects,e)||'<p>Scopri i <a href="/progetti/">progetti dell’associazione</a>. Le collaborazioni individuali saranno indicate soltanto quando documentate.</p>')+'</section>'+
       (links(x.links,e)?'<section class="info-section"><h2>Collegamenti professionali</h2>'+links(x.links,e)+'</section>':'')+
       '<section class="info-section person-back"><a class="info-btn" href="/chi-siamo/#direttivo">← Torna alle persone di Agorà</a> <a class="person-contact" href="/contatti/">Contatta l’associazione</a></section>';
     let html=render(path,x.name,x.name+', '+x.role+' di Agorà APS. Scheda istituzionale e attività documentate.','Le persone di Agorà',body);
     const structured={'@context':'https://schema.org','@type':'Person','@id':site+path+'#persona',name:x.name,jobTitle:x.role,url:site+path,memberOf:{'@id':site+'/#agora'}};
     if(photoEnabled(x))structured.image=site+x.photo;
+    if(cvEnabled(x))structured.subjectOf={'@type':'DigitalDocument',url:site+x.cvFile,encodingFormat:'application/pdf',name:'Curriculum vitae di '+x.name};
     const external=(Array.isArray(x.links)?x.links:[]).map(item=>link(item?.url)).filter(url=>url.startsWith('https://'));
     if(external.length)structured.sameAs=external;
     html=html.replace('</head>','<script type="application/ld+json">'+JSON.stringify(structured).replace(/</g,'\\u003c')+'</script></head>');

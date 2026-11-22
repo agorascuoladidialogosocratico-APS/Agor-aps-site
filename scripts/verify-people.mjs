@@ -1,7 +1,7 @@
 import {readFileSync,existsSync} from 'node:fs';
 const read = file => readFileSync(file,'utf8');
 const data = JSON.parse(read('content/governance.json'));
-const persons = [...(data.members||[]),...(data.collaborators||[])].filter(p=>p.published===true);
+const persons = [...(data.members||[]),...(data.collaborators||[]),...(data.founders||[])].filter(p=>p.published===true);
 const root = read('chi-siamo/index.html');
 const errors=[];
 const check=(ok,message)=>{if(!ok)errors.push(message);};
@@ -23,6 +23,12 @@ for (const p of persons) {
  check(!html.includes('src=""'),'Immagine vuota: '+p.slug);
  check(html.includes('href="/chi-siamo/"'),'Link di ritorno assente: '+p.slug);
  if(!p.photoApproved) check(html.includes('person-monogram'),'Foto non approvata o placeholder errato: '+p.slug);
+ if(p.cvApproved){
+   check(typeof p.cvFile==='string' && /^\/assets\/cv\/[a-z0-9][a-z0-9_.-]*\.pdf$/i.test(p.cvFile),'Percorso PDF invalido: '+p.slug);
+   check(existsSync('.'+p.cvFile),'CV mancante sul filesystem: '+p.slug);
+   if(existsSync('.'+p.cvFile)) check(readFileSync('.'+p.cvFile).subarray(0,5).toString('ascii')==='%PDF-','CV non in formato PDF: '+p.slug);
+   check(html.includes('href="'+p.cvFile+'"'),'Link CV non presente nel profilo: '+p.slug);
+ } else check(!html.includes('person-cv-download'),'Collegamento CV non autorizzato: '+p.slug);
 }
 check(persons.length>=4,'Mancano i membri del Direttivo iniziale');
 if(errors.length){console.error(errors.join('\n'));process.exitCode=1;}

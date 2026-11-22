@@ -15,7 +15,10 @@
       "photoApproved": true,
       "photoAlt": "Gioele Pio Fragale, ritratto all'aperto con camicia azzurra e occhiali",
       "projects": [],
-      "links": []
+      "links": [],
+      "cvFile": "/assets/cv/cv-pubblico-gioele-pio-fragale.pdf",
+      "cvApproved": true,
+      "cvUpdated": "novembre 2026"
     },
     {
       "name": "Mario Guarnera",
@@ -29,7 +32,10 @@
       "photoApproved": true,
       "photoAlt": "Mario Guarnera, ritratto all'aperto con camicia polo e occhiali",
       "projects": [],
-      "links": []
+      "links": [],
+      "cvFile": "",
+      "cvApproved": false,
+      "cvUpdated": ""
     },
     {
       "name": "Benedetta Spampinato",
@@ -43,7 +49,10 @@
       "photoApproved": false,
       "photoAlt": "",
       "projects": [],
-      "links": []
+      "links": [],
+      "cvFile": "",
+      "cvApproved": false,
+      "cvUpdated": ""
     },
     {
       "name": "Paolo Putrino",
@@ -57,7 +66,10 @@
       "photoApproved": false,
       "photoAlt": "",
       "projects": [],
-      "links": []
+      "links": [],
+      "cvFile": "",
+      "cvApproved": false,
+      "cvUpdated": ""
     }
   ],
   "collaborators": [
@@ -73,7 +85,10 @@
       "photoApproved": false,
       "photoAlt": "",
       "projects": [],
-      "links": []
+      "links": [],
+      "cvFile": "",
+      "cvApproved": false,
+      "cvUpdated": ""
     }
   ],
   "founders": [
@@ -89,7 +104,10 @@
       "photoApproved": false,
       "photoAlt": "",
       "projects": [],
-      "links": []
+      "links": [],
+      "cvFile": "",
+      "cvApproved": false,
+      "cvUpdated": ""
     },
     {
       "name": "Rossano Pio Fragale",
@@ -103,7 +121,10 @@
       "photoApproved": false,
       "photoAlt": "",
       "projects": [],
-      "links": []
+      "links": [],
+      "cvFile": "",
+      "cvApproved": false,
+      "cvUpdated": ""
     }
   ]
 }
