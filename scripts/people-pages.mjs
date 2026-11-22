@@ -59,7 +59,7 @@ export function buildPeopleProfilePages(data,render,e){
     const activities=(links(x.projects,e)||links(x.links,e))?
       '<section class="info-section person-story-section"><p class="person-kicker">Esperienze documentate</p><h2>Progetti, scritti e approfondimenti</h2>'+
       links(x.projects,e)+links(x.links,e)+'</section>':'';
-    const bioText=x.bio?String(x.bio).split(/\\n\\s*\\n/).filter(Boolean).map(y=>'<p>'+e(y).replace(/\\n/g,' ')+'</p>').join(''):
+    const bioText=x.bio?String(x.bio).split(/\n\s*\n/).filter(Boolean).map(y=>'<p>'+e(y).replace(/\n/g,' ')+'</p>').join(''):
       '<p>Profilo in aggiornamento con le informazioni biografiche autorizzate.</p>';
     const body='<section class="info-section person-detail-layout">'+picture(x,e,true)+
       '<div class="person-detail-copy"><p class="person-kicker">'+e(x.group)+'</p>'+
