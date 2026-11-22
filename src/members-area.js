@@ -14,9 +14,9 @@ const error=(status,message)=>page(status===503?'Area in attivazione':'Accesso r
 const validHost=raw=>{
  try{const u=new URL(raw);return u.protocol==='https:' && /^[a-z0-9-]+\.cloudflareaccess\.com$/i.test(u.hostname) && !u.username && !u.password && u.pathname==='/' && !u.search && !u.hash ? u.origin : null}catch{return null}
 };
-export async function authorized(request,env,allowlistVar='AGORA_MEMBER_EMAILS'){
+export async function authorized(request,env,allowlistVar='AGORA_MEMBER_EMAILS',audVar='CF_ACCESS_AUD'){
  const issuer=validHost(env.CF_ACCESS_TEAM_DOMAIN||'');
- const aud=String(env.CF_ACCESS_AUD||'').trim();
+ const aud=String(env[audVar]||'').trim();
  const emails=new Set(String(env[allowlistVar]||'').split(/[;,\s]+/).map(s=>s.toLowerCase().trim()).filter(Boolean));
  if(!issuer||!aud||emails.size===0)return {status:503,message:'L’autenticazione dei soci non è ancora abilitata.'};
  const token=request.headers.get('Cf-Access-Jwt-Assertion');
