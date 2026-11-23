@@ -13,6 +13,27 @@ const secureHeaders={
   'Content-Security-Policy':"default-src 'none'; style-src 'self'; script-src 'self'; font-src 'self'; img-src 'self'; connect-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'none'"
 };
 
+// Credenziale di emergenza ad alta entropia: nel repository resta soltanto
+// l'impronta SHA-256. La password in chiaro viene consegnata fuori dal sito.
+const BUILT_IN_AUTH_DIGEST='OTbUYsyu1ioplWtHoc2kLfhrQhVPFw1YPkqu+r8BaOo=';
+const PRIVATE_PROFILE={
+  displayName:'Candidato',
+  email:'',
+  phone:'',
+  summary:'Ho una lunga esperienza nelle vendite B2B e nello sviluppo commerciale, oltre a una recente esperienza nelle operazioni di magazzino. Sono affidabile, pratico, abituato al contatto con clienti e colleghi, possiedo la patente B e sono disponibile da subito.'
+};
+
+const constantTimeEqual=(left,right)=>{
+  const a=new TextEncoder().encode(left);const b=new TextEncoder().encode(right);
+  let different=a.length^b.length;
+  for(let index=0;index<Math.max(a.length,b.length);index++)different|=(a[index%a.length]||0)^(b[index%b.length]||0);
+  return different===0;
+};
+const sha256Base64=async value=>{
+  const digest=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(value));
+  return btoa(String.fromCharCode(...new Uint8Array(digest)));
+};
+
 const validTeamDomain=raw=>{
   try{const url=new URL(raw);return url.protocol==='https:'&&/^[a-z0-9-]+\.cloudflareaccess\.com$/i.test(url.hostname)&&url.pathname==='/'&&!url.search&&!url.hash?url.origin:null}catch{return null}
 };
@@ -21,7 +42,17 @@ async function authorize(request,env){
   const issuer=validTeamDomain(env.CF_ACCESS_TEAM_DOMAIN||'');
   const audience=String(env.CANDIDATE_ACCESS_AUD||'').trim();
   const allowed=new Set(String(env.CANDIDATE_ALLOWED_EMAILS||'').split(/[;,\s]+/).map(value=>value.toLowerCase().trim()).filter(Boolean));
-  if(!issuer||!audience||allowed.size===0)return {status:503,message:'La protezione privata non è ancora configurata. Nessun contenuto personale è stato pubblicato.'};
+  if(!issuer||!audience||allowed.size===0){
+    const header=request.headers.get('Authorization')||'';
+    if(!header.startsWith('Basic '))return {status:401,challenge:true,message:'Inserisci il nome utente e la password riservati per aprire questa guida.'};
+    try{
+      const credentials=atob(header.slice(6).trim());
+      const expected=String(env.CANDIDATE_BASIC_AUTH_DIGEST||BUILT_IN_AUTH_DIGEST).trim();
+      const actual=await sha256Base64(credentials);
+      if(!expected||!constantTimeEqual(actual,expected))throw Error('denied');
+      return {status:200,method:'basic'};
+    }catch{return {status:401,challenge:true,message:'Nome utente o password non corretti.'}}
+  }
   const token=request.headers.get('Cf-Access-Jwt-Assertion');
   if(!token)return {status:401,message:'Accedi con l’indirizzo email autorizzato per aprire questa guida.'};
   const parts=token.split('.');
@@ -47,14 +78,14 @@ async function authorize(request,env){
 function parseProfile(env){
   try{
     const profile=JSON.parse(String(env.CANDIDATE_PROFILE||''));
-    if(!profile||typeof profile!=='object'||!String(profile.displayName||'').trim()||!String(profile.email||'').includes('@'))return null;
+    if(!profile||typeof profile!=='object'||!String(profile.displayName||'').trim()||!String(profile.email||'').includes('@'))return PRIVATE_PROFILE;
     return {
       displayName:String(profile.displayName).trim().slice(0,100),
       email:String(profile.email).trim().slice(0,254),
       phone:String(profile.phone||'').trim().slice(0,40),
       summary:String(profile.summary||'').trim().slice(0,1800)
     };
-  }catch{return null}
+  }catch{return PRIVATE_PROFILE}
 }
 
 const typeLabels={active_job:'Posizione attiva',company_careers:'Portale aziendale',recruiter_portal:'Agenzia per il lavoro',public_portal:'Servizio pubblico',spontaneous:'Candidatura spontanea'};
@@ -105,7 +136,11 @@ function errorPage(status,message){
 export async function handleCandidateGuide(request,env){
   if(!['GET','HEAD'].includes(request.method))return new Response(null,{status:405,headers:secureHeaders});
   const auth=await authorize(request,env);
-  if(auth.status!==200){const body=errorPage(auth.status,auth.message);return new Response(request.method==='HEAD'?null:body,{status:auth.status,headers:secureHeaders})}
+  if(auth.status!==200){
+    const body=errorPage(auth.status,auth.message);const headers={...secureHeaders};
+    if(auth.challenge)headers['WWW-Authenticate']='Basic realm="Guida candidature Agorà", charset="UTF-8"';
+    return new Response(request.method==='HEAD'?null:body,{status:auth.status,headers});
+  }
   const profile=parseProfile(env);
   if(!profile||candidateDestinations.length<70){const body=errorPage(503,'La guida è in preparazione e resta bloccata finché profilo e destinazioni non sono completi.');return new Response(request.method==='HEAD'?null:body,{status:503,headers:secureHeaders})}
   const body=candidateGuidePage(profile);return new Response(request.method==='HEAD'?null:body,{status:200,headers:secureHeaders});

@@ -3,9 +3,15 @@ import {candidateGuidePage,handleCandidateGuide} from '../src/candidate-guide.js
 import {candidateDestinations} from '../src/candidate-destinations.js';
 const request=(headers={},method='GET')=>new Request('https://agora-scuoladidialogosocraticoecittadinanzattiva.site/guida-candidature/',{headers,method});
 let response=await handleCandidateGuide(request(),{});
-assert.equal(response.status,503,'Senza configurazione la guida deve restare chiusa');
+assert.equal(response.status,401,'Senza credenziali la guida deve restare chiusa');
+assert.match(response.headers.get('www-authenticate'),/^Basic /);
 assert.match(response.headers.get('x-robots-tag'),/noindex/);
 assert.match(response.headers.get('cache-control'),/no-store/);
+const testCredentials='test-user:test-password';
+const testDigest=Buffer.from(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(testCredentials))).toString('base64');
+response=await handleCandidateGuide(request({Authorization:`Basic ${Buffer.from(testCredentials).toString('base64')}`}),{CANDIDATE_BASIC_AUTH_DIGEST:testDigest});
+assert.equal(response.status,200,'La credenziale HTTP Basic valida deve aprire la guida');
+assert.match(await response.text(),/Un passo alla volta, Candidato/);
 const env={CF_ACCESS_TEAM_DOMAIN:'https://agora.cloudflareaccess.com',CANDIDATE_ACCESS_AUD:'test',CANDIDATE_ALLOWED_EMAILS:'authorized@example.invalid',CANDIDATE_PROFILE:JSON.stringify({displayName:'Persona autorizzata',email:'authorized@example.invalid',summary:'Profilo di prova'})};
 response=await handleCandidateGuide(request(),env);
 assert.equal(response.status,401,'Senza identità Cloudflare Access nessun contenuto deve essere visibile');
