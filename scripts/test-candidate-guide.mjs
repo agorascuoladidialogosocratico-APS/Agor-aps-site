@@ -1,0 +1,25 @@
+import assert from 'node:assert/strict';
+import {candidateGuidePage,handleCandidateGuide} from '../src/candidate-guide.js';
+import {candidateDestinations} from '../src/candidate-destinations.js';
+const request=(headers={},method='GET')=>new Request('https://agora-scuoladidialogosocraticoecittadinanzattiva.site/guida-candidature/',{headers,method});
+let response=await handleCandidateGuide(request(),{});
+assert.equal(response.status,503,'Senza configurazione la guida deve restare chiusa');
+assert.match(response.headers.get('x-robots-tag'),/noindex/);
+assert.match(response.headers.get('cache-control'),/no-store/);
+const env={CF_ACCESS_TEAM_DOMAIN:'https://agora.cloudflareaccess.com',CANDIDATE_ACCESS_AUD:'test',CANDIDATE_ALLOWED_EMAILS:'authorized@example.invalid',CANDIDATE_PROFILE:JSON.stringify({displayName:'Persona autorizzata',email:'authorized@example.invalid',summary:'Profilo di prova'})};
+response=await handleCandidateGuide(request(),env);
+assert.equal(response.status,401,'Senza identità Cloudflare Access nessun contenuto deve essere visibile');
+response=await handleCandidateGuide(request({'Cf-Access-Jwt-Assertion':'bad.token.value'}),env);
+assert.equal(response.status,403,'Token non valido rifiutato');
+assert.ok(candidateDestinations.length>=70,'Servono almeno 70 destinazioni verificate');
+assert.equal(new Set(candidateDestinations.map(item=>item.slug)).size,candidateDestinations.length,'Slug univoci');
+assert.equal(new Set(candidateDestinations.map(item=>item.url)).size,candidateDestinations.length,'URL di destinazione univoci');
+for(const item of candidateDestinations){
+  assert.match(item.url,/^https:\/\//);assert.match(item.evidenceUrl,/^https:\/\//);assert.equal(item.checkedAt,'22 novembre 2026');
+  assert.ok(['active_job','company_careers','recruiter_portal','public_portal','spontaneous'].includes(item.category));
+}
+const html=candidateGuidePage({displayName:'Persona di prova',email:'prova@example.invalid',phone:'000',summary:'Profilo di prova'});
+assert.match(html,/71 destinazioni controllate/);
+assert.match(html,/Scritto e redatto dal Dott\. Gioele Pio Fragale/);
+assert.doesNotMatch(html,/juancmilazzo|3283332044|F\.Turati/i,'Nessun dato reale del candidato nel test o nel repository');
+console.log(`Guida candidature: ${candidateDestinations.length} destinazioni, privacy e blocco accessi verificati.`);

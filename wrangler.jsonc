@@ -9,6 +9,8 @@
     "run_worker_first": [
       "/api/*",
       "/area-docenti/*",
+      "/guida-candidature",
+      "/guida-candidature/*",
       "/soci",
       "/soci/*"
     ]

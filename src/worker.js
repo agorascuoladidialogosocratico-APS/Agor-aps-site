@@ -1,5 +1,6 @@
 import {handleMembersArea} from './members-area.js';
 import {handleTeacherArea} from './teacher-area.js';
+import {handleCandidateGuide} from './candidate-guide.js';
 import {receiveChatEmailReply} from './chat-email.js';
 import {handleSiteChat,deleteExpiredChats} from './site-chat.js';
 /* Worker Agorà: invio email per il modulo contatti, senza salvare le richieste.
@@ -90,6 +91,7 @@ export default {
  async fetch(request,env){
    const pathname=new URL(request.url).pathname;
    if(pathname==='/soci'||pathname.startsWith('/soci/'))return handleMembersArea(request,env);
+   if(pathname==='/guida-candidature'||pathname.startsWith('/guida-candidature/'))return handleCandidateGuide(request,env);
    if(pathname==='/area-docenti/cornaredo'||pathname.startsWith('/area-docenti/cornaredo/'))return handleTeacherArea(request,env);
    if(pathname.startsWith('/api/site-chat/')||pathname==='/api/meta-whatsapp-webhook')return handleSiteChat(request,env);
    if(pathname==='/api/contact')return processContact(request,env);
