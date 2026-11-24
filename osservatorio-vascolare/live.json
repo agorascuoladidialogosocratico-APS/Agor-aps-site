@@ -1,10 +1,21 @@
 {
-  "generated_at": "2026-11-23T09:00:27+01:00",
+  "generated_at": "2026-11-24T08:51:13+01:00",
   "status": "checked",
   "scope": "Segnalazioni RSS automatiche da verificare; non dimostrano bandi aperti",
   "sources_checked": 7,
   "sources_total": 7,
   "alerts": [
+    {
+      "id": "f42b066904f587c8",
+      "title": "«Sono un chirurgo vascolare, lavoravo in ospedale: sono passato al privato, ora guadagno il quadruplo. E i turni erano insostenibili» - Leggo.it",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQWWI1WVQtVHpUMk1xV1R5cmx4bmF6SWk4MUNXbzNxd25fMWZjMzNqYXozNHdCTzZ1Wm40ekJtRm5UTUVOOXdZV0Z6V3VpNUpLbk9WTGc1dTFKNEptZzJyem9sX25kZ2NDQ0h1UHBpS0FVY3N5Q3dab1luaVRhQWt2OV91S3RtTW9VejN2SnVRd1QxY1BjbmNwNnJ1NDRhNmhOVE1SS2J1dW9mY3BreUNSXzlyRmtIaUZIdnNwNWxXd1JEN0hI0gGoAUFVX3lxTE5yU1NrOUFMY1BGR056V2ZwRXYtT3BIeElmY0hpYzlpd1RKLVlZSmRVN2gzRjgxd2tnRzhGSkZiMi16ZVE0ZjFaRkxZUUxjM3hDWTB6eFljRmc4QmNvTmNWa1NaVHk1anU1cTVzaTdOdGUyZDEzUUsyTzR1RVRIZU1YSVpVZDQxd2RWeTVJZWl4OUJlQkRITDZxZ1hjVDkyWlJGY04zNnZjag?oc=5",
+      "source": "Ricerca RSS 4",
+      "date": "2026-10-04",
+      "verified": false,
+      "first_seen": "2026-11-24T08:51:13+01:00",
+      "last_seen": "2026-11-24T08:51:13+01:00",
+      "new": true
+    },
     {
       "id": "e507cd57ca78a706",
       "title": "Chirurgia vascolare Vittoria: al via al Guzzardi con l'ASP - Quotidiano di Ragusa",
@@ -13,7 +24,7 @@
       "date": "2026-09-28",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-23T09:00:27+01:00",
+      "last_seen": "2026-11-24T08:51:13+01:00",
       "new": false
     },
     {
@@ -24,7 +35,7 @@
       "date": "2026-09-26",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-23T09:00:27+01:00",
+      "last_seen": "2026-11-24T08:51:13+01:00",
       "new": false
     },
     {
@@ -35,7 +46,7 @@
       "date": "2026-03-03",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-23T09:00:27+01:00",
+      "last_seen": "2026-11-24T08:51:13+01:00",
       "new": false
     },
     {
@@ -46,7 +57,7 @@
       "date": "2026-03-03",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-23T09:00:27+01:00",
+      "last_seen": "2026-11-24T08:51:13+01:00",
       "new": false
     },
     {
@@ -57,8 +68,19 @@
       "date": "2025-11-13",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-23T09:00:27+01:00",
+      "last_seen": "2026-11-24T08:51:13+01:00",
       "new": false
+    },
+    {
+      "id": "10c7b65377299cbe",
+      "title": "Salvatore Alberto Turiano è il nuovo direttore del reparto di Chirurgia vascolare dell’ospedale di Agrigento. - Giornale Centro Sicilia",
+      "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxOclRvbEdpNG4xSUd1RS1HS1dUTGxIQXFEVG05a190cHZENVl4amhmdUhIalJHdHBZY3BLbi1KVTV4TXNwZzIwOC1DLW9TQ0ktRlZ2cEVJUHhfRTVRR3hBNWlHYlNhY2pHMmtVdnBaSTVtWHJCOHV0M0JMR2ZYblNPMnkzLWh6MmY0blhOU2xHQkZfYzdFZ3F3bFBtM244WlBWcTNlUm1hTVJKMXZJNHBQRGFCejJEbTEyOWJvdFd0dnFwaG9UZVlOVEJVOE1ZTkx6c002SUlKdzFReGJnMnpiRGlvVUNlRlRIakF4Vg?oc=5",
+      "source": "Ricerca RSS 1",
+      "date": "2025-10-13",
+      "verified": false,
+      "first_seen": "2026-11-24T08:51:13+01:00",
+      "last_seen": "2026-11-24T08:51:13+01:00",
+      "new": true
     },
     {
       "id": "2dddf7146bc9744e",
@@ -68,7 +90,7 @@
       "date": "2025-08-16",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-23T09:00:27+01:00",
+      "last_seen": "2026-11-24T08:51:13+01:00",
       "new": false
     },
     {
@@ -79,7 +101,7 @@
       "date": "2025-08-08",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-23T09:00:27+01:00",
+      "last_seen": "2026-11-24T08:51:13+01:00",
       "new": false
     },
     {
@@ -90,8 +112,19 @@
       "date": "2025-07-31",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-23T09:00:27+01:00",
+      "last_seen": "2026-11-24T08:51:13+01:00",
       "new": false
+    },
+    {
+      "id": "992574381fe725dc",
+      "title": "Enna: chirurgia vascolare, all’Umberto I arriva il dottor Nicola Accurso - EnnaLive",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOREsxeWhjNHVDekNZVEdkUFNlWDZLLVZRNDBONjRpQUxPZjNEaU9Sa3VBNmYxc0dWOFRRLWo5cVhhOE5qMmhueXVpYUp1cTNPWm5DTDVlN1dGcnFDeTVCU3NZN25jQkZrYjRIeUZpMzN3cWJpd1NPd004NkQ0Q3VtTGU4UlhoeTY1TnpsLWhHUjhJTjQ2a2pYdHVn?oc=5",
+      "source": "Ricerca RSS 2",
+      "date": "2025-07-31",
+      "verified": false,
+      "first_seen": "2026-11-24T08:51:13+01:00",
+      "last_seen": "2026-11-24T08:51:13+01:00",
+      "new": true
     },
     {
       "id": "24578408544717e9",
@@ -101,7 +134,7 @@
       "date": "2024-10-02",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-23T09:00:27+01:00",
+      "last_seen": "2026-11-24T08:51:13+01:00",
       "new": false
     },
     {
@@ -112,8 +145,19 @@
       "date": "2024-10-02",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-23T09:00:27+01:00",
+      "last_seen": "2026-11-24T08:51:13+01:00",
       "new": false
+    },
+    {
+      "id": "ecae380d8d6a34b1",
+      "title": "Chirurgia vascolare, il nuovo primario è Stefano Aldo Ferrari: cercheremo di potenziare l’attività in tutti i presidi ospedalieri - Il Giorno",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNT1VHQ3VZcnluRzdFd0xLcGVoMXZ3Z3RXdHpRaFI3UV9tZk9taGtBb0p0UGFQQUFDblBzZkViT0FrempJQkx1MEhvTEdXV3NCcjk5Rjh2M3ZQSUhSd0NSc0U3MU56TkJrVXVMYzIzeG5SdWdXU1cyZTRsTFBjT2RpX1E1VEt2c2ZEWTZwTkJYRV9BYnV0UFZqME5FNW5sQk0?oc=5",
+      "source": "Ricerca RSS 2",
+      "date": "2024-09-21",
+      "verified": false,
+      "first_seen": "2026-11-24T08:51:13+01:00",
+      "last_seen": "2026-11-24T08:51:13+01:00",
+      "new": true
     },
     {
       "id": "94dd51d49228979b",
@@ -123,7 +167,7 @@
       "date": "2024-06-04",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-23T09:00:27+01:00",
+      "last_seen": "2026-11-24T08:51:13+01:00",
       "new": false
     },
     {
@@ -134,19 +178,41 @@
       "date": "2022-11-13",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-23T09:00:27+01:00",
+      "last_seen": "2026-11-24T08:51:13+01:00",
       "new": false
     },
     {
-      "id": "a55c8339e62b3769",
-      "title": "Ospedale di Vittoria, nuovo direttore della Chirurgia vascolare - in sanitas",
-      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPMzFOR2huNUkzUFZ3NWpNNU41WHJuYk9uRzNUdzEyRG13eldMVFJrTnh1MHZhcjFXVXpuZzJXMXozZU0tUE1TZUw3WjZoc0dVTkdDdXNLOWNkM0JaZTJTOUxZNVY0Uk9vUEN6T3dXMWJsdzRhY1JrOTJfYzJpS0hnakg2MjBvZzluN0RYZEU1eVo4T0VJT1lNRnlzcEk0YVpVb3VVTmppbzEzM2gtZDluR3JyUDk1dkFrSWxmQk9UQQ?oc=5",
+      "id": "6d37fb525ea80beb",
+      "title": "Patti: Salvatore Barbera alla guida del reparto di Chirurgia Vascolare dell’ospedale - GLPress",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNemljeU1aU2c2M1pxTWNPdUdZdHFXaVRfbXluazA0LXl6c1lTdVQ1MDFkVExIaHd4Q2pMOFdEYkk3S2t3TG51elp6QWx5V2Myb2xGVHhFSjlrYzJFYm1rNHowUDJFVjZKZjZqOHlVYk50c3ZrNXdLMnRqUUxPTWxHdXRHZHVWNmFidHBnYThFejRZYUxYbk1pY1lieTRnRU5Lb0ktRXNCWFNSZw?oc=5",
+      "source": "Ricerca RSS 1",
+      "date": "2022-07-19",
+      "verified": false,
+      "first_seen": "2026-11-24T08:51:13+01:00",
+      "last_seen": "2026-11-24T08:51:13+01:00",
+      "new": true
+    },
+    {
+      "id": "daf41f6fb6bb191a",
+      "title": "Sanità, Li Destri nuovo direttore di chirurgia vascolare dell’ospedale di Vittoria e Comiso - Giornale di Sicilia",
+      "url": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxQZ0ZwUklFTGptZ1c3bkxXTm55YWstQjRNNlBRaTB0aHBNN3JzRkNBa0VHdVlLSDR4Z0RhYnVDZk1SR2dMMEpwX1FMOUF2dW9JVjZJMUx6X3JSZDBBM2U0b0tQeWRMdTIyOEo4SndKTjh1VGNaWm0tQmNWek53bmw1OGp6SXY5eHQ1SWVlQUFhaVo3aUYycFdXMVpPb0FzNU5UcUhaaV9SQm8xZnJydE1tN1lORTZJZlJiTHRpbTk1MUVQQzlhWERXMm94SGc4U25YZGhGYkQySEtHZHFUdU9YWThVVTRNSEd1bmpxcmVpaERRckM4WElLUm55TGVucGJDWEV1aVhDb1o?oc=5",
+      "source": "Ricerca RSS 1",
+      "date": "2021-02-19",
+      "verified": false,
+      "first_seen": "2026-11-24T08:51:13+01:00",
+      "last_seen": "2026-11-24T08:51:13+01:00",
+      "new": true
+    },
+    {
+      "id": "9a4c86c174b2fc67",
+      "title": "Andrea Carmelo Li Destri il nuovo direttore della Chirurgia Vascolare di Vittoria - Ragusa Libera",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNRmVQM1NxX1FaSWRXbzZFbVV1aXVxVTdvTDJ6Y3hxMV9oWkxxNEI4amdRRWlLM1lvX3RvNzM2eFJfN1VnWjR1VDVWZ3h6aml0MkwtX01YSjJmVllyNS0wNS1ubzNEZHNxYnNYMWtVTk9pdlFfNWsxVTk1b0hMVVUxOVE5NEhDRExvU2dmYXRGNHVkT0hNTkg0RWRkbGFiOWxvallzSjhMQ1didw?oc=5",
       "source": "Ricerca RSS 1",
       "date": "2021-02-18",
       "verified": false,
-      "first_seen": "2026-11-19T08:47:15+01:00",
-      "last_seen": "2026-11-23T09:00:27+01:00",
-      "new": false
+      "first_seen": "2026-11-24T08:51:13+01:00",
+      "last_seen": "2026-11-24T08:51:13+01:00",
+      "new": true
     },
     {
       "id": "c0ba179a0566c22f",
@@ -156,7 +222,7 @@
       "date": "2020-03-03",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-23T09:00:27+01:00",
+      "last_seen": "2026-11-24T08:51:13+01:00",
       "new": false
     },
     {
@@ -167,8 +233,19 @@
       "date": "2020-03-03",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-23T09:00:27+01:00",
+      "last_seen": "2026-11-24T08:51:13+01:00",
       "new": false
+    },
+    {
+      "id": "9ed406bb8a8ddf44",
+      "title": "La chirurgia vascolare all’Ospedale del Mare - TuttoSanità",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE92RUxkY25WQ2w2cTJ6a3IyX3VPNnNZa3RHbEtlX3hWMHV2MXVBcTBTV19DUTZHTm9xYTJQbzVJTW1FbGhDb1Y4eWRiRmtJUl9fc3dtNnR2MkJIam5mOUREWTZ0U3UxdWtiSEQzVmlvR2ZEQ0hIV2pmMlE0eGU?oc=5",
+      "source": "Ricerca RSS 1",
+      "date": "2019-12-12",
+      "verified": false,
+      "first_seen": "2026-11-24T08:51:13+01:00",
+      "last_seen": "2026-11-24T08:51:13+01:00",
+      "new": true
     },
     {
       "id": "71529af27ab958c0",
@@ -178,8 +255,30 @@
       "date": "2019-12-10",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-23T09:00:27+01:00",
+      "last_seen": "2026-11-24T08:51:13+01:00",
       "new": false
+    },
+    {
+      "id": "cdd66772b8a17379",
+      "title": "Punti di forza e criticità dell’Ospedale del Mare. Congresso con un focus sulla Chirurgia vascolare - insalutenews.it",
+      "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPODhQaG5MSUlkbXRuZlpNNU1Ndi1hbXZsU2hlQy1PdWZoNW5odG8zUS1QVGJtb3ZKRGhxS1dMMDE5ckJCWFduU1NfOVNCQjAzN0hSbjJLQlZ4dFNGWUIwSkJEYlBWSWxnNy1YcmE3Q3RNZm5La0pGbmtRbEdjd2JabjJoS0g3SDZ1cmVRNVVWd2RoN0dHYkhQUG5hQXJtaDdsSXN2d1lhLXRZNEJLX2UtbGQtY2dLdWFiZmNlUWpTSzVDV2FqVXV6TWNrYzV6WWtMZEE?oc=5",
+      "source": "Ricerca RSS 1",
+      "date": "2019-12-02",
+      "verified": false,
+      "first_seen": "2026-11-24T08:51:13+01:00",
+      "last_seen": "2026-11-24T08:51:13+01:00",
+      "new": true
+    },
+    {
+      "id": "129f3d0d46e1ed17",
+      "title": "\"San Giovanni di Dio\", una sala operatoria per Chirurgia vascolare - AgrigentoNotizie",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxONE9OajJZQlRjbnRWSzNrWjV5WThfTnE1LS1WQ0xMWFBzSThzR2pwQ0pCXzB4QWdGRGg0cUJqUk50bWJYbkFMa3oxbFV6RHU3eWNibmtXY1kyUGMtdkdiZDFZelBPTkI0VUdENXNDeHZadkJfR3E2V1BoaURJaWFiSHYzNWZFc2EwanV3RzJ3YXFaT3NEU2Z5RUFtUUF2c0RVY0hHcWV5NWFuTFh0Mm9aRmZJUQ?oc=5",
+      "source": "Ricerca RSS 1",
+      "date": "2018-12-10",
+      "verified": false,
+      "first_seen": "2026-11-24T08:51:13+01:00",
+      "last_seen": "2026-11-24T08:51:13+01:00",
+      "new": true
     },
     {
       "id": "0ddfc0c46bd56f73",
@@ -189,7 +288,7 @@
       "date": "2017-12-22",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-23T09:00:27+01:00",
+      "last_seen": "2026-11-24T08:51:13+01:00",
       "new": false
     },
     {
@@ -198,6 +297,28 @@
       "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQWWpIX19qRHRCSWZreDNuUDdMZVByTnZOV0tTbE1uWmtHM1VDVzRGY2NBWVB4WFBCRXk2LTJYVkhpTEJ4OHltODlXYmNaNUN6aEpsSE1SY2lpTXRoMUpHa0t1LTlmZ0dwWEJoTDBVWmEtY0YtNktjMm14eHNiMTdJR1lDaEFhZEFEaHllcGVnVHRLNzllczBCQl95dldjVjFsVU8wbktRelp3b0RuNHZhZGsyR1R0RmJOeVhOVURCZGh4Q3UwNEtpdExLRm8wVzR1QUE?oc=5",
       "source": "Ricerca RSS 3",
       "date": "2017-10-13",
+      "verified": false,
+      "first_seen": "2026-11-19T08:47:15+01:00",
+      "last_seen": "2026-11-24T08:51:13+01:00",
+      "new": false
+    },
+    {
+      "id": "096376e4710a4907",
+      "title": "Una convenzione tra ASP e Civico per la chirurgia vascolare al S. Antonio Abate di Trapani - Marsala News",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNdmxfU2NFWUdpQWxZLUJOZHAtVW5hcmVVYTAxbFJ1M211OV9EQThlWElGSWxRZGZadmdXSktGVWQ5cWhDamNVXzZXOWFETFViWTVWZDhESlhzcW5ZRDhqVzBfTHVhZ2ZIaXJ2ZG1mQmZrZzdDdktqQ09YdVhPSnRFaWpEb2lza255aGVMVXkxRlI2TzBkTExKbWRMSFgxWDZrTU0wc2J5OU9ySDZTaFlyOHlpRVgyQ3ZC?oc=5",
+      "source": "Ricerca RSS 2",
+      "date": "2017-10-13",
+      "verified": false,
+      "first_seen": "2026-11-24T08:51:13+01:00",
+      "last_seen": "2026-11-24T08:51:13+01:00",
+      "new": true
+    },
+    {
+      "id": "a55c8339e62b3769",
+      "title": "Ospedale di Vittoria, nuovo direttore della Chirurgia vascolare - in sanitas",
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPMzFOR2huNUkzUFZ3NWpNNU41WHJuYk9uRzNUdzEyRG13eldMVFJrTnh1MHZhcjFXVXpuZzJXMXozZU0tUE1TZUw3WjZoc0dVTkdDdXNLOWNkM0JaZTJTOUxZNVY0Uk9vUEN6T3dXMWJsdzRhY1JrOTJfYzJpS0hnakg2MjBvZzluN0RYZEU1eVo4T0VJT1lNRnlzcEk0YVpVb3VVTmppbzEzM2gtZDluR3JyUDk1dkFrSWxmQk9UQQ?oc=5",
+      "source": "Ricerca RSS 1",
+      "date": "2021-02-18",
       "verified": false,
       "first_seen": "2026-11-19T08:47:15+01:00",
       "last_seen": "2026-11-23T09:00:27+01:00",
@@ -237,7 +358,7 @@
       "new": false
     }
   ],
-  "new_items": 0,
+  "new_items": 11,
   "errors": [],
   "registry_snapshot": "2026-11-15",
   "official_gazzetta_rss": "https://www.gazzettaufficiale.it/rss/S4"
