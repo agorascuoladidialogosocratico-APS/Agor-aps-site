@@ -183,6 +183,13 @@
         "status": "sending",
         "channelId": "6af5173962b70b94b0001ce9",
         "at": "2026-11-23T11:00:52.169Z"
+      },
+      "facebook": {
+        "id": "6b06be6a1612091142772566",
+        "mode": "now",
+        "status": "sent",
+        "channelId": "6af5165b62b70b94b00015eb",
+        "at": "2026-11-25T10:54:40.676Z"
       }
     }
   }
