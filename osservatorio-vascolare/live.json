@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-11-25T08:53:49+01:00",
-  "status": "checked",
+  "generated_at": "2026-11-26T08:51:42+01:00",
+  "status": "partial",
   "scope": "Segnalazioni RSS automatiche da verificare; non dimostrano bandi aperti",
-  "sources_checked": 7,
+  "sources_checked": 6,
   "sources_total": 7,
   "alerts": [
     {
@@ -13,18 +13,7 @@
       "date": "2026-09-28",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-25T08:53:49+01:00",
-      "new": false
-    },
-    {
-      "id": "8a8b00098cc13407",
-      "title": "Prevenzione, chirurgia mininvasiva e sanità d'iniziativa: la sfida alle patologie vascolari e croniche - AgrigentoNotizie",
-      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNVW5IWlF6VHZfaHhsbmg4WjNsaHpIaS1SaXdLWUQ4TVAwN09TTXpoZGZ1V0ZJSjdEUHgycVNIRnVQelRCS3NQcC1IbFlOeDRnanl4M1o5cHVDTTliOGFmYlBpSjRlb1laNFBXZm5TR0tfN3l5NHc0dTE0aTMtXzZBWlBoT3pFOGpKUzFBU3dZZkhLdUtRY3dGRHlaQmVTMi1LWm56STU5UWtPeWNCTGc?oc=5",
-      "source": "Ricerca RSS 4",
-      "date": "2026-09-26",
-      "verified": false,
-      "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-25T08:53:49+01:00",
+      "last_seen": "2026-11-26T08:51:42+01:00",
       "new": false
     },
     {
@@ -35,7 +24,7 @@
       "date": "2026-03-03",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-25T08:53:49+01:00",
+      "last_seen": "2026-11-26T08:51:42+01:00",
       "new": false
     },
     {
@@ -46,7 +35,18 @@
       "date": "2026-03-03",
       "verified": false,
       "first_seen": "2026-11-25T08:53:49+01:00",
-      "last_seen": "2026-11-25T08:53:49+01:00",
+      "last_seen": "2026-11-26T08:51:42+01:00",
+      "new": false
+    },
+    {
+      "id": "ebf3311c71f71c58",
+      "title": "Palermo. Gaetano La Barbera neo direttore UOC Chirurgia Vascolare ARNAS Civico Di Cristina Benfratelli - Paese Italia Press",
+      "url": "https://news.google.com/rss/articles/CBMi-gFBVV95cUxOSWFDYktOMVV5b2VKaC1iQlp6NS11Zm9OTnBuVFBZazY0bGNzS1BSNnFsalRnZEdBeTBpTktVWXlKSkhTTjlLTm9RUWlkdHA2UXVVaFdzYUJlWWYzZGQtb3dtTjBSNUVNZFBFYUhqZkwtY3RDTER1U2F2b1pvWDRzalBRNU8yVzdwa1hlNHgwa0RPMGdHNDRiT2ljZlE2UVBjbFpZb0Z1T19MMVlYTTlZWVNhajZCVS1jLWlnOGRKYndERDcxajZ5OTdfUVhMb1htTDlEMUhaVzNHakZOUjZfTXFFaUJfY043SWhMU3VSaVRUSFNTNDg2Z3BR?oc=5",
+      "source": "Ricerca RSS 1",
+      "date": "2026-03-03",
+      "verified": false,
+      "first_seen": "2026-11-26T08:51:42+01:00",
+      "last_seen": "2026-11-26T08:51:42+01:00",
       "new": true
     },
     {
@@ -55,6 +55,215 @@
       "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNNFZPSkF5aVpXdDVpMy1QOFpBRWRmT0NTOVBUVEFWYmhGd2ZYc1d1cTZxN2hMNXU1NngtdlcxRXFUUTlTQlEzdXdVa3FfdzFtQmZFNkdYSm1vc1ZnU24xS3Y5U2t6UXJhOHhxREE0cTBEODkwQVpTaV9RZGZ5aEJQWEc1U0tELUdQQWowTk5MOUx4M2piSDdWZ1RaOG9CbWtPQnduSThNVUtsNEVCRE9YMkZJMDRvMkxfRDEyNkxmeERkbzdFcVJaclNOMm1XSjRSX3RRQ0o4US1aR3A4RXpJ?oc=5",
       "source": "Ricerca RSS 3",
       "date": "2025-11-13",
+      "verified": false,
+      "first_seen": "2026-11-15T23:16:12+01:00",
+      "last_seen": "2026-11-26T08:51:42+01:00",
+      "new": false
+    },
+    {
+      "id": "10c7b65377299cbe",
+      "title": "Salvatore Alberto Turiano è il nuovo direttore del reparto di Chirurgia vascolare dell’ospedale di Agrigento. - Giornale Centro Sicilia",
+      "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxOclRvbEdpNG4xSUd1RS1HS1dUTGxIQXFEVG05a190cHZENVl4amhmdUhIalJHdHBZY3BLbi1KVTV4TXNwZzIwOC1DLW9TQ0ktRlZ2cEVJUHhfRTVRR3hBNWlHYlNhY2pHMmtVdnBaSTVtWHJCOHV0M0JMR2ZYblNPMnkzLWh6MmY0blhOU2xHQkZfYzdFZ3F3bFBtM244WlBWcTNlUm1hTVJKMXZJNHBQRGFCejJEbTEyOWJvdFd0dnFwaG9UZVlOVEJVOE1ZTkx6c002SUlKdzFReGJnMnpiRGlvVUNlRlRIakF4Vg?oc=5",
+      "source": "Ricerca RSS 1",
+      "date": "2025-10-13",
+      "verified": false,
+      "first_seen": "2026-11-24T08:51:13+01:00",
+      "last_seen": "2026-11-26T08:51:42+01:00",
+      "new": false
+    },
+    {
+      "id": "2dddf7146bc9744e",
+      "title": "Avviso Pubblico per il conferimento dell’incarico quinquennale di Direttore della Struttura Complessa di Chirurgia Vascolare - inPA",
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOSzlNalY1WGh1b05CaTJKUGhRLUlRSlVuMnNfS2daSFRqelVLdnJwOS1PNjV6SzFFLU5KZmhoQ3kwTTlOZTRZa3E4WWxiaDJDT0hvcm5ZUmNEa3JqXzl6WVpZdlpablBOWVhOVi1aRFNxZ2oxa1pVNHExYXoxckMtdlY0aW90b3JqZ3ItMmNPLVlBS0FFUFg0ZkpmQmNxUmFfYnM5V25UXzFUMGc?oc=5",
+      "source": "Ricerca RSS 5",
+      "date": "2025-08-16",
+      "verified": false,
+      "first_seen": "2026-11-15T23:16:12+01:00",
+      "last_seen": "2026-11-26T08:51:42+01:00",
+      "new": false
+    },
+    {
+      "id": "64c2340c1518b1e3",
+      "title": "Ospedale Civico, ecco gli avvisi pubblici per la direzione di Otorinolaringoiatria e Chirurgia vascolare - PalermoToday",
+      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNaWo3RDEtZUFGZTZOdzcxN1V1RjVMamY5SkgyREoyNExQdTkxYUdGbVJWbVpPTnFqa0w4TDI2WFgtV3F2T0Z5eUxyN01WdkZGNVNvSVB5b05mcDlGQjJ5aVR1SElZVWVwTzc4eC02bDZTanhxZ0dnQlI4Q0s5S0NjbGtQUTJvUGNjYWpvTmRZdXBndjQzdzRpbzlOZEt0RG95UGRKaUtndXV1OHdyUl9CS0ZTWF9QcFJRMWFUVnYzMUI?oc=5",
+      "source": "Ricerca RSS 1",
+      "date": "2025-08-08",
+      "verified": false,
+      "first_seen": "2026-11-15T23:16:12+01:00",
+      "last_seen": "2026-11-26T08:51:42+01:00",
+      "new": false
+    },
+    {
+      "id": "30ce42dc5b9c2e51",
+      "title": "Nuovo chirurgo vascolare all’Umberto I di Enna - Sicilia Medica",
+      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOSjVhVDlqXzRjcHVpejFoMl9GV0xZWEtiRGRUTTR2czJhWHNBMGxrRlBBMjVzZUFNSWxudk9rTE1DaGhkMjhHb3d5RXJ4em9CZlkzWlNySW41dTJJeDZCREExYzFLdlVzTlFKT1RlTHBlNWx0Q0tnZ2plN1p3eFMwT2R5S2tDdw?oc=5",
+      "source": "Ricerca RSS 6",
+      "date": "2025-07-31",
+      "verified": false,
+      "first_seen": "2026-11-15T23:16:12+01:00",
+      "last_seen": "2026-11-26T08:51:42+01:00",
+      "new": false
+    },
+    {
+      "id": "24578408544717e9",
+      "title": "Chiude oncologia al Papardo, ridotti i posti letto di chirurgia vascolare e chirurgia plastica - LetteraEmme",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOV2hqYy00aXJhYmtOZHpzaWg4czBTOGlJN185U3BSb05JSEFZR0c1c1Fkb1J2d0ZIN1QtN2kyQXR0N0FMRUVpY2VoT2MwRkdYUEtDU05xSzUzRlRuanpMMHdQeHpTYU9LRnV4dzVNaFBTX29zSXk0cC04Yll1Y0ZxcS0xZ1g3eVZDTFFSMGVwMm5hdDlnajVnNGlqMmNHdHNLZkRUV0lTd0FqeFV6enU4Mkt1LXMtTTl0SEJEX0ZB?oc=5",
+      "source": "Ricerca RSS 6",
+      "date": "2024-10-02",
+      "verified": false,
+      "first_seen": "2026-11-15T23:16:12+01:00",
+      "last_seen": "2026-11-26T08:51:42+01:00",
+      "new": false
+    },
+    {
+      "id": "1709e27738085b17",
+      "title": "Chiude Oncologia al Papardo, ridotti i posti letto di Chirurgia vascolare e Chirurgia plastica - Il Giornale di Lipari",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQVFZySHAwTDRYSE9xSXpuS0pWU2puRWpkUmpWd2laTGI3MVhRc1M1ZmNLTnNVZ2dmZnM4X3BUVVZSeGJvSnkwWFlEaTVaenJ4TlNkc2RRUW5OZVNlN1h6TlVTOHB5dWNSLWI5VGpGSmJJTHFuYUVkczBOczhxSDhHdUpFMUNsSGxONE10VmV0UzlmOXZ3SlhZNXhBYVlzZTM2SnlMMXE0bWZqNmJ0TFJMRDg1Unc5eEg5RkIybENhTWRzaDQw?oc=5",
+      "source": "Ricerca RSS 6",
+      "date": "2024-10-02",
+      "verified": false,
+      "first_seen": "2026-11-15T23:16:12+01:00",
+      "last_seen": "2026-11-26T08:51:42+01:00",
+      "new": false
+    },
+    {
+      "id": "94dd51d49228979b",
+      "title": "Ospedale Garibaldi di Catania, concorso per dirigente medico di chirurgia vascolare: il bando - Giornale di Sicilia",
+      "url": "https://news.google.com/rss/articles/CBMijgJBVV95cUxQLXNRY0xzbDNRdUd6aVdqSzcwNUtJZU11Vi01S1Q2NTBEbVFhbFZaV0RlV0NSTzI4MHVLVWFVNUxlRkNvMTBPYzU0Z09FdWNOdTl6NmhoQ2FWekc3TE0wUGFhVm5qR2Z1UkFtSV9lVDVXUmdmay1JTjBSNkZFXzFUWnhmUDZsWXlwN0VZbUE2eUNuVE9JTGZ3MGNMRnVLRXZIaUhJNUhJUHkzOW9jaW9Xd0d1aVFsdmRfUXg5dUZFc2xXV1dUQ09vbk1BMUdSem1GYmZjWHVCUHUxNHhaN0txRnEwazZRZ2FjNEFYRjRQM2M2eDFfUl9jX1hVLXRISmloZ1VvOURjQU5ieFR4MGc?oc=5",
+      "source": "Ricerca RSS 6",
+      "date": "2024-06-04",
+      "verified": false,
+      "first_seen": "2026-11-15T23:16:12+01:00",
+      "last_seen": "2026-11-26T08:51:42+01:00",
+      "new": false
+    },
+    {
+      "id": "0dc24a7e645eec42",
+      "title": "Chirurgia vascolare con tecniche mininvasive, l'approfondimento con Giuseppe D'Arrigo - CLICCA E GUARDA IL VIDEO - Sicilia Medica",
+      "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxNTGhURGN6VndlRmFzbXdkNGxoaS1jVmotRm9BUUFEeUFFYm5CdkFpYU9GYTl2VUFya29iZVhNWDNmOTMwVzFXUV9YeHV2eTltUzVCQ1hMU2F2STZvdGpoSU5EWDd0aDZrSXBpeUlxRVlocGtGUVdIUndITFphMFdkNGtiMXNQWkVrUkNOanBIQ2hrbFZMVXlqUnczNWgzRlM1QzJsRk1BUnNCdi1Zb1F5WEF6ZG9KZWZnOUtWcUF2RGtORXJHb0RFaG1ZQThobEhHZmpOY3hwYkdQYTlHNmNMcXJJcw?oc=5",
+      "source": "Ricerca RSS 6",
+      "date": "2022-11-13",
+      "verified": false,
+      "first_seen": "2026-11-15T23:16:12+01:00",
+      "last_seen": "2026-11-26T08:51:42+01:00",
+      "new": false
+    },
+    {
+      "id": "6d37fb525ea80beb",
+      "title": "Patti: Salvatore Barbera alla guida del reparto di Chirurgia Vascolare dell’ospedale - GLPress",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNemljeU1aU2c2M1pxTWNPdUdZdHFXaVRfbXluazA0LXl6c1lTdVQ1MDFkVExIaHd4Q2pMOFdEYkk3S2t3TG51elp6QWx5V2Myb2xGVHhFSjlrYzJFYm1rNHowUDJFVjZKZjZqOHlVYk50c3ZrNXdLMnRqUUxPTWxHdXRHZHVWNmFidHBnYThFejRZYUxYbk1pY1lieTRnRU5Lb0ktRXNCWFNSZw?oc=5",
+      "source": "Ricerca RSS 1",
+      "date": "2022-07-19",
+      "verified": false,
+      "first_seen": "2026-11-24T08:51:13+01:00",
+      "last_seen": "2026-11-26T08:51:42+01:00",
+      "new": false
+    },
+    {
+      "id": "9a4c86c174b2fc67",
+      "title": "Andrea Carmelo Li Destri il nuovo direttore della Chirurgia Vascolare di Vittoria - Ragusa Libera",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNRmVQM1NxX1FaSWRXbzZFbVV1aXVxVTdvTDJ6Y3hxMV9oWkxxNEI4amdRRWlLM1lvX3RvNzM2eFJfN1VnWjR1VDVWZ3h6aml0MkwtX01YSjJmVllyNS0wNS1ubzNEZHNxYnNYMWtVTk9pdlFfNWsxVTk1b0hMVVUxOVE5NEhDRExvU2dmYXRGNHVkT0hNTkg0RWRkbGFiOWxvallzSjhMQ1didw?oc=5",
+      "source": "Ricerca RSS 1",
+      "date": "2021-02-18",
+      "verified": false,
+      "first_seen": "2026-11-24T08:51:13+01:00",
+      "last_seen": "2026-11-26T08:51:42+01:00",
+      "new": false
+    },
+    {
+      "id": "c0ba179a0566c22f",
+      "title": "Giuseppe D’Arrigo è il nuovo direttore dell’UOC di Chirurgia Vascolare del Garibaldi di Catania - Costruire Salute",
+      "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxNRlFpNUV1YXFmWkc2aXZwZjRIX2Z2dFc1QmVSSFJaTy0yUF9vOVI5bEQ5OGZLMFlic1h4QlVnQ1AzT3FnTkZxOTQ2YmlSSUlKUjZ5MUNocFFxRGx1allWR2dBemVnS2NGLUtOQU5MNXg5ZGV4dEtZdGd1NzRQbDh1MlMya3BybzdMd2J2d0JyQ21PVmxoNlNobi12WFlFWUdjaG83c2lqVUdYdTgyaTY4c0lXWTBtclRjMm01VWRvT3VyTDBzQWJ0SmtyRnNaVWNEUFB5c3lRZ2Nkb2ZENUJsbVlqSHhYYy10d1c4?oc=5",
+      "source": "Ricerca RSS 6",
+      "date": "2020-03-03",
+      "verified": false,
+      "first_seen": "2026-11-15T23:16:12+01:00",
+      "last_seen": "2026-11-26T08:51:42+01:00",
+      "new": false
+    },
+    {
+      "id": "873dcb5df39130af",
+      "title": "Sanità: D'Arrigo direttore Uoc Chirurgia vascolare Garibaldi - ANSA",
+      "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxOaFNSTXNTcWFxbko2OHo4bmNzSXhkTVFjdlZEb0xDWXBtUktQclJGZHpLTHQtLXNLN2RmT2Y5bFBpUHBpcTg0c09OTHRSdkd6Z3NjTDJpQ0tMcWtZdVFhLTMxajhmMXN6WXQtU192NEdKVXpDVUVYX3ZxeXpQUVAtRWpsMlV2cFFOVzlUWFUwWVFWRHA3T1FkQjl4VVBVQTdkeTViNUtCb1Zlbk8wWFZCdE1fMVpaRXczT2VYV2QzdzhYSjR5M2FweUpyUlBGcXM0TGVIT29yQjBmVGZhQm9XT004OEJTY1RVYXRSTGNRNVlKcHUz0gH6AUFVX3lxTFBCN3p6TnlpWFFyUlBGRFpQM2stanhUM3ctcXpPWjFPV3MzLTktYi1IZUE4c1Zwd0s0SHpnWkRKaGhmMm03SG16bVhoT2ZJbVJQeUFFRm9lUGdBTDhRWWZqVU5TaHhBNmdiUmpSR2RSWFpqUjF6eGVqeWxqYldHSHpxVUhiczlZYWxpVnZaV2ZMMTRHRmNqLU0yUktucEZQR09QYUh5dkI4MWRtTDNhMzZWWVVZQVZnRzNyejBiaWFTT3B5YmlpN3NIdUtocDRSRk9NZGFzcGU4anRscmlQUS1SenRTSFlmYmRlV2U1UHFPRWhMWXVudGNNT2c?oc=5",
+      "source": "Ricerca RSS 6",
+      "date": "2020-03-03",
+      "verified": false,
+      "first_seen": "2026-11-15T23:16:12+01:00",
+      "last_seen": "2026-11-26T08:51:42+01:00",
+      "new": false
+    },
+    {
+      "id": "9ed406bb8a8ddf44",
+      "title": "La chirurgia vascolare all’Ospedale del Mare - TuttoSanità",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE92RUxkY25WQ2w2cTJ6a3IyX3VPNnNZa3RHbEtlX3hWMHV2MXVBcTBTV19DUTZHTm9xYTJQbzVJTW1FbGhDb1Y4eWRiRmtJUl9fc3dtNnR2MkJIam5mOUREWTZ0U3UxdWtiSEQzVmlvR2ZEQ0hIV2pmMlE0eGU?oc=5",
+      "source": "Ricerca RSS 1",
+      "date": "2019-12-12",
+      "verified": false,
+      "first_seen": "2026-11-24T08:51:13+01:00",
+      "last_seen": "2026-11-26T08:51:42+01:00",
+      "new": false
+    },
+    {
+      "id": "71529af27ab958c0",
+      "title": "Chirurgia vascolare e Ortopedia al top al Sant'Elia di Caltanissetta: ricostruito il braccio a una ventenne - Seguonews",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQd29pdmw0Qm1TMFJaZWxSNjZWaXhxdWhGY09TS1VJZ2tDVEFkbnlDR0llQV82bWxibzhUUVp2eGtXU3ZOX1NzZDhDQkdLNVF1aUotZTZ5SVpzaHNiSTV6S01MbXBfT0M2a0Z1NnV4Ym9vOVlJdDNQZEhKclZDalViWmZzLWZZRF9xVHlYX3pYYWREQXFkcTFHQ2IxaWRibWtRRzh3ZzhNbTBWYmNwbVBXaDlhS2NTLUFxeFpQLQ?oc=5",
+      "source": "Ricerca RSS 6",
+      "date": "2019-12-10",
+      "verified": false,
+      "first_seen": "2026-11-15T23:16:12+01:00",
+      "last_seen": "2026-11-26T08:51:42+01:00",
+      "new": false
+    },
+    {
+      "id": "cdd66772b8a17379",
+      "title": "Punti di forza e criticità dell’Ospedale del Mare. Congresso con un focus sulla Chirurgia vascolare - insalutenews.it",
+      "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPODhQaG5MSUlkbXRuZlpNNU1Ndi1hbXZsU2hlQy1PdWZoNW5odG8zUS1QVGJtb3ZKRGhxS1dMMDE5ckJCWFduU1NfOVNCQjAzN0hSbjJLQlZ4dFNGWUIwSkJEYlBWSWxnNy1YcmE3Q3RNZm5La0pGbmtRbEdjd2JabjJoS0g3SDZ1cmVRNVVWd2RoN0dHYkhQUG5hQXJtaDdsSXN2d1lhLXRZNEJLX2UtbGQtY2dLdWFiZmNlUWpTSzVDV2FqVXV6TWNrYzV6WWtMZEE?oc=5",
+      "source": "Ricerca RSS 1",
+      "date": "2019-12-02",
+      "verified": false,
+      "first_seen": "2026-11-24T08:51:13+01:00",
+      "last_seen": "2026-11-26T08:51:42+01:00",
+      "new": false
+    },
+    {
+      "id": "129f3d0d46e1ed17",
+      "title": "\"San Giovanni di Dio\", una sala operatoria per Chirurgia vascolare - AgrigentoNotizie",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxONE9OajJZQlRjbnRWSzNrWjV5WThfTnE1LS1WQ0xMWFBzSThzR2pwQ0pCXzB4QWdGRGg0cUJqUk50bWJYbkFMa3oxbFV6RHU3eWNibmtXY1kyUGMtdkdiZDFZelBPTkI0VUdENXNDeHZadkJfR3E2V1BoaURJaWFiSHYzNWZFc2EwanV3RzJ3YXFaT3NEU2Z5RUFtUUF2c0RVY0hHcWV5NWFuTFh0Mm9aRmZJUQ?oc=5",
+      "source": "Ricerca RSS 1",
+      "date": "2018-12-10",
+      "verified": false,
+      "first_seen": "2026-11-24T08:51:13+01:00",
+      "last_seen": "2026-11-26T08:51:42+01:00",
+      "new": false
+    },
+    {
+      "id": "0ddfc0c46bd56f73",
+      "title": "SEI SPECIALISTI PER IL NUOVO REPARTO DI CHIRURGIA VASCOLARE DEL S. ANTONIO ABATE - TrapaniOk",
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOYnRMLTAyWGdGbzhlTjBrWmdWOUlJV1VLcE1OcmZvMmtHSzMzX3FmQkZlYUI1ZDdBZERLRWRRbmxfZFQ2UnZjWDhDdWtlWXJmZkphWW1nT245amFHOHl6Q2pXT1ZCUTJoWlMyRHllQmRMTXJfLWFRSWNQemZNWDU2NmRST3F4amZKbGhoQ1FMVG5HWmZqMlVnTi1pSzNaUU9KR3VUTEQyWmFUMlNSdWsxOXF3bTE0T21BT3BtSnhMQUIweFk?oc=5",
+      "source": "Ricerca RSS 1",
+      "date": "2017-12-22",
+      "verified": false,
+      "first_seen": "2026-11-15T23:16:12+01:00",
+      "last_seen": "2026-11-26T08:51:42+01:00",
+      "new": false
+    },
+    {
+      "id": "096376e4710a4907",
+      "title": "Una convenzione tra ASP e Civico per la chirurgia vascolare al S. Antonio Abate di Trapani - Marsala News",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNdmxfU2NFWUdpQWxZLUJOZHAtVW5hcmVVYTAxbFJ1M211OV9EQThlWElGSWxRZGZadmdXSktGVWQ5cWhDamNVXzZXOWFETFViWTVWZDhESlhzcW5ZRDhqVzBfTHVhZ2ZIaXJ2ZG1mQmZrZzdDdktqQ09YdVhPSnRFaWpEb2lza255aGVMVXkxRlI2TzBkTExKbWRMSFgxWDZrTU0wc2J5OU9ySDZTaFlyOHlpRVgyQ3ZC?oc=5",
+      "source": "Ricerca RSS 2",
+      "date": "2017-10-13",
+      "verified": false,
+      "first_seen": "2026-11-24T08:51:13+01:00",
+      "last_seen": "2026-11-26T08:51:42+01:00",
+      "new": false
+    },
+    {
+      "id": "8a8b00098cc13407",
+      "title": "Prevenzione, chirurgia mininvasiva e sanità d'iniziativa: la sfida alle patologie vascolari e croniche - AgrigentoNotizie",
+      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNVW5IWlF6VHZfaHhsbmg4WjNsaHpIaS1SaXdLWUQ4TVAwN09TTXpoZGZ1V0ZJSjdEUHgycVNIRnVQelRCS3NQcC1IbFlOeDRnanl4M1o5cHVDTTliOGFmYlBpSjRlb1laNFBXZm5TR0tfN3l5NHc0dTE0aTMtXzZBWlBoT3pFOGpKUzFBU3dZZkhLdUtRY3dGRHlaQmVTMi1LWm56STU5UWtPeWNCTGc?oc=5",
+      "source": "Ricerca RSS 4",
+      "date": "2026-09-26",
       "verified": false,
       "first_seen": "2026-11-15T23:16:12+01:00",
       "last_seen": "2026-11-25T08:53:49+01:00",
@@ -80,50 +289,6 @@
       "verified": false,
       "first_seen": "2026-11-25T08:53:49+01:00",
       "last_seen": "2026-11-25T08:53:49+01:00",
-      "new": true
-    },
-    {
-      "id": "10c7b65377299cbe",
-      "title": "Salvatore Alberto Turiano è il nuovo direttore del reparto di Chirurgia vascolare dell’ospedale di Agrigento. - Giornale Centro Sicilia",
-      "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxOclRvbEdpNG4xSUd1RS1HS1dUTGxIQXFEVG05a190cHZENVl4amhmdUhIalJHdHBZY3BLbi1KVTV4TXNwZzIwOC1DLW9TQ0ktRlZ2cEVJUHhfRTVRR3hBNWlHYlNhY2pHMmtVdnBaSTVtWHJCOHV0M0JMR2ZYblNPMnkzLWh6MmY0blhOU2xHQkZfYzdFZ3F3bFBtM244WlBWcTNlUm1hTVJKMXZJNHBQRGFCejJEbTEyOWJvdFd0dnFwaG9UZVlOVEJVOE1ZTkx6c002SUlKdzFReGJnMnpiRGlvVUNlRlRIakF4Vg?oc=5",
-      "source": "Ricerca RSS 1",
-      "date": "2025-10-13",
-      "verified": false,
-      "first_seen": "2026-11-24T08:51:13+01:00",
-      "last_seen": "2026-11-25T08:53:49+01:00",
-      "new": false
-    },
-    {
-      "id": "2dddf7146bc9744e",
-      "title": "Avviso Pubblico per il conferimento dell’incarico quinquennale di Direttore della Struttura Complessa di Chirurgia Vascolare - inPA",
-      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOSzlNalY1WGh1b05CaTJKUGhRLUlRSlVuMnNfS2daSFRqelVLdnJwOS1PNjV6SzFFLU5KZmhoQ3kwTTlOZTRZa3E4WWxiaDJDT0hvcm5ZUmNEa3JqXzl6WVpZdlpablBOWVhOVi1aRFNxZ2oxa1pVNHExYXoxckMtdlY0aW90b3JqZ3ItMmNPLVlBS0FFUFg0ZkpmQmNxUmFfYnM5V25UXzFUMGc?oc=5",
-      "source": "Ricerca RSS 5",
-      "date": "2025-08-16",
-      "verified": false,
-      "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-25T08:53:49+01:00",
-      "new": false
-    },
-    {
-      "id": "64c2340c1518b1e3",
-      "title": "Ospedale Civico, ecco gli avvisi pubblici per la direzione di Otorinolaringoiatria e Chirurgia vascolare - PalermoToday",
-      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNaWo3RDEtZUFGZTZOdzcxN1V1RjVMamY5SkgyREoyNExQdTkxYUdGbVJWbVpPTnFqa0w4TDI2WFgtV3F2T0Z5eUxyN01WdkZGNVNvSVB5b05mcDlGQjJ5aVR1SElZVWVwTzc4eC02bDZTanhxZ0dnQlI4Q0s5S0NjbGtQUTJvUGNjYWpvTmRZdXBndjQzdzRpbzlOZEt0RG95UGRKaUtndXV1OHdyUl9CS0ZTWF9QcFJRMWFUVnYzMUI?oc=5",
-      "source": "Ricerca RSS 1",
-      "date": "2025-08-08",
-      "verified": false,
-      "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-25T08:53:49+01:00",
-      "new": false
-    },
-    {
-      "id": "30ce42dc5b9c2e51",
-      "title": "Nuovo chirurgo vascolare all’Umberto I di Enna - Sicilia Medica",
-      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOSjVhVDlqXzRjcHVpejFoMl9GV0xZWEtiRGRUTTR2czJhWHNBMGxrRlBBMjVzZUFNSWxudk9rTE1DaGhkMjhHb3d5RXJ4em9CZlkzWlNySW41dTJJeDZCREExYzFLdlVzTlFKT1RlTHBlNWx0Q0tnZ2plN1p3eFMwT2R5S2tDdw?oc=5",
-      "source": "Ricerca RSS 6",
-      "date": "2025-07-31",
-      "verified": false,
-      "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-25T08:53:49+01:00",
       "new": false
     },
     {
@@ -138,66 +303,11 @@
       "new": false
     },
     {
-      "id": "24578408544717e9",
-      "title": "Chiude oncologia al Papardo, ridotti i posti letto di chirurgia vascolare e chirurgia plastica - LetteraEmme",
-      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOV2hqYy00aXJhYmtOZHpzaWg4czBTOGlJN185U3BSb05JSEFZR0c1c1Fkb1J2d0ZIN1QtN2kyQXR0N0FMRUVpY2VoT2MwRkdYUEtDU05xSzUzRlRuanpMMHdQeHpTYU9LRnV4dzVNaFBTX29zSXk0cC04Yll1Y0ZxcS0xZ1g3eVZDTFFSMGVwMm5hdDlnajVnNGlqMmNHdHNLZkRUV0lTd0FqeFV6enU4Mkt1LXMtTTl0SEJEX0ZB?oc=5",
-      "source": "Ricerca RSS 6",
-      "date": "2024-10-02",
-      "verified": false,
-      "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-25T08:53:49+01:00",
-      "new": false
-    },
-    {
-      "id": "1709e27738085b17",
-      "title": "Chiude Oncologia al Papardo, ridotti i posti letto di Chirurgia vascolare e Chirurgia plastica - Il Giornale di Lipari",
-      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQVFZySHAwTDRYSE9xSXpuS0pWU2puRWpkUmpWd2laTGI3MVhRc1M1ZmNLTnNVZ2dmZnM4X3BUVVZSeGJvSnkwWFlEaTVaenJ4TlNkc2RRUW5OZVNlN1h6TlVTOHB5dWNSLWI5VGpGSmJJTHFuYUVkczBOczhxSDhHdUpFMUNsSGxONE10VmV0UzlmOXZ3SlhZNXhBYVlzZTM2SnlMMXE0bWZqNmJ0TFJMRDg1Unc5eEg5RkIybENhTWRzaDQw?oc=5",
-      "source": "Ricerca RSS 6",
-      "date": "2024-10-02",
-      "verified": false,
-      "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-25T08:53:49+01:00",
-      "new": false
-    },
-    {
       "id": "ecae380d8d6a34b1",
       "title": "Chirurgia vascolare, il nuovo primario è Stefano Aldo Ferrari: cercheremo di potenziare l’attività in tutti i presidi ospedalieri - Il Giorno",
       "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNT1VHQ3VZcnluRzdFd0xLcGVoMXZ3Z3RXdHpRaFI3UV9tZk9taGtBb0p0UGFQQUFDblBzZkViT0FrempJQkx1MEhvTEdXV3NCcjk5Rjh2M3ZQSUhSd0NSc0U3MU56TkJrVXVMYzIzeG5SdWdXU1cyZTRsTFBjT2RpX1E1VEt2c2ZEWTZwTkJYRV9BYnV0UFZqME5FNW5sQk0?oc=5",
       "source": "Ricerca RSS 2",
       "date": "2024-09-21",
-      "verified": false,
-      "first_seen": "2026-11-24T08:51:13+01:00",
-      "last_seen": "2026-11-25T08:53:49+01:00",
-      "new": false
-    },
-    {
-      "id": "94dd51d49228979b",
-      "title": "Ospedale Garibaldi di Catania, concorso per dirigente medico di chirurgia vascolare: il bando - Giornale di Sicilia",
-      "url": "https://news.google.com/rss/articles/CBMijgJBVV95cUxQLXNRY0xzbDNRdUd6aVdqSzcwNUtJZU11Vi01S1Q2NTBEbVFhbFZaV0RlV0NSTzI4MHVLVWFVNUxlRkNvMTBPYzU0Z09FdWNOdTl6NmhoQ2FWekc3TE0wUGFhVm5qR2Z1UkFtSV9lVDVXUmdmay1JTjBSNkZFXzFUWnhmUDZsWXlwN0VZbUE2eUNuVE9JTGZ3MGNMRnVLRXZIaUhJNUhJUHkzOW9jaW9Xd0d1aVFsdmRfUXg5dUZFc2xXV1dUQ09vbk1BMUdSem1GYmZjWHVCUHUxNHhaN0txRnEwazZRZ2FjNEFYRjRQM2M2eDFfUl9jX1hVLXRISmloZ1VvOURjQU5ieFR4MGc?oc=5",
-      "source": "Ricerca RSS 6",
-      "date": "2024-06-04",
-      "verified": false,
-      "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-25T08:53:49+01:00",
-      "new": false
-    },
-    {
-      "id": "0dc24a7e645eec42",
-      "title": "Chirurgia vascolare con tecniche mininvasive, l'approfondimento con Giuseppe D'Arrigo - CLICCA E GUARDA IL VIDEO - Sicilia Medica",
-      "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxNTGhURGN6VndlRmFzbXdkNGxoaS1jVmotRm9BUUFEeUFFYm5CdkFpYU9GYTl2VUFya29iZVhNWDNmOTMwVzFXUV9YeHV2eTltUzVCQ1hMU2F2STZvdGpoSU5EWDd0aDZrSXBpeUlxRVlocGtGUVdIUndITFphMFdkNGtiMXNQWkVrUkNOanBIQ2hrbFZMVXlqUnczNWgzRlM1QzJsRk1BUnNCdi1Zb1F5WEF6ZG9KZWZnOUtWcUF2RGtORXJHb0RFaG1ZQThobEhHZmpOY3hwYkdQYTlHNmNMcXJJcw?oc=5",
-      "source": "Ricerca RSS 6",
-      "date": "2022-11-13",
-      "verified": false,
-      "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-25T08:53:49+01:00",
-      "new": false
-    },
-    {
-      "id": "6d37fb525ea80beb",
-      "title": "Patti: Salvatore Barbera alla guida del reparto di Chirurgia Vascolare dell’ospedale - GLPress",
-      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNemljeU1aU2c2M1pxTWNPdUdZdHFXaVRfbXluazA0LXl6c1lTdVQ1MDFkVExIaHd4Q2pMOFdEYkk3S2t3TG51elp6QWx5V2Myb2xGVHhFSjlrYzJFYm1rNHowUDJFVjZKZjZqOHlVYk50c3ZrNXdLMnRqUUxPTWxHdXRHZHVWNmFidHBnYThFejRZYUxYbk1pY1lieTRnRU5Lb0ktRXNCWFNSZw?oc=5",
-      "source": "Ricerca RSS 1",
-      "date": "2022-07-19",
       "verified": false,
       "first_seen": "2026-11-24T08:51:13+01:00",
       "last_seen": "2026-11-25T08:53:49+01:00",
@@ -215,17 +325,6 @@
       "new": false
     },
     {
-      "id": "9a4c86c174b2fc67",
-      "title": "Andrea Carmelo Li Destri il nuovo direttore della Chirurgia Vascolare di Vittoria - Ragusa Libera",
-      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNRmVQM1NxX1FaSWRXbzZFbVV1aXVxVTdvTDJ6Y3hxMV9oWkxxNEI4amdRRWlLM1lvX3RvNzM2eFJfN1VnWjR1VDVWZ3h6aml0MkwtX01YSjJmVllyNS0wNS1ubzNEZHNxYnNYMWtVTk9pdlFfNWsxVTk1b0hMVVUxOVE5NEhDRExvU2dmYXRGNHVkT0hNTkg0RWRkbGFiOWxvallzSjhMQ1didw?oc=5",
-      "source": "Ricerca RSS 2",
-      "date": "2021-02-18",
-      "verified": false,
-      "first_seen": "2026-11-24T08:51:13+01:00",
-      "last_seen": "2026-11-25T08:53:49+01:00",
-      "new": false
-    },
-    {
       "id": "a55c8339e62b3769",
       "title": "Ospedale di Vittoria, nuovo direttore della Chirurgia vascolare - in sanitas",
       "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPMzFOR2huNUkzUFZ3NWpNNU41WHJuYk9uRzNUdzEyRG13eldMVFJrTnh1MHZhcjFXVXpuZzJXMXozZU0tUE1TZUw3WjZoc0dVTkdDdXNLOWNkM0JaZTJTOUxZNVY0Uk9vUEN6T3dXMWJsdzRhY1JrOTJfYzJpS0hnakg2MjBvZzluN0RYZEU1eVo4T0VJT1lNRnlzcEk0YVpVb3VVTmppbzEzM2gtZDluR3JyUDk1dkFrSWxmQk9UQQ?oc=5",
@@ -233,61 +332,6 @@
       "date": "2021-02-18",
       "verified": false,
       "first_seen": "2026-11-19T08:47:15+01:00",
-      "last_seen": "2026-11-25T08:53:49+01:00",
-      "new": false
-    },
-    {
-      "id": "c0ba179a0566c22f",
-      "title": "Giuseppe D’Arrigo è il nuovo direttore dell’UOC di Chirurgia Vascolare del Garibaldi di Catania - Costruire Salute",
-      "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxNRlFpNUV1YXFmWkc2aXZwZjRIX2Z2dFc1QmVSSFJaTy0yUF9vOVI5bEQ5OGZLMFlic1h4QlVnQ1AzT3FnTkZxOTQ2YmlSSUlKUjZ5MUNocFFxRGx1allWR2dBemVnS2NGLUtOQU5MNXg5ZGV4dEtZdGd1NzRQbDh1MlMya3BybzdMd2J2d0JyQ21PVmxoNlNobi12WFlFWUdjaG83c2lqVUdYdTgyaTY4c0lXWTBtclRjMm01VWRvT3VyTDBzQWJ0SmtyRnNaVWNEUFB5c3lRZ2Nkb2ZENUJsbVlqSHhYYy10d1c4?oc=5",
-      "source": "Ricerca RSS 6",
-      "date": "2020-03-03",
-      "verified": false,
-      "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-25T08:53:49+01:00",
-      "new": false
-    },
-    {
-      "id": "873dcb5df39130af",
-      "title": "Sanità: D'Arrigo direttore Uoc Chirurgia vascolare Garibaldi - ANSA",
-      "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxOaFNSTXNTcWFxbko2OHo4bmNzSXhkTVFjdlZEb0xDWXBtUktQclJGZHpLTHQtLXNLN2RmT2Y5bFBpUHBpcTg0c09OTHRSdkd6Z3NjTDJpQ0tMcWtZdVFhLTMxajhmMXN6WXQtU192NEdKVXpDVUVYX3ZxeXpQUVAtRWpsMlV2cFFOVzlUWFUwWVFWRHA3T1FkQjl4VVBVQTdkeTViNUtCb1Zlbk8wWFZCdE1fMVpaRXczT2VYV2QzdzhYSjR5M2FweUpyUlBGcXM0TGVIT29yQjBmVGZhQm9XT004OEJTY1RVYXRSTGNRNVlKcHUz0gH6AUFVX3lxTFBCN3p6TnlpWFFyUlBGRFpQM2stanhUM3ctcXpPWjFPV3MzLTktYi1IZUE4c1Zwd0s0SHpnWkRKaGhmMm03SG16bVhoT2ZJbVJQeUFFRm9lUGdBTDhRWWZqVU5TaHhBNmdiUmpSR2RSWFpqUjF6eGVqeWxqYldHSHpxVUhiczlZYWxpVnZaV2ZMMTRHRmNqLU0yUktucEZQR09QYUh5dkI4MWRtTDNhMzZWWVVZQVZnRzNyejBiaWFTT3B5YmlpN3NIdUtocDRSRk9NZGFzcGU4anRscmlQUS1SenRTSFlmYmRlV2U1UHFPRWhMWXVudGNNT2c?oc=5",
-      "source": "Ricerca RSS 6",
-      "date": "2020-03-03",
-      "verified": false,
-      "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-25T08:53:49+01:00",
-      "new": false
-    },
-    {
-      "id": "9ed406bb8a8ddf44",
-      "title": "La chirurgia vascolare all’Ospedale del Mare - TuttoSanità",
-      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE92RUxkY25WQ2w2cTJ6a3IyX3VPNnNZa3RHbEtlX3hWMHV2MXVBcTBTV19DUTZHTm9xYTJQbzVJTW1FbGhDb1Y4eWRiRmtJUl9fc3dtNnR2MkJIam5mOUREWTZ0U3UxdWtiSEQzVmlvR2ZEQ0hIV2pmMlE0eGU?oc=5",
-      "source": "Ricerca RSS 1",
-      "date": "2019-12-12",
-      "verified": false,
-      "first_seen": "2026-11-24T08:51:13+01:00",
-      "last_seen": "2026-11-25T08:53:49+01:00",
-      "new": false
-    },
-    {
-      "id": "71529af27ab958c0",
-      "title": "Chirurgia vascolare e Ortopedia al top al Sant'Elia di Caltanissetta: ricostruito il braccio a una ventenne - Seguonews",
-      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQd29pdmw0Qm1TMFJaZWxSNjZWaXhxdWhGY09TS1VJZ2tDVEFkbnlDR0llQV82bWxibzhUUVp2eGtXU3ZOX1NzZDhDQkdLNVF1aUotZTZ5SVpzaHNiSTV6S01MbXBfT0M2a0Z1NnV4Ym9vOVlJdDNQZEhKclZDalViWmZzLWZZRF9xVHlYX3pYYWREQXFkcTFHQ2IxaWRibWtRRzh3ZzhNbTBWYmNwbVBXaDlhS2NTLUFxeFpQLQ?oc=5",
-      "source": "Ricerca RSS 6",
-      "date": "2019-12-10",
-      "verified": false,
-      "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-25T08:53:49+01:00",
-      "new": false
-    },
-    {
-      "id": "cdd66772b8a17379",
-      "title": "Punti di forza e criticità dell’Ospedale del Mare. Congresso con un focus sulla Chirurgia vascolare - insalutenews.it",
-      "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPODhQaG5MSUlkbXRuZlpNNU1Ndi1hbXZsU2hlQy1PdWZoNW5odG8zUS1QVGJtb3ZKRGhxS1dMMDE5ckJCWFduU1NfOVNCQjAzN0hSbjJLQlZ4dFNGWUIwSkJEYlBWSWxnNy1YcmE3Q3RNZm5La0pGbmtRbEdjd2JabjJoS0g3SDZ1cmVRNVVWd2RoN0dHYkhQUG5hQXJtaDdsSXN2d1lhLXRZNEJLX2UtbGQtY2dLdWFiZmNlUWpTSzVDV2FqVXV6TWNrYzV6WWtMZEE?oc=5",
-      "source": "Ricerca RSS 1",
-      "date": "2019-12-02",
-      "verified": false,
-      "first_seen": "2026-11-24T08:51:13+01:00",
       "last_seen": "2026-11-25T08:53:49+01:00",
       "new": false
     },
@@ -300,28 +344,6 @@
       "verified": false,
       "first_seen": "2026-11-25T08:53:49+01:00",
       "last_seen": "2026-11-25T08:53:49+01:00",
-      "new": true
-    },
-    {
-      "id": "129f3d0d46e1ed17",
-      "title": "\"San Giovanni di Dio\", una sala operatoria per Chirurgia vascolare - AgrigentoNotizie",
-      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxONE9OajJZQlRjbnRWSzNrWjV5WThfTnE1LS1WQ0xMWFBzSThzR2pwQ0pCXzB4QWdGRGg0cUJqUk50bWJYbkFMa3oxbFV6RHU3eWNibmtXY1kyUGMtdkdiZDFZelBPTkI0VUdENXNDeHZadkJfR3E2V1BoaURJaWFiSHYzNWZFc2EwanV3RzJ3YXFaT3NEU2Z5RUFtUUF2c0RVY0hHcWV5NWFuTFh0Mm9aRmZJUQ?oc=5",
-      "source": "Ricerca RSS 1",
-      "date": "2018-12-10",
-      "verified": false,
-      "first_seen": "2026-11-24T08:51:13+01:00",
-      "last_seen": "2026-11-25T08:53:49+01:00",
-      "new": false
-    },
-    {
-      "id": "0ddfc0c46bd56f73",
-      "title": "SEI SPECIALISTI PER IL NUOVO REPARTO DI CHIRURGIA VASCOLARE DEL S. ANTONIO ABATE - TrapaniOk",
-      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOYnRMLTAyWGdGbzhlTjBrWmdWOUlJV1VLcE1OcmZvMmtHSzMzX3FmQkZlYUI1ZDdBZERLRWRRbmxfZFQ2UnZjWDhDdWtlWXJmZkphWW1nT245amFHOHl6Q2pXT1ZCUTJoWlMyRHllQmRMTXJfLWFRSWNQemZNWDU2NmRST3F4amZKbGhoQ1FMVG5HWmZqMlVnTi1pSzNaUU9KR3VUTEQyWmFUMlNSdWsxOXF3bTE0T21BT3BtSnhMQUIweFk?oc=5",
-      "source": "Ricerca RSS 1",
-      "date": "2017-12-22",
-      "verified": false,
-      "first_seen": "2026-11-15T23:16:12+01:00",
-      "last_seen": "2026-11-25T08:53:49+01:00",
       "new": false
     },
     {
@@ -332,17 +354,6 @@
       "date": "2017-10-13",
       "verified": false,
       "first_seen": "2026-11-19T08:47:15+01:00",
-      "last_seen": "2026-11-25T08:53:49+01:00",
-      "new": false
-    },
-    {
-      "id": "096376e4710a4907",
-      "title": "Una convenzione tra ASP e Civico per la chirurgia vascolare al S. Antonio Abate di Trapani - Marsala News",
-      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNdmxfU2NFWUdpQWxZLUJOZHAtVW5hcmVVYTAxbFJ1M211OV9EQThlWElGSWxRZGZadmdXSktGVWQ5cWhDamNVXzZXOWFETFViWTVWZDhESlhzcW5ZRDhqVzBfTHVhZ2ZIaXJ2ZG1mQmZrZzdDdktqQ09YdVhPSnRFaWpEb2lza255aGVMVXkxRlI2TzBkTExKbWRMSFgxWDZrTU0wc2J5OU9ySDZTaFlyOHlpRVgyQ3ZC?oc=5",
-      "source": "Ricerca RSS 2",
-      "date": "2017-10-13",
-      "verified": false,
-      "first_seen": "2026-11-24T08:51:13+01:00",
       "last_seen": "2026-11-25T08:53:49+01:00",
       "new": false
     },
@@ -391,8 +402,10 @@
       "new": false
     }
   ],
-  "new_items": 3,
-  "errors": [],
+  "new_items": 1,
+  "errors": [
+    "Ricerca RSS 4: HTTP Error 429: Too Many Requests"
+  ],
   "registry_snapshot": "2026-11-15",
   "official_gazzetta_rss": "https://www.gazzettaufficiale.it/rss/S4"
 }
