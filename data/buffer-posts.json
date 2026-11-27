@@ -207,6 +207,22 @@
         "channelId": "6af5173962b70b94b0001ce9",
         "at": "2026-11-26T10:54:51.932Z"
       }
+    },
+    "archivio-komi-cant-communicate-ma-cio-non-significa-che-non-voglia-farlo": {
+      "facebook": {
+        "id": "6b0960be049983dcfbafac62",
+        "mode": "now",
+        "status": "sent",
+        "channelId": "6af5165b62b70b94b00015eb",
+        "at": "2026-11-27T10:51:51.702Z"
+      },
+      "instagram": {
+        "id": "6b0960c7049983dcfbafaeec",
+        "mode": "now",
+        "status": "sent",
+        "channelId": "6af5173962b70b94b0001ce9",
+        "at": "2026-11-27T10:52:01.186Z"
+      }
     }
   }
 }
