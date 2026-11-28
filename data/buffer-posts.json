@@ -223,6 +223,22 @@
         "channelId": "6af5173962b70b94b0001ce9",
         "at": "2026-11-27T10:52:01.186Z"
       }
+    },
+    "archivio-la-maggiore-ispirazione": {
+      "facebook": {
+        "id": "6b0ab127039273f88fc14f03",
+        "mode": "now",
+        "status": "sent",
+        "channelId": "6af5165b62b70b94b00015eb",
+        "at": "2026-11-28T10:47:07.678Z"
+      },
+      "instagram": {
+        "id": "6b0ab12b8cbf0dfe50d0fd3e",
+        "mode": "now",
+        "status": "sent",
+        "channelId": "6af5173962b70b94b0001ce9",
+        "at": "2026-11-28T10:47:16.150Z"
+      }
     }
   }
 }
